@@ -4950,7 +4950,7 @@ grub> quit  //退出
         - 以USERNAME的身份从远程主机复制到本地的方法:`scp USERNAME@HOST:/path/to/somefile /path/to/local`;从本地复制到远程的服务器上也是一样的操作:`scp /path/to/local USERNAME@HOST:/path/to/somefile `
     - ssh-keygen: `ssh-keygen -t rsa`生成一对密钥,密钥保存在~/.ssh/id_rsa;公钥保存在~/.ssh/id_rsa.pub; 公钥追加保存到远程主机某用户的家目录的.ssh/authorized_keys目录中或.ssh/authorized_keys2目录中,注意千万不能覆盖,因为不止 你一个人要链接到那个主机上;这个命令的常用选项如下,也可以不加选项:
         - -f FILENAME: 直接指定密钥的文件名
-        - -P '密码': 为密钥文件加一个密码;留空这表示不加密,就不用按两次回车了.
+        - -N '密码': 为密钥文件加一个密码;留空这表示不加密,就不用按两次回车了.
         ```
         [root@Aphey ~]# ssh-keygen -t rsa   //在客户机上生成一怼密钥
         Generating public/private rsa key pair.
