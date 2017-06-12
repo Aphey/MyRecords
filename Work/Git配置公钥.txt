@@ -1,4 +1,5 @@
 Linux或者Mac
+
 1.如何生成ssh公钥
 
 你可以按如下命令来生成sshkey: 
@@ -7,7 +8,7 @@ ssh-keygen -t rsa -C "xxxxx@xxxxx.com"
 
 # Generating public/private rsa key pair...
 # 三次回车即可生成 ssh key
-查看你的public key，并把他添加到 Git @ OSC SSH key添加地址
+查看你的public key，并把他添加到网页的公钥添加地址
 
 cat ~/.ssh/id_rsa.pub
 # ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6eNtGpNGwstc....
@@ -16,7 +17,7 @@ cat ~/.ssh/id_rsa.pub
 ssh -T git@git.oschina.net
 若返回
 
-Welcome to Git@OSC, yourname!
+Welcome to Git@OSC, YOURNAME!
 则证明添加成功。
 
 -------------------------------------------------------------------------------
