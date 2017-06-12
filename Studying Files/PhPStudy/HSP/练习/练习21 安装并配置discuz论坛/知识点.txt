@@ -1,0 +1,12 @@
+在自己搭建的php开发/运行环境上安装一个discuz论坛
+	1. 准备一个discuz论坛代码(康盛新创)
+	2. 将其解压到htdocs目录下
+	3. 把upload目录下的所有文件截切到discuz目录里,并删除空的upload.
+	4. 修改config.inc.php
+		数据库用户名和密码改成自己数据库用户名和密码
+		$dbuser = 'root';			// 数据库用户名
+		$dbpw = 'root';				// 数据库密码
+		$forumfounders = 'admin';	// 论坛创始人
+	5. 在php的配置文件php.ini 里找到 short_open_tag = On
+	6. 访问http://127.0.0.1/discuz/install.php
+	7. 安装完成后,可以用http://127.0.0.1/discuz/index.php 正常访问

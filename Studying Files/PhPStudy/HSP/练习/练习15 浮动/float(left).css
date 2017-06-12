@@ -1,0 +1,30 @@
+.div1{
+	background:pink;
+	width:150px;
+	height:100px;
+	margin-top: 5px;
+	border:1px solid blue;
+	float:left;
+}
+
+.div2{
+	background:pink;
+	width:150px;
+	height:100px;
+	margin-top: 5px;
+	border:1px solid blue;
+	float:left;
+}
+
+.div3{
+	background:pink;
+	width:150px;
+	height:100px;
+	margin-top: 5px;
+	border:1px solid blue;
+	float:left;
+}
+.div4{
+	width:800px;
+	border:1px solid blue;
+}

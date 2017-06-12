@@ -1,0 +1,13 @@
+.div1{
+	float:left;
+	background:green;
+	width:70px;
+	height:30px;
+	margin-left:5px;
+	text-align:center;
+}
+#special{
+	position:relative;
+	left:40px;
+	top:100px;
+}

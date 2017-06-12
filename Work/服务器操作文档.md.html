@@ -1,0 +1,220 @@
+﻿<!doctype html public '-//W3C//DTD HTML 4.0 Transitional //EN'>
+<html>
+<head>
+<title>服务器操作文档</title>
+<meta charset='UTF-8' />
+<meta name='generator' content='EverEdit' />
+<link href='D:\Program Files\everedit\mode\markdown\default.css' rel='stylesheet'></link>
+<link href='D:\Program Files\everedit\mode\markdown\prettify.css' rel='stylesheet'></link>
+<script type='text/javascript' src='D:\Program Files\everedit\mode\markdown\prettify.js'></script>
+<script type='text/javascript' src='D:\Program Files\everedit\mode\markdown\jquery-1.10.2.min.js'></script>
+<script type='text/javascript' src='D:\Program Files\everedit\mode\markdown\toc.js'></script>
+</head>
+<body>
+<div id='generated-toc'></div>
+<h1>厂房在线项目服务器操作手册</h1>
+
+<h2>服务器介绍</h2>
+
+<p>目前服务器分布如下:</p>
+
+<ul>
+<li><p>机房: 两台</p>
+
+<table>
+<thead>
+<tr>
+  <th>服务器序列</th>
+  <th>公网IP</th>
+  <th>对应功能(生产环境)</th>
+</tr>
+</thead>
+<tr>
+  <td>服务器1</td>
+  <td>电信58.215.139.9 联通122.192.68.98</td>
+  <td>文件分布式T节点;反向代理服务器;厂房在线项目;对应域名:se.cfzxzz.com</td>
+</tr>
+<tr>
+  <td>服务器2</td>
+  <td>电信58.215.139.113 联通122.192.68.40</td>
+  <td>文件分布式S节点(节点1,以后有需要可以无限增加节点);数据库服务器.对应域名:st.hengchuangyun.com</td>
+</tr>
+</table>
+</li>
+<li><p>办公室: 两台</p>
+
+<table>
+<thead>
+<tr>
+  <th>服务器序列</th>
+  <th>内网IP</th>
+  <th>对应功能(备份)</th>
+</tr>
+</thead>
+<tr>
+  <td>服务器3</td>
+  <td>192.168.1.247(CENTOS系统)</td>
+  <td>容灾备份,用来同步文件存储节点上(st.hengchuangyun.com)的文件;工作方式为每天凌晨2:30分开始检测和同步工作</td>
+</tr>
+<tr>
+  <td>服务器4</td>
+  <td>192.168.1.179(WINDOWS SERVER2008)</td>
+  <td>用来备份数据库服务器(st.hengchuangyun.com)上的数据库;目前有4个数据库,工作方式为每间隔1个小时,同步一次</td>
+</tr>
+</table>
+</li>
+</ul>
+
+<h2>服务器启用服务明细:</h2>
+
+<ol>
+<li><p>服务器1启用服务列表:</p>
+
+<ul><li>文件分布式Track服务</li>
+<li>厂房在线项目 (zob_cfzx) </li>
+<li>文件分布式反向代理服务及<strong>负载均衡((暂时用不到))</strong> nginx</li></ul></li>
+<li><p>服务器2启用服务列表</p>
+
+<ul><li>文件分布式存储服务器</li>
+<li>Postgresql 数据库服务器 </li>
+<li>文件分布式反向解析服务 </li>
+<li>容灾系统(远程备份)</li></ul></li>
+<li><p>服务器3启用服务列表</p>
+
+<ul><li>容灾系统(远程备份)</li></ul></li>
+<li><p>服务器4启用服务列表</p>
+
+<ul><li>WINDOWS定时任务  </li></ul></li>
+</ol>
+
+<h2>服务器对应服务的开启方式(<strong><em>非必须情况,请勿进行任何操作</em></strong>)</h2>
+
+<ol>
+<li><p>服务器1启用服务列表:</p>
+
+<ul><li><p>文件分布式Track服务</p>
+
+<p><code>workstart (已经设置为开机启动)</code>         </p></li>
+<li><p>厂房在线项目 (zob_cfzx) </p>
+
+<p><code>/opt/zob_cfzx/tools/startofbiz.sh</code></p></li>
+<li><p>文件分布式反向代理服务及<strong>负载均衡((暂时用不到))</strong> nginx</p>
+
+<p><code>ngxstart</code></p></li></ul></li>
+<li><p>服务器2启用服务列表</p>
+
+<ul><li><p>文件分布式存储服务器(重启)</p>
+
+<p><code>workrestart (已经设置为开机启动)</code>         </p></li>
+<li><p>Postgresql 数据库服务器</p>
+
+<p><code>/etc/init.d/postgresql start</code> </p></li>
+<li><p>文件分布式反向解析服务 </p>
+
+<p><code>ngxstart</code></p></li></ul></li>
+<li><p>服务器3启用服务列表</p>
+
+<ul><li>容灾系统,远程备份文件 
+已经启用定时任务,请勿操作!</li></ul></li>
+<li>服务器4启用服务列表
+<ul><li>WINDOWS定时任务 <br>
+已经启用定时任务,请勿操作!</li></ul></li>
+</ol>
+
+<h2>服务器对应其他命令</h2>
+
+<ul>
+<li><p>重启服务命令:</p>
+
+<ol><li><p>服务器1启用服务列表:</p>
+
+<ul><li>重启文件分布式Track服务</li></ul>
+
+<p><code>workrestart</code>       </p>
+
+<ul><li>重启厂房在线项目 (zob_cfzx) </li></ul>
+
+<p><code>
+/opt/zob_cfzx/tools/stopofbiz.sh
+/opt/zob_cfzx/tools/startofbiz.sh
+</code></p>
+
+<ul><li>重启文件分布式反向代理服务及<strong>负载均衡((暂时用不到))</strong> nginx</li></ul>
+
+<p><code>ngxrestart.sh</code></p>
+
+<ul><li><p>更新厂房在线的项目</p>
+
+<p>[root@localhost ~]# cd /opt/zob_cfzx/     &nbsp;&nbsp;&nbsp;&nbsp;//进入项目所在的路径</p>
+
+<p>[root@localhost zob_cfzx]# git pull        &nbsp;&nbsp;&nbsp;&nbsp;//更新项目</p>
+
+<p>Username for &#8217;<a href="https://git.oschina.net">https://git.oschina.net</a>&#8217;: web0377@qq.com     &nbsp;&nbsp;&nbsp;&nbsp;//输入账号</p>
+
+<p>Password for &#8217;<a href="https://web0377@qq.com">https://web0377@qq.com</a> @git.oschina.net&#8217;:    &nbsp;&nbsp;&nbsp;&nbsp;//输入密码</p></li></ul></li>
+<li><p>服务器2启用服务列表</p>
+
+<ul><li>重启文件分布式存储服务器</li></ul>
+
+<p><code>workrestart</code>         </p>
+
+<ul><li>重启Postgresql 数据库服务器</li></ul>
+
+<p><code>/etc/init.d/postgresql restart</code> </p>
+
+<ul><li>重启文件分布式反向解析服务 </li></ul>
+
+<p><code>ngxrestart.sh</code></p></li>
+<li><p>服务器3启用服务列表</p>
+
+<ul><li>容灾系统,远程备份文件 <br>
+已经启用定时任务,请勿操作!</li></ul></li>
+<li>服务器4启用服务列表
+<ul><li>WINDOWS定时任务 <br>
+已经启用定时任务,请勿操作!</li></ul></li></ol></li>
+<li><p>关闭服务命令</p>
+
+<ol><li><p>服务器1启用服务列表:</p>
+
+<ul><li>关闭文件分布式Track服务</li></ul>
+
+<p><code>workstop</code>      </p>
+
+<ul><li>关闭厂房在线项目 (zob_cfzx) </li></ul>
+
+<p><code>/opt/zob_cfzx/tools/stopofbiz.sh</code></p>
+
+<ul><li>关闭文件分布式反向代理服务及<strong>负载均衡((暂时用不到))</strong> nginx</li></ul>
+
+<p><code>ngxstop.sh</code></p></li>
+<li><p>服务器2启用服务列表</p>
+
+<ul><li>关闭文件分布式存储服务器</li></ul>
+
+<p><code>workstop</code>       </p>
+
+<ul><li>关闭Postgresql 数据库服务器</li></ul>
+
+<p><code>/etc/init.d/postgresql stop</code> </p>
+
+<ul><li>关闭文件分布式反向解析服务 </li></ul>
+
+<p><code>ngxstop.sh</code></p></li>
+<li><p>服务器3启用服务列表</p>
+
+<ul><li>容灾系统,远程备份文件 <br>
+已经启用定时任务,请勿操作!</li></ul></li>
+<li>服务器4启用服务列表
+<ul><li>WINDOWS定时任务 <br>
+已经启用定时任务,请勿操作!</li></ul></li></ol></li>
+</ul>
+<script type='text/javascript'>
+$(document).ready(function(){
+  if($('code').length>0){
+    $('code').parent().addClass('prettyprint linenums');
+    prettyPrint();
+};
+});
+</script>
+</body>
+</html>

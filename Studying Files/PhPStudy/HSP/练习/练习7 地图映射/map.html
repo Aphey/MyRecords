@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	
+</head>
+<body>
+	<img src="map.png" alt="this is a map" usemap="#map" />
+	<!--映射区域
+		值	描述
+		x1,y1,x2,y2	如果 shape 属性设置为 "rect"，则该值规定矩形左上角和右下角的坐标。
+		x,y,radius	如果 shape 属性设置为 "circ"，则该值规定圆心的坐标和半径。
+		x1,y1,x2,y2,..,xn,yn	如果 shape 属性设置为 "poly"，则该值规定多边形各边的坐标。如果第一个坐标和最后一个坐标不一致，那么为了关闭多边形，浏览器必须添加最后一对坐标。
+
+	-->
+	<map name="rect">
+		<area shape="rect" coords="左上角x,左上角y,右下角x,右下角y" href="跳转页面.htm" target="_blank" alt="方形热区" />
+		<area shape="circle" coords="0,0,10,10" href="example.htm" target="_blank" alt="" />
+		
+	</map>
+</body>
+</html>

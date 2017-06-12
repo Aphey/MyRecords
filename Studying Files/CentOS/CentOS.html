@@ -1,0 +1,50 @@
+1. 启动ECP： 要先 装JAVA，并开启TOMCAT
+2. 开启kodexplorer 和 禅道，要先关闭服务器防火墙
+  systemctl stop firewalld.service
+3. -rw-r--r-x（drw-r--r-x)
+   分解：-（-表示文件，d表示文件夹） rw-(owner权限，）r--（Group权限）r-x（Others权限）【r=4;w=2;x=1,7（4+2+1)表示读写执行都有】
+4. 删除文件命令  rm -rf XX：
+  -r表示向下递归，不管多少级目录，一并删除
+  -f表示直接强行删除，不做任何提示
+5. ip a
+    查看本机IP地址
+6. ip ad li
+    查看IP地址是否生效
+7. ping -c 4 192.168.0.32
+    向192.168.0.32 ping 4次,然后自动停止
+8. iptables -vnL
+    查看iptables是否打开
+9. 使用setup 图形界面
+    先安装setuptools #yum install setuptool
+    然后输入setup #setup
+10. 修改IP地址
+    vi /etc/sysconfig/network-scripts/ifcfg-eth0
+    将其中的INTERFACE_NAME 替换为实际接口名称.如 eth0 或者 ens256
+            修改配置文件 /etc/sysconfig/network-scripts/ifcfg-接口名称,
+            [root@controller ~]# vim /etc/sysconfig/network-scripts/ifcfg-eno16777736 # eno16777736是我电脑网络接口的名字,根据电脑改变 #
+        包含如下内容:
+            不要修改 HWADDR和 UUID关键字内容.
+               Advanced Micro Devices [AMD] 79c970 [PCnet32 LANCE] —————–网卡名称
+                          DEVICE=eth0 ——————–定义第几块网卡
+                          TYPE=Ethernet
+                          BOOTPROTO=dhcp /*static:静态IP ;none:无,不指定;dhcp:动态IP*/
+                          IPADDR=192.168.0.33 /*当BOOTPROTO=static时,这里可以设置为自己想要的IP地址*/
+                          NETMASK=255.255.255.0 /*当BOOTPROTO=static时,这里添加以下子网掩码*/
+                          HWADDR=00:0C:29:82:E8:F4 ————这个是MAC地址
+                          DEFROUTE=yes
+                          IPV4_FAILURE_FATAL=no
+                          IPV6_AUTOCONF=yes
+                          IPV6_DEFROUTE=yes
+                          IPV6_FAILURE_FATAL=no
+                          NAME=eno16777736
+                          UUID=fcd58748-372a-44f9-bbf1-9da9fc001bb2
+                          DEVICE=eno16777736
+                          ONBOOT=yes   /*yes:开机启动*/
+                          PEERDNS=yes
+                          PEERROUTES=yes
+                          IPV6_PEERDNS=yes
+                          IPV6_PEERROUTES=yes
+                          IPV6_PRIVACY=no
+        把网络服务重启一下# service network restart
+
+    

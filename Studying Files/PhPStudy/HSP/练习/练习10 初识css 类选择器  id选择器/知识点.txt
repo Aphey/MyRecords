@@ -1,0 +1,73 @@
+span元素通常用于存放小块元素,行内元素
+css部分可以单写一个文件,然后引入,也可以直接嵌入到该html文件
+css 使用的基本语法
+	选择器{
+	属性1:属性值;
+	属性2:属性值;
+	}
+css 滤镜
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>初识css</title>
+	<!--可引入多个 css-->
+	<link rel="stylesheet" href="demo1.css" type="text/css" media=""/>
+	
+	<!--css部分可以单写一个文件,然后引入,也可以直接嵌入到该html文件,下面的就是内联-->
+	<style type="text/css">
+		a:link img{
+			/*滤镜*/
+			filter:gray;
+		}
+		a:hover image{
+			filter:"";
+		}
+	</style>
+</head>
+<!--下面图片用内联css-->
+<a href="#"> <img src="aphey.png" width="400px" height="400px" alt="Aphey Icon" /></a>
+</body>
+</html>
+
+选择器:
+	选择器是css中非常重要的概念. css中有常规的有四种不同的选择器
+	1) 类选择器,又叫class选择器
+	2) id选择器
+	3) html元素选择器
+	4) 通配符选择器
+	简单来说,选择器就是在css中创建,而在网页页面(html,jsp,pgp,asp.net)中使用
+
+	1) 类选择器语法
+		.类选择器名{
+		属性名:属性值;
+		属性名:属性值;
+		...
+		}
+	2) ID选择器语法
+		#id选择器名{
+		属性名:属性值;
+		属性名:属性值;
+		...
+		}
+	3) html元素选择器语法
+		html元素名称{
+		属性名:属性值;
+		属性名:属性值;
+		...
+		}
+	4) 通配符选择器:如果希望所有元素都符合某一种样式,可以使用通配符选择器.优先级是最低的
+		*{
+		属性名:属性值;
+		}
+
+4种优先级排列:
+    id选择器 > class选择器 > html元素选择器 > 通配符选择器
+
+
+父子选择器(组合)
+1) 父子选择器可以有多级,但是在实际开发中,不建议太多.建议不要超过3层.
+2) 父子选择器有严格的层级关系
+3) 父子选择器不局限于什么类型选择器
+比如
+#id span span
+.s1 #id span
+div #id .s2

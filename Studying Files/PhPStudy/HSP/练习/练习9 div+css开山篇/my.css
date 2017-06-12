@@ -1,0 +1,10 @@
+.style1{
+	/*宽度,属性之间用;隔开*/
+	width:850px;
+	height:850px;
+	background-color: silver;
+	border: 1px solid blue;
+	margin-left: 0px;
+	margin-top: 0px;
+	padding:40px;
+}

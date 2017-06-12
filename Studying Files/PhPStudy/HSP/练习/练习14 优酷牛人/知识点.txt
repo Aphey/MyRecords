@@ -1,0 +1,9 @@
+具体些页面的顺序：
+1. 先html，搞定页面内容
+2. 写css文件，来控制页面样式
+我们在网页设计中常用的<!doctype>有两种
+Html transitional DTD
+Xhtml transitional DTD
+不同浏览器的兼容问题(关于网页问题,我们不用深入研究)
+一般情况下,上面有了float的,最好清浮动,代码如下:
+<div style="clear:both"></div>

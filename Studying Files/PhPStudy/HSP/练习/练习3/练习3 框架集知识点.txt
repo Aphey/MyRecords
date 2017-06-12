@@ -1,0 +1,15 @@
+如果a.html包括了其他页面(frameset) 则要求a.html本身不能有body和body的内容
+假如一个框架有可见边框，用户可以拖动边框来改变它的大小。为了避免这种情况发生，可以在 
+	<frame> 标签中加入：noresize="noresize".
+	重要提示：不能将 <body></body> 标签与 <frameset></frameset> 标签同时使用！不过，假如	你添加包含一段文本的 <noframes> 标签，就必须将这段文字嵌套于 <body></body> 标签内。			（在下面的第一个实例中，可以查看它是如何实现的。）
+
+	可以用百分比,也可以指定像素; 
+
+noresize表示不能拖动改变子页面的尺寸,frameborder是定义子页面的边框,0/1分别表示无/有 边框
+target 表示我们点击后目标指向哪个部分
+	target属性值
+	● _blank: 打开一个全新的页面
+	● _self: 替换本页面
+	● _top: 占据整个浏览器窗口
+	● _parent:父窗口
+	● target值中直接写frame的名字.

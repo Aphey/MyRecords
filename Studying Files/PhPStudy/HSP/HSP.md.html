@@ -1,0 +1,1035 @@
+﻿<!doctype html public '-//W3C//DTD HTML 4.0 Transitional //EN'>
+<html>
+<head>
+<title>HSP</title>
+<meta charset='UTF-8' />
+<meta name='generator' content='EverEdit' />
+<link href='D:\Program Files\everedit\mode\markdown\default.css' rel='stylesheet'></link>
+<link href='D:\Program Files\everedit\mode\markdown\prettify.css' rel='stylesheet'></link>
+<script type='text/javascript' src='D:\Program Files\everedit\mode\markdown\prettify.js'></script>
+<script type='text/javascript' src='D:\Program Files\everedit\mode\markdown\jquery-1.10.2.min.js'></script>
+<script type='text/javascript' src='D:\Program Files\everedit\mode\markdown\toc.js'></script>
+</head>
+<body>
+<div id='generated-toc'></div>
+<h3>韩顺平PHP学习</h3>
+
+<h4>HTML相关学习</h4>
+
+<h5>html基本结构</h5>
+
+<pre><code>    &lt;html&gt;
+        &lt;head&gt;
+            &lt;title&gt;这是一个标题&lt;/tilte&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        Hello World!
+        &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+
+<h5>html 运行方式</h5>
+
+<ul>
+<li>本地运行
+就是用浏览器直接打开本地的源文件</li>
+<li>远程访问
+协议:通俗来说就是计算机互相通讯(网络规则)
+远程访问就是通过服务器访问</li>
+</ul>
+
+<h5>后缀html和htm的区别</h5>
+
+<ul>
+<li>如果一个网站有index.html和inde.htm,默认情况下优先访问index.html</li>
+<li>htm后缀是为了兼容以前dos系统的8.3命名规则,即 八个字符名.三个字符后缀.</li>
+</ul>
+
+<p><strong>注意字体的size可以去1-7,想要更大就需要用css了,如style=&#8221;font-size:170px&#8221;</strong></p>
+
+<h5>图片表格的实际应用</h5>
+
+<pre><code>    &lt;img src="图片的路径/也可以是一个url" width="宽度" height="高度"
+     border="边框"alt="鼠标移动到图片上显示的文字"&gt;
+</code></pre>
+
+<p><em>当浏览器打开下面的网页,问浏览器一共发起了几次请求</em></p>
+
+<pre><code>    &lt;html&gt;
+        &lt;head&gt;
+            &lt;title&gt;这是一个标题&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;img src="dog.jpg"&gt;
+        &lt;img src="www.baidu.jpg"&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+
+<p><strong>答:一共发起了3次,第一次获取整个网页代码;第二次请求dog.jpg;第三次请求 www.baidu.jpg</strong></p>
+
+<p>html表格
+在以前对网页布局要求不高的情况下,经常有人用table布局(即使用表格来显示数据,同时用于布局);现在用div+css来布局了
+<code>&lt;table align=center bgcolor=yellow border=3px width=400px height=200px&gt;</code></p>
+
+<p><em>宽度可以是像素,也可以是百分比,百分比表示占整个页面宽度的百分比</em></p>
+
+<h5>应用案例:</h5>
+
+<ol>
+<li>确定行数</li>
+<li><p>表格里面还可以继续放入表格</p>
+
+<pre><code>&lt;table border="1" width="400px"&gt;
+    &lt;tr&gt;
+        &lt;!--colspan 表示该列要占据n列--&gt;
+        &lt;td colspan="3" align = "center"&gt;菜谱&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td rowspan="2" align="center"&gt;素菜&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;!--rowspan表示要合并行数--&gt;
+        &lt;td rowspan="2" align="center"&gt;荤菜&lt;/td&gt;
+        &lt;td&gt;11&lt;/td&gt;
+        &lt;td&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;14&lt;/td&gt;
+        &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre></li>
+</ol>
+
+<h5>无序列表和有序列表</h5>
+
+<pre><code>    &lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;有序列表和无序列表&lt;/title&gt;
+
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;ul type="disc"&gt;
+        &lt;!--type 类型有 disc=● circle=○ square=■--&gt;
+            &lt;li&gt;风暴英雄&lt;/li&gt;
+            &lt;li&gt;魔兽世界&lt;/li&gt;
+            &lt;li&gt;炉石传说&lt;/li&gt;
+            &lt;li&gt;暗黑破坏神&lt;/li&gt;
+            &lt;li&gt;守望先锋&lt;/li&gt;
+            &lt;li&gt;魔兽争霸&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;ul&gt;
+            &lt;li&gt;coffee&lt;/li&gt;
+            &lt;li&gt;tea
+                &lt;ul&gt;
+                &lt;li &gt;black tea&lt;/li&gt;
+                &lt;li&gt;green tea
+                    &lt;ul&gt;
+                    &lt;li&gt;Chinese green tea&lt;/li&gt;
+                    &lt;li&gt;British green tea&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;milk&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;!--有序列表 
+        type类型:
+            1: 阿拉伯数字
+            a: 小写字母
+            A: 大写字母
+            i: 小写罗马数字
+            I: 大写罗马数字
+        start是设定开始数目
+         --&gt;
+        &lt;ol type="i" start="4"&gt;
+            &lt;li&gt;宋江&lt;/li&gt;
+            &lt;li&gt;卢俊义&lt;/li&gt;
+            &lt;li&gt;吴用&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+
+<h5>html 常用标记/元素-frameset(框架集)</h5>
+
+<blockquote>
+  <p>框架集用于分割显示多个页面
+  如果a.html包括了其他页面(frameset)则要求a.html本身不能有body元素;
+  假如一个框架有可见边框用户可以拖动边框来改  它的大小.为了避免这种情况发生,
+  可以在<frame>标签中加入: noresize="noresize" </p>
+</blockquote>
+
+<p><em>重要提示:不能将body标签与frameset标签同时使用</em></p>
+
+<h4>35-书写规范</h4>
+
+<pre><code>    案列:
+    &lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;我的php文件&lt;/title&gt;
+    &lt;meta http-equiv="content-type" content="text/html;charset=utf-8" /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;?php
+        //定义一个变量,并赋值9+9的结果
+        $i=9+9;
+        echo '结果是='.$i;
+    ?&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+
+<h5>php基本语法介绍</h5>
+
+<ol>
+<li><p>php可以和html代码互相嵌入,也可以在php代码中嵌入html代码
+php 常规标签方法</p>
+
+<ul><li><code>&lt;?php    ?&gt;</code> <em>推荐使用</em></li>
+<li><code>&lt;script language="php"&gt; echo "&lt;br/&gt; 测试一下"    &lt;/script&gt;</code></li>
+<li><em>如果只是为了显示一个变量的值,可以直接用</em> <code>&lt;?=$i?&gt;</code> </li></ul></li>
+<li><p>php的注释方法</p>
+
+<ul><li>/* C,C语言的风格,一般用于多行注释 */</li>
+<li>// 一般单行注释</li>
+<li># Unix风格</li></ul></li>
+</ol>
+
+<h4>36.php数据类型</h4>
+
+<h5>内容介绍</h5>
+
+<ol>
+<li>变量/常量</li>
+<li>php数据类型和基本语法</li>
+</ol>
+
+<h5>学习目标</h5>
+
+<ol>
+<li>掌握php中的常用数据类型</li>
+<li>掌握php的基本语法</li>
+<li>充分理解变量和常量</li>
+</ol>
+
+<h5>php基本语法</h5>
+
+<ol>
+<li>html和php混编</li>
+<li>一个语句以; (分号结束)</li>
+<li><p>如何定义一个变量,和变量的使用</p>
+
+<pre><code>定义一个变量要以$符号打头
+$a=890;    //我定义了一个变量,该变量名叫$a,然后给该变量赋值,值为890
+</code></pre></li>
+<li><p>变量的数据类型不是固定不变的</p>
+
+<pre><code>比如:
+$a=90; //这里$a的值是个整数,那么$a就是个整型
+$a=1.1;    //这里$a就变成了小数类型
+</code></pre></li>
+<li><p>php是弱数据类型编程语言</p>
+
+<pre><code>&lt;?php
+    $a=90;
+    var_dump($a);
+    $a=1.1;
+    var_dump($a);
+?&gt;
+</code></pre></li>
+<li><p>php区分大小写</p>
+
+<pre><code>&lt;?php
+    $a=90;
+    echo $a;   //显示90
+    $A=1.1;
+    echo "&lt;br/&gt;$A";        //显示1.1 说明php是区分大小写的
+?&gt;
+</code></pre></li>
+<li><p>一个有效的变量名由数字或者下划线开头,后面跟上任意数量的字母,数字,或者下划线</p></li>
+</ol>
+
+<h5>php基本数据类型</h5>
+
+<ol>
+<li><p>基本数据类型</p>
+
+<ul><li><p>整型(integer):整数类型可以表示一个整数,比如:
+$ts=1;$ts=-12</p></li>
+<li><p>小数(浮点)型(float/double),包含单精度和双精度
+小数类型表示一个小数: $ts=1.12;$ts=3.1415926</p></li>
+<li><p>布尔型(boolean) 表示真和假
+$ts=true;$ts=false</p></li>
+<li><p>字符串(string)
+$ts="我是一个好人";</p></li></ul></li>
+<li><p>php复合数据类型</p>
+
+<ul><li>数组(array)</li>
+<li>对象(object)</li></ul></li>
+<li>特殊数据类型
+<ul><li>null (空型)</li>
+<li>资源类型(resource)</li></ul></li>
+</ol>
+
+<p><em><strong>变量和类型的关系:变量总是属于某种类型</em></strong></p>
+
+<h4>37整型细节说明</h4>
+
+<p><em>何为定义一个变量</em></p>
+
+<pre><code>&lt;?php
+    $a=90; //相当于我们定义了一个变量$a,并且赋值90
+&gt;</code></pre>
+
+<pre><code>思考: 如果不给$a 赋值,输出时会发生什么事情?
+&lt;?php
+    $a;    //如果我只写了$a;但是没赋值,究竟$a的值是多少?
+    var_dump($a);  //显示为NULL,Null表示没有分配空间
+    echo $a;   
+?&gt;</code></pre>
+
+<h5>整型的细节</h5>
+
+<ol>
+<li><p>整数型可以使用十进制,十六进制0x打头 或八进制0打头表示:</p>
+
+<ul><li>$a=1234; //十进制</li>
+<li>$a=-1234;    //负数</li>
+<li>$a=0123; //八进制(等于十进制的83) 运算方法:0123 = 3*8的0次方+2*8的一次方+1*8的2次方</li></ul>
+
+<p><code>
+&lt;?php
+    $a=0123; <br>
+    echo 'a='.$a;  //\.表示链接字符串
+</code></p>
+
+<ul><li>$a=0x1A; //十六进制(等于十进制26) 运算方法:0x1A = A(A当做10)*16的零次方+1*16的1次方</li></ul>
+
+<p><code>
+&lt;?php
+    $a=0x1A; <br>
+    echo 'a='.$a;  //\.表示链接字符串
+</code></p></li>
+<li><p>php不支持无符号整数,即php中整数都是有符号的</p>
+
+<p>通俗来讲,一个数总是要占用内存空间的,那么内存空间按什么来计算的呢?
+在php中,一个整数,一般占用四个字节(与平台有关),1个字节占8位(8bit);
+最高位表示符号,0为正数;1为负数;php整数的二进制最高位表示符号.</p></li>
+<li><p>整型数的字长和平台有关,通常是(4个字节有符号数).integer值的字长可以用常量PHP_INT_SIZE
+来表示,最大值可以用PHP_INIT_MAX来表示,如: <code>echo PHP_INT_MAX</code></p>
+
+<p><em><strong>为什么Max Int 是2147483647?</em></strong>
+根据二进制来推
+最高位是符号位应该为0,而一个数有4个字节,每个字节有8bit,所以应该有4*8=32bit
+表示出来应该为 01111111 11111111 11111111 11111111 
+按2进制算法来算为 1+1*2的1次方......其实就是2的31次方-1</p></li>
+<li><p>如果给定的一个数超出了Interger的范围,将会被解释为float.</p>
+
+<pre><code>&lt;?php
+$large_number = 2147483647;
+var_dump($large_number);
+
+$large_number = 2147483648;
+var_dump($large_number);
+</code></pre></li>
+</ol>
+
+<p><strong>$a=2,在内存中,2是怎样存在的/用二进制来表示2?</strong></p>
+
+<p><em>00000000 00000000 00000000 00000010</em></p>
+
+<h4>38布尔类型,浮点数,字符串细节</h4>
+
+<h5>布尔类型细节</h5>
+
+<ol>
+<li>要指定一个布尔值,使用关键字True和False,两个都不区分大小写</li>
+<li><p>以下值都会被当做false对待</p>
+
+<ul><li>布尔值false本身</li>
+<li>整型值 0</li></ul>
+
+<p><code>
+测试整型 0是否为false
+    &lt;?php
+$c=0;  //如果我们把$c当做一个布尔类型适用
+if($c==false){
+    echo "假的";
+}
+</code></p>
+
+<ul><li>浮点型 0.0</li>
+<li>空 字符串,以及字符串&#8221;0&#8221;</li>
+<li>不包括任何元素的数组</li>
+<li>不包括任何成员变量的对象(仅适用于php4.0)</li>
+<li>特殊类型NULL(包括尚未设定的变量)</li></ul></li>
+</ol>
+
+<h5>浮点数细节</h5>
+
+<ol>
+<li>浮点数(也叫双精度数或实数)</li>
+<li><p>浮点数的字长和平台相关,通常最大值是1.8e308并具有14位十进制数字的精度<em>小数的精度如何起算:从左边第一个非0的数开始计算</em></p>
+
+<p><code>
+$a=0.23456789022222988;
+echo "$a=".$a;    //$a=0.23456789022223,14位精度
+</code></p></li>
+</ol>
+
+<h5>字符串细节</h5>
+
+<ol>
+<li><p>一个字符串就是由一系列的字符组成,因此,一个字符就是占一个字节</p>
+
+<p><em>$a=&#8221;Hello&#8221;;请问$a占了几个字节</em> </p>
+
+<p><em>答案是5个</em></p></li>
+<li>php对字符串长度限制只和运行php程序的计算机大小有关,即php字符串可以足够大</li>
+<li><p>字符串常见定义方法:</p>
+
+<ul><li>单引号   //$a=&#8217;abc.吃番茄&#8217;</li>
+<li>双引号   //$b=&#8221;Aphey 踢足球&#8221;</li></ul></li>
+<li><p>如果字符串是包围在双引号中,php,将对一些特殊的字符进行解析</p></li>
+</ol>
+
+<h5>php数据类型的自动转换</h5>
+
+<pre><code>&lt;?php
+    $var1=90;
+    echo $var1.'&lt;br/&gt;';
+    $var1=8.90;
+    echo $var1;
+?&gt;
+
+变量的类型不由程序员设定,确切地说,是由php根据该变量使用的上下文在运行时决定的</code></pre>
+
+<h5>php的表达式</h5>
+
+<p><em>表达式是php最重要的基石,在php中,几乎缩写的任何东西都是一个表达式.
+简单但缺最精确的定义一个表达式的方式就是"任何有值的东西"</em></p>
+
+<h4>39算术运算符,比较运算符,逻辑运算符</h4>
+
+<ol>
+<li><p>算数运算符</p>
+
+<ul><li>+ 加</li>
+<li>- 减</li>
+<li>* 乘</li>
+<li>/ 除</li>
+<li>% 取余</li></ul>
+
+<p><code>
+&lt;?php
+//编写一个代码,判断两个数是否能够整除
+$a=90;
+$b=5;
+if($a%$b==0){
+    echo '能整除';
+}else{
+    echo '不能整除';
+}
+?&gt;
+</code></p>
+
+<ul><li>++ 变量自加</li>
+<li>&#8211; 变量自减</li></ul>
+
+<p><code>
+//++(变量自增)和--(变量自减)快速入门
+$a=90;
+$a++;  //等价于$a=$a+1
+这时$a=91
+$b=89;
+$b--;  //等价于$b=$b-1
+这时$b=88
+// 前++ 和 后++
+$a=56;
+$b=$a++;  //这个语句,
+echo $b;   //由于是后++,所以这里应该是$b=$a=56
+echo $a;   //$a=$a++
+</code></p>
+
+<ul><li>左加    +=</li>
+<li>左减    -=</li>
+<li>左乘    *=</li>
+<li>左除    /=</li>
+<li>左取模   %=</li></ul>
+
+<p><code>
+$a=90;
+$a+=90;    //$a=$a+90
+echo $a;   //$a=180
+// 举一反三
+</code></p></li>
+<li><p>比较运算符</p>
+
+<table>
+<thead>
+<tr>
+  <th>例子</th>
+  <th>名称</th>
+  <th>结果</th>
+</tr>
+</thead>
+<tr>
+  <td>$a == $b</td>
+  <td>等于</td>
+  <td>true,如果$a等于$b</td>
+</tr>
+<tr>
+  <td>$a === $b</td>
+  <td>全等</td>
+  <td>true,如果$a等于$b,且他们的类型也相同</td>
+</tr>
+<tr>
+  <td>$a != $b</td>
+  <td>不等</td>
+  <td>true,只有$a的值不等于$b的值的时为候真</td>
+</tr>
+<tr>
+  <td>$a &lt;> $b</td>
+  <td>不等</td>
+  <td>true,如果$a不等于$b</td>
+</tr>
+<tr>
+  <td>$a !== $b</td>
+  <td>非全等</td>
+  <td>true,如果$a不等于$b,或者他们类型不同,二者有一即可</td>
+</tr>
+<tr>
+  <td>$a &lt; $b</td>
+  <td>小于</td>
+  <td>true,如果$a严格小于$b</td>
+</tr>
+<tr>
+  <td>$a > $b</td>
+  <td>大于</td>
+  <td>true,如果$a严格大于$b</td>
+</tr>
+<tr>
+  <td>$a &lt;= $b</td>
+  <td>小于等于</td>
+  <td>true,如果$a小于或者等于$b</td>
+</tr>
+<tr>
+  <td>$a >= $b</td>
+  <td>大于等于</td>
+  <td>true,如果$a大于等于$b</td>
+</tr>
+</table>
+</li>
+<li><p>逻辑运算符</p>
+
+<table>
+<thead>
+<tr>
+  <th>例子</th>
+  <th>名称</th>
+  <th>结果</th>
+</tr>
+</thead>
+<tr>
+  <td>$a and $b</td>
+  <td>And(逻辑与)</td>
+  <td>true,如果$a 与$b都为true</td>
+</tr>
+<tr>
+  <td>$a or $b</td>
+  <td>or(逻辑或)</td>
+  <td>true,如果$a或$b任一为true</td>
+</tr>
+<tr>
+  <td>$a xor $b</td>
+  <td>Xor(逻辑异或)</td>
+  <td>true,如果$a 或$b任一为true,但不同时是</td>
+</tr>
+<tr>
+  <td>!$a</td>
+  <td>Not(逻辑非)</td>
+  <td>true,如果$a不为true</td>
+</tr>
+<tr>
+  <td>$a $$ $b</td>
+  <td>And(逻辑与)</td>
+  <td>true,如果$a 与$b都为true</td>
+</tr>
+<tr>
+  <td>$a &#124;&#124; $b</td>
+  <td>or(逻辑或)</td>
+  <td>true,如果$a或$b任一为true</td>
+</tr>
+</table>
+
+
+<p>```
+//练习1
+$a=90;
+$b=90;
+if($a==$b || $a>8){
+    echo "ok1";
+}   //ok1
+$b--;  //$b=89
+if($a>$b &amp;&amp; $a>45){
+    echo "<br>ok2";
+}   //ok2
+if(!($a<$b)){echo '<br>ok3';} //$a>$b,所以ok3</p>
+
+<p>//练习2
+$a=10;
+$b=7;```
+if($a++>8 || $b++>7){ //$a++>8 true; $b++>7 false;因为是逻辑或,&#124;&#124; 前面的符合条件,后面的就不执行了
+    echo 'ok';  //ok
+}
+echo '<br/>a='.$a.'b='.$b;    //$a=11;$b=7</p>
+
+<p>//练习3
+$a=10;
+$b=7;```
+if($a++>10 &amp;&amp; $b++>7){    //$a++>8 false; $b++>7 false;因为是逻辑与,&amp;&amp; 前面的不符合条件,后面的就不执行了
+    echo 'ok';  //不显示
+}
+echo '<br/>a='.$a.'b='.$b;    //$a=11;$b=7</p>
+
+<p>//练习4
+$a=10;
+$b=7;
+if($a++>9 &amp;&amp; $b++>7){ //$a++>9 true; $b++>7 false;<code>
+    echo 'ok';  //不显示
+}
+echo '&lt;br/&gt;a='.$a.'b='.$b;    //$a=11;$b=8,上面$b++&gt;7虽然不成立,但是他执行了,所以这里$b=8
+</code></p></li>
+<li><p>逻辑运算符的优先级</p>
+
+<p><code>
+// '||'的优先级比'=' 高,'='的优先级高于'or'
+$e = false ||true; //'||'左右有一个为真,即为真,所以$e=true
+$f = false or true;    // '='的优先级比'or'高,所以,$f=false
+var_dump($e,$f);
+// '&amp;&amp;'的优先级比'=' 高,'='的优先级高于'and'
+$g = true &amp;&amp; false;    //'&amp;&amp;'左右都为真,才为真,所以$g=false
+$h = true and false;   //'='优先级比'and'高,所以$h=true
+var_dump($g,$h);
+if(true and false){ //ok不会输出
+    echo "ok";
+} 
+</code></p></li>
+</ol>
+
+<h4>40三元运算符,类型运算符,运算符优先级</h4>
+
+<h5>三元运算符</h5>
+
+<ul>
+<li>表达式(expr1)?(expr2): (expr3)</li>
+<li><p>规则: 在expr1求值为TRUE时,取值为expr2;在expr1求值为FALSE时,取值为expr3</p>
+
+<p>```
+$a= 1==1?45:89; // 因为 1==1,为真,所以$a的值应该是45
+echo $a;</p>
+
+<p>//练习1:
+$a=90;
+$b=89;
+$c=$a>$b?(12-10):'hello,world';  //因为$a>$b为真,所以$c的值为12
+echo 'c=='.$c; //因为$a>$b为真,所以$c的值为2,注意,expr2和3 不仅可以为值,也可以为表达式或则字符串
+```</p></li>
+</ul>
+
+<h5>字符串运算符</h5>
+
+<ul>
+<li><p>有两个字符串运算符,其实就是连结运算符(&#8221;.&#8221;),下面是案例:</p>
+
+<p>```
+$a="hello";
+$b=$a." world";
+echo $b;   //Hello world</p>
+
+<p>$c="hello";
+$c.=" world";
+echo '<br>'.$c;    //Hello world</p>
+
+<p>$d="Hello";
+$e=123;
+$f=$e.$d;    //当一个变量$d 出现在等号的右边,它就会以值的形式出现.而且,当'.'出现了,它左右的变量类型都会当成字符串
+```</p></li>
+</ul>
+
+<h5>类型运算符</h5>
+
+<ul>
+<li>instanceof用于确定一个php变量是否属于某一类class的实例</li>
+<li><p>基本语法$var instanceof ClassName;变量是否属于某个变量;通常在面向对象开发中可能用到,用的不是很多</p>
+
+<p><code>
+//练习1
+class Dog{}
+class Cat{}
+$a=new Cat();
+var_dump ($a instanceof Dog);  //判断是否属于Dog类
+var_dump ($a instanceof Cat);  //判断是否属于Cat类
+if($a instanceof Dog){</code>
+    echo "<br> \$a is a kind of Dog.";
+}else{
+    echo "<br> \$a is a kind of Cat.";
+}
+```</p></li>
+</ul>
+
+<h5>运算符优先级</h5>
+
+<table>
+<thead>
+<tr>
+  <th>结合方向</th>
+  <th>运算符</th>
+  <th>附加信息</th>
+</tr>
+</thead>
+<tr>
+  <td>无</td>
+  <td>clone new</td>
+  <td>clone 和 new</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>[</td>
+  <td>array()</td>
+</tr>
+<tr>
+  <td>右</td>
+  <td>++ &#8211; ~ (int) (float) (string) (array) (object) (bool) @</td>
+  <td>类型和递增／递减</td>
+</tr>
+<tr>
+  <td>无</td>
+  <td>instanceof</td>
+  <td>类型</td>
+</tr>
+<tr>
+  <td>右</td>
+  <td>!</td>
+  <td>逻辑运算符</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>* / %</td>
+  <td>算术运算符</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>+ - .</td>
+  <td>算术运算符和字符串运算符</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>&lt;&lt; >></td>
+  <td>位运算符</td>
+</tr>
+<tr>
+  <td>无</td>
+  <td>== != === !== &lt;></td>
+  <td>比较运算符</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>&amp;</td>
+  <td>位运算符和引用</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>^</td>
+  <td>位运算符</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>&#124;</td>
+  <td>位运算符</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>&amp;&amp;</td>
+  <td>逻辑运算符</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>&#124;&#124;</td>
+  <td>逻辑运算符</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>? :</td>
+  <td>三元运算符</td>
+</tr>
+<tr>
+  <td>右</td>
+  <td>= += -= *= /= .= %= &amp;= &#124;= ^= &lt;&lt;= >>= =></td>
+  <td>赋值运算符</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>and</td>
+  <td>逻辑运算符</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>xor</td>
+  <td>逻辑运算符</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>or</td>
+  <td>逻辑运算符</td>
+</tr>
+<tr>
+  <td>左</td>
+  <td>,</td>
+  <td>多处用到</td>
+</tr>
+</table>
+
+
+<pre><code>//运算优先级练习1:
+&lt;?php
+$a=3;
+$b=++$a*3;    //++优先级高于*,所以结果应该是$b=(3+1)*3
+echo $b;
+
+//运算优先级练习2:
+$a=3;
+$b=$a++*3;    //虽然++优先级高于*,但这里是后++,所以结果应该是$b=$a*3=9,然后再执行++
+echo $a;   //$a=4
+echo '&lt;br&gt;'.$b;    //$b=9</code></pre>
+
+<h4>41顺序控制,分支控制,程序流程图</h4>
+
+<h5>流程控制</h5>
+
+<ol>
+<li>顺序控制
+<em>不加控制的流程,让程序按顺序地执行代码</em>
+<code>
+//顺序控制练习1:
+$a=7;
+echo "a=".$a;
+echo "&lt;br&gt;Hello!";
+$a++;
+echo "&lt;br&gt;a=".$a;
+echo "&lt;br&gt;O(∩_∩)O";
+$a++;
+echo "&lt;br&gt;a=".$a;
+</code></li>
+<li><p>分支控制
+<em>让程序有选择的执行代码,分支控制有三种</em></p>
+
+<ol><li><p>单分支
+<em>单分支的语法结构:</em></p>
+
+<p><code>
+if(条件表达式    //不管条件表达式多复杂,最后运算结果就是一个真或者假){
+    语句; //如果为真,执行语句,如果不为真,则不执行;而且语句可以有多个
+}
+</code>
+<code>
+//  练习1:
+$age=19;
+if($age&gt;18){
+echo '你的年龄已经大于18岁,你已经是成年人了';
+}
+</code></p></li>
+<li><p>双分支
+<em>双分支语法结构:</em></p>
+
+<p><code>
+if(条件表达式    //不管条件表达式多复杂,最后运算结果就是一个真或者假){
+n多语句;
+}else{
+n多语句;
+}
+</code>
+<code>
+//  练习:
+$age=7;
+if($age&gt;18){
+    echo '你的年龄已经大于18岁,你已经是成年人了';
+}else{  //else表示否则就....
+    echo '孩子,你还未成年呢';
+} <br>
+</code></p></li>
+<li><p>多重分支</p>
+
+<p><em>多重分支语法结构:</em>
+<code>
+if(条件表达式){
+n多语句;
+}else if{
+n多语句;
+}else if{
+n多语句;
+}else{
+n多语句;
+} <br>
+</code>
+<em>请注意</em></p>
+
+<ul><li>else if 可以有1个,也可以有多个</li>
+<li>最后的else可以没有</li></ul>
+
+<p><code>
+//  练习
+$age=12;
+if($age&gt;18){
+    echo '你的年龄已经大于18岁,你已经是成年人了';
+}else if($age&gt;10 &amp;&amp; $age&lt;=18){
+    echo '送少管所';
+}
+else{
+    echo '下次注意';
+}
+echo '&lt;br&gt;程序结束'; <br>
+</code></p></li></ol></li>
+<li><p>多分支-switch
+<em>基本语法结构:</em></p>
+
+<p><code>
+switch(表达式){
+case 常量1:
+    n多语句;
+    break;
+case 常量2;
+    n多语句;
+    break;
+default;
+    n多语句;
+    break;
+}
+</code></p>
+
+<p><em>请注意:</em></p>
+
+<p><ul><li>case 语句有一到多个</li>
+<li>default语句可以没有</li>
+<li>通常在case语句后要带break语句,表示退出switch语句</li>
+<li>常量的类型(int,float,string,boolean)</li>
+<li>为避免错误理解; switch 是怎样执行的非常重要。switch 语句一行接一行地执行（实际上是语句接语句）。开始时没有代码被执行。仅当一个 case 语句中的值和 switch 表达式的值匹配时 PHP 才开始执行语句，直到 switch 的程序段结束或者遇到第一个 break 语句为止。如果不在 case 的语句段最后写上 break 的话，PHP 将继续执行下一个 case 中的语句段</li>
+<li>最终结论:switch语句首先按照case顺序进行匹配,如果一个都没匹配到,则执行default语句,直到遇到break语句,则退出switch
+<code>
+//  案例1:
+$myChar="a";
+switch($myChar){
+case "a":
+    echo '今天星期一';
+break;
+case "b":
+    echo '今天星期二';
+break;
+case "c":
+    echo '今天星期三';
+break;
+case "d":
+    echo '今天星期四';
+break;
+case "e":
+    echo '今天星期五';
+break;
+case "f":
+    echo '今天星期六';
+break;
+default:
+    echo '没有匹配的日期'; //如果不给myChar赋值,就默认显示这个
+</code></p>
+
+<blockquote>
+  <p>if语句和switch语句的区别及应用场景
+  答: if对某个范围的判断,而switch是对一个点的判断,我们可以从对应的应用场景来进行选择:
+  当我们的分支就是几个点的时候,比如判断坦克的方向就应当考虑switch;
+  如果分支是几个区域或者是范围的判断,则考虑使用if. </li></ul></p>
+</blockquote></li>
+<li><p>循环控制
+<em>就是让代码循环地执行</em></p>
+
+<ol><li><p>for循环
+<code>
+//  for循环终止基本语法结构
+for(循环初值;循环的条件;在每次循环之后被求值并执行)
+    //n多语句
+</code></p>
+
+<p><em>为什么需要循环控制?</em></p>
+
+<p><code>
+for($i=0;$i&lt;10;$i++){    //$i初值为0;当$i的值小于10的时候;就会执行$i++
+    echo '&lt;br&gt;你好,北京~';
+}
+</code></p></li>
+<li><p>while 循环
+<em>基本语法结构</em>
+<code>
+$i=0;  //$i一般作为循环控制变量
+while(循环条件){
+    //循环体,语句
+}
+</code>
+<code>
+//  案例:使用while打印出10句"北京,你好!"
+</code></p></li>
+<li><p>do while循环</p></li></ol>
+
+<p><em><strong>特别说明: do while循环是先执行,再判断</em></strong></p>
+
+<pre><code>```
+$i=0;  //循环控制变量
+do{
+    echo '&lt;br&gt;你好,北京!'.$i;
+    $i=$i+2;  //变量+2,这里的2表示循环的步长!
+}while($i&lt;10&gt;);
+```
+
+***打印金字塔一半***
+</code></pre>
+
+<p><img src="http://kfdown.a.aliimg.com/kf/HTB1vDvINpXXXXXQapXXq6xXFXXXv/126425022/HTB1vDvINpXXXXXQapXXq6xXFXXXv.jpg" alt="paramid flow" title="" /></p>
+
+<pre><code>```
+//  打印出金字塔的一半
+for($i=1;$i&lt;=20;$i++){  //外层控制层数
+    for($j=1;$j&lt;=$i;$j++){```   //内层控制*的个数
+        echo '*';
+    }
+    echo '&lt;br&gt;';
+}
+
+//打印整个金字塔
+$n=10; //$n表示总层数
+for($i=1;$i&lt;=$n;$i++){      //这个也是控制层数
+    for($k=1;$k&lt;=$n-$i;$k++){  //在打印*之前,先打印空格
+        echo "&amp;nbsp";
+    }
+    for($j=1;$j&lt;=$i*2-1;$j++){  //控制每层*的个数
+        echo "日";
+    }
+    echo '&lt;br&gt;';
+}
+```
+</code></pre></li>
+</ol>
+<script type='text/javascript'>
+$(document).ready(function(){
+  if($('code').length>0){
+    $('code').parent().addClass('prettyprint linenums');
+    prettyPrint();
+};
+});
+</script>
+</body>
+</html>

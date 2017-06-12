@@ -1,0 +1,135 @@
+然之默认的数据库账号为root, 密码为空
+然之备份跨服务器还原时,得给bakup文件夹 777 权限
+然之的数据库连接参数在ranzhi/config/my.php内
+phpmyadmin的连接参数需要相应的修改，蝉知的数据库连接参数在chanzhi/system/config/my.php内
+
+
+在虚拟机上运行xamp时,通过本机访问虚拟机的xamp服务出现如下的错误提示
+
+New XAMPP security concept:
+
+Access to the requested object is only available from the local network.  This setting can be configured in the file "httpd-xampp.conf".
+
+使用vim编辑配置文件
+vim /opt/lampp/etc/extra/httpd-xampp.conf 
+
+在文件末尾
+#Require local    <---将这个注释掉,取消只允许本地访问
+   
+ErrorDocument 403 /error/XAMPP_FORBIDDEN.html.var
+
+重启xammp服务
+/opt/lampp/lampp restart
+
+可以实现远程访问了
+
+
+phpmyadmin配置文件权限错误，不应任何用户都能修改
+
+系统故障 / itlogger, 2015.10.15 / 3 pv
+访问phpmyadmin提示“配置文件权限错误，不应任何用户都能修改”
+原因：phpmyadmin目录权限过高，设置了777访问权限
+解决：chmod -R 755 phpmyadin
+
+
+关于数据库设置密码后phpmyadmin拒绝访问
+
+问题：
+通过phpmyadmin设置数据库密码后若出现phpmyadmin拒绝访问的情况，
+
+解决方法：
+方法一：可以修改config.inc.php配置文件中的$cfg['Servers'][$i]['password'] = '你的密码';
+方法二：将config.inc.php配置文件中的$cfg['Servers'][$i]['auth_type'] = 'config';   修改为   $cfg['Servers'][$i]['auth_type'] = 'http';
+//方法2可行,但是config 是不需要密码就可以进去的
+
+
+本文章来给大家介绍在phpmyadmin配置mysql登录管理密码哦，下面我以root用户为实例来给各位同学介绍介绍，有需要了解的朋友可参考。
+phpMyAdmin配置文件在libraries下的config.default.php中，主要配置如下：
+一般的话，如果你的mysql和phpmyadmin放在同一服务器上，主机名就直接用localhost
+ 代码如下	复制代码
+$cfg['Servers'][$i]['host'] = 'localhost';
+然后就是要配置mysql的用户名和密码了：
+ 代码如下	复制代码
+$cfg['Servers'][$i]['user'] = 'root';
+$cfg['Servers'][$i]['password'] = *****';
+暂时没需要就这些基本配置了，然后将phpMyAdmin上传到服务器根目录，用
+http://网站域名/phpMyAdmin/  访问
+其它一些方法
+D.认证方法
+ 代码如下	复制代码
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+在此有四种模式可供选择，cookie，http，HTTP，config
+   config方式即输入phpmyadmin的访问网址即可直接进入，无需输入用户名和密码，是不安全的，不推荐使用。
+   当该项设置为cookie，http或HTTP时，登录phpmyadmin需要数据用户名和密码进行验证，,具体如下：
+   PHP安装模式为Apache，可以使用http和cookie；
+   PHP安装模式为CGI，可以使用cookie
+   我个人建议：无论是本地还是网络上，都建议设置成cookie，安全第一。
+E.短语密码(blowfish_secret)的设置
+ 代码如下	复制代码
+$cfg['blowfish_secret'] = '';
+如果认证方法设置为cookie，就需要设置短语密码，置于设置为什么密码，由您自己决定  ，但是不能留空，否则会在登录phpmyadmin时提示错误
+F.设置默认语言与编码
+查找
+ 代码如下	复制代码
+$cfg['DefaultLang'] = 'zh';
+
+在phpmyadmin中，总共有四种登录方式
+　　config：直接输入phpmyadmin远程登录地址即可，只要在配置文件中设置用户名密码即可。
+　　http:弹出对话框，输入用户名和密码后进入
+　　signon:类似于页面跳转的登录方式，同时需要设定$cfg['Servers'][$i]['SignonURL']，当你输入phpmyadmin的远程登录地址后会自动跳转到signonURL设定的网址。
+　　cookie：也就是phpmyadmin配置时候的登录方式。
+　　至此整个phpmyadmin3的安装和配置工作就算完成了，你可以体验phpmyadmin新版本的新功能了。
+
+1. 启动ECP： 要先 装JAVA，并开启TOMCAT
+2. 开启kodexplorer 和 禅道，要先关闭服务器防火墙
+systemctl stop firewalld.service
+3. -rw-r--r-x（drw-r--r-x)
+分解：-（-表示文件，d表示文件夹） rw-(owner权限，）r--（Group权限）r-x（Others权限）【r=4;w=2;x=1,7（4+2+1)表示读写执行都有】
+4. 删除文件命令  rm -rf XX：
+-r表示向下递归，不管多少级目录，一并删除
+-f表示直接强行删除，不做任何提示
+5. ip a
+查看本机IP地址
+6. ip ad li
+查看IP地址是否生效
+7. ping -c 4 192.168.0.32
+向192.168.0.32 ping 4次,然后自动停止
+8. iptables -vnL
+查看iptables是否打开
+9. 使用setup 图形界面
+    先安装setuptools #yum install setuptool
+然后输入setup #setup
+10. 修改IP地址
+vi /etc/sysconfig/network-scripts/ifcfg-eth0
+将其中的INTERFACE_NAME 替换为实际接口名称.如 eth0 或者 ens256
+修改配置文件 /etc/sysconfig/network-scripts/ifcfg-接口名称,
+            [root@controller ~]# vim /etc/sysconfig/network-scripts/ifcfg-eno16777736 # eno16777736是我电脑网络接口的名字,根据电脑改变 #
+包含如下内容:
+不要修改 HWADDR和 UUID关键字内容.
+               Advanced Micro Devices [AMD] 79c970 [PCnet32 LANCE] —————–网卡名称
+DEVICE=eth0 ——————–定义第几块网卡
+TYPE=Ethernet
+                          BOOTPROTO=dhcp /*static:静态IP ;none:无,不指定;dhcp:动态IP*/
+                          IPADDR=192.168.0.33 /*当BOOTPROTO=static时,这里可以设置为自己想要的IP地址*/
+                          NETMASK=255.255.255.0 /*当BOOTPROTO=static时,这里添加以下子网掩码*/
+                          HWADDR=00:0C:29:82:E8:F4 ————这个是MAC地址
+DEFROUTE=yes
+                          IPV4_FAILURE_FATAL=no
+                          IPV6_AUTOCONF=yes
+                          IPV6_DEFROUTE=yes
+                          IPV6_FAILURE_FATAL=no
+                          NAME=eno16777736
+                          UUID=fcd58748-372a-44f9-bbf1-9da9fc001bb2
+                          DEVICE=eno16777736
+                          ONBOOT=yes   /*yes:开机启动*/
+                          PEERDNS=yes
+                          PEERROUTES=yes
+                          IPV6_PEERDNS=yes
+                          IPV6_PEERROUTES=yes
+                          IPV6_PRIVACY=no
+把网络服务重启一下# service network restart
+
+新安装的虚拟机需要在"编辑-虚拟网络编辑器-桥接到..." 选择宿主机的网卡
+克隆虚拟机会有一个问题,会提示网卡不存在
+原因是: 网卡MAC地址和员虚拟机的MAC地址冲突
+只要在ifconfg 里找一下 修改一下即可
