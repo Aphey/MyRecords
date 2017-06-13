@@ -1,7 +1,4 @@
-##MageEdu
-
-### C1S1 & C1S2 基本概念
-
+### C1S1 & C1S2 基本概
 - POST: power on self testing 上电自检,开机自检这个过程就是把ROM里的指令映射到内存里.
 - RAM: Radom Access Memory.
 - ROM: Read only Memory.
@@ -5550,4 +5547,5 @@ grub> quit  //退出
         1. 生成一对密钥`ssh-keygen`
         2. 将公钥传输至服务器端某用户的家目录下的.ssh/authorized_keys文件中
         3. 测试登陆即可
-    - 
+- sftp root@REMOTE_HOST可以不用假设ftp服务器直接登陆进去传输文件,`get FILENAME`即可;`exit`即可退出
+- 如果远程服务器改了sshd的默认端口我们只要在Xshell 中用`ssh USERNAME@REMOTE_HOST PORT` 即可以连接;注意防火墙要把对应的端口打开.
