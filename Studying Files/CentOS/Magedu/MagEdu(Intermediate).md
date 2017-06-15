@@ -139,4 +139,382 @@
         - 转发区域:Forward,直接提示域在什么地方
 - 以上基本概念解释完了
 
-#### BIND97服务安装
+#### BIND服务安装
+- 假设我们注册了aphey.com这个域名,得到的网段是172.16.100.0/24;计划使用如下:
+    - ns 172.16.100.1
+    - www 172.16.100.1,172.16.100.3
+    - mail 172.16.100.2
+    - ftp www的别名
+- 目前用的最多DNS服务器是BIND,目前这个软件有isc.org维护;
+- RPM 安装BIND:
+    - 首先我们看看光盘里有的是什么版本的Bind
+        ```c
+        // 查询一下镜像里是否有BIND
+        [root@zhumatech ~]# yum list|grep "^bind"
+        bind-libs.x86_64                           32:9.8.2-0.17.rc1.el6_4.6   @anaconda-CentOS-201311272149.x86_64/6.5
+        bind-utils.x86_64                          32:9.8.2-0.17.rc1.el6_4.6   @anaconda-CentOS-201311272149.x86_64/6.5
+        bind.x86_64                                32:9.8.2-0.17.rc1.el6_4.6   c6-media 
+        bind-chroot.x86_64                         32:9.8.2-0.17.rc1.el6_4.6   c6-media 
+        bind-devel.i686                            32:9.8.2-0.17.rc1.el6_4.6   c6-media 
+        bind-devel.x86_64                          32:9.8.2-0.17.rc1.el6_4.6   c6-media 
+        bind-dyndb-ldap.x86_64                     2.3-5.el6                   c6-media 
+        bind-libs.i686                             32:9.8.2-0.17.rc1.el6_4.6   c6-media 
+        bind-sdb.x86_64                            32:9.8.2-0.17.rc1.el6_4.6   c6-media 
+        [root@zhumatech ~]# yum install bind    //安装BIND
+        ``` 
+- bind的相关文件:
+    - 主配置文件:/etc/named.conf;主要定义BIND进程的工作属性;区域的定义.
+    - /etc/rndc.key; rndc: Remote Name Domain Controller,rndc.key是用来实现让rndc命令能够远程工作的远程的密钥, 事实上bind自身用的是/etc/rndc.conf
+    - 区域数据文件默认情况下,由管理员创建,位于/var/named/FILE_NAME
+    - 脚本文件/etc/rc.d/init.d/named {start|stop|restart|status|reload|configtest}
+    - bind-chroot软件包: 默认情况下,bind运行在真正的/下面,一旦有人劫持了我们的服务器或者 named进程,那么攻击者就能访问我们许多的文件;那么我们可以在/var/named/chroot/中建立对应的目录.然后把对应的文件搬到对应的目录中.这样就可以加强DNS服务器的安全性;___但我们初期最好不要安装chroot软件包___
+    - /var/named.cd: 里面存放着13个根节点的信息;如果没有这个文件,我们可以使用bind软件包生成的一个命令`/usr/bin/dig`;dig: Domain Information Gropher,到域名服务器查找他的信息的,'-t'是指定查询类型的.
+        
+        ```
+        [root@zhumatech ~]# dig -t NS . //查找根域"."所有服务器的信息
+        ; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.17.rc1.el6_4.6 <<>> -t NS .
+        ;; global options: +cmd
+        ;; Got answer:
+        ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 29967
+        ;; flags: qr rd ra; QUERY: 1, ANSWER: 14, AUTHORITY: 0, ADDITIONAL: 1
+        ;; OPT PSEUDOSECTION:
+        ; EDNS: version: 0, flags: do; udp: 4096
+        ;; QUESTION SECTION:
+        ;.				IN	NS
+        ;; ANSWER SECTION:
+        .			186910	IN	NS	g.root-servers.net.
+        .....
+        ```
+    - /etc/resolv.conf: 我们只要把其中的nameserver后面的IP指向能访问互联网的主机,我们再使用`dig -t NS .`命令,就可以获取到所有根节点的服务器,我们还可以指定某个主机来找
+    
+        ```
+        [root@zhumatech ~]# dig -t NS . @a.root-servers.net.    // 表示我不借助于本地服务器,就直接到a.root-servers.net.服务器上来查
+        ; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.17.rc1.el6_4.6 <<>> -t NS . @a.root-servers.net.
+        ;; global options: +cmd
+        ;; Got answer:
+        ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 7711
+        ;; flags: qr aa rd; QUERY: 1, ANSWER: 13, AUTHORITY: 0, ADDITIONAL: 15
+        ;; WARNING: recursion requested but not available
+        ;; QUESTION SECTION:
+        ;.				IN	NS
+        ;; ANSWER SECTION:
+        .			518400	IN	NS	a.root-servers.net.
+        .			518400	IN	NS	b.root-servers.net.
+        ```
+    - /var/named/named.localhost: 正向解析,专门负责将localhost解析为ipv4的127.0.0.1和ipv6的::1
+    
+        ```c
+        [root@zhumatech ~]# cat /var/named/named.localhost 
+        $TTL 1D
+        @	IN SOA	@ rname.invalid. (
+        					0	; serial
+        					1D	; refresh
+        					1H	; retry
+        					1W	; expire
+        					3H )	; minimum
+        	NS	@
+        	A	127.0.0.1
+        	AAAA	::1
+        ```
+    - /var/named/named.loopback: 反向解析,用于将ipv4的127.0.0.1和ipv6的::1解析成localhost
+    
+        ```
+        [root@zhumatech ~]# cat /var/named/named.loopback 
+        $TTL 1D
+        @	IN SOA	@ rname.invalid. (
+        					0	; serial
+        					1D	; refresh
+        					1H	; retry
+        					1W	; expire
+        					3H )	; minimum
+        	NS	@
+        	A	127.0.0.1
+        	AAAA	::1
+        	PTR	localhost.
+        ```
+        
+- DNS监听的协议及端口是: 
+    - UDP协议的53端口: 默认情况下查询过程用的就是UDP协议,因为不需要3次握手速度会快
+    - TCP的53端口: 一般情况下,从服务器和主服务器之间传输数据用的是tcp协议
+    - TCP的953端口,rndc监听的远程域名服务器控制器
+- Named进程的配置文件/etc/named.conf,这是官方给的默认配置
+    ```c
+    options {   // 全局选项,定义DNS服务器的工作属性,对每一个zone都能生效
+    	listen-on port 53 { 127.0.0.1; };   // 监听端口
+    	listen-on-v6 port 53 { ::1; };      // ipv6监听端口
+    	directory 	"/var/named";   // 明确说明我们的数据文件目录
+    	dump-file 	"/var/named/data/cache_dump.db";    
+            statistics-file "/var/named/data/named_stats.txt";
+            memstatistics-file "/var/named/data/named_mem_stats.txt";
+    	allow-query     { localhost; };
+    	recursion yes;  // 允许递归
+
+    	dnssec-enable yes;
+    	dnssec-validation yes;
+    	dnssec-lookaside auto;
+
+    	/* Path to ISC DLV key */
+    	bindkeys-file "/etc/named.iscdlv.key";
+
+    	managed-keys-directory "/var/named/dynamic";
+    };
+
+    logging {
+            channel default_debug {
+                    file "data/named.run";
+                    severity dynamic;
+            };
+    };
+
+    zone "." IN {
+    	type hint;
+    	file "named.ca";
+    };
+
+    include "/etc/named.rfc1912.zones";
+    include "/etc/named.root.key";
+    ```
+- 我们可以手动建一个简单的配置文件;全局配置里最重要的就是一个数据文件目录;注意这个配置的语法格式,每一项要用分号隔开.
+    - 区域:
+        ```
+        zone "ZONE_NAME" IN {
+            type {master|slave|hint|forward};
+        };
+        ```
+    - 主区域:
+        file "区域数据文件";
+    - 从区域:
+        file "区域数据文件";
+        masters { master1_ip; master2_ip; };
+    ```
+    [root@zhumatech etc]# mv named.conf named.conf.ori  // 备份一下原始文件
+    [root@zhumatech etc]# ll named.conf.ori // 查看原来配置文件的权限
+    -rw-r-----. 1 root named 1008 Jul 19  2010 named.conf.ori
+    [root@zhumatech etc]# vi /etc/named.conf
+    options {
+            directory "/var/named";
+    };
+
+    zone "." IN {
+            type hint;
+            file "named.ca"
+    };
+
+    zone "localhost" IN {
+            type master;
+            file "named.localhost";
+    };
+
+    zone "0.0.127.in-addr.arpa" IN {
+            type master;
+            file "named.loopback"
+    };
+    
+    [root@zhumatech etc]# chown root:named /etc/named.conf
+    [root@zhumatech etc]# chmod 640 /etc/named.conf
+    [root@zhumatech etc]# ll /etc/named.conf
+    -rw-r-----. 1 root named 226 Jun 15 13:07 /etc/named.conf
+     
+    [root@zhumatech etc]# named-checkconf   // 检查配置文件是否有语法错误
+    [root@zhumatech etc]# named-checkzone "localhost" /var/named/named.localhost   // 检查区域配置文件是否有语法错误
+    zone localhost/IN: loaded serial 0
+    OK
+    [root@zhumatech etc]# named-checkzone "0.0.127.in-addr.arpa" /var/named/named.loopback     // 检查区域配置文件是否有语法错误
+    zone 0.0.127.in-addr.arpa/IN: loaded serial 0
+    OK
+    // 上面三个命令可以用下面一个命令直接代替
+    [root@zhumatech etc]# service named configtest
+    zone localhost/IN: loaded serial 0
+    zone 0.0.127.in-addr.arpa/IN: loaded serial 0
+    [root@zhumatech etc]# service named start   // 启动named
+    Starting named:                     [  OK  ]
+    [root@zhumatech etc]# tail /var/log/messages    // 其实named启动过程中所产生的信息都会记录到/var/log/messages中去
+    Jun 15 13:18:50 zhumatech named[5961]: automatic empty zone: 9.E.F.IP6.ARPA
+    Jun 15 13:18:50 zhumatech named[5961]: automatic empty zone: A.E.F.IP6.ARPA
+    Jun 15 13:18:50 zhumatech named[5961]: automatic empty zone: B.E.F.IP6.ARPA
+    Jun 15 13:18:50 zhumatech named[5961]: automatic empty zone: 8.B.D.0.1.0.0.2.IP6.ARPA
+    Jun 15 13:18:50 zhumatech named[5961]: command channel listening on 127.0.0.1#953
+    Jun 15 13:18:50 zhumatech named[5961]: command channel listening on ::1#953
+    Jun 15 13:18:50 zhumatech named[5961]: zone 0.0.127.in-addr.arpa/IN: loaded serial 0
+    Jun 15 13:18:50 zhumatech named[5961]: zone localhost/IN: loaded serial 0
+    Jun 15 13:18:50 zhumatech named[5961]: managed-keys-zone ./IN: loaded serial 3
+    Jun 15 13:18:50 zhumatech named[5961]: running
+    [root@zhumatech etc]# netstat -tlunp    // 查看53端口已经被监听
+    Active Internet connections (only servers)
+    Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name   
+    tcp        0      0 192.168.88.88:53            0.0.0.0:*                   LISTEN      5961/named          
+    tcp        0      0 127.0.0.1:53                0.0.0.0:*                   LISTEN      5961/named          
+    tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN      1505/sshd           
+    ```
+- 服务器开启以后,我们看看他能不能正常解析
+    ```
+    [root@zhumatech etc]# vi /etc/resolv.conf   // 首先我们把DNS改成本机(运行DNS服务器)的IP
+    nameserver 192.168.88.88
+    [root@zhumatech etc]# dig -t NS "." // 能够正常查询到根
+    ; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.17.rc1.el6_4.6 <<>> -t NS .
+    ;; global options: +cmd
+    ;; Got answer:
+    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 15493
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 13, AUTHORITY: 0, ADDITIONAL: 13
+
+    ;; QUESTION SECTION:
+    ;.				IN	NS
+
+    ;; ANSWER SECTION:
+    .			518400	IN	NS	m.root-servers.net.
+    .			518400	IN	NS	g.root-servers.net.
+    .			518400	IN	NS	c.root-servers.net.
+    .			518400	IN	NS	a.root-servers.net.
+    
+    [root@zhumatech etc]# ping www.baidu.com    // 能够解析外网域名
+    PING www.a.shifen.com (180.97.33.108) 56(84) bytes of data.
+    64 bytes from 180.97.33.108: icmp_seq=1 ttl=55 time=6.48 ms
+    [root@zhumatech etc]# chkconfig named on    // 默认named不开机自起,我们将它设置为开机自起
+    [root@zhumatech etc]# chkconfig --list named    
+    named          	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+    // 至此,我们的DNS缓存服务器已经能够工作了
+    ```
+- ___请注意,请确保我们的selinux是关闭的___
+- 套接字: 简单来说就是IP:PORT,其作用是让客户端发起请求时知道到哪里去发起请求对方的服务的,因此每一个服务器只要想让位于两台主机上的进程彼此间能够通信,服务器端就必须监听在某个套接字上作为客户端的访问入口的;___假如一台DNS服务器有多个IP,只有监听的IP地址才会响应;0.0.0.0:53 表示所有地址的53号端口都监听了.___
+#### 现在我们要来设置aphey.com
+- 域名aphey.com,得到的网段是172.16.100.0/24;计划使用如下:
+    - ns 172.16.100.1
+    - www 172.16.100.1,172.16.100.3
+    - mail 172.16.100.2
+    - ftp www的别名
+- 给aphey.com域名配置正向区域
+    ```
+    [root@zhumatech ~]# vi /etc/named.conf
+    // 在最下面添加上区域"aphey.com"
+    ......
+    zone "aphey.com" IN {
+            type master;
+            file "aphey.com.zone";  // 这个文件需要手动创立
+    [root@zhumatech ~]# vi /var/named/aphey.com.zone
+
+    $TTL 600 (设置通用的TTL) //注意这是一个宏,所有声明宏的时候前面要加$
+    aphey.com.      IN      SOA     ns1.aphey.com.  admin.aphey.com.        (                                                    2017061501 
+                 1H  
+                 5M 
+                 2D 
+                 6H )                                        
+    aphey.com(或者留空,留空表示从上一条直接继承) IN      NS           ns1.aphey.com.(或者直接ns1)
+    aphey.com(或者留空) IN      MX  10       mail.aphey.com.(或者直接mail)       
+    ns1             IN      A       172.16.100.1
+    mail            IN      A       172.16.100.2
+    www             IN      A       172.16.100.1
+    www             IN      A       172.16.100.3
+    ftp             IN      CNAME   www
+    [root@zhumatech ~]# chmod 640 /var/named/aphey.com.zone // 修改一下权限
+    [root@zhumatech ~]# ll /var/named/aphey.com.zone
+    -rw-r-----. 1 root root 282 Jun 15 14:06 /var/named/aphey.com.zone
+    ```
+- dig -t 查询类型    查询类型对应的名称(比如域名) @IP,比如`dig -t NS aphey.com` 表示查询 aphey.com 的DNS服务器是谁,`dig -t NS aphey.com @172.16.100.1` 表示我直接到172.16.100.1上去查找aphey.com,你愿意给我答案就给我答案,不愿意给我答案,就查找错误了
+    ```
+    [root@zhumatech ~]# dig -t A aphey.wang @223.5.5.5
+
+    ; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.17.rc1.el6_4.6 <<>> -t A aphey.wang @223.5.5.5
+    ;; global options: +cmd
+    ;; Got answer:
+    ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 32217
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 0
+
+    ;; QUESTION SECTION:
+    ;aphey.wang.			IN	A
+
+    ;; ANSWER SECTION:
+    aphey.wang.		30	IN	CNAME	aphey.github.io.
+    aphey.github.io.	30	IN	CNAME	github.map.fastly.net.
+    github.map.fastly.net.	30	IN	A	151.101.72.133
+
+    ;; Query time: 2646 msec
+    ;; SERVER: 223.5.5.5#53(223.5.5.5)
+    ;; WHEN: Thu Jun 15 14:23:40 2017
+    ;; MSG SIZE  rcvd: 108
+    ```
+- `dig -x IP` 表示根据IP查找FQDN
+    ```
+    [root@zhumatech ~]# dig -x 61.135.165.235
+
+    ; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.17.rc1.el6_4.6 <<>> -x 61.135.165.235
+    ;; global options: +cmd
+    ;; Got answer:
+    ;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 40788
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 0
+
+    ;; QUESTION SECTION:
+    ;235.165.135.61.in-addr.arpa.	IN	PTR
+
+    ;; AUTHORITY SECTION:
+    165.135.61.in-addr.arpa. 7200	IN	SOA	dns.baidu.com. sa.baidu.com. 2012091801 300 600 2592000 7200
+
+    ;; Query time: 1886 msec
+    ;; SERVER: 192.168.88.88#53(192.168.88.88)
+    ;; WHEN: Thu Jun 15 15:17:04 2017
+    ;; MSG SIZE  rcvd: 97
+    ``` 
+- host -t RESOURCE_NAME 查询类型:
+    ```
+    [root@zhumatech ~]# host -t A www.baidu.com
+    www.baidu.com is an alias for www.a.shifen.com.
+    www.a.shifen.com has address 180.97.33.107
+    www.a.shifen.com has address 180.97.33.108
+    [root@zhumatech ~]# host -t NS baidu.com
+    baidu.com name server ns2.baidu.com.
+    baidu.com name server ns4.baidu.com.
+    baidu.com name server ns7.baidu.com.
+    baidu.com name server dns.baidu.com.
+    baidu.com name server ns3.baidu.com.
+    [root@zhumatech ~]# host -t SOA baidu.com
+    baidu.com has SOA record dns.baidu.com. sa.baidu.com. 2012135502 300 300 2592000 7200
+    ```
+- `nslook`: 交互式,windows和linux都支持
+    - windows交互式模式常用命令: nslookup>
+        - server IP: 设置DNS服务器是哪个IP
+        - set q=查询资源记录类型(A,SO A,MX,NS...)
+        - 输入名称(aphey.com)
+- 给aphey.com配置反向区域
+    1. 编辑/etc/named.conf
+        ```
+        [root@zhumatech ~]# vi /etc/named.conf  // 添加一个反向区域
+        ......
+            zone "100.16.172.in-addr.arpa" IN {
+                    type master;
+                    file "172.16.100.zone";
+            };    
+        ```        
+    2. 手动创建/var/named/172.16.100.zone
+        
+        ```
+        [root@zhumatech ~]# vi /var/named/172.16.100.zone 
+        
+        @               600     IN      SOA     ns1.aphey.com.  admin.aphey.com. 2017061501 1H 5M 2D 6H
+
+                        600     IN      NS      ns1.aphey.com.
+        1               600     IN      PTR     ns1.aphey.com.
+        1               600     IN      PTR     ns1.aphey.com.
+        2               600     IN      PTR     www.aphey.com.
+        3               600     IN      PTR     www.aphey.com.
+        ```
+    3. 测是反向区域
+        
+        ```
+        [root@zhumatech ~]# dig -x 172.16.100.1
+
+        ; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.17.rc1.el6_4.6 <<>> -x 61.135.165.235
+        ;; global options: +cmd
+        ;; Got answer:
+        ;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 40788
+        ;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 0
+
+        ;; QUESTION SECTION:
+        ;235.165.135.61.in-addr.arpa.	IN	PTR
+
+        ;; AUTHORITY SECTION:
+        165.135.61.in-addr.arpa. 7200	IN	SOA	dns.baidu.com. sa.baidu.com. 2012091801 300 600 2592000 7200
+
+        ;; Query time: 1886 msec
+        ;; SERVER: 192.168.88.88#53(192.168.88.88)
+        ;; WHEN: Thu Jun 15 15:17:04 2017
+        ;; MSG SIZE  rcvd: 97
+        ``` 
