@@ -517,4 +517,336 @@
         ;; SERVER: 192.168.88.88#53(192.168.88.88)
         ;; WHEN: Thu Jun 15 15:17:04 2017
         ;; MSG SIZE  rcvd: 97
-        ``` 
+        ```
+#### DNS主从复制及区域传送
+- 我们的DNS服务器不能给所有人都递归,所以我们要选择性地给某些人递归,具体操作如下:
+    ```
+    [root@zhumatech ~]# vi /etc/named.conf  // 编辑named.conf
+    options {
+            directory "/var/named";
+            allow-recursion { 172.16.0.0/16; }; // 用于定义递归对象(客户来源),这里表示只对172.16.0.0网段递归,默认为空=recursion yes;
+            allow-query  { localhost; }; ;   // 只允许某人来查询,any表示允许所有,none表示谁都不行，如允许192.168.1.0网段，设置为“192.168.1.0/24”，具体的主机设为“主机的IP”,用的不多
+            notify yes;     //当发生改变时,通知从服务器           
+    };
+    ``` 
+- dig 还有几个选项很有意思:
+    - +[no]recurse : 不递归查询,意思就是你得根据收到的NS服务器一个一个地去追踪
+        ```
+        [root@zhumatech ~]# dig +norecurse -t A www.baidu.com @192.168.88.88  // 我先向我内部的DNS服务器发起查询请求,内部请求找不到答案给我返回了一个com.的DNS服务器
+
+        ; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.17.rc1.el6_4.6 <<>> +norecurse -t A www.baidu.com @192.168.88.88
+        ;; global options: +cmd
+        ;; Got answer:
+        ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 18649
+        ;; flags: qr ra; QUERY: 1, ANSWER: 0, AUTHORITY: 13, ADDITIONAL: 14
+
+        ;; QUESTION SECTION:
+        ;www.baidu.com.			IN	A
+
+        ;; AUTHORITY SECTION:
+        com.			106816	IN	NS	g.gtld-servers.net.
+        com.			106816	IN	NS	d.gtld-servers.net.
+        com.			106816	IN	NS	l.gtld-servers.net.
+        com.			106816	IN	NS	i.gtld-servers.net.
+        com.			106816	IN	NS	b.gtld-servers.net.
+        com.			106816	IN	NS	k.gtld-servers.net.
+        com.			106816	IN	NS	c.gtld-servers.net.
+        com.			106816	IN	NS	h.gtld-servers.net.
+        com.			106816	IN	NS	f.gtld-servers.net.
+        com.			106816	IN	NS	m.gtld-servers.net.
+        com.			106816	IN	NS	a.gtld-servers.net.
+        com.			106816	IN	NS	e.gtld-servers.net.
+        com.			106816	IN	NS	j.gtld-servers.net.
+
+        ;; ADDITIONAL SECTION:
+        h.gtld-servers.net.	106814	IN	A	192.54.112.30
+        e.gtld-servers.net.	106814	IN	A	192.12.94.30
+        c.gtld-servers.net.	106814	IN	A	192.26.92.30
+        b.gtld-servers.net.	106814	IN	A	192.33.14.30
+        b.gtld-servers.net.	106814	IN	AAAA	2001:503:231d::2:30
+        j.gtld-servers.net.	106814	IN	A	192.48.79.30
+        f.gtld-servers.net.	106814	IN	A	192.35.51.30
+        m.gtld-servers.net.	106814	IN	A	192.55.83.30
+        k.gtld-servers.net.	106814	IN	A	192.52.178.30
+        a.gtld-servers.net.	106814	IN	A	192.5.6.30
+        a.gtld-servers.net.	106814	IN	AAAA	2001:503:a83e::2:30
+        l.gtld-servers.net.	106814	IN	A	192.41.162.30
+        g.gtld-servers.net.	106814	IN	A	192.42.93.30
+        i.gtld-servers.net.	106814	IN	A	192.43.172.30
+
+        ;; Query time: 1 msec
+        ;; SERVER: 192.168.88.88#53(192.168.88.88)
+        ;; WHEN: Fri Jun 16 10:31:53 2017
+        ;; MSG SIZE  rcvd: 503
+
+        [root@zhumatech ~]# dig +norecurse -t A www.baidu.com @a.gtld-servers.net.    // 我再向根的DNS服务器发起查询请求,给我返回了百度的DNS服务器
+
+        ; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.17.rc1.el6_4.6 <<>> +norecurse -t A www.baidu.com @a.gtld-servers.net.
+        ;; global options: +cmd
+        ;; Got answer:
+        ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 31074
+        ;; flags: qr; QUERY: 1, ANSWER: 0, AUTHORITY: 5, ADDITIONAL: 5
+
+        ;; QUESTION SECTION:
+        ;www.baidu.com.			IN	A
+
+        ;; AUTHORITY SECTION:
+        baidu.com.		172800	IN	NS	dns.baidu.com.
+        baidu.com.		172800	IN	NS	ns2.baidu.com.
+        baidu.com.		172800	IN	NS	ns3.baidu.com.
+        baidu.com.		172800	IN	NS	ns4.baidu.com.
+        baidu.com.		172800	IN	NS	ns7.baidu.com.
+
+        ;; ADDITIONAL SECTION:
+        dns.baidu.com.		172800	IN	A	202.108.22.220
+        ns2.baidu.com.		172800	IN	A	61.135.165.235
+        ns3.baidu.com.		172800	IN	A	220.181.37.10
+        ns4.baidu.com.		172800	IN	A	220.181.38.10
+        ns7.baidu.com.		172800	IN	A	119.75.219.82
+
+        ;; Query time: 92 msec
+        ;; SERVER: 192.5.6.30#53(192.5.6.30)
+        ;; WHEN: Fri Jun 16 10:32:36 2017
+        ;; MSG SIZE  rcvd: 201
+
+        [root@zhumatech ~]# dig +norecurse -t A www.baidu.com @dns.baidu.com // 最后根据百度的DNS服务器发起查询请求,给了我权威的答案
+
+        ; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.17.rc1.el6_4.6 <<>> +norecurse -t A www.baidu.com @dns.baidu.com
+        ;; global options: +cmd
+        ;; Got answer:
+        ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 60737
+        ;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 5, ADDITIONAL: 5
+
+        ;; QUESTION SECTION:
+        ;www.baidu.com.			IN	A
+
+        ;; ANSWER SECTION:
+        www.baidu.com.		1200	IN	CNAME	www.a.shifen.com.
+
+        ;; AUTHORITY SECTION:
+        a.shifen.com.		1200	IN	NS	ns2.a.shifen.com.
+        a.shifen.com.		1200	IN	NS	ns1.a.shifen.com.
+        a.shifen.com.		1200	IN	NS	ns3.a.shifen.com.
+        a.shifen.com.		1200	IN	NS	ns5.a.shifen.com.
+        a.shifen.com.		1200	IN	NS	ns4.a.shifen.com.
+
+        ;; ADDITIONAL SECTION:
+        ns1.a.shifen.com.	1200	IN	A	61.135.165.224
+        ns2.a.shifen.com.	1200	IN	A	180.149.133.241
+        ns3.a.shifen.com.	1200	IN	A	61.135.162.215
+        ns4.a.shifen.com.	1200	IN	A	115.239.210.176
+        ns5.a.shifen.com.	1200	IN	A	119.75.222.17
+
+        ;; Query time: 34 msec
+        ;; SERVER: 202.108.22.220#53(202.108.22.220)
+        ;; WHEN: Fri Jun 16 10:32:50 2017
+        ;; MSG SIZE  rcvd: 228
+        ```
+    - +trace 追踪DNS解析的整个过程
+        ```
+        [root@zhumatech ~]# dig +trace -t A www.baidu.com @192.168.88.88   // 系统会自动显示DNS解析的整个过程
+
+        ; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.17.rc1.el6_4.6 <<>> +trace -t A www.baidu.com @192.168.88.88
+        ;; global options: +cmd
+        .			451920	IN	NS	h.root-servers.net.
+        .			451920	IN	NS	j.root-servers.net.
+        .			451920	IN	NS	m.root-servers.net.
+        .			451920	IN	NS	i.root-servers.net.
+        .			451920	IN	NS	k.root-servers.net.
+        .			451920	IN	NS	e.root-servers.net.
+        .			451920	IN	NS	a.root-servers.net.
+        .			451920	IN	NS	b.root-servers.net.
+        .			451920	IN	NS	d.root-servers.net.
+        .			451920	IN	NS	c.root-servers.net.
+        .			451920	IN	NS	g.root-servers.net.
+        .			451920	IN	NS	f.root-servers.net.
+        .			451920	IN	NS	l.root-servers.net.
+        ;; Received 508 bytes from 192.168.88.88#53(192.168.88.88) in 3814 ms
+
+        com.			172800	IN	NS	b.gtld-servers.net.
+        com.			172800	IN	NS	j.gtld-servers.net.
+        com.			172800	IN	NS	m.gtld-servers.net.
+        com.			172800	IN	NS	f.gtld-servers.net.
+        com.			172800	IN	NS	a.gtld-servers.net.
+        com.			172800	IN	NS	i.gtld-servers.net.
+        com.			172800	IN	NS	e.gtld-servers.net.
+        com.			172800	IN	NS	d.gtld-servers.net.
+        com.			172800	IN	NS	c.gtld-servers.net.
+        com.			172800	IN	NS	h.gtld-servers.net.
+        com.			172800	IN	NS	g.gtld-servers.net.
+        com.			172800	IN	NS	l.gtld-servers.net.
+        com.			172800	IN	NS	k.gtld-servers.net.
+        ;; Received 491 bytes from 202.12.27.33#53(202.12.27.33) in 3076 ms
+
+        baidu.com.		172800	IN	NS	dns.baidu.com.
+        baidu.com.		172800	IN	NS	ns2.baidu.com.
+        baidu.com.		172800	IN	NS	ns3.baidu.com.
+        baidu.com.		172800	IN	NS	ns4.baidu.com.
+        baidu.com.		172800	IN	NS	ns7.baidu.com.
+        ;; Received 201 bytes from 192.5.6.30#53(192.5.6.30) in 1000 ms
+
+        www.baidu.com.		1200	IN	CNAME	www.a.shifen.com.
+        a.shifen.com.		1200	IN	NS	ns3.a.shifen.com.
+        a.shifen.com.		1200	IN	NS	ns4.a.shifen.com.
+        a.shifen.com.		1200	IN	NS	ns1.a.shifen.com.
+        a.shifen.com.		1200	IN	NS	ns5.a.shifen.com.
+        a.shifen.com.		1200	IN	NS	ns2.a.shifen.com.
+        ;; Received 228 bytes from 180.76.76.92#53(180.76.76.92) in 7 ms
+        ```
+    - +axfr:完全区域传送;ixfr:增量区域传送, `dig -t axfr aphey.com`,得到对方区域内的所有区域
+        ```
+        [root@zhumatech ~]# dig -t +axfr baidu.com @ns7.baidu.com
+        ;; Warning, ignoring invalid type +axfr
+
+        ; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.17.rc1.el6_4.6 <<>> -t +axfr baidu.com @ns7.baidu.com
+        ;; global options: +cmd
+        ;; Got answer:
+        ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 30836
+        ;; flags: qr aa rd; QUERY: 1, ANSWER: 4, AUTHORITY: 5, ADDITIONAL: 5
+        ;; WARNING: recursion requested but not available
+
+        ;; QUESTION SECTION:
+        ;baidu.com.			IN	A
+
+        ;; ANSWER SECTION:
+        baidu.com.		600	IN	A	180.149.132.47
+        baidu.com.		600	IN	A	220.181.57.217
+        baidu.com.		600	IN	A	111.13.101.208
+        baidu.com.		600	IN	A	123.125.114.144
+
+        ;; AUTHORITY SECTION:
+        baidu.com.		86400	IN	NS	ns2.baidu.com.
+        baidu.com.		86400	IN	NS	dns.baidu.com.
+        baidu.com.		86400	IN	NS	ns3.baidu.com.
+        baidu.com.		86400	IN	NS	ns4.baidu.com.
+        baidu.com.		86400	IN	NS	ns7.baidu.com.
+
+        ;; ADDITIONAL SECTION:
+        dns.baidu.com.		86400	IN	A	202.108.22.220
+        ns2.baidu.com.		86400	IN	A	61.135.165.235
+        ns3.baidu.com.		86400	IN	A	220.181.37.10
+        ns4.baidu.com.		86400	IN	A	220.181.38.10
+        ns7.baidu.com.		86400	IN	A	180.76.76.92
+
+        ;; Query time: 9 msec
+        ;; SERVER: 180.76.76.92#53(180.76.76.92)
+        ;; WHEN: Fri Jun 16 11:29:07 2017
+        ;; MSG SIZE  rcvd: 261
+        ```
+    - 区域传送,发生在有主从结构,从主服务器向从服务器传送区域数据中发生变化的内容,为了安全起见,我们需要定义只能有谁能传送:
+        ```
+        [root@zhumatech ~]# vi /etc/named.conf  // 在全局定义中添加allow-transfer语句;也可以把allow-transfer写在区域定义中,表示只这个区域文件只允许谁来传送
+
+        options {
+                directory "/var/named";
+                allow-transfer { 172.16.0.1; }; // 表示只允许172.16.0.1这个主机传送
+        };
+        ```
+    - 配置named从服务器,比主服务器简单多了;只要配置主配置文件即可;此时千万注意:___在添加从服务器的时候,务必要把从服务器也添加到/var/named/区域文件中的NS服务器列表中去.___
+        1. 先安装bind
+        2. 安装完我们发现,无论主从服务器上,在/var/named/中都有个slaves目录,它的属主和属组都是named,权限是660,而它的父目录/var/named/属组是没有写权限的,如果我们让从服务器从主服务器那里同步过来文件的时候是不能保存在/var/named/中的;所以我们有两种解决方案:1) 给/var/named/目录的属组增加写权限;2)同步过来的文件放在/var/named/slaves/中
+        3. 更改从服务器的/etc/named.conf
+            ```
+            [root@zhumatech ~]# vi named.conf
+
+            options {
+                    directory "/var/named";
+                    allow-recursion { 172.16.0.0/16; };
+            };
+
+            zone "." IN {
+                    type hint;
+                    file "named.ca";
+            };
+
+            zone "localhost" IN {
+                    type slave;     //类型为slave
+                    master { 172.16.100.1; };   //指定主服务器
+                    file "slaves/named.localhost";  //指定同步数据的路径名称
+                    allow-transfer { none; };
+            };
+
+            zone "0.0.127.in-addr.arpa" IN {
+                    type slave;     //类型为slave 
+                    master { 172.16.100.1;};   //指定主服务器
+                    file "slaves/named.loopback";  //指定同步数据的路径名称
+                    allow-transfer { none; };
+            };
+
+            zone "aphey.com" IN {
+                    type slave;
+                    master { 172.16.100.1;};    //类型为slave 
+                    file "aphey.com.zone";  //指定主服务器
+                    allow-transfer { none;};  //指定同步数据的路径名称
+            ```
+        4. 查看一下/etc/named.conf权限,把它的属组改成named
+            ```
+            [root@zhumatech ~]# ll named.conf 
+            -rw-r-----. 1 root root 576 Jun 16 12:00 named.conf
+            [root@zhumatech ~]# chown :named named.conf 
+            [root@zhumatech ~]# ll named.conf 
+            -rw-r-----. 1 root named 576 Jun 16 12:00 named.conf
+            ```
+        5. 然后就可以在从服务器上启动named服务器了.
+- 如何在本机上能使用rndc命令,`rndc -h` 查看帮助和子命令
+    - `rndc-confgen > /etc/rndc.conf`: 生成配置文件
+        ```
+        [root@zhumatech ~]# rndc-confgen > /etc/rndc.conf   //生成配置文件
+        [root@zhumatech ~]# cat /etc/rndc.conf  //查看配置文件
+        # Start of rndc.conf
+        key "rndc-key" {
+        	algorithm hmac-md5;
+        	secret "WtHJcjopXyIlorojab/hsg==";
+        };
+
+        options {
+        	default-key "rndc-key";
+        	default-server 127.0.0.1;
+        	default-port 953;
+        };
+        # End of rndc.conf
+
+        # Use with the following in named.conf, adjusting the allow list as needed:
+        // 把下面这段添加到named.conf中去,并去掉前面的注释符号
+        # key "rndc-key" {
+        # 	algorithm hmac-md5;
+        # 	secret "WtHJcjopXyIlorojab/hsg==";
+        # };
+        # 
+        # controls {
+        # 	inet 127.0.0.1 port 953
+        # 		allow { 127.0.0.1; } keys { "rndc-key"; };
+        # };
+        # End of named.conf
+        ```
+    - 删除掉/etc/rndc.key,这个文件没啥用,保留了还会影响rndc的使用
+    ```
+    [root@zhumatech etc]# rm rndc.key   // 删除掉/etc/rndc.key
+    rm: remove regular file `rndc.key'? y
+    [root@zhumatech etc]# service named restart // 重新启动named
+    Stopping named: .                                          [  OK  ]
+    Generating /etc/rndc.key:                                  [  OK  ]
+    Starting named:                                            [  OK  ]
+    [root@zhumatech etc]# rndc -c /etc/rndc.conf status // 指定rndc配置文件,再执行子命令;-c 可以不用指定
+    version: 9.8.2rc1-RedHat-9.8.2-0.17.rc1.el6_4.6
+    CPUs found: 4
+    worker threads: 4
+    number of zones: 20
+    debug level: 0
+    xfers running: 0
+    xfers deferred: 0
+    soa queries in progress: 0
+    query logging is OFF
+    recursive clients: 0/0/1000
+    tcp clients: 0/100
+    server is up and running
+    ```
+- rndc控制远程服务器,必须注意以下几点:
+    - 在rndc.conf中复制到named.conf中的那段配置中要修改control段的监听地址和端口
+        ```
+        controls {
+                inet 192.168.88.88 port 953
+                        allow { 192.168.88.38 } keys { "rndc-key"; };
+        };
+        ```
+       
