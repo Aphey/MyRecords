@@ -849,4 +849,182 @@
                         allow { 192.168.88.38 } keys { "rndc-key"; };
         };
         ```
-       
+#### DNS子域授权
+- 假如公司规模扩展, 有两个部门都希望能够实现自己的DNS服务器管理;比如之前所有主机都位于www.aphey.com,公司财务部和市场部各自需要自己的web页面,于是我们做了这样的结构: www.aphey.com/fin和www.aphey.com/market;随着公司的发展,财务部和市场部需要使用自己的名称和主机.
+- 现在他们需要fin.aphey.com和market.aphey.com;这两个就叫子域,而子域的成立就需要父域的授权
+- 在正向区域里给子域授权:
+    ```
+    // 格式
+    SUB_ZONE_NAME   IN  NS  NSSERVER_SUB_ZONE_NAME
+    NSSERVER_SUB_ZONE_NAME  IN  A   IP
+    // 编辑/var/named/aphey.com.zone给子域授权
+    fin.aphey.com.   IN  NS  ns1.fin.aphey.com.
+    fin.aphey.com.   IN  NS  ns2.fin.aphey.com.
+    ns1.fin.aphey.com.  IN  A   172.16.100.8
+    ns2.fin.ahey.com.   IN  A   172.16.100.9
+    
+    market.aphey.   IN  NS  ns1.market.aphey.com.
+    ns1.market.aphey.com.   IN  A   172.16.100.108    
+    ```
+- __注意:就算你在父域区域文件里配置里子域授权,但子域DNS服务器没启动,或者无法跟父域DNS服务器通信的话,我们用`dig -t NS 子域名` 也是无法获得答案的.__
+- 一般情况下我们是无法通过子域的DNS服务器查询到其父域的.但是我们可以通过定义转发来配置,告诉子域,父域在什么地方即可.
+    ```
+    // 编辑子域DNS服务器上的/etc/named.conf;加上下面这一行信息即可
+    options {
+        directory "/var/named";
+        forward first;       //forward一般有{only|first};only表示我只转发给你,你不给我答案,那就算逑;first表示,我先转发给你,你不给我答案我就去找根.
+        forwarders { 172.16.100.1; };   // 定义将除了,下面fin.aphey.com之外的查询都转发到172.16.100.1去 
+    };
+    ......
+    zone "fin.aphey.com" IN {
+        type master;
+        file "fin.aphey.com.zone"
+    };
+    // 注意 这里定义的转发是指除了in.aphey.com之外的查询都转发到172.16.100.1去;我们还可以只对某一个区域的解析进行转发,添加下面的一段:
+    zone "aphey.com" IN {
+        type forward;   //注意这里要定义成forward类型,注意,这里转发优先级比上面全局定义的优先级要高
+        forward first;  //定义成先转发给哪一个NS服务器
+        forwaders { 172.16.100.1; };    //定义接受转发的服务器
+    };
+    ```
+#### DNS试图及日志系统
+- ACL access control list 访问控制列表;必须先定义才能使用一般都是定义在/etc/named.conf的options全局定义的上方
+    ```
+    //格式
+    acl ACL_NAME {
+        172.16.0.0/16;
+        127.0.0.0/8;
+    };
+    // 例子
+    acl innet {
+        172.16.0.0/16;
+        127.0.0.0/8;
+    };
+    allow-query { innet; };
+    // 我们named有两个常用的内置列表:none谁都没有和any所有的.
+    ```
+- 在互联网上有这样一种场景:我们有两大运营商: telecom和unicom;他们在北京的某个机房用1个100G的接口连接,这就造成这两个运营商的用户交互起来容易卡.
+- 智能DNS:DNS服务器可以在自己内部做视图(View),视图简单来讲,将数据文件切割成两(多)部分,用来应对来自不同网络的用户请求.
+- 实现智能解析,使用视图,编辑/etc/named.conf
+    ```
+    //格式,注意,allow-query等定义都可以使用在视图中,还有所有的区域都必须定义在视图中
+    view VIEW_NAME {
+        match-clients { ACL_NAME }; 用来匹配来自什么地方的
+    }
+    // 编辑配置文件
+    acl telecom {   // 一般视图会和访问控制列表一起使用,我们这里定义telecom
+        172.16.0.0/16;
+        127.0.0.0/8;
+    };
+    acl unicom{
+        192.168.0.0/24; // 这是我们假设的网通网段
+    };
+    options {
+    ......
+    
+    view telecom {  //定义电信视图
+        match-clients { telecom; };     //匹配电信用户
+        zone "aphey.com" IN {
+            type master;
+            files "telecom.aphey.com";    //注意这个区域文件的名字就是上边切割成多份,用来对应这个视图的用途的客户的;位置在/var/named/目录中
+        };
+    };
+    
+    view unicom{    //定义网通视图
+        match-clients { unicom; }       //匹配联通用户
+        zone "aphey.com" IN {
+            type master;
+            files "unicom.aphey.com";   //注意这个区域文件的名字就是上边切割成多份,用来对应这个视图的用途的客户的;位置在/var/named/目录中
+        };
+    };
+    
+    view others{    //定义其他网络的视图
+        match-clients { any; }       //匹配其他所有用户
+        zone "aphey.com" IN {
+            type master;
+            files "others.aphey.com";   //注意这个区域文件的名字就是上边切割成多份,用来对应这个视图的用途的客户的;位置在/var/named/目录中
+        };
+    };
+    
+    // 假如我们一台DNS要为多个域名做解析,只要在每个视图中添加多个域"zone ... " 即可.
+    ``` 
+##### DNS服务器的日志功能
+- 开启DNS服务器日志功能,编辑/etc/named.conf
+    ```
+    // 简单的方法,在options段里添加
+    querylog yes;
+    ```
+-  我们的DNS提供了一个非常具有弹性的日志系统,能够让我们定义只记录哪些东西,我们可以理解为bind的子系统   
+    - category: 定义日志源,DNS产生日志的子系统在哪里,包括查询的,区域传送的,错误,服务器启动停止的相关信息
+    - channel: 定义日志记录保存的目标地址,1个category可以定向到多个channel,但一个channel不能能对应一个category;一般日志记录的目标有两种:syslog和自定义FILE文件;和syslog相似,自定义日志也有级别划分,分为critical,error,warning,notice,info,debug{1-3}和dynamic;默认是info级别
+- 定义channel的方法,在/etc/named.conf的logging段添加:
+    - `channel "default_syslog" { syslog daemon; severity info; };`
+    - `channel "default_debug" { file "named.run"; severity dynamic; };`
+    - `channel "default_stderr" { stderr;severity info; };`
+    - `channel "null" { null; };`
+- BIND的category日志源只有15个,除此之外是不能自定义的
+    - default: 定义默认channel保存日志的方法
+    - general: 为没分类的category
+    - client: 
+    - config: 配置文件相关的信息
+    - dispatch:
+    - dnssec:
+    - lame-server:远程服务器配置错误的相关信息
+    - network: 网络相关信息
+    - notify: 通知相关的信息
+    - queries: 查询相关内容
+    - resolver: 递归查询的信息
+    - security: 拒绝的查询请求的信息
+    - update: 动态更新的信息
+    - xfer-in: 服务器接受区域文件传送的信息
+    - xfer-out: 服务器转出区域文件的信息
+- 看看例子,编辑/etc/named.conf,在里面添加下面一段
+    ```
+    logging {
+        channel querylog {   //定义query通道
+            file "/var/log/named/bind_query.log" versions 5 size 10M;  //定义日志的名称,大小,保留版本数;注意named进程对这个文件默认是没有写权限的;最好把/var/log/named/目录的属主和属组改成named
+            severity dynamic;
+            print-category yes; // 在日志中记录日志源
+            print-time yes; // 在日志中记录日志时间
+            print-severity yes; // 在日志中记录日志级别
+        };
+        channel transfer_log { //定义日志通道
+            file "/var/log/named/transfer.log" versions 5 size 10M;  
+            severity debug 3;   //定义级别为debug 3
+        };
+        category query { querylog; };  // 跟query相关的日志通过my_file这个通道来记录
+        category xfer-out { transfer_log; }; // 跟区域文件输出相关的日志通过transfer_log这个通道来记录
+    };
+        // 查询日志和安全日志最好不要开启,因为I/O太多,会影响服务器性能
+        // 跟更新相关的信息应该开启
+    ```
+ - DNS服务器性能测试,源码包中有个命令叫`queryperf`,它就是对dns服务器做压力测试的.
+    ```
+    // 源码包安装,你懂的
+    // 用法: 先建一个文件,在里面放上你要查询的域名和类型,比如 aphey.com NS
+    // 命令用法: queryperf -d 测试文件 -s DNS服务器
+    [root@zhumatech ~]# vi test
+    www.aphey.com NS
+    www.baidu.com A
+    www.sina.com MX
+    [root@zhumatech ~]# queryperf -d test -s 172.16.100.1
+    Statistics:
+      Parse input file:     once
+      Ended due to:     reaching end of file
+      
+      Queries sent:         3 queries
+      Queries completed:    3 queries
+      .......
+    ```
+- 另外,bind中有个dnstop包可以做测试; 
+    ```
+    // 先编译安装
+    // 用法是 dnstop -4(表示抓取IPv4的包,-6你懂的) -i IP (表示忽略这个源IP,不常用)  -r 表示指定多长时间  device 指定设备 -R 统计响应数 -Q 统计查询数 eth0(指定网卡设备)
+    [root@zhumatech ~]# dnstop -4 -Q -R eth0
+    Queries: 0 new, 8 total
+    Replies: 0 new,5 total
+    Sources     Count   %   cum%
+    ----------------------------
+    172.16.100.1    6   75.0   75.0     // 当客户机查询的时候这边会显示出来
+    172.16.100.8    2   25.0   25.0     // 这个时候我们也可以用queryperf来测试
+    ```
