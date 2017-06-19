@@ -5549,4 +5549,3 @@ grub> quit  //退出
         3. 测试登陆即可
 - sftp root@REMOTE_HOST可以不用假设ftp服务器直接登陆进去传输文件,`get FILENAME`即可;`exit`即可退出
 - 如果远程服务器改了sshd的默认端口我们只要在Xshell 中用`ssh USERNAME@REMOTE_HOST PORT` 即可以连接;注意防火墙要把对应的端口打开.
-- 
