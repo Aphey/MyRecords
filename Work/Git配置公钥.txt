@@ -24,7 +24,7 @@ Welcome to Git@OSC, YOURNAME!
 Windows下由于SSH配置文件的不匹配，导致的Permission denied (publickey)及其解决方法
 很多情况下，Windows平台由于不原生支持ssh，只能使用如git bash openssh，putty等等工具或连接了不同的平台比如同时连接了码云和github等等会因为密钥文件储存位置不一致或者各个工具生成了自己的密钥而导致在连接码云的时候出现Permission denied (publickey)，当遇上这种问题是一般有两种解决办法，一种是只使用一种工具，这样就能保证密钥位置不会变动，然后在密钥的文件夹下创建config文件，然后填写如下内容：
 
-Host git.oschina.net
+    Host git.oschina.net
     HostName git.oschina.net
     User git
     IdentityFile ~/.ssh/id_rsa
