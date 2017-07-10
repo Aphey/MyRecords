@@ -218,3 +218,15 @@
     - `DirectoryIndex index.html index.html` 指定首页,如果多个都有,优先顺序为自左向右           
     - `AccessFileName .htaccess` 每目录访问控制法则,在要控制的目录下新建.htaccess,把AuthConfig段写进去,就可以对这些目录的访问权限进行控制了;但是这个东西让apache执行效率极低.这个功能建议禁用
     - `TypesConfig /etc/mime.types` 定义mime类型
+#### Apache虚拟主机
+- 虚拟主机:apache通过同一个主机服务于多个不同的站点,而客户端用户并不知道这些站点是运行同一个物理服务器上的,他们会以为这些站点是运行于某一个独立服务器上的.这些就被称作虚拟主机.
+- apache主机有两种: 中心主机(核心主机) 和虚拟主机,他们不能同时使用,当启用虚拟主机时,那么中心主机也会变成虚拟主机中的一个.
+- 虚拟主机一般有通过三种途径来区分:
+    - 基于IP:一台物理主机有多个IP,站点1通过IP1:80;站点2就通过IP2:80,但是IP是非常稀缺的资源,所以这个不推荐
+    - 基于端口号: 站点1 通过IP:80端口;站点2通过IP:8080端口
+    - 基于域名: 站点1:www.a.com;站点2:www.b.com,http协议首部里有一个信息是Host,因此就算几个站点解析的IP和端口都一样他们也能识别不同的页面    
+- apache2.2通过NameVirtualHost指令来启用虚拟主机;2.4版本则不需要
+- `<Directory>`标签是封装本地文件系统的,而`<Location>`标签则是封装URL.就是跟在域名后面的对应路径.
+- ServerAlias 定义站点别名比如www2.aphey.com作为www.aphey.com的别名
+- ScriptAlias 脚本别名,允许执行CGI脚本的目录
+
