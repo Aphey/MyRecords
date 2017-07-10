@@ -146,3 +146,75 @@
     - `Include conf.d/*.conf`指明了,conf.d/目录下所有.conf文件都是httpd主配置文件的组成部分.
     - `User apache`,`Group apache`,apache worker进程都要使用普通用户运行,这里就指定用户的.
 #### httpd属性配置
+- Main Server段配置属性
+    - `ServerAdmin root@localhost` 服务器管理员,此属性可以由每个虚拟主机定义
+    - `ServerName ` 服务器名字,默认没启用,不启用意味着服务器在启动的时候,服务器会反向解析IP地址到某一个主机名,如果能解析成功,就把那个主机名当作服务器名字,否则可能会报错;不想报错,就给这个服务器一个主机名;这一项是虚拟主机必须的.
+    - `UseCanonicalName off` 这个不常用,没啥意义
+    - `DocumentRoot "/var/www/html"` 关键项,文档根目录,网页文件的存放位置,可以自己改一个位置;注意URL路径跟本地文件系统路径不是同一回事,URL是相对于DocumentRoot的路径而言的;不管怎么的在我们配置文件中我们可以定义我们的DocumentRoot这个对应路径下每一个文件能够被哪些IP地址的客户端访问,以及如何被访问,而且我们还能定义在访问的时候,你是否还需要提供帐号密码定义方法就是在DocumentRoot语句下面添加下面字段:
+        ```
+        <Directory "/var/www/html" >
+        Options Indexes //Options指令,用于定义目录下的所有网页文档能够在被访问时候的访问属性,options后面可以跟多个值,彼此见用空格隔开:None,任何选项都不支持;Indexes 允许索引目录,如果没主页就把所有文件列出来非常不安全的做法,在作为下载站中,就要启动此选项,别的情况都不要启用;FollowSymLinks 允许访问符号连接所指向的源文件,不建议开启;Includes,允许执行服务器段包含(Server Side Include);ExecCGI 允许运行CGI脚本;MultiViews,多视图,根据客户端来源语言和文字判定,我应该显示哪种网页给你,除了国际化,否则不建议开启;ALL支持所有选项. 
+        AllowOverride None  //允许覆盖,访问控制列表
+        
+        Order allow,deny    //用于定义基于主机的访问功能的,Ip,网络地址或主机定义访问控制机制,服务器访问控制列表,先allow,后Deny,除了允许的,其他都Deny
+        Allow from all
+        // 案列,仅允许192.168.0.0这个网络访问
+        Order allow,deny
+        Allow from 192.168.0.0/24   //其他没定义的都被Deny了.
+        // 案例,拒绝192.168.0.1和172.16.100.1这俩Ip 访问
+        Order deny,allow    //Order制定默认原则的,这里就是先Deny,后allow
+        Deny from 192.168.0.1 172.168.100.1 
+        </Directory>
+        ```
+    - 命令`elinks` 纯文本浏览器,`elins http://192.168.88.88`即可访问192.168.88.88
+        - -dump 把网页内容显示出来后,立即退出,不进入交互模式
+        - -source 显示网页的源码
+    - `AllowOverride Authconfig` 基于一个文件中的用户名的账户名认证以后才可以访问.
+        ```
+        //用户认证:
+        AuthType Basic  //
+        AuthName "Customized name"  //起个名字
+        AuthUserfile /PATH/TO/USERINFO_FILE //用户名和密码文件
+        Require user Aphey Season  //只允许文件中的Aphey和Season访问,如果文件里有多个用户,都开放的话则改为 Require valid-user
+        //组认证
+        AuthType Basic  //
+        AuthName "Customized name"  //起个名字
+        AuthUserfile /PATH/TO/USERINFO_FILE //用户名和密码文件
+        AuthGroupFile /PATH/TO/GRPINFO_FILE //组信息
+        Require group GroupName 
+        ```
+        - 命令`htpasswd`,建立用户文件,并且在文件中添加用户,并创建密码,常用选项如下:
+            - -c 创建用户文件,只有第一次添加用户的时候才用此选项,后面不可在用,否则会被清空
+            - -m 以MD5格式来存放用户密码
+            - -D USERNAME 删除某个用户
+        - `htpasswd -c -m /etc/httpd/conf.d/htpasswd hadoop`表示第一次创建用户文件,并添加hadoop用户 
+        ```
+        [root@Aphey ~]# htpasswd -c -m /etc/httpd/conf/htpasswd tom
+        New password: 
+        Re-type new password: 
+        Adding password for user tom
+        [root@Aphey ~]# htpasswd -m /etc/httpd/conf/htpasswd jerry
+        New password: 
+        Re-type new password: 
+        Adding password for user jerry
+        ```
+        - 在httpd.conf中指定某些组可以访问
+        ```
+        //编辑httpd.conf,在AllowOverride段添加下面两句
+        [root@Aphey ~]# vi /etc/httpd/conf/httpd.conf 
+            AuthGroupFile /etc/httpd/conf/htgroup
+            Require Group myusers
+        // 创建htgroup文件,并在文件中添加组名和组员,组员必须是上面已经存在了的用户.
+        [root@Aphey ~]# vi /etc/httpd/conf/htgroup
+
+        myusers: hadoop tom jerry
+        ```
+        - 地址的表示方式:
+            - IP
+            - network/netmask
+            - HOSTNAME
+            - Domain Name
+            - Patial IP: 172.16(相当于 172.16.0.0/16)
+    - `DirectoryIndex index.html index.html` 指定首页,如果多个都有,优先顺序为自左向右           
+    - `AccessFileName .htaccess` 每目录访问控制法则,在要控制的目录下新建.htaccess,把AuthConfig段写进去,就可以对这些目录的访问权限进行控制了;但是这个东西让apache执行效率极低.这个功能建议禁用
+    - `TypesConfig /etc/mime.types` 定义mime类型
