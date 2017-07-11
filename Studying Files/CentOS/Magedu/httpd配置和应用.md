@@ -156,16 +156,17 @@
         Options Indexes //Options指令,用于定义目录下的所有网页文档能够在被访问时候的访问属性,options后面可以跟多个值,彼此见用空格隔开:None,任何选项都不支持;Indexes 允许索引目录,如果没主页就把所有文件列出来非常不安全的做法,在作为下载站中,就要启动此选项,别的情况都不要启用;FollowSymLinks 允许访问符号连接所指向的源文件,不建议开启;Includes,允许执行服务器段包含(Server Side Include);ExecCGI 允许运行CGI脚本;MultiViews,多视图,根据客户端来源语言和文字判定,我应该显示哪种网页给你,除了国际化,否则不建议开启;ALL支持所有选项. 
         AllowOverride None  //允许覆盖,访问控制列表
         
-        Order allow,deny    //用于定义基于主机的访问功能的,Ip,网络地址或主机定义访问控制机制,服务器访问控制列表,先allow,后Deny,除了允许的,其他都Deny
+        Order allow,deny    //用于定义基于主机的访问功能的,Ip,网络地址或主机定义访问控制机制,服务器访问控制列表,先allow,后Deny,除了允许的,其他都Deny;这个顺序有最后的优先级最高;假如下面的语句先写了deny form all ,就算后面还有allow from xxx, 这个xxx也不能访问,因为根据最后原则,apache只要看到deny了,根本不会再看后面的语句
         Allow from all
         // 案列,仅允许192.168.0.0这个网络访问
         Order allow,deny
         Allow from 192.168.0.0/24   //其他没定义的都被Deny了.
         // 案例,拒绝192.168.0.1和172.16.100.1这俩Ip 访问
-        Order deny,allow    //Order制定默认原则的,这里就是先Deny,后allow
+        Order deny,allow    //Order制定默认原则的,这里就是先Deny,后allow;注意顺序最后的优先级最高
         Deny from 192.168.0.1 172.168.100.1 
         </Directory>
         ```
+    - Order allow,deny    //用于定义基于主机的访问功能的,Ip,网络地址或主机定义访问控制机制,服务器访问控制列表,先allow,后Deny,除了允许的,其他都Deny;这个顺序有最后的优先级最高;假如下面的语句先写了deny form all ,就算后面还有allow from xxx, 这个xxx也不能访问,因为根据最后原则,apache只要看到deny了,根本不会再看后面的语句
     - 命令`elinks` 纯文本浏览器,`elins http://192.168.88.88`即可访问192.168.88.88
         - -dump 把网页内容显示出来后,立即退出,不进入交互模式
         - -source 显示网页的源码
@@ -229,4 +230,99 @@
 - `<Directory>`标签是封装本地文件系统的,而`<Location>`标签则是封装URL.就是跟在域名后面的对应路径.
 - ServerAlias 定义站点别名比如www2.aphey.com作为www.aphey.com的别名
 - ScriptAlias 脚本别名,允许执行CGI脚本的目录
-
+- 虚拟主机的定义:用`<virtualHost HOSTNAME> </VirtualHost> 标签封装即可,同时要__注释中心主机的DocumentRoot__.
+    ```
+    // 基于IP的虚拟主机HOST的写法,显著是httpd.conf中的DocumentRoot指令,然后在conf.d/中新建Virtualhost.conf,并添加下面两段;同时新建两个DocumentRoot目录
+    <VirtualHost 192.168.88.38:80>
+        ServerName hello.aphey.com
+        DocumentRoot "/www/aphey.com"
+    </VirtualHost>
+    <VirtualHost 192.168.88.138:80>
+        ServerName hi.aphey.com
+        DocumentRoot "/www/a.com"
+    </VirtualHost>
+    [root@Aphey ~]# ip addr add 192.168.88.138 dev eth0 //先给我们的网卡加上第二个IP地址192.168.88.138
+    [root@Aphey ~]# ip addr show
+        inet 192.168.88.38/24 brd 192.168.88.255 scope global eth0
+        inet 192.168.88.138/32 scope global eth0
+        inet6 fe80::20c:29ff:fe4f:8b27/64 scope link 
+           valid_lft forever preferred_lft forever
+    //然后重启服务器分别访问两个IP即可发现显示两个不同的站点
+    ```
+     
+    ```
+    // 基于不同的端口,我们在/etc/httpd/conf.d/virtualhost.conf中添加一个virtualbox标签
+    <VirtualHost 192.168.88.138:8080>   //注意这里变成了8080端口
+        ServerName www.b.com
+        DocumentRoot "/www/b.com"
+    </VirtualHost>
+    // 然后在httpd.conf主配置文件中添加Listen 8080来监听8080端口
+    ```
+    
+    ```
+    //基于不同主机名的,我们先在/etc/httpd/conf.d/virtualhost.conf中添加一个NameVirtualHost 192.168.88.38:80;我们也可以用正则表达式*:80,表示监听本机所有IP地址的80端口.
+    ```
+- 为每个虚拟主机创建独立日志:在每个虚拟主机的`VirtualHost>`标签中添加 CustomLog指令,比如`CustomLog /var/log/www/httpd/aphey.com/access_log combined`.
+- 定义IP地址对应的默认虚拟主机,加入客户端访问了一个解析到这个ip上,但是不存在的域名;或者用户通过IP来访问.
+    ```
+    //添加下面这段,并写在在virtualhost.conf中第一个
+    <VirtualHost _default_:80>   
+        ServerName _default_        //注意这里的指令
+        DocumentRoot "/www/default"
+    </VirtualHost>
+    ```
+- `<Loation>`标签,定义URL中的位置
+#### 基于SSL的https服务配置
+- ssl会话是无法基于主机名做区分的,只能基于IP:PORT进行;也就意味着,如果服务器只有一个IP地址,那他只能为一个主机提供ssl,那么假如你的服务器有多个虚拟主机,那也只有__一个虚拟主机__可以使用ssl.
+- 要想使你的web服务器支持ssl功能,第一步要先安装ssl模块.`httpd -M|grep ssl`先查看web服务器是否有ssl模块.如果没有,我们就需要先安装ssl模块,使用`yum install mod_ssl`
+    ```
+    [root@Aphey a.com]# rpm -ql mod_ssl
+    /etc/httpd/conf.d/ssl.conf  //ssl是作为httpd的配置文件一部分
+    /usr/lib64/httpd/modules/mod_ssl.so
+    /var/cache/mod_ssl  //ssl 缓存数据
+    /var/cache/mod_ssl/scache.dir
+    /var/cache/mod_ssl/scache.pag
+    /var/cache/mod_ssl/scache.sem
+    ```
+- 从CA获得证书后,在web服务器上先备份证书;假设我们服务器上签署后的证书为httpd.key
+- 我们先配置上面mod_ssl的配置文件ssl.conf
+    ```
+    // 修改下面这些指令
+    <VirtualHost 192.168.88.38:443>  //默认为_default_,我们修改为我们的IP
+    ServerName www.aphey.com
+    DocumentRoot "/www/aphey.com"
+    SSLEngine on    //很关键,是否启用SSL功能,我们选择on
+    SSLProtocol all -SSLv2  //不支持SSLv2,那也就是 SSLv3 和TSLv1了.
+    SSLCipherSuite DEFAULT:!EXP:!SSLv2:!DES:!IDEA:!SEED:+3DES  // 加密套件,不支持EXP.....
+    SSLCertificateFile /etc/pki/tls/certs/localhost.crt     //指定web服务器证书位置.
+    SSLCertificateKeyFile /etc/pki/tls/private/localhost.key    //制定服务器私钥文件
+    </VirtualHost>
+    //然后重启服务器,再用netstat -tlunp|grep :443查看服务器有没有监听443端口
+    ```
+- 客户端访问的时候会提示:"该网站的安全证书不受信任",我们需要把CA机构的证书(xx.pem)发一份给客户端;客户端收到后改名为cacert.crt,然后双击安装证书即可.
+#### php相关概念和配置
+- 编程语言:
+    - 静态语言:编译型语言,强类型,一般先编译,再运行: c,c++,java
+        - 优点:效率高,性能好
+        - 缺点:每一次改动都要重新编译;开发周期长,维护成本大
+    - 动态语言:解释型语言,shell,perl,python
+        - 优点:便于维护;有众多共享模块,开发周期短,维护成本低
+        - 缺点:性能差
+- php加速器,php源程序都在磁盘上,某一个用户通过一个php进程访问假如1.php,第二个用户启动了第二个php进程也访问1.php,而php文件需要先编译在执行,编译由zend engine负责,编译好以后放在内存中的对应php进程地址空间中,那也就是说另一个进程并不能访问到编译好的文件,也就是说每个进程是独立编译的.于是就有了新的程序,它可以提供一个缓存,来存放任何一个进程编译好的opcode,而这个opcode可以被任意一个php进程访问到.因此这个opcode就是共享的.这个程序就叫做php加速器,或者opcode缓存器/
+- 常用的php加速器:
+    - APC(Alternate PHP Cache),太老,不常用
+    - eAccelerator目前的encoder已经不再支持
+    - XCache 快速且稳定的PHP opcode缓存
+    - Zend Optimizer和Zend Guard Loader, ZO是一个PHP扩展,可以运行由Zend Guard生成的加密的php代码,Zend Guard Loader是为PHP5.3提供的类似Zend Optimizer功能的扩展.
+- PHP的源码结构
+    - build: 这里主要防止一些跟源码编译相关的文件,比如开始构建之前的buildconf脚本及一些检查环境的脚本等
+    - ext: 官方的扩展目录,包括了绝大多数PHP的函数的定义和实现,如array系列,pdo系列,sp1系列等函数的实现
+    - main: 这里存放的就是PHP最为核心的文件了,是实现PHP的基础设施,这里和Zend引擎不一样,Zend引擎主要实现语言最核心的语言运行环境
+    - Zend: Zend引擎的实现目录,比如脚本的词法语法解析,opcode的执行以及扩展机制的实现等等
+    - pear: PHP扩展与应用仓库,包含PEAR的核心文件.
+    - sapi: 包含了各种服务器抽象层的代码,如apache的mod_php,cgi,fastcgi以及fpm等等接口.
+    - TSRM: PHP的现成安全是构建在TSRM库之上的,PHP实现中常见的*G宏通常是对TSRM的封装,TSRM(Thread Safe Resource Manager)现成安全资源管理器
+    - tests: PHP的测试脚本集合,包含PHP各项功能的测试文件
+    - win32: 这个目录主要包括Windows平台相关的一些实现,比如socket的实现在Windows下和*Nix平台就不太一样,同时也包括了Windows下编译PHP相关的脚本.
+- 
+    
