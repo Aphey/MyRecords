@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f4c1a642-c11f-4653-9160-09a2413239fa" name="Virtual Server" url="http://192.168.88.38">
+        <fileTransfer host="192.168.88.38" port="22" rootFolder="/opt/lampp/htdocs/joomla" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
