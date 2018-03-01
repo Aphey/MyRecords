@@ -133,3 +133,82 @@ DEFROUTE=yes
 克隆虚拟机会有一个问题,会提示网卡不存在
 原因是: 网卡MAC地址和员虚拟机的MAC地址冲突
 只要在ifconfg 里找一下 修改一下即可
+
+
+ofbiz SSL Certificate Setup
+Choose a password to enter later when prompted. This same password will be used for the keystore password and for another question a bit later as the key password for.
+1. Run: "keytool -genkey -keyalg RSA -alias ssl -keystore [keystore name]"
+Go through and answer the following questions:
+Enter keystore password: [password]
+What is your first and last name?
+[Unknown]: www.mydomain.com (example)
+What is the name of your organizational unit?
+[Unknown]: Undersun Testing (example)
+What is the name of your organization?
+[Unknown]: Undersun Testing (example)
+What is the name of your City or Locality?
+[Unknown]: New York (example)
+What is the name of your State or Province?
+[Unknown]: New York (example)
+What is the two-letter country code for this unit?
+[Unknown]: US (example)
+Is CN=www.mydomain.com, OU=Undersun Testing, O=Undersun Testing, L=New York, ST=New York, C=US correct?
+[no]: yes
+Enter key password for
+(RETURN if same as keystore password): [password]
+2. Run: "keytool -certreq -alias ssl -keyalg RSA -file certreq.csr -keystore [keystore name]"
+The following will be prompted/shown:
+Enter keystore password: [password]
+The CSR will be saved in the current directory: BEGIN NEW CERTIFICATE REQUEST and END NEW CERTIFICATE REQUEST
+3. Submit the CSR to a signing authority (Thawte, Verisign, etc)
+4. Download your certificate from the signing authority. Please remember to download the Certificate in PKCS#7 format. If you get a certificate in pem format don't convert to PKCS#7/P7B Format but der format
+5. Import the Certificate into the keystore by running:
+"keytool -import -alias ssl -trustcacerts -file mysignedcert.cer -keystore [keystore name]"
+6. Configure the ofbiz-containers.xml file to point to your new keystore and password:
+  ● If using Tomcat (Catalina), which is the default, find the "catalina-container" -> "https-connector" -> "keystoreFile" and "keystorePass" properties and set them.
+  ● If using Jetty find the "jetty-container" -> "https-listener" -> "keystore" and "password" properties and set them.
+  ● For other Servlet containers, see the documentation for that container to find out how to set the HTTPS keystore and password settings.
+// 其实只要获得了 签署后的jks.在 \framework\catalina\ofbiz-component.xml中修改 这些地方就可以了
+命令 ~]# keytool -v -list -keystore www.zhumatech.net.jks -storepass zhumatech  可以查看别名
+
+<property name="port" value="443"/>
+<property name="keystoreFile" value="framework/catalina/www.zhumatech.net.jks"/>
+<property name="keystoreType" value="JKS"/>
+<property name="keyAlias" value="www.zhumatech.net"/>
+<property name="keyPass" value="zhumatech"/>
+<property name="sslProtocol" value="TLS"/>
+<property name="ciphers" value=""/>
+
+
+同时让80端口跳转到443端口:
+
+配置Tomcat，打开$CATALINA_HOME/conf/server.xml，修改如下，
+<Connector port="8080" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" />
+修改参数=>
+<Connector port="80" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="443" />
+
+强制使用https:在 \applications\fec\webapp\fec\WEB-INF\web.xml中的添加下面代码
+<welcome-file-list>
+   <welcome-file>index.jsp</welcome-file>
+   <welcome-file>index.html</welcome-file>
+   <welcome-file>index.htm</welcome-file>
+   <login-config>
+       <!-- Authorization setting for SSL -->
+       <auth-method>CLIENT-CERT</auth-method>
+       <realm-name>Client Cert Users-only Area</realm-name>
+       </login-config>
+       <security-constraint>
+       <!-- Authorization setting for SSL -->
+       <web-resource-collection >
+       <web-resource-name >SSL</web-resource-name>
+       <url-pattern>/*</url-pattern>
+       </web-resource-collection>
+       <user-data-constraint>
+       <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+       </user-data-constraint>
+       </security-constraint>
+</welcome-file-list>
