@@ -1,4 +1,4 @@
-Linux或者Mac
+nux或者Mac
 
 1.如何生成ssh公钥
 
