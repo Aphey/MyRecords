@@ -1,102 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94ca9360-235c-48e5-9014-db8794c0e18e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/.icon" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/10 Linux软件管理.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/12 进程内核.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/13 定时任务.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/14 系统启动流程.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/15 编译内核.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/16 CentOS安装.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/17. bash编程之函数.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/18. DNS服务器.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/19 openssh.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/20. openssl.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/21.Web服务及http协议.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/22.httpd配置和应用.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/23. 建立Lamp平台.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/24. 数据库及MySQL介绍.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/25. sudo的应用.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/27. rsyslog和nsswitch以及pam.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/28. nsswitch &amp; pam.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/29. iptables.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3.DHCP服务.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/30. http协议、IO网络模型 .md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/31. Nginx.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/32. linux集群基础.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/33. lvs之nat和dr类型的实现.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/4 正则表达式.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/5 vim编辑器和sed命令.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/50. 邮件服务(抽时间重学26_02).md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/7 shell编程.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/8 磁盘管理和文件系统.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/9 压缩解压缩命令.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/find命令.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/postfix(10th).txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/postfix.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/postfix_new.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/基础知识.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/脚本.md" />
+    <list default="true" id="94ca9360-235c-48e5-9014-db8794c0e18e" name="Default" comment="commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/attach/ServerTokens.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/.icon" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/1 基础知识.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/10 Linux软件管理.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/11 网络知识.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/12 进程内核.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/13 定时任务.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/14 系统启动流程.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/15 编译内核.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/16 CentOS安装.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/17. bash编程之函数.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/18. DNS服务器.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/19 openssh.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/2 基础命令.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/20. openssl.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/21.Web服务及http协议.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/22.httpd配置和应用.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/23. 建立Lamp平台.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/24. 数据库及MySQL介绍.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/25. sudo的应用.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/26. vsftpd.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/27. rsyslog和nsswitch以及pam.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/28. nsswitch &amp; pam.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/29. iptables.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/3 用户和权限管理.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/3.DHCP服务.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/30. http协议、IO网络模型 .md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/31. Nginx.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/32. linux集群基础.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/33. lvs之nat和dr类型的实现.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/5 vim编辑器和sed命令.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/50. 邮件服务(抽时间重学26_02).md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/7 shell编程.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/8 磁盘管理和文件系统.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/9 压缩解压缩命令.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/find命令.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/mru.ini" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix_new.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/基础知识.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/帮助/.icon" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/帮助/.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/帮助/01.欢迎使用MarkdownMate.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/帮助/02.Markdown基本语法.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/帮助/03.侧边栏.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/帮助/04.快捷键.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/帮助/05.售后服务.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/脚本.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/mru.ini" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/mru.ini" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/老男孩Linux运维笔记.pdf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Work/领易工作明细.xlsx" afterPath="$PROJECT_DIR$/Work/领易工作明细.xlsx" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -112,7 +19,7 @@
     <favorites_list name="MyRecords" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -136,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <push-targets>
-      <push-target-info target-remote="Github" target-branch="master" repo="$PROJECT_DIR$" source="master" />
+      <push-target-info target-remote="Gitee" target-branch="master" repo="$PROJECT_DIR$" source="master" />
     </push-targets>
   </component>
   <component name="GradleLocalSettings">
@@ -212,9 +119,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -231,7 +139,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -352,7 +259,8 @@
       <workItem from="1523845312894" duration="3076000" />
       <workItem from="1523948553226" duration="301000" />
       <workItem from="1523950384290" duration="1483000" />
-      <workItem from="1524116523224" duration="36000" />
+      <workItem from="1524116523224" duration="90000" />
+      <workItem from="1524201893666" duration="78000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1501033250704</created>
@@ -480,11 +388,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523948648947</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="commit">
+      <created>1524116571868</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1524116571868</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18534000" />
+    <option name="totallyTimeSpent" value="18666000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -503,7 +418,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16579224" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -575,49 +490,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/基础知识.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/基础知识.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md" />
     <entry file="file://$PROJECT_DIR$/Work/项目知识.txt">
@@ -652,13 +528,7 @@
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/基础知识.md" />
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="409" column="30" lean-forward="false" selection-start-line="409" selection-start-column="30" selection-end-line="409" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt" />
     <entry file="file://$PROJECT_DIR$/Studying Files/Idea and Webstrom/Intellij Idea hotkeys.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -666,13 +536,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="409" column="30" lean-forward="false" selection-start-line="409" selection-start-column="30" selection-end-line="409" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt" />
     <entry file="file://$PROJECT_DIR$/Studying Files/Idea and Webstrom/Intellij Idea hotkeys.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -680,13 +544,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="409" column="30" lean-forward="false" selection-start-line="409" selection-start-column="30" selection-end-line="409" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt" />
     <entry file="file://$PROJECT_DIR$/Studying Files/Idea and Webstrom/Intellij Idea hotkeys.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -694,13 +552,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="409" column="30" lean-forward="false" selection-start-line="409" selection-start-column="30" selection-end-line="409" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt" />
     <entry file="file://$PROJECT_DIR$/Studying Files/Idea and Webstrom/Intellij Idea hotkeys.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -708,13 +560,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="409" column="30" lean-forward="false" selection-start-line="409" selection-start-column="30" selection-end-line="409" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt" />
     <entry file="file://$PROJECT_DIR$/Studying Files/Idea and Webstrom/Intellij Idea hotkeys.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -722,13 +568,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="409" column="30" lean-forward="false" selection-start-line="409" selection-start-column="30" selection-end-line="409" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt" />
     <entry file="file://$PROJECT_DIR$/Studying Files/Idea and Webstrom/Intellij Idea hotkeys.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -757,20 +597,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix_new.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="364" column="23" lean-forward="false" selection-start-line="364" selection-start-column="23" selection-end-line="364" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="409" column="30" lean-forward="false" selection-start-line="409" selection-start-column="30" selection-end-line="409" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix_new.txt" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/postfix(10th).txt" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/28. nsswitch &amp; pam.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/29. iptables.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/26. vsftpd.md" />
@@ -781,26 +609,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/基础知识.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="306">
-            <caret line="78" column="23" lean-forward="false" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/基础知识.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md" />
   </component>
 </project>
