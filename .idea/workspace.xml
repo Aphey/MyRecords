@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="94ca9360-235c-48e5-9014-db8794c0e18e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -271,7 +272,7 @@
       <workItem from="1524116523224" duration="90000" />
       <workItem from="1524201893666" duration="118000" />
       <workItem from="1524470087165" duration="3084000" />
-      <workItem from="1524636483183" duration="807000" />
+      <workItem from="1524636483183" duration="1966000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1501033250704</created>
@@ -476,11 +477,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524637225540</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="commit">
+      <created>1524637295754</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1524637295754</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22597000" />
+    <option name="totallyTimeSpent" value="23756000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
