@@ -13,7 +13,7 @@
 ### Linux 用户和用户组介绍
 
 ```
-[root@localhost etc]# useradd -g root aphey //添加用户aphey,把他的默认组设为root组	
+[root@localhost etc]# useradd -g root aphey //添加用户aphey,把他的默认组设为root组
 [root@localhost etc]# id aphey	//可以查看用户的uid 和 gid
 uid=500(aphey) gid=0(root) groups=0(root)
 ```
@@ -27,11 +27,11 @@ uid=500(aphey) gid=0(root) groups=0(root)
 
 #### 不同用户角色对应的UID
 
-UID | 权限 |描述 
+UID | 权限 |描述
 ---|---|---
-0 | 超级用户 | 当用户的UID为0时,表示这个账号为超级管理员, 如果要添加一个系统管理员账号,只要将该账号的uid改成0即可 
-1-499 | 虚拟用户(伪用户) | 这个范围是保留给系统使用的UID,之所以这样划分, 是为了防止人为建立的账号账号的UID和系统UID之间冲突,并无其他特殊含义. 
-500-65535 | 普通用户 | 普通用户的UID是从500开始的,我们可以随时指定UID来创建用户  
+0 | 超级用户 | 当用户的UID为0时,表示这个账号为超级管理员, 如果要添加一个系统管理员账号,只要将该账号的uid改成0即可
+1-499 | 虚拟用户(伪用户) | 这个范围是保留给系统使用的UID,之所以这样划分, 是为了防止人为建立的账号账号的UID和系统UID之间冲突,并无其他特殊含义.
+500-65535 | 普通用户 | 普通用户的UID是从500开始的,我们可以随时指定UID来创建用户
 
 
 #### 切换用户时,提示符变成 -bash-4.1$ ,解决方法
@@ -40,8 +40,8 @@ UID | 权限 |描述
 [root@localhost ~]# rm -fr /home/aphey	//root用户删除掉用户aphey的宿主目录
 [root@localhost ~]# su - aphey	//再切换到aphey用户,就出现了提示符错误
 su: warning: cannot change directory to /home/aphey: No such file or directory
--bash-4.1$ 
--bash-4.1$ 
+-bash-4.1$
+-bash-4.1$
 -bash-4.1$ logout	//切换到root用户
 [root@localhost ~]# cd /home
 [root@localhost home]# mkdir aphey	//创建aphey文件夹
@@ -133,7 +133,7 @@ s：特殊权限,功能说明：变更文件或目录的权限。|    |   |
 #### 改变文件的属主
 
 *命令*
- 
+
 ```
 命令格式:chown [选项] [所有者]:[所属组] 文件
 Example:
@@ -175,39 +175,39 @@ rm: cannot remove `123': Operation not permitted
 	1. ^word	表示搜索以word开头的内容
 	2. word$	表示搜索以word结尾的内容
 	3. ^$		表示空行,不是空格
-    	
+
 		```
 		//	准备练习资料
 		[root@localhost ~]# cat oldboy.log 	//新建oldboy.log,内容如下
 		I am oldboy teacher!
 		I teach linux.
-		
+
 		I like badminton ball. billard ball and Chinese chess.
-		
+
 		my blog is http://oldboy.51cto.com
 		our site is http://www.etiantian.org
-		
+
 		my qq num is 49000488.
-		
+
 		not 4900000448.
 		my god,i am not oldbey,but OLDBOY!
 		```
-		
+
 		```
 		//	过滤以'I'开头的行
-		[root@localhost ~]# grep "^I" oldboy.log  
+		[root@localhost ~]# grep "^I" oldboy.log
 		I am oldboy teacher!
 		I teach linux.
 		I like badminton ball. billard ball and Chinese chess.
 		//	过滤以m结尾的内容:
-		[root@localhost ~]# grep "m$" oldboy.log 
+		[root@localhost ~]# grep "m$" oldboy.log
 		my blog is http://oldboy.51cto.com
 		//	过滤空行
-		[root@localhost ~]# grep "^$" oldboy.log 
-    	
-		[root@localhost ~]# 
+		[root@localhost ~]# grep "^$" oldboy.log
+
+		[root@localhost ~]#
 		//	利用排除空行来解决问题
-		[root@localhost ~]# grep -v "^$" oldboy.log 
+		[root@localhost ~]# grep -v "^$" oldboy.log
 		I am oldboy teacher!
 		I teach linux.
 		I like badminton ball. billard ball and Chinese chess.
@@ -215,14 +215,14 @@ rm: cannot remove `123': Operation not permitted
 		our site is http://www.etiantian.org
 		my qq num is 49000488.
 		not 4900000448.
-		my god,i am not oldbey,but OLDBOY!	
+		my god,i am not oldbey,but OLDBOY!
 		```
-		
+
 	4. \. 代表且只能代表任意一个字符.
 	5. \  代表转义字符,让有特殊身份意义的字符,脱掉马甲,还原圆形.
 	6. \*  代表重复0个或任意多个前面的一个字符.
 	7. \.*  代表匹配所有字符(^.*代表任意多个字符开头)
-	
+
 		```
 		[root@localhost ~]# grep "." oldboy.log
 		I am oldboy teacher!
@@ -234,7 +234,7 @@ rm: cannot remove `123': Operation not permitted
 		not 4900000448.
 		my god,i am not oldbey,but OLDBOY!
 
-		[root@localhost ~]# grep "oldb.y" oldboy.log  
+		[root@localhost ~]# grep "oldb.y" oldboy.log
 		I am oldboy teacher!
 		my blog is http://oldboy.51cto.com
 		my god,i am not oldbey,but OLDBOY!
@@ -256,14 +256,14 @@ rm: cannot remove `123': Operation not permitted
 		[root@localhost ~]# grep "0*" oldboy.log 	//0*代表一个0,多个0,没有0
 		I am oldboy teacher!
 		I teach linux.
-		
+
 		I like badminton ball. billard ball and Chinese chess.
-		
+
 		my blog is http://oldboy.51cto.com
 		our site is http://www.etiantian.org
-		
+
 		my qq num is 49000488.
-		
+
 		not 4900000448.
 		my god,i am not oldbey,but OLDBOY!
 
@@ -271,13 +271,13 @@ rm: cannot remove `123': Operation not permitted
 		000
 		00000
 		```
-		
+
 	8. [abc]  代表匹配字符集合内任意一个字符
 	   [a-z]  代表匹配a-z内的任意一个字母
 	9. [^a-z]  不包含a或b活c; ^在中括号中表示"非"
-	
+
 		```
-		[root@localhost ~]# grep "oldb[oe]y" oldboy.log 
+		[root@localhost ~]# grep "oldb[oe]y" oldboy.log
 		I am oldboy teacher!
 		my blog is http://oldboy.51cto.com
 		my god,i am not oldbey,but OLDBOY!
@@ -287,17 +287,17 @@ rm: cannot remove `123': Operation not permitted
 		oldboy
 		oldbey
 
-		[root@localhost ~]# grep "[0123456789]" oldboy.log 
+		[root@localhost ~]# grep "[0123456789]" oldboy.log
 		my blog is http://oldboy.51cto.com
 		my qq num is 49000488.
 		not 4900000448
 
-		[root@localhost ~]# grep "[0-9]" oldboy.log         
+		[root@localhost ~]# grep "[0-9]" oldboy.log
 		my blog is http://oldboy.51cto.com
 		my qq num is 49000488.
 		not 4900000448
 
-		[root@localhost ~]# grep "[^0-9]" oldboy.log 
+		[root@localhost ~]# grep "[^0-9]" oldboy.log
 		I am oldboy teacher!
 		I teach linux.
 		I like badminton ball. billard ball and Chinese chess.
@@ -307,7 +307,7 @@ rm: cannot remove `123': Operation not permitted
 		not 4900000448.
 		my god,i am not oldbey,but OLDBOY!
 		```
-		
+
 	10. {n,m}  代表重复n到m次,前一个字符。
 		{n,}   代表至少n次,多了不限。
 		{n}	   代表n次。
@@ -327,19 +327,19 @@ rm: cannot remove `123': Operation not permitted
 		[root@localhost ~]# egrep --color=auto "0{3}" oldboy.log 	//匹配包含0且重复出现3次的内容,不用转义
 		my qq num is 49000488.
 		not 4900000448.
-		
+
 		//	匹配包含0且重复出现3-5次的内容
-		[root@localhost ~]# grep "0\{3,5\}" oldboy.log 
+		[root@localhost ~]# grep "0\{3,5\}" oldboy.log
 		my qq num is 49000488.
 		not 4900000448.
 
-		[root@localhost ~]# grep -E "0{3,5}" oldboy.log 
+		[root@localhost ~]# grep -E "0{3,5}" oldboy.log
 		my qq num is 49000488.
 		not 4900000448.
-		
-		[root@localhost ~]# grep "0\{3,\}" oldboy.log 
+
+		[root@localhost ~]# grep "0\{3,\}" oldboy.log
 		my qq num is 49000488.
-		not 4900000448.		
+		not 4900000448.
 		```
 
 ###### grep命令的选项:
@@ -352,13 +352,13 @@ rm: cannot remove `123': Operation not permitted
 
 	```
 	// 过滤oldboy字符串且不区分大小写:
-	[root@localhost ~]# grep -i "oldboy" oldboy.log 
+	[root@localhost ~]# grep -i "oldboy" oldboy.log
 	I am oldboy teacher!
 	my blog is http://oldboy.51cto.com
 	my god,i am not oldbey,but OLDBOY!
 
 	// 显示oldboy.log 文件内容的行号:
-	[root@localhost ~]# cat -n oldboy.log 
+	[root@localhost ~]# cat -n oldboy.log
      1  I am oldboy teacher!
      2  I teach linux.
      3
@@ -375,32 +375,32 @@ rm: cannot remove `123': Operation not permitted
     [root@localhost ~]# nl oldboy.log //number line of a file
      1  I am oldboy teacher!
      2  I teach linux.
-       
+
      3  I like badminton ball. billard ball and Chinese chess.
-       
+
      4  my blog is http://oldboy.51cto.com
      5  our site is http://www.etiantian.org
-       
+
      6  my qq num is 49000488.
-       
+
      7  not 4900000448.
      8  my god,i am not oldbey,but OLDBOY!
 
-	[root@localhost ~]# less -N oldboy.log 
+	[root@localhost ~]# less -N oldboy.log
       1 I am oldboy teacher!
       2 I teach linux.
-      3 
+      3
       4 I like badminton ball. billard ball and Chinese chess.
-      5 
+      5
       6 my blog is http://oldboy.51cto.com
       7 our site is http://www.etiantian.org
-      8 
+      8
       9 my qq num is 49000488.
-     10 
+     10
      11 not 4900000448.
      12 my god,i am not oldbey,but OLDBOY!
 
-	[root@localhost ~]# grep -n "." oldboy.log 
+	[root@localhost ~]# grep -n "." oldboy.log
 	1:I am oldboy teacher!
 	2:I teach linux.
 	4:I like badminton ball. billard ball and Chinese chess.
@@ -427,13 +427,13 @@ rm: cannot remove `123': Operation not permitted
 	```
 	//	查看网卡信息
 	[root@localhost ~]# ifconfig eth0
-	eth0      Link encap:Ethernet  HWaddr 00:0C:29:70:08:5A  
+	eth0      Link encap:Ethernet  HWaddr 00:0C:29:70:08:5A
           inet addr:192.168.1.124  Bcast:192.168.1.255  Mask:255.255.255.0
           inet6 addr: fe80::20c:29ff:fe70:85a/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
           RX packets:73440 errors:0 dropped:0 overruns:0 frame:0
           TX packets:1001 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000 
+          collisions:0 txqueuelen:1000
           RX bytes:4775422 (4.5 MiB)  TX bytes:209865 (204.9 KiB)
 	//分两步取IP地址
 	[root@localhost ~]# ifconfig eth0|grep "inet addr"	//提取IP所在行
@@ -441,7 +441,7 @@ rm: cannot remove `123': Operation not permitted
 	[root@localhost ~]# ifconfig eth0|grep "inet addr"|sed 's@^.*addr:@@g'	//把前面的inet addr去掉
 	192.168.1.124  Bcast:192.168.1.255  Mask:255.255.255.0
 	[root@localhost ~]# ifconfig eth0|grep "inet addr"|sed 's@^.*addr:@@g'|sed 's#Bc.*$##g'	//去除Bc到结尾部分
-	192.168.1.124  
+	192.168.1.124
 
 	//	一步到位,获取eth0的IP地址:
 	[root@localhost ~]# ifconfig eth0|sed -n 's#^.*dr:\(.*\) Bc.*$#\1#gp'
@@ -449,7 +449,7 @@ rm: cannot remove `123': Operation not permitted
 	//	上述操作详解 就是保留\(.*\) 括号里的内容;其实()的功能是分组,可以匹配目标里,\1;\2;\3表示的是取第几个括号里的内容
 
 	// 只是扩展方法
-	[root@localhost tmp]# ifconfig eth0|grep "inet addr:" 
+	[root@localhost tmp]# ifconfig eth0|grep "inet addr:"
           inet addr:192.168.1.124  Bcast:192.168.1.255  Mask:255.255.255.0
 	[root@localhost tmp]# ifconfig eth0|grep "inet addr:"|awk -F '[ :]+' '{print $4}'
 	192.168.1.124
@@ -459,7 +459,7 @@ rm: cannot remove `123': Operation not permitted
 
 	// awk 变量
 
-	
+
 	```
 ##### sed命令练习
 
@@ -477,7 +477,7 @@ aphey:x:500:500::/home/aphey:/bin/bash
 ```
 sed 打印:
 [root@localhost ~]# seq 10 > a.txt
-[root@localhost ~]# cat a.txt 
+[root@localhost ~]# cat a.txt
 1
 2
 3
@@ -504,7 +504,7 @@ sed 打印:
 4
 7
 10
-```	
+```
 ```
 描述linux系统从开机到登陆界面的启动过程
 	1. 开机BIOS自检,加载硬盘
@@ -554,10 +554,10 @@ Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
 - B类
 - C类:一般局域网上网用的都是C类192.168.x.x;10.0.x.x;172.16.x.x
 - D类
-- E类 
+- E类
 
 	```
-	[root@localhost ~]# vi /etc/sysconfig/network-scripts/ifcfg-eth0 
+	[root@localhost ~]# vi /etc/sysconfig/network-scripts/ifcfg-eth0
 	DEVICE=eth0		//设备名
 	TYPE=Ethernet	//类型:以太网
 	UUID=a503acd3-a79e-4861-ad73-6ce087428d8b	//唯一识别ID
@@ -565,7 +565,7 @@ Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
 	NM_CONTROLLED=yes	//network manager管理
 	BOOTPROTO=dhcp		//要不要dhcp
 	HWADDR=00:0C:29:70:08:5A	//物理地址,MAC地址
-	DEFROUTE=yes	
+	DEFROUTE=yes
 	PEERDNS=yes
 	PEERROUTES=yes
 	IPV4_FAILURE_FATAL=yes
@@ -573,9 +573,9 @@ Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
 	NAME="System eth0"
 
 
-	修改好网络配置文件后要重启网络服务 ifup eth0;或则 service network restart	
+	修改好网络配置文件后要重启网络服务 ifup eth0;或则 service network restart
 	```
-	
+
 	```
 	[root@localhost ~]# route -n	//查看linux路由
 	Kernel IP routing table
@@ -592,20 +592,20 @@ Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
 	169.254.0.0     0.0.0.0         255.255.0.0     U     1002   0        0 eth0
 	[root@localhost ~]# ping www.baidu.com -c 4	//查看网络,已经不能上网
 	connect: Network is unreachable
-	[root@localhost ~]# route add default gw 192.168.1.1 	//添加默认网关  
-	[root@localhost ~]# route -n 		//查看默认网关路由                       
+	[root@localhost ~]# route add default gw 192.168.1.1 	//添加默认网关
+	[root@localhost ~]# route -n 		//查看默认网关路由
 	Kernel IP routing table
 	Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 	192.168.1.0     0.0.0.0         255.255.255.0   U     0      0        0 eth0
 	169.254.0.0     0.0.0.0         255.255.0.0     U     1002   0        0 eth0
 	0.0.0.0         192.168.1.1     0.0.0.0         UG    0      0        0 eth0
-	[root@localhost ~]# ping www.baidu.com -c 4      //可以上网了   
+	[root@localhost ~]# ping www.baidu.com -c 4      //可以上网了
 	PING www.a.shifen.com (180.97.33.107) 56(84) bytes of data.
 	64 bytes from 180.97.33.107: icmp_seq=1 ttl=55 time=10.6 ms
 	64 bytes from 180.97.33.107: icmp_seq=2 ttl=55 time=9.59 ms
 	64 bytes from 180.97.33.107: icmp_seq=3 ttl=55 time=11.0 ms
 	64 bytes from 180.97.33.107: icmp_seq=4 ttl=55 time=11.9 ms
-	
+
 	--- www.a.shifen.com ping statistics ---
 	4 packets transmitted, 4 received, 0% packet loss, time 3018ms
 	rtt min/avg/max/mdev = 9.590/10.797/11.913/0.838 ms
@@ -613,7 +613,7 @@ Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
 	网关一般也是放在 /etc/sysconfig/network 或者/etc/sysconfig/network-scripts/ifcfg-eth0里
 	GATEWAY=192.168.1.1
 	```
-	
+
 #### 电脑上不了网,排错思路
 
 1. 物理连接是否通常
@@ -628,7 +628,7 @@ Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
 包括图片文件也被植入了,网站打开时后援会调用这个地址,造成的影响非常恶劣.
 
 ```
-解决方案就是: 
+解决方案就是:
 先备份数据.再进行操作
 1. find, sed 把这段js代码替换为空
 find / -type f -exec sed -i 's#<script language=javascript src="asdadsaassadad/ad=93x28_ad"></script>##g' {} \;
@@ -657,7 +657,7 @@ date 命令:显示系统时间
 	2016-11-04 17:25:18
 3. 在备份文件名中显示备份时间,时间可以任意去组合
 	[root@Test ~]# cp /etc/hosts /etc/hosts.aphey.$(date +%F)
-	[root@Test ~]# ls /etc/hosts.aphey.$(date +%F)     	//$(date +%F) 等同于`date +%F`        
+	[root@Test ~]# ls /etc/hosts.aphey.$(date +%F)     	//$(date +%F) 等同于`date +%F`
 	/etc/hosts.aphey.2016-11-04
 4. 修改时间
 	[root@Test ~]# date -s "Y-m-d H:M:S"	//先修改时间,-s : set
@@ -665,7 +665,7 @@ date 命令:显示系统时间
 5. 输入3天钱的时间
 	[root@Test ~]# date +%F --date "-3day"	//同理,可以+/-其他因素,日月年,时分秒
 	2016-11-01
-	[root@Test ~]# date +%F --date "-3 day"          
+	[root@Test ~]# date +%F --date "-3 day"
 	2016-11-01
 6. 把当前时间转换成时间戳
 	[root@localhost ~]# date +%s
@@ -697,7 +697,7 @@ echo命令:(backslash escape 反斜线转义)
 $echo -n "123"
 $echo "456"
 
-最终输出 
+最终输出
 123456
 
 而不是
@@ -778,10 +778,10 @@ window 定时任务: taskschd.msc
 Linux系统下的定时任务软件很多,常用的有:
 - at
 	适用仅执行一次就结束的调度任务命令,例如,某天晚上需要处理一个任务,仅仅是这一天的晚上属于突发性的工作任务.要执行at命令,还要启动一个名为atd的服务才行,在老男孩的工作中从来不会有需求用这个.因此,我们就不需要深入研究这个了.
-	
+
 - crontab
 	这个命令可以周期性的执行任务工作,例如,每5分钟做一次服务器时间同步.要执行crontab这个命令,也需要启动一个服务crond才行,这个crontab命令是老男孩老师在生产工作中最长用到的命令,务必要掌握
-	
+
 	[root@ZhumaTech ~]# chkconfig --list|grep crond
 	crond           0:off   1:off   2:on    3:on    4:on    5:on    6:off
 
@@ -815,14 +815,14 @@ crontab 使用者权限和定时任务文件
 ##### 注意crontab 和passwd 一样被设置了suid,普通用户可以改定时任务,但是不能查看/var/spool/cron/user.
 [root@ZhumaTech ~]# ls -l /usr/bin/crontab
 -rwsr-xr-x. 1 root root 51784 Nov 23  2013 /usr/bin/crontab
- 
+
 #### 定时任务依赖的服务
 
 查看crond是否自启动:(可以省略grep)
 [root@ZhumaTech cron]# chkconfig --list crond
 crond           0:off   1:off   2:on    3:on    4:on    5:on    6:o
 
-echo 追加或者覆盖命令,用在 crontab定时任务的时候后面最好不要接 --->/dev/null 2>&1--- 容易出错;但是可以加2>&1	
+echo 追加或者覆盖命令,用在 crontab定时任务的时候后面最好不要接 --->/dev/null 2>&1--- 容易出错;但是可以加2>&1
 
 生产环境定时任务的专业写法要领:
 
@@ -833,7 +833,7 @@ echo 追加或者覆盖命令,用在 crontab定时任务的时候后面最好不
 	执行定时任务,如果是执行脚本,请尽量在脚本前带上/bin/sh 命令, 否则可能因为忘了赋予脚本 执行权限(+x),而误以为OK,导致脚本不能执行.
 
 3. 在指定用户下指定相关定时任务
-	需要root权限执行的任务可以登陆到root用户下然后设置,如果不需要root权限,可以登入到普通用户下设置(当然也可以用root 用户 crontab -u aphey -e的写法直接设置).这里需要特别注意,--不同用户的环境变量问题--,如果调用了系统环境变量/etc/profile(如生产环境中java程序的定时任务),最好在程序脚本中将用到的环境变量重新export下: 
+	需要root权限执行的任务可以登陆到root用户下然后设置,如果不需要root权限,可以登入到普通用户下设置(当然也可以用root 用户 crontab -u aphey -e的写法直接设置).这里需要特别注意,--不同用户的环境变量问题--,如果调用了系统环境变量/etc/profile(如生产环境中java程序的定时任务),最好在程序脚本中将用到的环境变量重新export下:
 
 4. 平时工作中尽量多用crontab -e和crontab -l去编辑和查看定时任务,因为这两个命令会做语法检查. ~~~用vi /var/spool/cron/user 是不会有提示的~~~
 	如果给1000台服务器同时添加系统时间同步就不可能一台台登陆修改.那么此时就会用分发工具或者批量运维脚本(脚本内容就是 echo "定时任务规则" >>/var/spool/cron/root)
@@ -844,7 +844,7 @@ echo 追加或者覆盖命令,用在 crontab定时任务的时候后面最好不
 
 	1. # > /var/aphey.txt
 	2. # cat /dev/null > /var/aphey.txt
-	
+
 ```
 重定向:   <-- 这个功能在linux里可能经常用的,实际上就是你看到的下面的大于小于好一样的东西
 	意思是将"数据传到其他地方".将某个命令执行后本应该出现在屏幕上的数据,传输到其他地方.执行命令时,这个命令可能会通过文件读取数据,经过处理之后,再将数据输出到屏幕.
@@ -872,10 +872,10 @@ echo 追加或者覆盖命令,用在 crontab定时任务的时候后面最好不
 	- 标准错误输出(stderr): 代码为2,使用2> 或2>>.
 	特殊: 2>&1 就是把标准错误重定向到标准输出(等价于 命令&>文件 或者 命令&>>文件)
 	>/dev/null 2>&1 写法也可以写成 1>/dev/null 2>/dev/null. 例如,$JAVA -jar $RESIN_HOME/lib/resin.jar $ARGS stop 1>/dev/null 2>/dev/null,此写法来自resin服务于默认启动脚本.
-``` 
+```
 
    如果定时任务规则结尾不加>/dev/null 2>&1 等命令配置,就可能有大量输出信息,时间长了,可能由于系统未开启邮件服务而导致邮件临时目录/var/spool/clientqueue文件数猛增的隐患发生,大量文件会占用大量磁盘inode节点(每个文件占一个inode),以致磁盘inode满而无法写入正常数据.
-	
+
 6. 生产任务程序不要随意打印输出信息
 	在开发定时任务程序或脚本时,在调试好脚本程序后,应尽量把DEBUG及命令输出的内容信息屏蔽掉,如果确实需要输出日志,可定向到指定日志文件里,避免产生系统垃圾.
 
@@ -891,7 +891,7 @@ echo 追加或者覆盖命令,用在 crontab定时任务的时候后面最好不
 	技巧:
 	- 命令程序要用绝对路径
 	- 脚本中用到系统的环境变量要重新定义
-	
+
 8. 定时任务执行的脚本要规范路径
    最好把执行脚本放在同一个目录下面.
 
@@ -1014,7 +1014,7 @@ USERADMINS   ALL=(OP)    NOPASSWD:USERCMD
 
 ##### 禁止某个命令的执行：
 
-aphey	ALL=/usr/sbin/\*, /sbin/\*, ___!/sbin/fdisk___	
+aphey	ALL=/usr/sbin/\*, /sbin/\*, ___!/sbin/fdisk___
 
 // ALL=/usr/sbin/\*, /sbin/\*, !/sbin/fdisk 这种省略Runas_Alias的格式也是正确的
 
@@ -1033,7 +1033,7 @@ ___最好的做法是:不要轻易地给人全部权限,他需要啥就给他啥
  Defaults specification
 
 #
-# Disable "ssh hostname sudo <cmd>", because it will show the password in clear. 
+# Disable "ssh hostname sudo <cmd>", because it will show the password in clear.
 #         You have to run "ssh -t hostname sudo <cmd>".
 ```
 
@@ -1057,7 +1057,7 @@ ___最好的做法是:不要轻易地给人全部权限,他需要啥就给他啥
 6. 指定切换的用户要用()括起来.如果省略括号,则默认为root用户;如果括号里是ALL,则代表能切换到所有用户;注意要切换到的目的用户必须用()括起来.
 7. 如果不需要密码直接运行命令的,应该加NOPASSWD参数.
 8. 取消某类程序的执行,要在命令前加!号,并且放在允许执行命令的后面.
-9. 用户组前面必须加%号. 
+9. 用户组前面必须加%号.
 
 #### 配置sudo命令的日志审计
 日志审计的说明: 不记录普通用户的的普通操。而是记录那些执行sudo命令的用户的操作。
@@ -1084,7 +1084,7 @@ sudo日志审计:专门对使用sudo命令的用户记录其执行的命令相�
 2. 配置系统日志/etc/syslog.conf (经过测试,这一步可不需要,测试中停了rsyslog服务也仅靠下面第三步的配置方法,也能正常生成sudo.log,并记录sudo操作)
    增加配置local2.debug 到/etc/rsyslog.conf中
    [root@Test ~]# echo "local2.debug    /var/log/sudo.log" >>/etc/rsyslog.conf
-	
+
 3. 配置/etc/sudoers (CentOS6.X)
    增加配置"___Defaults	logfile=/var/log/sudo.log___" 到/etc/sudoers中,注意:不包括引号
 
@@ -1095,23 +1095,23 @@ sudo日志审计:专门对使用sudo命令的用户记录其执行的命令相�
     [root@Test ~]# visudo -c	//检查sudoers文件语法
     /etc/sudoers: parsed OK
     ```
-   
+
 
 4. 重启syslog内核日志记录器
 
     ```
-    [root@Test ~]# /etc/init.d/rsyslog restart 
-    Shutting down system logger:                               [  OK  ] 
-    Starting system logger:                                    [  OK  ] 
-    ``` 
-    
+    [root@Test ~]# /etc/init.d/rsyslog restart
+    Shutting down system logger:                               [  OK  ]
+    Starting system logger:                                    [  OK  ]
+    ```
+
 5. 日志集中管理
   1. rsync + inotify或定时任务, 将日志推到日志管理服务器上.
   2. 用syslog服务来处理.
-  
+
    [root@Test ~]# echo "10.0.2.164 logserver">> /etc/hosts	//将日志服务器解析写道/etc/hosts里
    [root@Test ~]# echo "*.info @logserver">> /etc/syslog.conf	//适合所有日志推走.
-   
+
 ### L15 磁盘管理基础
 #### 磁盘知识的体系结构
 ##### RAID介绍
@@ -1122,7 +1122,7 @@ RAID的功能是提升性能,企业里面一般用硬件RAID;RAID可以把多块
 
 英文|汉语|释义
 ---|---|---
-Disk|磁盘|   
+Disk|磁盘|
 Head|磁头|　
 Track|磁道|每个盘片都有两个面,都可以记录信息,盘片表面以盘片中心为圆心,用于记录数据的不同半径的同心圆磁化轨迹就成为磁道.
 Sector|扇区|盘面有圆心向四周画直线不同磁道被直线分成许多扇形(弧形)的区域,每个弧形区域叫作__扇区__,每个扇区大小一般为521字节.
@@ -1167,7 +1167,7 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 - 主引导记录:MBR所在地 446Bytes
 - 硬盘分区表:16bytes × 4 (64bytes)这也是为什么只能有4个主分区的原因
-- 分区结束标识55AA (2bytes) 
+- 分区结束标识55AA (2bytes)
 
 #####每个主分区也都有引导分区信息和数据两部分组成
 
@@ -1224,7 +1224,7 @@ _1) SAS/SATA硬盘文件系统_
    - ext2 cache业务(ext3是在ext2的基础上增加了日志功能,用于恢复)
    - 对于CentOS5.X系列,常规应用就选ext3文件系统即可.
    - 对于CentOS6.X系列,常规应用就选ext4文件系统即可.
- 
+
 _2) SSD文件系统选择_
 
    EXT4/Reiserfs可以作为SSD文件系统,但未对SSD做优化,不能充分发挥SSD性能,并影响SSD使用时间.
@@ -1243,7 +1243,7 @@ _在Linux中制作文件系统_
    	```
    	# mkfs -t xfs -f /dev/sda2
    	```
-   	
+
 ___注意: ext3fs 其实简单的就是ext2fsz增加了日志功能.当创建该文件系统时,对mke2fs使用 -j 选项:___
    	```
    	# /sbin/mke2fs -j /dev/sda2
@@ -1260,5 +1260,3 @@ ___注意: ext3fs 其实简单的就是ext2fsz增加了日志功能.当创建该
  - IP: 独立IP数 指1天内使用不同IP地址的用户访问网站的数量;同一IP不管访问了几个页面,独立IP数均为1
 
 ### NFS网络文件系统概念介绍与集群内的应用位置
-
- 
