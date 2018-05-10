@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94ca9360-235c-48e5-9014-db8794c0e18e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Work/日常工作资料/yingyezhizhaofuben.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Work/日常工作资料/开户许可证.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Work/无锡筑码科技有限公司.txt" afterPath="$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt" />
-      <change beforePath="$PROJECT_DIR$/Work/领易工作明细.xlsx" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,11 +19,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="无锡筑码科技有限公司.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="无锡筑码科技有限公司.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="95" lean-forward="false" selection-start-line="8" selection-start-column="95" selection-end-line="8" selection-end-column="95" />
+              <caret line="8" column="26" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="146" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="项目知识.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Work/项目知识.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -60,7 +65,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <push-targets>
-      <push-target-info target-remote="Github" target-branch="master" repo="$PROJECT_DIR$" source="master" />
+      <push-target-info target-remote="Gitee" target-branch="master" repo="$PROJECT_DIR$" source="master" />
     </push-targets>
   </component>
   <component name="GradleLocalSettings">
@@ -292,7 +297,7 @@
       <workItem from="1524740784679" duration="1398000" />
       <workItem from="1525337203214" duration="1238000" />
       <workItem from="1525676356668" duration="5000" />
-      <workItem from="1525688184074" duration="4649000" />
+      <workItem from="1525688184074" duration="8046000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1501033250704</created>
@@ -532,11 +537,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525426812827</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="commit">
+      <created>1525759325085</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1525759325085</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31164000" />
+    <option name="totallyTimeSpent" value="34561000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -549,6 +561,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -562,7 +575,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.108208954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.108208954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -754,7 +767,6 @@
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/26. vsftpd.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/基础知识.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/4 正则表达式.md" />
-    <entry file="file://$PROJECT_DIR$/Work/项目知识.txt" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -766,7 +778,15 @@
     <entry file="file://$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="95" lean-forward="false" selection-start-line="8" selection-start-column="95" selection-end-line="8" selection-end-column="95" />
+          <caret line="8" column="26" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="146" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work/项目知识.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
