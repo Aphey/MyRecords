@@ -123,22 +123,22 @@
 		- 水平分屏显示:vi -o rc.sysinit inittab
 		- 垂直分屏显示:vi -O rc.sysinit inittab
 	- 将当前文件中部分内容另存为另一个文件
-		- :ADDR1,ADDR2w /path/to/newfile 
+		- :ADDR1,ADDR2w /path/to/newfile
 	- 将另外一个文件的内容导入到当前文件中
 		- :r /path/to/file
 	- 跟shell交互
-		- :! COMMAND 
+		- :! COMMAND
 	- 高级话题,下面设定临时生效
-		- 显示行号 :set nu 
+		- 显示行号 :set nu
 	 	- 取消显示行号 :set nonu
-	 	- 设定vim编辑器忽略大小写 :set ic(ignorecase) 
+	 	- 设定vim编辑器忽略大小写 :set ic(ignorecase)
 	 	- 设定vim编辑器区分大小写 :set noic
 	 	- 设定自动缩进 :set ai(autoindent)
 	 	- 取消自动缩进 :set noai
-	 	- 高亮显示查找文本 :set hlsearch 
-	 	- 取消高亮显示查找结果 :set nohlsearch 
-	 	- 语法着色 :syntax on 
-	 	- 关闭语法着色 :syntax off 
+	 	- 高亮显示查找文本 :set hlsearch
+	 	- 取消高亮显示查找结果 :set nohlsearch
+	 	- 语法着色 :syntax on
+	 	- 关闭语法着色 :syntax off
 	- vim配置文件:
 		- /etc/vimrc 全局配置
 		- ~/.vimrc 用户配置,可能不存在,需要自己建
@@ -159,16 +159,16 @@
     ```
     为了vim更好的支持Python写代码,修改tab默认4个空格有两种设置方法：
 
-    1. vim /etc/vimrc 
-    
+    1. vim /etc/vimrc
+
     1	set ts=4
     2	set sw=4
-    2. vim /etc/vimrc 
-    
+    2. vim /etc/vimrc
+
     1	set ts=4
     2	set expandtab
     3	set autoindent
-    
+
     推荐使用第二种，按tab键时产生的是4个空格，这种方式具有最好的兼容性
     ```
 	- vim教程 `vimtutor`
@@ -176,17 +176,17 @@
 #### 练习:
 - 复制/etc/grub2.cfg到/tmp/目录,用查找替换命令删除/tmp/grub2.cfg文件中行首的空白字符
     ```
-    %s/^[[:space:]]\+//g
+    :%s/^[[:space:]]\+//g
     ```
 - 复制/etc/rc.d/init.d/functions到/tmp/目录,用查找替换命令为/tmp/functions的每行开头为空白字符的行首添加一个"#".
     ```
     :%s/^[[:space:]]/#&/
     ```
 
-#### sed(流编辑器),awk(报告文本生成器)	
+#### sed(流编辑器),awk(报告文本生成器)
 - sed基本用法:stream editor,它是一个行编辑器,逐行编辑;vi是全屏编辑器
 - 处理机制:逐行读取,读取到内存中,在内存中处理,处理的结果显示到显示器上,内存中的空间叫模式空间
-- 默认情况下,sed不编辑源文件,仅对模式空间中的数据做处理	
+- 默认情况下,sed不编辑源文件,仅对模式空间中的数据做处理
 - 命令格式:sed [OPTIONS] 'AddressCommand' FILE1 FILE2 ...
 	- Address:地址定界
 		1. StartingLine,Endline etc:1,100 1到100行,$:最后一行.
@@ -196,7 +196,7 @@
 		5. 指定StartLine,+n,从指定行开始向后的n行.
 		6. 1~3;3是步进;
 		    ```
-		    [root@mail tmp]# sed -n '1~2p' a    //同样表示奇数行
+		    [root@mail tmp]# sed -n '1~2p' a    //同样表示奇数行,1表示起始行
             1
             3
             5
@@ -216,32 +216,32 @@
 			- sed -f /path/to/scriptfile
 		- -r:使用扩展正则表达式
 	- Command: 使用方法是'地址命令',地址后面就紧跟着命令,多个处理命令用";"隔开
-		- d:删除符合条件的行	
+		- d:删除符合条件的行
 		- p:显示模式空间的行
 		- a(append) \string: 在指定的行后面追加新行,内容为"string";\n 可以换行
     		```
     		[root@mail ~]# sed  '/^UUID/a \hello sed' /etc/fstab
             UUID=49d9a794-c34a-42b9-9d21-83533dadcee0 /                       ext4    defaults        1 1
-            hello 
-             sed 
+            hello
+             sed
             UUID=1533c3dc-ccfc-4cdb-a968-a85d817145c7 /boot                   ext4    defaults        1 2
-            hello 
-             sed 
+            hello
+             sed
             UUID=1e3ec33f-5a90-4a19-8a1b-be805c409d6c swap                    swap    defaults        0 0
-            hello 
-             sed 
+            hello
+             sed
     		```
 		- i(insert) \string: 在指定的行前面追加新行,内容为"string";\n 可以换行;
     		```
     		[root@mail ~]# sed  '/^UUID/i \hello \n sed ' /etc/fstab
-            hello 
-             sed 
+            hello
+             sed
             UUID=49d9a794-c34a-42b9-9d21-83533dadcee0 /                       ext4    defaults        1 1
-            hello 
-             sed 
+            hello
+             sed
             UUID=1533c3dc-ccfc-4cdb-a968-a85d817145c7 /boot                   ext4    defaults        1 2
-            hello 
-             sed 
+            hello
+             sed
             UUID=1e3ec33f-5a90-4a19-8a1b-be805c409d6c swap                    swap    defaults        0 0
             tmpfs                   /dev/shm                tmpfs   defaults        0 0
             devpts                  /dev/pts                devpts  gid=5,mode=620  0 0
@@ -252,24 +252,24 @@
 		- c(change) \string: 替换行为单行或多行文本, \n换行
 		    ```
 		    [root@mail ~]# sed  '/^UUID/c \hello \n sed ' /etc/fstab
-		    hello 
-             sed 
-            hello 
-             sed 
-            hello 
-             sed 
+		    hello
+             sed
+            hello
+             sed
+            hello
+             sed
 		    ```
 		- r FILE:将指定的文件的内容添加至符合条件的行处;一般都是用来合并文件 read
-		
+
 	        ```
-	        [root@ZhumaTech sh]# sed '2r /etc/issue' ./bash.sh 
+	        [root@ZhumaTech sh]# sed '2r /etc/issue' ./bash.sh
 	        #!/bin/bash
 	        CentOS release 6.5 (Final)
 	        Kernel \r on an \m
-	        
+
 	        grep "\bbash$" /etc/passwd &>/dev/passwd
 	        RETVAL=$?
-	        
+
 	        if [ $RETVAL -eq 0 ]; then
 	                USERS=`grep "\bbash$" /etc/passwd | wc -l`
 	                echo "$USERS users are using bash as default shell."
@@ -277,7 +277,7 @@
 	                echo "No such users"
 	        fi
 	        ```
-	        
+
 		- w FILE:将模式空间中匹配到的行另存至指定的文件中
             ```
             [root@mail ~]# sed  '/^UUID/w /tmp/fstab.txt ' /etc/fstab
@@ -296,12 +296,12 @@
             sysfs                   /sys                    sysfs   defaults        0 0
             proc                    /proc                   proc    defaults        0 0
             /mnt/CentOS-6.5-x86_64-bin-DVD1.iso	/mnt/cdrom	iso9660	defaults,loop	0 0
-            [root@mail ~]# cat /tmp/fstab.txt\  
+            [root@mail ~]# cat /tmp/fstab.txt\
             UUID=49d9a794-c34a-42b9-9d21-83533dadcee0 /                       ext4    defaults        1 1
             UUID=1533c3dc-ccfc-4cdb-a968-a85d817145c7 /boot                   ext4    defaults        1 2
             UUID=1e3ec33f-5a90-4a19-8a1b-be805c409d6c swap                    swap    defaults        0 0
             ```
-        
+
         - =: 为模式空间中的行打印行号
         - !: 可以理解为对地址定界取反
             ```
@@ -316,24 +316,24 @@
 			- 修饰符 p: 显示替换成功的行
 			- 修饰符 w /PATH/TO/FILE: 将替换成功的结果保存到指定文件中
 			- 后向引用在这里也适用
-			
+
 			    ```
-			    [root@ZhumaTech sh]# nano sed.txt 
+			    [root@ZhumaTech sh]# nano sed.txt
 			    hello,like
 			    hi, my love
 			    //-----下面使用后向引用-----
-			    [root@ZhumaTech sh]# sed 's/\(l..e\)/\1r/' sed.txt  
+			    [root@ZhumaTech sh]# sed 's/\(l..e\)/\1r/' sed.txt
 			    hello,liker
 			    hi, my lover
 			    // 等同于
 			    [root@ZhumaTech sh]# sed 's@\(l..e\)@&r/' sed.txt
 			    ```
-			
+
 			- 上面的例子我们可以使用另外一个特殊字符"&",其意义是引用模式匹配到的整个串.
-			
+
                 ```
                 //下面的命令同样能完成
-                [root@ZhumaTech sh]# sed 's/l..e/&r/' sed.txt          
+                [root@ZhumaTech sh]# sed 's/l..e/&r/' sed.txt
                 hello,liker
                 hi, my lover
                 ```
@@ -341,11 +341,11 @@
 #### 练习
 - 删除/boot/grub/grub.conf中所有以空白开头的行行首的空白字符
     ```
-    [root@mail ~]# sed 's@^[[:space:]]\+@@' /boot/grub/grub.conf 
+    [root@mail ~]# sed 's@^[[:space:]]\+@@' /boot/grub/grub.conf
     ```
 - 删除/etc/fstab文件中所有以#开头,后面至少跟一个空白字符行的行首的#和空白字符
     ```
-    [root@mail ~]# sed 's/^#[[:space:]]\+//' /etc/fstab 
+    [root@mail ~]# sed 's/^#[[:space:]]\+//' /etc/fstab
     ```
 - echo一个绝对路径给sed命令,取出其基名;取出其目录名
    ```
@@ -371,7 +371,7 @@
     usr/local/src
     [root@Aphey boot]# echo ${FILE##*/} //从左往右,省略掉第一个关键字到最右的关键字"/"及他们左边的内容
     src
-    [root@Aphey boot]# FILE=a/usr/local/src 
+    [root@Aphey boot]# FILE=a/usr/local/src
     [root@Aphey boot]# echo ${FILE%/*}     //从右往左,省略掉第一个关键字"/"及其右边的内容
     a/usr/local
     [root@Aphey boot]# echo ${FILE%%/*}    //从右往左,省略掉第一个关键字到最左的关键字"/"及他们右边的内容
@@ -421,5 +421,5 @@
     1
     // 1!G 模式空间不是第一行的话,把保持空间的不是第一行的数据追加到模式空间;$!d,不是最后一行,就删除.
     [root@mail tmp]# sed '/^$/d;G' a[root@mail tmp]# sed '/^$/d;G' a    //每行之间插入空白行,并且多个空白行合并成一个空白行
-    [root@mail tmp]# sed 'G' a  //每行之间插入一个空白行    
-    ``` 
+    [root@mail tmp]# sed 'G' a  //每行之间插入一个空白行
+    ```

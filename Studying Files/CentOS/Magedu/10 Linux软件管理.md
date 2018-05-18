@@ -60,7 +60,7 @@
 	- 如果某rpm包尚未安装,我们需查询其安装以后会生成的文件的位置：`rpm -qpl /PATH/TO/PACKAGE_FULLNAME`
 - rpm升级:
 	- `rpm -Uvh /PATH/TO/NEW_PACKAGE_FULLNAME`:如果装有老版本的,则升级,否则,则安装
-	- `rpm -Fvh /PATH/TO/NEW_PACKAGE_FULLNAME`:如果装有老版本的,则升级,否则,则退出
+	- `rpm -Fvh /PATH/TO/NEW_PACKAGE_FULLNAME`:如果装有老版本的,则升级,否则,则退出,Freshen
 - rpmbuild:创建软件包
 - rpm 卸载: `rpm -e PKGNAME`
     - -e: erase 卸载软件包
