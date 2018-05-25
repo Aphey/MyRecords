@@ -98,7 +98,7 @@ cat的常用功能
 -rw-r--r--. 1 root root 12288 7月   1 12:59 /tmp/.test.swp
 -rw-r--r--. 1 root root 0 7月   6 08:00 /tmp/22
 -rw-r--r--. 1 root root 0 7月   6 08:00 /tmp/25
--rw-r--r--. 1 root root 24576 7月   5 08:46 /tmp/.services.swp
+-rw-r--r--. 1 root root 245767月   5 08:46 /tmp/.services.swp
 -rw-------. 1 root root 209 7月   5 02:16 /tmp/yum_save_tx-2016-07-05-02-16QQh1jE.yumtx
 -rw-r--r--. 1 root root 134 7月   6 02:03 /tmp/a.txt
 -rw-r--r--. 1 root root 292 7月   5 06:52 /tmp/ett.txt
