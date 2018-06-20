@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94ca9360-235c-48e5-9014-db8794c0e18e" name="Default" comment="">
+    <list default="true" id="94ca9360-235c-48e5-9014-db8794c0e18e" name="Default" comment="commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/4 正则表达式.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/4 正则表达式.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mindmanager/oldboy.mmap" beforeDir="false" afterPath="$PROJECT_DIR$/Mindmanager/oldboy.mmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mindmanager/~$oldboy.mmap.~$lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/老男孩.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/老男孩.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,13 +24,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="3 用户和权限管理.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="3 用户和权限管理.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md">
           <provider editor-type-id="MarkdownFxPreviewEditor" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="540">
-                <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+              <first_editor relative-caret-position="460">
+                <caret line="116" column="13" selection-start-line="116" selection-start-column="13" selection-end-line="116" selection-end-column="13" />
               </first_editor>
               <second_editor />
             </state>
@@ -61,13 +63,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2 基础命令.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2 基础命令.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md">
-          <provider selected="true" editor-type-id="MarkdownFxPreviewEditor" />
-          <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+          <provider editor-type-id="MarkdownFxPreviewEditor" />
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="860">
-                <caret line="43" column="32" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
+              <first_editor relative-caret-position="367">
+                <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
               </first_editor>
               <second_editor />
             </state>
@@ -78,7 +80,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>八</find>
       <find>bash</find>
       <find>bash -</find>
       <find>bash -n</find>
@@ -108,8 +109,10 @@
       <find>chattr</find>
       <find>chkconfig</find>
       <find>telnet</find>
+      <find>ELF</find>
     </findStrings>
     <dirStrings>
+      <dir>$PROJECT_DIR$/Work/日常工作资料</dir>
       <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
@@ -183,27 +186,18 @@
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="Mindmanager" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
-              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
+              <item name="Work" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
-              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
-              <item name="Magedu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
-              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
-              <item name="Oldboy" type="462c0819:PsiDirectoryNode" />
+              <item name="Work" type="462c0819:PsiDirectoryNode" />
+              <item name="日常工作资料" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -346,14 +340,7 @@
       <workItem from="1529321527352" duration="640000" />
       <workItem from="1529325824070" duration="99000" />
       <workItem from="1529325936572" duration="4876000" />
-      <workItem from="1529387259718" duration="1943000" />
-    </task>
-    <task id="LOCAL-00008" summary="commit">
-      <created>1503040261179</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1503040261179</updated>
+      <workItem from="1529387259718" duration="8205000" />
     </task>
     <task id="LOCAL-00009" summary="commit">
       <created>1503325868241</created>
@@ -691,11 +678,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529330538299</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="commit">
+      <created>1529399425041</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1529399425041</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96774000" />
+    <option name="totallyTimeSpent" value="103036000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -714,6 +708,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3283582" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5390625" side_tool="true" visible="true" weight="0.14721346" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32849604" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4609375" visible="true" weight="0.14721346" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -737,7 +732,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32849604" />
       <window_info anchor="right" id="Maven Projects" order="3" />
     </layout>
     <layout-to-restore>
@@ -1191,17 +1185,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="540">
-            <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/14 系统启动流程.md">
       <provider selected="true" editor-type-id="MarkdownFxPreviewEditor" />
       <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
@@ -1254,11 +1237,22 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md">
-      <provider selected="true" editor-type-id="MarkdownFxPreviewEditor" />
-      <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="860">
-            <caret line="43" column="32" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
+          <first_editor relative-caret-position="367">
+            <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="460">
+            <caret line="116" column="13" selection-start-line="116" selection-start-column="13" selection-end-line="116" selection-end-column="13" />
           </first_editor>
           <second_editor />
         </state>
