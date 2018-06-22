@@ -165,12 +165,12 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>bash</find>
-      <find>bash -</find>
-      <find>bash -n</find>
+      <find />
+      <find />
       <find>mysql</find>
       <find>mysqla</find>
       <find>mysqladm</find>
-      <find>ssh ro</find>
+      <find />
       <find>rpm</find>
       <find>sed</find>
       <find>tr</find>
@@ -182,7 +182,7 @@
       <find>ps</find>
       <find>at</find>
       <find>rsh</find>
-      <find>rpm -F</find>
+      <find />
       <find>nslookup</find>
       <find>runlevel</find>
       <find>运行级别</find>
