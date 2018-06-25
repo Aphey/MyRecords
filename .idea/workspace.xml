@@ -3,86 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="94ca9360-235c-48e5-9014-db8794c0e18e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/老男孩.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/老男孩.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/agate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/androidstudio.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/arta.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/ascetic.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-cave.dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-cave.light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-dune.dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-dune.light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-estuary.dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-estuary.light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-forest.dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-forest.light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-heath.dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-heath.light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-lakeside.dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-lakeside.light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-plateau.dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-plateau.light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-savanna.dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-savanna.light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-seaside.dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-seaside.light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-sulphurpool.dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/atelier-sulphurpool.light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/brown_paper.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/brown_papersq.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/codepen-embed.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/color-brewer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/darkula.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/docco.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/far.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/foundation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/github-gist.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/github.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/googlecode.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/grayscale.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/hopscotch.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/hybrid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/idea.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/ir_black.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/kimbie.dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/kimbie.light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/magula.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/mono-blue.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/monokai.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/ndark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/obsidian.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/paraiso.dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/paraiso.light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/pojoaque.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/pojoaque.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/railscasts.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/rainbow.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/school_book.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/school_book.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/solarized_dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/solarized_light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/sunburst.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/tomorrow-night-blue.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/tomorrow-night-bright.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/tomorrow-night-eighties.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/tomorrow-night.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/tomorrow.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/vs.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/xcode.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/codeblock/zenburn.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/preview/GeekPark Article.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/preview/GitHub ReadMe.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/preview/Solarized Dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/preview/Solarized Light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/preview/clearness dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/preview/dark.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/preview/default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/preview/octopress.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/markdown csss/preview/realm.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -104,7 +27,7 @@
           <provider editor-type-id="MarkdownFxPreviewEditor" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="540">
+              <first_editor relative-caret-position="2400">
                 <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
               </first_editor>
               <second_editor />
@@ -112,7 +35,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="无锡筑码科技有限公司.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="无锡筑码科技有限公司.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
@@ -134,13 +57,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20. openssl.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="20. openssl.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/20. openssl.md">
           <provider editor-type-id="MarkdownFxPreviewEditor" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="480">
-                <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+              <first_editor relative-caret-position="400">
+                <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
               </first_editor>
               <second_editor />
             </state>
@@ -152,8 +75,8 @@
           <provider editor-type-id="MarkdownFxPreviewEditor" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="367">
-                <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+              <first_editor relative-caret-position="540">
+                <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
               </first_editor>
               <second_editor />
             </state>
@@ -164,13 +87,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bash</find>
-      <find />
-      <find />
+      <find>bash -</find>
+      <find>bash -n</find>
       <find>mysql</find>
       <find>mysqla</find>
       <find>mysqladm</find>
-      <find />
+      <find>ssh ro</find>
       <find>rpm</find>
       <find>sed</find>
       <find>tr</find>
@@ -182,7 +104,7 @@
       <find>ps</find>
       <find>at</find>
       <find>rsh</find>
-      <find />
+      <find>rpm -F</find>
       <find>nslookup</find>
       <find>runlevel</find>
       <find>运行级别</find>
@@ -194,6 +116,7 @@
       <find>chkconfig</find>
       <find>telnet</find>
       <find>ELF</find>
+      <find>fuser</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/Work/日常工作资料</dir>
@@ -265,7 +188,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -277,6 +199,19 @@
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
               <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
+              <item name="Oldboy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
@@ -293,6 +228,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -430,21 +366,8 @@
       <workItem from="1529321527352" duration="640000" />
       <workItem from="1529325824070" duration="99000" />
       <workItem from="1529325936572" duration="4876000" />
-      <workItem from="1529387259718" duration="14633000" />
-    </task>
-    <task id="LOCAL-00012" summary="commit">
-      <created>1519006595905</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1519006595905</updated>
-    </task>
-    <task id="LOCAL-00013" summary="commit">
-      <created>1523585972221</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1523585972221</updated>
+      <workItem from="1529387259718" duration="15431000" />
+      <workItem from="1529902567923" duration="2405000" />
     </task>
     <task id="LOCAL-00014" summary="commit">
       <created>1523843460633</created>
@@ -775,11 +698,25 @@
       <option name="project" value="LOCAL" />
       <updated>1529545946704</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="commit">
+      <created>1529645033783</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1529645033783</updated>
+    </task>
+    <task id="LOCAL-00062" summary="commit">
+      <created>1529645119119</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1529645119119</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109464000" />
+    <option name="totallyTimeSpent" value="112667000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -792,54 +729,55 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1919" y="-4" width="1922" height="1085" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.121875" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3283582" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5390625" side_tool="true" visible="true" weight="0.14721346" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32849604" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4609375" visible="true" weight="0.14721346" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5395833" side_tool="true" visible="true" weight="0.14721346" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.46041667" visible="true" weight="0.14721346" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32928178" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Designer" order="2" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Application Servers" order="7" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32849604" />
       <window_info anchor="right" id="Maven Projects" order="3" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10342262" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3283582" />
+      <window_info anchor="bottom" id="Version Control" order="10" visible="true" weight="0.17785235" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Application Servers" order="9" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32849604" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32942432" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" visible="true" weight="0.17785235" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32849604" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Application Servers" order="9" />
       <window_info anchor="bottom" id="Messages" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
@@ -1212,17 +1150,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/OldBoy.txt" />
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/15 编译内核.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="236">
-            <caret line="321" column="28" selection-start-line="321" selection-start-column="28" selection-end-line="321" selection-end-column="28" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/3.DHCP服务.md">
       <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
@@ -1303,23 +1230,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/20. openssl.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="480">
-            <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md">
       <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="367">
-            <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+          <first_editor relative-caret-position="540">
+            <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
           </first_editor>
           <second_editor />
         </state>
@@ -1329,8 +1245,19 @@
       <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="540">
+          <first_editor relative-caret-position="2400">
             <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/15 编译内核.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="796">
+            <caret line="319" column="38" selection-start-line="319" selection-start-column="38" selection-end-line="319" selection-end-column="38" />
           </first_editor>
           <second_editor />
         </state>
@@ -1340,6 +1267,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/20. openssl.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="400">
+            <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
