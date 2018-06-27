@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="94ca9360-235c-48e5-9014-db8794c0e18e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/4 正则表达式.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/4 正则表达式.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/老男孩.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/老男孩.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -90,7 +86,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="680">
-                <caret line="61" column="12" lean-forward="true" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
+                <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
               </first_editor>
               <second_editor />
             </state>
@@ -124,8 +120,8 @@
           <provider editor-type-id="MarkdownFxPreviewEditor" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="520">
-                <caret line="101" column="27" selection-start-line="101" selection-start-column="27" selection-end-line="101" selection-end-column="27" />
+              <first_editor relative-caret-position="160">
+                <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
               </first_editor>
               <second_editor />
             </state>
@@ -137,7 +133,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>mysqladm</find>
-      <find>ssh ro</find>
+      <find />
       <find>rpm</find>
       <find>sed</find>
       <find>tr</find>
@@ -149,7 +145,7 @@
       <find>ps</find>
       <find>at</find>
       <find>rsh</find>
-      <find>rpm -F</find>
+      <find />
       <find>nslookup</find>
       <find>runlevel</find>
       <find>运行级别</find>
@@ -164,7 +160,7 @@
       <find>suid</find>
       <find>cut</find>
       <find>ln</find>
-      <find>ln -s</find>
+      <find />
       <find>ELF</find>
     </findStrings>
     <dirStrings>
@@ -417,14 +413,7 @@
       <workItem from="1529325824070" duration="99000" />
       <workItem from="1529325936572" duration="4876000" />
       <workItem from="1529387259718" duration="15431000" />
-      <workItem from="1529902567923" duration="12216000" />
-    </task>
-    <task id="LOCAL-00015" summary="commit">
-      <created>1523843544910</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1523843544910</updated>
+      <workItem from="1529902567923" duration="12852000" />
     </task>
     <task id="LOCAL-00016" summary="commit">
       <created>1523843688016</created>
@@ -762,11 +751,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529925718824</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="commit">
+      <created>1530103387249</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1530103387249</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122478000" />
+    <option name="totallyTimeSpent" value="123114000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1252,7 +1248,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="680">
-            <caret line="61" column="12" lean-forward="true" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
+            <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
           </first_editor>
           <second_editor />
         </state>
@@ -1320,8 +1316,8 @@
       <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="520">
-            <caret line="101" column="27" selection-start-line="101" selection-start-column="27" selection-end-line="101" selection-end-column="27" />
+          <first_editor relative-caret-position="160">
+            <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
           </first_editor>
           <second_editor />
         </state>
