@@ -573,7 +573,7 @@ Status: Downloaded newer image for ubuntu:16.04
 // 在CentoOS6.5(Docker Version 1.7.1)中我们的网络环境导致我们访问官方的镜像库速度很慢,我们可以用下面这个方法来加速
 $ vi /etc/sysconfig/docker
 
-other_args="--registry-mirror=https://z12vx03m.mirror.aliyuncs.com"
+other_args="--registry-mirror=https://z12vx03m.mirror.aliyuncs.com --label name=docker_server1"
 
 // 如果你是docker1.8 或者docker1.10等更高版本，你应该这么配置
 $ docker --registry-mirror=https://registry.docker-cn.com daemon
@@ -723,4 +723,290 @@ Content-Length: 1117
 
 {"ID":"25BV:OSGT:NYIQ:Z7DY:2GCF:4VRL:LJB2:3FPS:DJ24:QUJV:3RHQ:MTRX","Containers":1,"Images":17,"Driver":"aufs","DriverStatus":[["Root Dir","/var/lib/docker/aufs"],["Backing Filesystem","extfs"],["Dirs","19"],["Dirperm1 Supported","false"]],"MemoryLimit":true,"SwapLimit":false,"CpuCfsPeriod":true,"CpuCfsQuota":true,"IPv4Forwarding":true,"Debug":false,"NFd":14,"OomKillDisable":true,"NGoroutines":23,"SystemTime":"2018-07-05T15:05:56.876959806+08:00","ExecutionDriver":"native-0.2","LoggingDriver":"json-file","NEventsListener":0,"KernelVersion":"3.10.5-3.el6.x86_64","OperatingSystem":"\u003cunknown\u003e","IndexServerAddress":"https://index.docker.io/v1/","RegistryConfig":{"InsecureRegistryCIDRs":["127.0.0.0/8"],"IndexConfigs":{"docker.io":{"Name":"docker.io","Mirrors":["https://z12vx03m.mirror.aliyuncs.com/"],"Secure":true,"Official":true}}},"InitSha1":"5ebdf15aa01ed2e6fed430918bcec40ed2e72afe","InitPath":"/usr/libexec/docker/dockerinit","NCPU":4,"MemTotal":16726216704,"DockerRootDir":"/var/lib/docker","HttpProxy":"","HttpsProxy":"","NoProxy":"","Name":"training","Labels":null,"ExperimentalBuild":false}
 ```
-#### 守护进程的配置
+#### Docker的远程访问
+##### 环境准备
+- 第二台安装docker的服务器
+- 修改docker守护进程启动选项,区别服务器
+  ```
+  [root@vm1 ~]# cat /etc/sysconfig/docker
+  other_args="--label name=docker_server2"  //修改一下标签
+  [root@vm1 ~]# service docker restart
+  停止 docker：                                              [确定]
+  Starting docker:	                                   [确定]
+  [root@vm1 ~]# docker info //查看修改是否成功
+  ......
+  Labels:                                   //修改成功
+   name=docker_server2
+  ```
+- 务必保证client API 和Server的API 版本一致
+- 修改服务器端的配置
+  ```
+  // 修改Docker守护进程启动选项,配置docker守护进程的服务器使用的socket
+  -H tcp://host:port;
+     unix:///path/to/socket;
+     fd://* or fd://socketfd
+  守护进程默认配置:
+  -H unix:///var/run/docker.sock
+
+  我的操作(docker服务器):
+  ➜  ~ vi /etc/sysconfig/docker //修改配置文件
+  other_args="--registry-mirror=https://z12vx03m.mirror.aliyuncs.com --label name=docker_server1 -H tcp://0.0.0.0:2375"
+  ➜  ~ service docker restart
+  Stopping docker:                                           [  OK  ]
+  Starting docker:	                                   [  OK  ]
+
+  //特别注意,当在服务器上为docker设置了远程链接的参数后,服务器本机是无法使用docker info 查看本机信息了.
+  ➜  ~ docker info  //报错了
+  Get http:///var/run/docker.sock/v1.19/info: dial unix /var/run/docker.sock: no such file or directory. Are you trying to connect to a TLS-enabled daemon without TLS?
+  //我们可以在服务器本机设置一个DOCKER_HOST的环境变量,然后就可以使用docker info命令了
+  ➜  ~ export DOCKER_HOST="tcp://127.0.0.1:2375"    //设置环境变量
+  ➜  ~ docker info                            //成功
+  Containers: 1
+  Images: 17
+  Storage Driver: aufs
+   Root Dir: /var/lib/docker/aufs
+   Backing Filesystem: extfs
+   Dirs: 19
+   Dirperm1 Supported: false
+  Execution Driver: native-0.2
+  Logging Driver: json-file
+  Kernel Version: 3.10.5-3.el6.x86_64
+  Operating System: <unknown>
+  CPUs: 4
+  Total Memory: 15.58 GiB
+  Name: training
+  ID: 25BV:OSGT:NYIQ:Z7DY:2GCF:4VRL:LJB2:3FPS:DJ24:QUJV:3RHQ:MTRX
+  WARNING: No swap limit support
+  Labels:
+   name=docker_server1
+  //当然我们也可以通过修改配置文件:
+  ➜  ~ vi /etc/sysconfig/docker //修改配置文件,-H 可以设置多个参数值
+  other_args="--registry-mirror=https://z12vx03m.mirror.aliyuncs.com --label name=docker_server1 -H tcp://0.0.0.0:2375 -H unix:///var/local/docker.sock"
+
+  //在客户端(vm1)的操作:
+  [root@vm1 ~]# curl http://192.168.88.123:2375/info  //访问服务器端的info API接口
+
+  {"ID":"25BV:OSGT:NYIQ:Z7DY:2GCF:4VRL:LJB2:3FPS:DJ24:QUJV:3RHQ:MTRX","Containers":1,"Images":17,"Driver":"aufs","DriverStatus":[["Root Dir","/var/lib/docker/aufs"],["Backing Filesystem","extfs"],["Dirs","19"],["Dirperm1 Supported","false"]],"MemoryLimit":true,"SwapLimit":false,"CpuCfsPeriod":true,"CpuCfsQuota":true,"IPv4Forwarding":true,"Debug":false,"NFd":10,"OomKillDisable":true,"NGoroutines":14,"SystemTime":"2018-07-06T08:52:51.721012323+08:00","ExecutionDriver":"native-0.2","LoggingDriver":"json-file","NEventsListener":0,"KernelVersion":"3.10.5-3.el6.x86_64","OperatingSystem":"\u003cunknown\u003e","IndexServerAddress":"https://index.docker.io/v1/","RegistryConfig":{"InsecureRegistryCIDRs":["127.0.0.0/8"],"IndexConfigs":{"docker.io":{"Name":"docker.io","Mirrors":["https://z12vx03m.mirror.aliyuncs.com/"],"Secure":true,"Official":true}}},"InitSha1":"5ebdf15aa01ed2e6fed430918bcec40ed2e72afe","InitPath":"/usr/libexec/docker/dockerinit","NCPU":4,"MemTotal":16726216704,"DockerRootDir":"/var/lib/docker","HttpProxy":"","HttpsProxy":"","NoProxy":"","Name":"training","Labels":["name=docker_server1"],"ExperimentalBuild":false}
+  ```
+- 客户端(vm1)远程访问服务器的方法:
+  ```
+  // 我在客户端(vm1)的操作(连接一次):
+  [root@vm1 ~]#
+  [root@vm1 ~]# docker -H tcp://192.168.88.123:2375 info  //返回了docker server的信息
+  Containers: 1
+  Images: 17
+  Storage Driver: aufs
+   Root Dir: /var/lib/docker/aufs
+   Backing Filesystem: extfs
+   Dirs: 19
+   Dirperm1 Supported: false
+  Execution Driver: native-0.2
+  Logging Driver: json-file
+  Kernel Version: 3.10.5-3.el6.x86_64
+  Operating System: <unknown>
+  CPUs: 4
+  Total Memory: 15.58 GiB
+  Name: training
+  ID: 25BV:OSGT:NYIQ:Z7DY:2GCF:4VRL:LJB2:3FPS:DJ24:QUJV:3RHQ:MTRX
+  WARNING: No swap limit support
+  Labels:
+   name=docker_server1
+
+  // 如果我们要频繁连接某一台服务器,用上述参数会很麻烦,我们修改客户端(vm1)配置文件(通过环境变量Docker_HOST):
+  [root@vm1 ~]# export DOCKER_HOST="tcp://192.168.88.123:2375"
+
+  [root@vm1 ~]# docker info //默认链接的就是DOCKER_HOST服务器
+  Containers: 1
+  Images: 17
+  Storage Driver: aufs
+   Root Dir: /var/lib/docker/aufs
+   Backing Filesystem: extfs
+   Dirs: 19
+   Dirperm1 Supported: false
+  Execution Driver: native-0.2
+  Logging Driver: json-file
+  Kernel Version: 3.10.5-3.el6.x86_64
+  Operating System: <unknown>
+  CPUs: 4
+  Total Memory: 15.58 GiB
+  Name: training
+  ID: 25BV:OSGT:NYIQ:Z7DY:2GCF:4VRL:LJB2:3FPS:DJ24:QUJV:3RHQ:MTRX
+  WARNING: No swap limit support
+  Labels:
+   name=docker_server1
+
+  // 如果我们想链接本机(vm1)的docker守护进程只要清空DOCKER_HOST的值即可
+  [root@vm1 ~]# export DOCKER_HOST=""
+  [root@vm1 ~]# docker info
+  Containers: 0
+  Images: 0
+  Storage Driver: aufs
+   Root Dir: /var/lib/docker/aufs
+   Backing Filesystem: extfs
+   Dirs: 0
+   Dirperm1 Supported: false
+  Execution Driver: native-0.2
+  Logging Driver: json-file
+  Kernel Version: 3.10.5-3.el6.x86_64
+  Operating System: <unknown>
+  CPUs: 4
+  Total Memory: 1.953 GiB
+  Name: vm1
+  ID: O2TC:E5L4:FG6N:XKJ3:N4D7:TSMO:DIGT:KP6A:F7F6:6KYW:HDXU:PUGR
+  WARNING: No swap limit support
+  Labels:
+   name=docker_server2                  //是vm2的docker服务器信息了
+  ```
+
+#### Docker镜像与仓库(二)
+##### dockerfile指令格式
+
+  - `# COMMENTS    //注释,以#开头`
+  - INSTRUCTION arguments     //指令,指令要以大写开始
+  ```
+  # First dockerfile              //注释
+  FROM ubuntu:16.04               //基础镜像
+  MAINTAINER Aphey "y2j@qq.com"   //维护人
+  RUN apt-get update              //执行的命令
+  RUN apt-get -y install nginx    //执行的命令
+  EXPOSE 80                       //暴露的端口
+  ```
+  - FROM: 包含两种格式的参数,其中image必须是已经存在的镜像,后续指令都会基于这个镜像执行,
+  所以这个镜像也叫做基础镜像,而且必须是dockerfile中第一条非注释的指令
+  ```
+  1) FROM <image>
+  2) FROM <image>:<tag>
+  ```
+  - MAINTAINER <name> //作者信息,相当于docker commit命令的-a选项
+
+  - RUN: 执行指令,指定当前景象中运行的命令,包含两种模式
+  ```
+  RUN <command>  (shell模式)
+  RUN ["excutable" , "parameter 1", "parameter 2"] (exec模式)
+    RUN ["/bin/bash","-c","echo hello"]
+  ```
+  - EXPOSE <port> [<port>....]  //用来指定运行该容器使用的端口,可以指定一个或多个
+  ```
+  // 虽然我们在dockerfile中指定了暴露的端口号,但是在我们运行容器的时候还是要手动映射端口,比如
+  $ docker run -p 80:80-d --name web -it aphey/nginx nginx -g "daemon off;"
+  ```
+
+  - CMD指令
+  ```
+  // 指定容器运行时,运行指定的命令;但是当我在启动docker时,在命令行执行其他命令的话,CMD后面的命令将被覆盖不会执行
+  CMD ["excutable","parameter1","parameter2"] (exec模式)
+  CMD command parameter1 parameter2 (shell 模式)
+  CMD ["parameter1","parameter2"] (作为ENTERYPOINT指令的默认参数)
+
+  我的CMD操作:
+  ➜  dockerfile vi df_test1/dockerfile
+
+  #First dockerfile
+  FROM ubuntu:16.04
+  MAINTAINER Aphey "y2j@qq.com
+  RUN apt-get update
+  RUN apt-get -y install nginx
+  EXPOSE 80
+  CMD ["/usr/sbin/nginx","-g","daemon off;"]
+
+  ➜  df_test1 docker build -t "aphey/df_test2" .
+  Sending build context to Docker daemon 2.048 kB
+  Sending build context to Docker daemon
+  Step 0 : FROM ubuntu:16.04
+   ---> 6e422b1b463a
+  Step 1 : MAINTAINER Aphey "y2j@qq.com
+   ---> Using cache
+   ---> 535fd0f20153
+  Step 2 : RUN apt-get update
+   ---> Using cache
+   ---> c5eb16d6e82f
+  Step 3 : RUN apt-get -y install nginx
+   ---> Using cache
+   ---> 2c7260599423
+  Step 4 : EXPOSE 80
+   ---> Using cache
+   ---> 821af07962f4
+  Step 5 : CMD /usr/sbin/nginx -g daemon off;
+   ---> Running in ee9345637015
+   ---> 13f3679f7333
+  Removing intermediate container ee9345637015
+  Successfully built 13f3679f7333
+
+  ➜  df_test1 docker run -p 80:80 --name web1 -d aphey/df_test2
+  38561de37c0318ea7bb15251a53eefcc4739d10e408e49645d9728b152db1ee7
+
+  ➜  df_test1 docker ps   //nginx已经运行了
+  CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS                NAMES
+  38561de37c03        aphey/df_test2      "/usr/sbin/nginx -g    29 seconds ago      Up 28 seconds       0.0.0.0:80->80/tcp   web1
+  ➜  df_test1 docker top web1   //nginx已经运行了
+  UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+  root                23758               23436               0                   09:51               ?                   00:00:00            nginx: master process /usr/sbin/nginx -g daemon off;
+  33                  23772               23758               0                   09:51               ?                   00:00:00            nginx: worker process
+  33                  23773               23758               0                   09:51               ?                   00:00:00            nginx: worker process
+  33                  23774               23758               0                   09:51               ?                   00:00:00            nginx: worker process
+  33                  23775               23758               0                   09:51               ?                   00:00:00            nginx: worker process
+  ```
+  - ENTRYPOINT指令:
+  ```
+  // 与CMD指令非常相似,唯一的区别在于ENTRYPOINT指令不会被docker命令行中的命令覆盖
+  ENTRYPOINT ["excutable","parameter1","parameter2"] (exec模式)
+  ENTRYPOINT command parameter1 parameter2 (shell 模式)
+  // 如果要覆盖ENTERYPOINT指令,可以用$ docker run --entrypoint选项
+  ```
+
+  - ADD和COPY指令
+  ```
+  // 用来设置镜像的目录和文件
+  ADD
+  ADD ["<src>"..."<dest>"] (适用于文件路径中有空格的情况)
+
+  COPY
+  COPY ["<src>"..."<dest>"] (适用于文件路径中有空格的情况)
+
+  //ADD和COPY的区别是,ADD包含类似tar的解压功能,如果单纯复制文件,Docker推荐使用COPY
+  ➜  df_test1 vi dockerfile
+
+  #First dockerfile
+  FROM ubuntu:16.04
+  MAINTAINER Aphey "y2j@qq.com
+  RUN apt-get update
+  RUN apt-get -y install nginx
+  COPY index.html /usr/share/nginx/html/    //会把dockfile同级目录下的index.html替换掉/usr/share/nginx/html/中的index.html
+  EXPOSE 80
+  ENTRYPOINT ["/usr/sbin/nginx","-g","daemon off;"]
+  ```
+
+  - VOLUME
+  ```
+  // VOLUME指令能够向基于镜像创建的容器添加卷,一个卷是可以存在于一个或多个容器的特定目录,这个目录可以绕过联合文件系统,并提供如共享数据或者对数据持久化的功能
+  ```
+
+  - WORKDIR, ENV, USER
+  ```
+  // 设定镜像在构建及容器运行时的环境设置
+  WORKDIR: 用来在从镜像创建一个新容器时在容器内部设置工作目录ENTRYPOINT或者CMD指定的命令就是在这个目录下执行,我们也可以使用这个指令在构建中为后续的指令指定工作目录,workdir通常会使用绝对路径
+
+  ENV指令用来设置环境变量
+  ENV <key><value>
+  ENV <key>=<value>...
+
+  USER指令,指定镜像会以什么样的用户去运行,比如:
+  USER nginx,就意味着基于该镜像启动的容器会议nginx用户来运行,常用格式(可以混搭):
+  USER user; USER uid; USER user:group; USER uid:gid; USER user:gid; USER uid:group
+  ```
+  - ONBUILD
+  ```
+  // 镜像触发器的指令,当一个镜像被其他镜像作为基础镜像时执行,会在构建过程中插入指令
+  ➜  df_test1 vi dockerfile
+
+  #First dockerfile
+  FROM ubuntu:16.04
+  MAINTAINER Aphey "y2j@qq.com
+  RUN apt-get update
+  RUN apt-get -y install nginx
+  ONBUILD COPY index.html /usr/share/nginx/html/    //当别的镜像以这个镜像为基础镜像时,构建过程中会把dockfile同级目录下的index.html替换掉/usr/share/nginx/html/中的index.html
+  EXPOSE 80
+  ENTRYPOINT ["/usr/sbin/nginx","-g","daemon off;"]
+
+  //当我们再构建一个新镜像并以上面的镜像为基础镜像时.运行为容器的时候,就会触发上面的COPY命令
+  ```

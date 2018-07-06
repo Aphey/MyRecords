@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94ca9360-235c-48e5-9014-db8794c0e18e" name="Default" comment="">
+    <list default="true" id="94ca9360-235c-48e5-9014-db8794c0e18e" name="Default" comment="commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/13 定时任务.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/13 定时任务.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/老男孩.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/老男孩.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MindMaps/oldboy.mmap" beforeDir="false" afterPath="$PROJECT_DIR$/MindMaps/oldboy.mmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Docker/Docker Geek.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Docker/Docker Geek.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,7 +65,7 @@
           <provider editor-type-id="MarkdownFxPreviewEditor" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="480">
+              <first_editor relative-caret-position="240">
                 <caret line="30" selection-start-line="30" selection-end-line="30" />
               </first_editor>
               <second_editor />
@@ -150,7 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sed</find>
       <find>tr</find>
       <find>history</find>
       <find>deluser</find>
@@ -180,6 +178,7 @@
       <find>umask</find>
       <find>chattr</find>
       <find>crond</find>
+      <find>hostname</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/Work/日常工作资料</dir>
@@ -280,12 +279,6 @@
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
               <item name="Work" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-              <item name="Work" type="462c0819:PsiDirectoryNode" />
-              <item name="日常工作资料" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -433,21 +426,7 @@
       <workItem from="1529902567923" duration="14260000" />
       <workItem from="1530253762901" duration="1512000" />
       <workItem from="1530337934569" duration="6214000" />
-      <workItem from="1530690529751" duration="598000" />
-    </task>
-    <task id="LOCAL-00017" summary="commit">
-      <created>1523851383288</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1523851383288</updated>
-    </task>
-    <task id="LOCAL-00018" summary="commit">
-      <created>1523948648947</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1523948648947</updated>
+      <workItem from="1530690529751" duration="3949000" />
     </task>
     <task id="LOCAL-00019" summary="commit">
       <created>1524116571868</created>
@@ -778,11 +757,25 @@
       <option name="project" value="LOCAL" />
       <updated>1530116430090</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="commit">
+      <created>1530742284599</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1530742284600</updated>
+    </task>
+    <task id="LOCAL-00067" summary="commit">
+      <created>1530781551509</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1530781551509</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132846000" />
+    <option name="totallyTimeSpent" value="136197000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -800,6 +793,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3283582" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.54114586" side_tool="true" visible="true" weight="0.150108" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32849604" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.45885417" visible="true" weight="0.150108" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -817,7 +811,6 @@
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32849604" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -1333,7 +1326,7 @@
       <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="480">
+          <first_editor relative-caret-position="240">
             <caret line="30" selection-start-line="30" selection-end-line="30" />
           </first_editor>
           <second_editor />
