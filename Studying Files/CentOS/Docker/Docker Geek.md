@@ -47,14 +47,14 @@
   2. 我们也可以创建我们自己私有的docker仓库
 
 #### Docker容器相关技术
-##### docker容器依赖于linux内盒的namespace(命名空间)和cotrol group(控制组)
+##### docker容器依赖于linux内核的namespace(命名空间)和cotrol group(控制组)
 - Namespace 命名空间
 > 我们知道,很多编程语言都包含了命名空间的概念,可以认为命名空间是一种封装的概念,封装本事实际上是实现代码的隔离,在操作系统中,命名空间提供的是系统资源的隔离,系统资源就提供了进程、网络、文件系统等;实际上,linux内核实现命名空间的主要目的之一就是为了轻量级虚拟化服务,也就是我们说的容器,在同一个命名空间下的进程,可以感知彼此的变化,而对其他命名空间中的进程一无所知,这样就可以让容器中的进程产生一个错觉:仿佛它自己置身于一个独立的系统环境中,以此达到独立和隔离的目的;从docker公开的官方文档看,它使用了5种命名空间:
   1. PID (Process ID) 进程隔离
   2. NET (Network) 管理网络接口
   3. IPC (InterProcess Communication) 管理跨进程通信的访问
   4. MNT (mount) 管理挂载点
-  5. UTS (Unix Timesharing System) 隔离内盒和版本标识
+  5. UTS (Unix Timesharing System) 隔离内核和版本标识
 - 上述的资源就是通过Control Groups(控制组)创建隔离的
 > 控制组是linux内核提供的,可以限制、记录隔离进程组所使用的物理资源的机制,最初由google工程师提出,并且在2007被linux内核整合.没有c groups 就没有docker.cgroups提供了哪些功能呢?
   1. 资源限制: 比如memory子系统可以为进程组设定一个内存使用的上限,一旦进程组使用的内存达到了限额,再申请使用内存,就会发出 out of memory 的消息
@@ -1010,3 +1010,11 @@ Content-Length: 1117
 
   //当我们再构建一个新镜像并以上面的镜像为基础镜像时.运行为容器的时候,就会触发上面的COPY命令
   ```
+#### dockerfile的构建过程
+##### docker是如何通过dockerfile来构建镜像的
+1. 从基础镜像运行一个容器,也就是我们dockerfile中的FROM指令指定的镜像名
+2. 执行一条指令,对容器做出修改
+3. 执行类似docker commit的操作,提交一个新的镜像层
+4. 再基于刚提交的镜像运行一个新容器
+5. 再执行Dokcerfile中的下一条指令,直到所有指令执行完毕
+##### 我们可以
