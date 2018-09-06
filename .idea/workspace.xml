@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/8 磁盘管理和文件系统.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/8 磁盘管理和文件系统.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,6 +46,14 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-1110500121">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -110,11 +117,6 @@
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-              <item name="MindMaps" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
@@ -193,6 +195,7 @@
       <workItem from="1535479030044" duration="1956000" />
       <workItem from="1535507836213" duration="608000" />
       <workItem from="1535624649570" duration="701000" />
+      <workItem from="1536202333204" duration="2791000" />
     </task>
     <task id="LOCAL-00001" summary="Daily update">
       <created>1534724322240</created>
@@ -233,12 +236,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14774000" />
+    <option name="totallyTimeSpent" value="17565000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="1919" y="-4" width="1922" height="1085" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24934107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -249,7 +252,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3296582" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32975295" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -269,6 +272,7 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/15 编译内核.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="403">
@@ -277,7 +281,6 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
   </component>
 </project>
