@@ -9,7 +9,7 @@
 	- /etc(配置文件),/bin,/sbin,/lib;系统启动就需要用到的程序,这些目录不能挂载额外分区,必须在跟文件系统的分区上.
 	- /usr/bin,/usr/sbin,/usr/lib; 操作系统的核心功能;/usr可以单独挂载分区
 	- /usr/local/bin,/usr/local/sbin,/usr/local/lib,/usr/local/etc,/usr/local/man; 通常是我们安装完操作系统后,安装的第三方软件;可以单独分区
-	- /opt;早先的第三方软件安装地址 
+	- /opt;早先的第三方软件安装地址
 - 开机顺序POST(通电自检)-->BIOS(找到硬盘)-->(MBR中的分区表)bootloader-->加载内核-->找根目录-->然后再找到下面的各种目录
 - 软件包管理器,作用:
 	- 打包二进制程序,库文件,配置文件和帮助文件成一个文件
@@ -26,7 +26,7 @@
 - rpm命名:
 	- 组成部分:一个软件包可能由1个主包和n个子包组成,如:
 		- 主包: bind-9.7.1-1.i386.el5.rpm.rpm
-		- 子包: bind-libs-9.7.1-1.i386.rpm.el15.rpm	 
+		- 子包: bind-libs-9.7.1-1.i386.rpm.el15.rpm
 		- 主包包名格式:name-version-release.arch.rpm
 		- 子包名格式:band-major.minor.release(源码包作者)-release(二进制包制作者).arch.rpm
 		- 主版本号:重大改进;次版本号:某个子功能发生重大变化,发行号:修正了部分bug,调整了一点功能
@@ -78,7 +78,7 @@
     - 完整性: 只要特征码不一致,就可以推断完整性
     ```
     //先导入公钥
-    [root@localhost cdrom]# rpm --import RPM-GPG-KEY-CentOS-6   
+    [root@localhost cdrom]# rpm --import RPM-GPG-KEY-CentOS-6
     ```
 - rpm包数据库:/var/lib/rpm/中;数据包重建就是通过读取每一个软件包自身的元数据,把它重新构建回来,数据库重建的命令有两种:
     - `rpm --initdb`: 初始化数据库;如果事先不存在数据的话就新建之,有数据就不做
@@ -91,7 +91,7 @@
 	- web
 	- FILEPATH
 - yum客户端
-	- 配置文件;配置文件有ftp的有web的,有本地的路径,但一定要为其指定一个对应的文件路径,这个路径说白了就是yum仓库的位置. 
+	- 配置文件;配置文件有ftp的有web的,有本地的路径,但一定要为其指定一个对应的文件路径,这个路径说白了就是yum仓库的位置.
 	- 元素据文件:在仓库中,我们有多少个软件包,每个软件包叫什么名字,它使用什么样的文件. 生成元数据的命令是:`createrepo`
 	- yum仓库中的元数据文件://repodata目录
 		- primary.xml.gz:
@@ -123,7 +123,7 @@
     - $releasever: 当前OS的发行版的主板本号`rpm -qi centos-release`可以查看
     - $arch: 平台类型,可以通过命令`arch`查看
     - $basearch: 基础平台,比如说i386,i486,i586的基础平台就是i386
-    - $YUM0-$YUM9: 用户自定义变量,极少用到
+    - `$YUM0-$YUM9`: 用户自定义变量,极少用到
 - 补充命令,假如我们通过lftp连接到了某个ftp服务器上:
     - !COMMAND 表示运行一个shell命令;而不是连接到ftp中的命令
     - lcd: local cd,在本机上执行cd命令,而不是远程服务器上的cd
@@ -140,7 +140,7 @@
 	gpgcheck={1|0}	//是否使用gpg机制来验证软件包来源的合法性和完整性
 	gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release	//当启用gpgcheck的时候,必须指定gpgkey
 	```
-	
+
 - 自己创建yum repo
 
 	```
@@ -150,17 +150,17 @@
 	[root@ZhumaTech ~]# vi /etc/yum.repos.d/CentOS-Media.repo	//在里面添加Repo信息; 但此时我们执行`yum repolist`的时候会报错,提示没有repomd.xml;此时我们就需要创建yum源.
 	[root@ZhumaTech ~]# createrepo /yum/server
 	[root@ZhumaTech ~]# yum list all	//再执行命令可以看到
-	zlib.i686                                  1.2.3-29.el6                VT       
-	zlib-devel.i686                            1.2.3-29.el6                VT  
+	zlib.i686                                  1.2.3-29.el6                VT
+	zlib-devel.i686                            1.2.3-29.el6                VT
 	```
-	
+
 - 提示没有repomd.xml,md就是元数据meta data的缩写,修复就是把元数据目录下的xml文件复制到仓库里然后再执行`createrepo /PATH/TO/DIR`即可.
 ### 源程序管理
 - RPM安装:二进制格式; 源程序-->编译-->二进制格式;有些特性是编译时选定的,因此别人做好的二进制格式软件的特性未必是全部特性.如果编译未选定此特性,将无法使用. RPM包的版本会落后于源码包, 甚至会落后很多;这样软件老版本的漏洞就可能被黑客利用.
 - 因此就出现了RPM包的定制:手动编译安装
 	- 前提:编译环境,开发环境(开发库,开发工具)
 	- Linux: C语言和一些汇编语言开发的; GNU:C语言开发的.
-	- C: 编辑器为GCC(GNU C Complier);C++编辑器为g++; C,C++的项目管理工具:make,它能够把我们的C程序的多个不同的项目文件做成一个项目,并且把这个项目的编译过程通过一个配置文件来提供,这个配置文件就是makefile(定义了make(gcc,g++)按何种次序去编译这些源程序中的源程序);make编译C项目的时候,必须要有makefile文件,但是makefile文件并不属于程序的自身组成部分. 
+	- C: 编辑器为GCC(GNU C Complier);C++编辑器为g++; C,C++的项目管理工具:make,它能够把我们的C程序的多个不同的项目文件做成一个项目,并且把这个项目的编译过程通过一个配置文件来提供,这个配置文件就是makefile(定义了make(gcc,g++)按何种次序去编译这些源程序中的源程序);make编译C项目的时候,必须要有makefile文件,但是makefile文件并不属于程序的自身组成部分.
 	- automake,让源程序的作者对自己的程序做一个简单的定义;automake就可以帮程序生成makefile文件;但是生成的只是半成品makefile.in;也就是说,此时make还不能编译这个项目,makefile还需要进一步完善.这时候makefile.in还可以接受另外一个工具所生成的脚本和配置autoconf,autoconf的作用是为项目生成脚本的,脚本叫做configure;用来配置当前程序如何编译; 当configure指定了源程序的特性后的结果和makefile.in结合最终生成makefile文件.然后在使用make就可以工作了. make install 就是将源码包的二进制文件,配置文件,帮助文件按照configure的定义放到指定的路径去.
 
 #### 编译安装软件包大致三步骤:
@@ -173,7 +173,7 @@
     	- 功能:1.让用户选定编译特性; 2.检查编译环境
     b. #执行make
     c. #make install
-    
+
 #### 安装完成后运行程序的步骤:
 
 a. 修改PATH环境变量,以能够识别此程序的二进制文件路径
@@ -191,12 +191,13 @@ b. 默认情况下,系统搜索库文件的路径/lib; /usr/lib; 要增添额外
 
 c. 任何一个能够向其他人输出库的源程序,都会包含头文件: /include ;头文件中包含了自己所提供的每一个库文件所包含的函数,以及函数的调用参数,参数类型等相关属性,这些属性是被其他人依赖于当前这个程序做二次开发所使用的规范式文件.所以头文件也需要输出给系统,我们自己设定的头文件路径,系统是找不着的;系统默认的是/usr/include;
 
-- 增添头文件搜寻路径,使用链接进行: 假如我们要把/usr/local/tengine/include/ 导出到 /usr/include; 使用命令 `ln -s /usr/local/tengine/include/* /usr/include` 或者 `ln -s /usr/local/tengine/include /usr/include/tengine` 
+- 增添头文件搜寻路径,使用链接进行: 假如我们要把/usr/local/tengine/include/ 导出到 /usr/include; 使用命令 `ln -s /usr/local/tengine/include/* /usr/include` 或者 `ln -s /usr/local/tengine/include /usr/include/tengine`
 
 - 查看二进制程序所依赖的库文件:`ldd /PATH/TO/BINARY_FILE`
 - 命令ldconfig
     - -p: 显示当前系统内存中缓存的共享库以及其对应的路径
     - 缓存文件 /etc/ld.so.cache
+
 d. man文件路径:默认安装在--prefix指定定的目录下的man目录
 
 - 我们系统找man文件的路径也是有限的,是在/etc/man.config中添加一个MANPATH; 我们也可以通过`man -M /PATH/TO/MAN_DIR`的命令来添加新的man路径,比如`man -M /usr/local/apache/man htpasswd`
