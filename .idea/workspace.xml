@@ -4,6 +4,7 @@
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/12 进程内核.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/12 进程内核.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,33 +28,61 @@
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="md" value="2" />
           <entry key="txt" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="md" value="3" />
+          <entry key="md" value="5" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Markdown" value="2" />
+          <entry key="Markdown" value="4" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Work/项目知识.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md">
+          <provider editor-type-id="MarkdownFxPreviewEditor" />
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="481">
+                <caret line="253" column="19" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -61,6 +90,8 @@
       <find>cut</find>
       <find>chage</find>
       <find>fuser</find>
+      <find>环</find>
+      <find>ring</find>
     </findStrings>
     <dirStrings>
       <dir>E:\MyRecords\Studying Files\CentOS\Oldboy</dir>
@@ -121,30 +152,6 @@
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
-              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
-              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
-              <item name="Oldboy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
-              <item name="SQL" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
               <item name="Work" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -201,6 +208,7 @@
       <workItem from="1535479030044" duration="1956000" />
       <workItem from="1535507836213" duration="608000" />
       <workItem from="1535624649570" duration="701000" />
+      <workItem from="1536547820882" duration="3286000" />
     </task>
     <task id="LOCAL-00001" summary="Daily update">
       <created>1534724322240</created>
@@ -258,14 +266,22 @@
       <option name="project" value="LOCAL" />
       <updated>1536286790443</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Daily update">
+      <created>1536296677634</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1536296677634</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19495000" />
+    <option name="totallyTimeSpent" value="23428000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -297,17 +313,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Daily update" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/15 编译内核.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="403">
-            <caret line="335" column="34" selection-start-line="335" selection-start-column="34" selection-end-line="335" selection-end-column="34" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md">
       <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
@@ -325,6 +330,35 @@
         <state split_layout="FIRST">
           <first_editor relative-caret-position="320">
             <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/15 编译内核.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="403">
+            <caret line="157" column="12" selection-start-line="157" selection-start-column="12" selection-end-line="157" selection-end-column="12" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work/项目知识.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="481">
+            <caret line="253" column="19" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
           </first_editor>
           <second_editor />
         </state>
