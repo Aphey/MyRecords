@@ -2,97 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
-      <change beforePath="$PROJECT_DIR$/Studying Files/Openstack/OpenStack Doc for CentOS7.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/Openstack/OpenStack Kilo—CentOS 7[ 中文 ]安装指南.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/Openstack/OpenStack部署实践PDF电子书下载带书签目录完整版.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/HSP.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/HSP.md.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/excercise1 课程表.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/excercise2 无序列表和有序列表.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/excercise8 线包字.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/知识点" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习10 初识css 类选择器  id选择器/Aphey.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习10 初识css 类选择器  id选择器/demo1.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习10 初识css 类选择器  id选择器/demo1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习10 初识css 类选择器  id选择器/selector.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习10 初识css 类选择器  id选择器/selector.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习10 初识css 类选择器  id选择器/知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/exam.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/exam.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/selector.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/selector.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/selector1.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/selector1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习12 盒子模型/Aphey.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习12 盒子模型/Aphey.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习12 盒子模型/box.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习12 盒子模型/box.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习12 盒子模型/知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习13 盒子模型应用/Aphey.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习13 盒子模型应用/icon.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习13 盒子模型应用/icons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习14 优酷牛人/Aphey.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习14 优酷牛人/icon.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习14 优酷牛人/icons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习14 优酷牛人/知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/Aphey.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/donkey.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/float(left).css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/float(left).html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/float(right).css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/float(right).html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/Aphey.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/absolute.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/absolute.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/fixed.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/fixed.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/relative.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/relative.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/z-index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/定位知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习17 常见问题/Q&amp;A.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习17 常见问题/questions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习18 apache服务器使用及配置/知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习19 apache 虚拟主机配置/知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习20 php开发环境搭建和使用/知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习21 安装并配置discuz论坛/Discuz_6.0.0_SC_UTF8.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习21 安装并配置discuz论坛/知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习22 复习 一个服务器多站点的配置方法/知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习23 php书写规范 变量和常量/知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习24整型细节说明/练习24.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习25 算术运算符和比较运算符/25.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习26 逻辑运算符/26.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习27 三元运算符 字符串运算符/27.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习28 顺序控制 分支控制(if else switch)/练习28.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/a.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/b.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/c.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/qq.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/zjl.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/作业/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/作业/left.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/作业/right.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/作业/top.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/作业/top.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/练习3 框架集知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习4 iframe(浮动窗口)的使用/a.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习4 iframe(浮动窗口)的使用/example.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习4 iframe(浮动窗口)的使用/iframe(浮动窗口)知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习5 表单元素/example.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习5 表单元素/表单元素知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习6 多媒体标记/movie.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习6 多媒体标记/复习.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习7 地图映射/map.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习9 div+css开山篇/Aphey.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习9 div+css开山篇/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习9 div+css开山篇/my.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习9 div+css开山篇/知识点.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/Lamp Brothers/1.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/Lamp Brothers/2.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/Lamp Brothers/3.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/PhPStudy/Lamp Brothers/phpStorm学习" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/8 磁盘管理和文件系统.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/8 磁盘管理和文件系统.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -110,6 +22,7 @@
           <entry key="project.closed" value="3" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="2" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.3" value="1" />
@@ -117,43 +30,43 @@
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="2" />
+          <entry key="md" value="136" />
           <entry key="txt" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="2" />
+          <entry key="Markdown" value="136" />
           <entry key="PLAIN_TEXT" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="jpg" value="1" />
-          <entry key="md" value="5" />
+          <entry key="jpg" value="2" />
+          <entry key="md" value="15" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="1" />
-          <entry key="Markdown" value="4" />
+          <entry key="Image" value="2" />
+          <entry key="Markdown" value="14" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Work/项目知识.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
+            <state>
               <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
             </state>
           </provider>
@@ -161,20 +74,42 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md">
-          <provider editor-type-id="MarkdownFxPreviewEditor" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="481">
+              <first_editor relative-caret-position="65">
                 <caret line="253" column="19" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
+                <caret line="227" column="8" selection-start-line="227" selection-start-column="8" selection-end-line="227" selection-end-column="8" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
+          <provider editor-type-id="MarkdownFxPreviewEditor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Work/日常工作资料/yingyezhizhaofuben.jpg">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd &amp; NFS &amp;SAMBA.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="-224">
+                <caret line="393" lean-forward="true" selection-start-line="393" selection-end-line="393" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider editor-type-id="MarkdownFxPreviewEditor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="5184">
+                <caret line="470" column="56" selection-start-line="470" selection-start-column="56" selection-end-line="470" selection-end-column="56" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider editor-type-id="MarkdownFxPreviewEditor" />
         </entry>
       </file>
     </leaf>
@@ -187,6 +122,8 @@
       <find>fuser</find>
       <find>环</find>
       <find>ring</find>
+      <find>NFS</find>
+      <find>umount</find>
     </findStrings>
     <dirStrings>
       <dir>E:\MyRecords\Studying Files\CentOS\Oldboy</dir>
@@ -208,6 +145,9 @@
       <list>
         <option value="$PROJECT_DIR$/Studying Files/CentOS/Magedu/21.Web服务及http协议.md" />
         <option value="$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md" />
+        <option value="$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd.md" />
+        <option value="$PROJECT_DIR$/Studying Files/CentOS/Magedu/8 磁盘管理和文件系统.md" />
+        <option value="$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd &amp; NFS &amp;SAMBA.md" />
       </list>
     </option>
   </component>
@@ -231,7 +171,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -249,10 +188,42 @@
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
               <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
+              <item name="Magedu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
+              <item name="Oldboy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Work" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Work" type="462c0819:PsiDirectoryNode" />
+              <item name="日常工作资料" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -262,6 +233,14 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\MyRecords\Studying Files\CentOS\Oldboy" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\MyRecords\Studying Files\CentOS\Magedu" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -297,7 +276,8 @@
       <workItem from="1535479030044" duration="1956000" />
       <workItem from="1535507836213" duration="608000" />
       <workItem from="1535624649570" duration="701000" />
-      <workItem from="1536547820882" duration="5979000" />
+      <workItem from="1536547820882" duration="9934000" />
+      <workItem from="1536796111946" duration="2712000" />
     </task>
     <task id="LOCAL-00001" summary="Daily update">
       <created>1534724322240</created>
@@ -369,14 +349,22 @@
       <option name="project" value="LOCAL" />
       <updated>1536568573774</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Daily update">
+      <created>1536626498248</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1536626498248</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26121000" />
+    <option name="totallyTimeSpent" value="32788000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -408,19 +396,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Daily update" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="112">
-            <caret line="46" column="11" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/SQL/SQL.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="320">
@@ -429,9 +405,9 @@
           <second_editor />
         </state>
       </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/15 编译内核.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="403">
@@ -440,27 +416,87 @@
           <second_editor />
         </state>
       </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/26-1 NFS网络文件共享系统.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/26-1. NFS网络文件共享系统.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd.md" />
     <entry file="file://$PROJECT_DIR$/Work/项目知识.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
+        <state>
           <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/8 磁盘管理和文件系统.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="481">
-            <caret line="253" column="19" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
+          <first_editor relative-caret-position="271">
+            <caret line="299" column="8" selection-start-line="299" selection-start-column="8" selection-end-line="299" selection-end-column="8" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/16 CentOS安装.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="144">
+            <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/基础知识.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="191">
+            <caret line="2642" column="34" selection-start-line="2642" selection-start-column="34" selection-end-line="2642" selection-end-column="34" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="5184">
+            <caret line="470" column="56" selection-start-line="470" selection-start-column="56" selection-end-line="470" selection-end-column="56" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Work/日常工作资料/yingyezhizhaofuben.jpg">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="65">
+            <caret line="253" column="19" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
+            <caret line="227" column="8" selection-start-line="227" selection-start-column="8" selection-end-line="227" selection-end-column="8" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd &amp; NFS &amp;SAMBA.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-224">
+            <caret line="393" lean-forward="true" selection-start-line="393" selection-end-line="393" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
   </component>
 </project>
