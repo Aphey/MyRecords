@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
-      <change afterPath="$PROJECT_DIR$/Work/csdn.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -103,8 +101,8 @@
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/基础知识.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="271">
-                <caret line="2821" column="32" selection-start-line="2821" selection-start-column="18" selection-end-line="2821" selection-end-column="33" />
+              <first_editor relative-caret-position="1887">
+                <caret line="2799" column="53" selection-start-line="2799" selection-start-column="53" selection-end-line="2799" selection-end-column="53" />
               </first_editor>
               <second_editor />
             </state>
@@ -117,7 +115,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="367">
-                <caret line="287" column="21" lean-forward="true" selection-start-line="287" selection-start-column="21" selection-end-line="287" selection-end-column="21" />
+                <caret line="287" column="21" selection-start-line="287" selection-start-column="21" selection-end-line="287" selection-end-column="21" />
               </first_editor>
               <second_editor />
             </state>
@@ -307,7 +305,7 @@
       <workItem from="1535507836213" duration="608000" />
       <workItem from="1535624649570" duration="701000" />
       <workItem from="1536547820882" duration="9934000" />
-      <workItem from="1536796111946" duration="15206000" />
+      <workItem from="1536796111946" duration="15493000" />
     </task>
     <task id="LOCAL-00001" summary="Daily update">
       <created>1534724322240</created>
@@ -400,11 +398,18 @@
       <option name="project" value="LOCAL" />
       <updated>1536919957791</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Daily update">
+      <created>1537083972584</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1537083972584</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45282000" />
+    <option name="totallyTimeSpent" value="45569000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
@@ -553,7 +558,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="367">
-            <caret line="287" column="21" lean-forward="true" selection-start-line="287" selection-start-column="21" selection-end-line="287" selection-end-column="21" />
+            <caret line="287" column="21" selection-start-line="287" selection-start-column="21" selection-end-line="287" selection-end-column="21" />
           </first_editor>
           <second_editor />
         </state>
@@ -563,8 +568,8 @@
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/基础知识.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="271">
-            <caret line="2821" column="32" selection-start-line="2821" selection-start-column="18" selection-end-line="2821" selection-end-column="33" />
+          <first_editor relative-caret-position="1887">
+            <caret line="2799" column="53" selection-start-line="2799" selection-start-column="53" selection-end-line="2799" selection-end-column="53" />
           </first_editor>
           <second_editor />
         </state>
