@@ -170,3 +170,16 @@ uid=500(aphey) gid=500(aphey) groups=500(aphey)
   ```
   [root@nfs-client ~]# cat /var/lib/nfs/xtab
   ```
+- 客户端挂载命令使开机自启动
+  1. /etc/rc.local里使用`mount -t nfs SERVER_IP:/SHARED_DIR /MOUNTED_DIR`来挂载，这个方法的缺点是，偶尔开机挂载不上，要对挂载点监控
+  2. /etc/fstab配置，最好不要这么操作，原因是 fstab优先于网络自启动，此时还连不上NFS服务器端；即使是本地文件系统，也要注意fstab最后两列要设置为0 0.
+- oldboy的经验,通过/etc/rc.local来配置自启动，平时要通过nagios监控。
+  ```
+  //客户机配置
+  # rpcbind autostart config
+  /etc/init.d/rpcbind start
+
+  /bin/mount -t nfs NFS_SERVER_IP:/W_SHARED /MOUNTED_W_DIR
+  /bin/mount -t nfs NFS_SERVER_IP:/R_SHARED /MOUNTED_R_DIR
+  ```
+- **最好用rc.local来管理所有开机自启动的配置，形成一整套的启动档案**
