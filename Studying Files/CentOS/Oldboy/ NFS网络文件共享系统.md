@@ -183,4 +183,5 @@ uid=500(aphey) gid=500(aphey) groups=500(aphey)
   /bin/mount -t nfs NFS_SERVER_IP:/R_SHARED /MOUNTED_R_DIR
   ```
 - **最好用rc.local来管理所有开机自启动的配置，形成一整套的启动档案**
-![nfs](http://mojieedu.com/nfs%E6%9D%83%E9%99%90%E5%9B%BE.png)
+- nfs设置客户端选项图解
+@import "pics/nfs.png"
