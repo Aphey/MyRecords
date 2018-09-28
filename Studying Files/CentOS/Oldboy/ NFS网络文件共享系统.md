@@ -161,6 +161,13 @@ uid=500(aphey) gid=500(aphey) groups=500(aphey)
 ####扩展知识
 
 - /usr/sbin/exportfs 命令，是NFS服务的管理命令，可以加载NFS配置生效，还可以直接配置NFS共享目录，即无需配置/etc/exports实现共享；这个命令只是临时生效；其实 /etc/init.d/nfs reload 就是调用`exportfs -rv`这个命令的
+  ```
+  //在服务器端共享/data/bbs目录,临时生效
+  [root@nfs-server ~]# exportfs -o rw,sync,all_squash,anonuid=555,anongid=555 192.168.1.0/24:/data/bbs
+
+  //
+
+  ```
 - /var/lib/nfs/etab 文件,这个文件可以查看共享目录，对客户端的实际参数
   ```
     [root@nfs-server skel]# cat /var/lib/nfs/etab
