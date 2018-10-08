@@ -192,3 +192,68 @@ uid=500(aphey) gid=500(aphey) groups=500(aphey)
 - **最好用rc.local来管理所有开机自启动的配置，形成一整套的启动档案**
 - nfs设置客户端选项图解
 @import "pics/nfs.png"
+
+
+#### nfs客户端自动挂载(autofs)部署方法(客户端安装即可)
+- autofs可以实现当用户访问的时候再挂载,如果没有用户访问,在指定的时间后自动卸载
+> 优点:可以解决NFS服务器和客户端高耦合的问题.
+> 缺点:用户请求才挂载,所以开始请求的瞬间效率较差; 一般用于测试环境,生产环境不用的.
+- CentOS6 搜索autofs
+  ```
+  [root@vm2 ~]# yum search autofs
+  Loaded plugins: fastestmirror, security
+  Determining fastest mirrors
+  base                                                                                               | 3.7 kB     00:00
+  extras                                                                                             | 3.4 kB     00:00
+  updates                                                                                            | 3.4 kB     00:00
+  ================================================== N/S Matched: autofs ===================================================
+  libsss_autofs.x86_64 : A library to allow communication between Autofs and SSSD
+  autofs.x86_64 : A tool for automatically mounting and unmounting filesystems
+
+  Name and summary matches only, use "search all" for everything.
+  ```
+- CentOS6安装autofs:
+ ```
+ [root@vm2 ~]# yum -y install autofs
+ [root@vm2 ~]# /etc/init.d/autofs start
+ Starting automount: automount: program is already running.
+                                                            [  OK  ]  //安装完成
+ ```
+- autofs的配置文件/etc/auto.master和/etc/sysconfig/autofs,其样例格式如下:
+  ```
+  /misc   /etc/auto.misc  --timeout 60
+  //含义为: /挂载点    /etc/auto.misc则定义了挂载的动作,我们的操作应该是,--timeout 定义了无操作退出autofs的时间
+  /mnt    /etc/auto.misc
+  ```
+- 我们去/etc/auto.misc看看
+  ```
+  // 该配置给了样例:
+  #linux          -ro,soft,intr           ftp.example.org:/pub/linux
+  #boot           -fstype=ext2            :/dev/hda1
+  #floppy         -fstype=auto            :/dev/fd0
+  #floppy         -fstype=ext2            :/dev/fd0
+  #e2floppy       -fstype=ext2            :/dev/fd0
+  #jaz            -fstype=ext2            :/dev/sdc1
+  #removable      -fstype=ext2            :/dev/hdd
+  // 其每个字段的含义如下:
+  挂载点下的入口     挂载文件系统的类型       设备名称
+  // 我们加一行:
+  nfsdata         -fstype=nfs             192.168.1.31:/data/bbs
+  入口表示在挂载点下载生成一个分身,我们必须进入这个目录才能看到数据,比如这里定义的是nfsdata,
+  我们的挂载点是/mnt,那么我们就需要进入/mnt/nfsdata才能看到文件
+  ```
+- 通过上面的配置操作试试
+  ```
+  [root@vm2 ~]# umount -lf /mnt // 卸载挂载点
+  [root@vm2 ~]# service autofs restart  //重启autofs
+  Stopping automount:                                        [  OK  ]
+  Starting automount:                                        [  OK  ]
+  [root@vm2 ~]# cd /mnt/  //进入挂载点
+  [root@vm2 mnt]# ls      //没有任何东西
+  [root@vm2 mnt]# cd nfsdata  //在进入挂载点的分身
+  [root@vm2 nfsdata]# ls  //可以看到文件了
+  abc.txt  bcd  def
+  [root@vm2 nfsdata]# touch xyz //可以创建文件
+  [root@vm2 nfsdata]# ls
+  abc.txt  bcd  def  xyz
+  ```

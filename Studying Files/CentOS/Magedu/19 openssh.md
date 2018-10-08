@@ -13,7 +13,7 @@
     - ssh_host_dsa_key.pub  ssh_host_dsa_key    // dsa加密算法的一对密钥
     - ssh_host_key.pub  ssh_host_key    // 是为了SSHV1提供的密钥
     - ssh_host_rsa_key.pub  ssh_host_rsa_key    // rsa算法的一对密钥
-- 服务器配置文件sshd_config;最好吧要修改的哪一行复制出来修改
+- 服务器配置文件sshd_config;最好把要修改的哪一行复制出来修改
     - \# 空格 开头的行是注释
     - \#后面没空格的行是可以启用的参数,或者默认的参数
     - 里面有一行`#Protocal 2,1` 表示既支持sshv2,也支持sshv1,优先使用sshv2;一般我们不启用这个,而是只启用`Protocal 2`
@@ -46,7 +46,26 @@
         1. 生成一对密钥`ssh-keygen`
         2. 将公钥传输至服务器端某用户的家目录下的.ssh/authorized_keys文件中
         3. 测试登陆即可
-- sftp root@REMOTE_HOST可以不用假设ftp服务器直接登陆进去传输文件,`get FILENAME`即可;`exit`即可退出
+- `sftp -oPort=22 root@REMOTE_HOST`可以不用架设ftp服务器直接登陆进去传输文件,`get FILENAME`即可;`exit`即可退出
+  ```
+  [root@vm4 ~]# sftp -oPort9999 root@192.168.1.99
+  Connecting to 192.168.1.99...
+  command-line: line 0: Bad configuration option: Port9999
+  Couldn't read packet: Connection reset by peer
+  [root@vm4 ~]# sftp -oPort=9999 root@192.168.1.99
+  Connecting to 192.168.1.99...
+  root@192.168.1.99's password:
+  sftp> ls -l     //进了root的家目录
+  -rw-------    1 root     root         1216 Sep 15 04:48 anaconda-ks.cfg
+  -rw-r--r--    1 root     root        27312 Sep 15 04:47 install.log
+  -rw-r--r--    1 root     root         7572 Sep 15 04:45 install.log.syslog
+  sftp> put abc.txt /root  //用put来上传文件,后面可以跟指定的目录
+  Uploading abc.txt to /root/abc.txt
+  abc.txt                                                                                  100%    0     0.0KB/s   00:00
+  sftp> get abc.txt //get来下载文件,下载到当前目录
+  Fetching /root/abc.txt to abc.txt
+
+  ```
 - 如果远程服务器改了sshd的默认端口我们只要在Xshell 中用`ssh USERNAME@REMOTE_HOST PORT` 即可以连接;注意防火墙要把对应的端口打开.
 ### Openssh
 ### ssh服务
@@ -71,7 +90,7 @@
         - scp: 跨主机安全复制工具
 - 客户机的主机认证的密钥保存在/HOMEDIR/.ssh/known_hosts 中
 - ssh客户端登陆远程服务器,登陆方法有两种:
-    - ssh USERNAME@HOST [COMMA]
+    - ssh USERNAME@HOST
     - ssh -l USERNAME HOST
     ```
     [root@Aphey rsyslog.d]# ssh 192.168.88.88   //下面这段话是做主机密钥认证
@@ -80,9 +99,10 @@
     Are you sure you want to continue connecting (yes/no)? yes
     Warning: Permanently added '192.168.88.88' (RSA) to the list of known hosts.
     root@192.168.88.88's password:      //输入yes后会让我们输入root用户密码
-    Last login: Mon Jun  5 08:24:30 2017 from 192.168.88.32 //登入成功;注意如果我们没指定用户的话,就以当前主机的用户 登陆服务器.所以我们常用 ssh USERNAME@HOSTNAME 来登入远程
+    Last login: Mon Jun  5 08:24:30 2017 from 192.168.88.32 //登入成功;注意如果我们没指定用户的话,
+    就以当前主机的用户 登陆服务器.所以我们常用 ssh USERNAME@HOSTNAME 来登入远程
     ```
-    - 我们还可以通过 ssh -l USERNAME HOST 'COMMAND' 进行不登录主机,却在主机中操作COMMAND命令,并显示到本地主机.
+    - 我们还可以通过 ssh -l USERNAME HOST [COMMAND] 进行不登录主机,却在主机中操作COMMAND命令,并显示到本地主机.
         ```
         [root@Aphey ~]# ssh -l root 192.168.88.88 'ifconfig'
         root@192.168.88.88's password:
@@ -107,7 +127,9 @@
     - scp: `scp SRC DEST`
         - -r: 递归复制
         - -a:保留文件的所有属性,常用于备份;也叫归档复制.
-        - 以USERNAME的身份从远程主机复制到本地的方法:`scp USERNAME@HOST:/path/to/somefile /path/to/local`;从本地复制到远程的服务器上也是一样的操作:`scp /path/to/local USERNAME@HOST:/path/to/somefile `
+        - -P PORT 指定ssh端口号,默认22时可以不指定
+        - 以USERNAME的身份从远程主机复制到本地的方法:`scp -P22 USERNAME@HOST:/path/to/somefile /path/to/local`;
+        从本地复制到远程的服务器上也是一样的操作:`scp /path/to/local USERNAME@HOST:/path/to/somefile `
     - ssh-keygen: `ssh-keygen -t rsa`生成一对密钥,密钥保存在~/.ssh/id_rsa;公钥保存在~/.ssh/id_rsa.pub; 公钥追加保存到远程主机某用户的家目录的.ssh/authorized_keys目录中或.ssh/authorized_keys2目录中,注意千万不能覆盖,因为不止 你一个人要链接到那个主机上;这个命令的常用选项如下,也可以不加选项:
         - -f FILENAME: 直接指定密钥的文件名
         - -N '密码': 为密钥文件加一个密码;留空这表示不加密,就不用按两次回车了.
@@ -207,66 +229,4 @@
 - 编译安装完dropbear后,使用`dropbear -p [ip:]PORT -F -E`启动服务器,其中ip不写则表示所有的IP可以连接,F:frontend,把所有信息显示到前台,E表示 所有错误日志发送至标准错误输出
 - 然后可以用ssh 命令连接进来
 
-#### nfs客户端自动挂载(autofs)部署方法(客户端安装即可)
-- autofs可以实现当用户访问的时候再挂载,如果没有用户访问,在指定的时间后自动卸载
-> 优点:可以解决NFS服务器和客户端高耦合的问题.
-> 缺点:用户请求才挂载,所以开始请求的瞬间效率较差; 一般用于测试环境,生产环境不用的.
-- CentOS6 搜索autofs
-  ```
-  [root@vm2 ~]# yum search autofs
-  Loaded plugins: fastestmirror, security
-  Determining fastest mirrors
-  base                                                                                               | 3.7 kB     00:00
-  extras                                                                                             | 3.4 kB     00:00
-  updates                                                                                            | 3.4 kB     00:00
-  ================================================== N/S Matched: autofs ===================================================
-  libsss_autofs.x86_64 : A library to allow communication between Autofs and SSSD
-  autofs.x86_64 : A tool for automatically mounting and unmounting filesystems
-
-  Name and summary matches only, use "search all" for everything.
-  ```
-- CentOS6安装autofs:
- ```
- [root@vm2 ~]# yum -y install autofs
- [root@vm2 ~]# /etc/init.d/autofs start
- Starting automount: automount: program is already running.
-                                                            [  OK  ]  //安装完成
- ```
-- autofs的配置文件/etc/auto.master和/etc/sysconfig/autofs,其样例格式如下:
-  ```
-  /misc   /etc/auto.misc  --timeout 60
-  //含义为: /挂载点    /etc/auto.misc则定义了挂载的动作,我们的操作应该是,--timeout 定义了无操作退出autofs的时间
-  /mnt    /etc/auto.misc
-  ```
-- 我们去/etc/auto.misc看看
-  ```
-  // 该配置给了样例:
-  #linux          -ro,soft,intr           ftp.example.org:/pub/linux
-  #boot           -fstype=ext2            :/dev/hda1
-  #floppy         -fstype=auto            :/dev/fd0
-  #floppy         -fstype=ext2            :/dev/fd0
-  #e2floppy       -fstype=ext2            :/dev/fd0
-  #jaz            -fstype=ext2            :/dev/sdc1
-  #removable      -fstype=ext2            :/dev/hdd
-  // 其每个字段的含义如下:
-  挂载点下的入口     挂载文件系统的类型       设备名称
-  // 我们加一行:
-  nfsdata         -fstype=nfs             192.168.1.31:/data/bbs
-  入口表示在挂载点下载生成一个分身,我们必须进入这个目录才能看到数据,比如这里定义的是nfsdata,
-  我们的挂载点是/mnt,那么我们就需要进入/mnt/nfsdata才能看到文件
-  ```
-- 通过上面的配置操作试试
-  ```
-  [root@vm2 ~]# umount -lf /mnt // 卸载挂载点
-  [root@vm2 ~]# service autofs restart  //重启autofs
-  Stopping automount:                                        [  OK  ]
-  Starting automount:                                        [  OK  ]
-  [root@vm2 ~]# cd /mnt/  //进入挂载点
-  [root@vm2 mnt]# ls      //没有任何东西
-  [root@vm2 mnt]# cd nfsdata  //在进入挂载点的分身
-  [root@vm2 nfsdata]# ls  //可以看到文件了
-  abc.txt  bcd  def
-  [root@vm2 nfsdata]# touch xyz //可以创建文件
-  [root@vm2 nfsdata]# ls
-  abc.txt  bcd  def  xyz
-  ```
+####ssh服务企业级生产场景说明
