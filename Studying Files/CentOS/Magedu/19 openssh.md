@@ -3,13 +3,13 @@
     - Linux: ssh (客户端命令)
     - Windows: 安装远程连接工具,putty(汉化的人在其中植入了木马), SecureCRT(著名的商业版), SSHSecureShellClient(免费和商业版),Xmanager
 - 服务器端:通常是只在Linux和Unix系统
-    - sshd 
+    - sshd
 - openssh 一般包含两个组件(服务器端的sshd和客户端的ssh)
 - 不管是服务器sshd还是客户端ssh都需要配置文件,他们都位于/etc/ssh/目录中.
     - 客户端的配置文件是/etc/ssh/ssh_config
-    - 服务器端的配置文件是/etc/ssh/sshd_config 
+    - 服务器端的配置文件是/etc/ssh/sshd_config
 - 在/etc/ssh/目录下还有几个文件,是密钥相关的,注意文件的权限,私钥和服务器sshd_config都是600权限
-    - moduli   // ssh绘画中密钥交换的相关信息,可以不用管   
+    - moduli   // ssh绘画中密钥交换的相关信息,可以不用管
     - ssh_host_dsa_key.pub  ssh_host_dsa_key    // dsa加密算法的一对密钥
     - ssh_host_key.pub  ssh_host_key    // 是为了SSHV1提供的密钥
     - ssh_host_rsa_key.pub  ssh_host_rsa_key    // rsa算法的一对密钥
@@ -56,7 +56,7 @@
     1. chkconfig telnet on
     2. service xinetd restart
     3. ss -tnl就可以看到:::23好端口被监听了
-    
+
     注意: telnet因为所有数据都是明文发送的,所以账号必须是普通用户
     ```
 - ssh: Secure Shell协议22/tcp; 通信过程及认证过程都是加密的,还能实现主机认证:主机和客户端之间会通过密钥认证.用户认证过程是加密的,数据传输也是认证的,所以比telnet安全得多.
@@ -64,12 +64,12 @@
     - ssh认证有两种方式:基于口令认证 和 基于密钥认证
 - 协议:只是规范; 实现:服务器端和客户端
 - linux: openssh 开源的C/S架构;
-    - 服务器端:sshd,配置文件/etc/ssh/sshd_config 
+    - 服务器端:sshd,配置文件/etc/ssh/sshd_config
     - 客户端:ssh, 配置文件/etc/ssh/ssh_config;其实openssh还提供了好几个工具:
         - ssh-keygen: 密钥生成器,为某个用户生成密钥
-        - ssh-copy-id: 将公钥传输至远程服务器,保存在服务器家目录的某个文件中 
-        - scp: 跨主机安全复制工具 
-- 客户机的主机认证的密钥保存在/HOMEDIR/.ssh/known_hosts 中        
+        - ssh-copy-id: 将公钥传输至远程服务器,保存在服务器家目录的某个文件中
+        - scp: 跨主机安全复制工具
+- 客户机的主机认证的密钥保存在/HOMEDIR/.ssh/known_hosts 中
 - ssh客户端登陆远程服务器,登陆方法有两种:
     - ssh USERNAME@HOST [COMMA]
     - ssh -l USERNAME HOST
@@ -85,26 +85,26 @@
     - 我们还可以通过 ssh -l USERNAME HOST 'COMMAND' 进行不登录主机,却在主机中操作COMMAND命令,并显示到本地主机.
         ```
         [root@Aphey ~]# ssh -l root 192.168.88.88 'ifconfig'
-        root@192.168.88.88's password: 
-        eth0      Link encap:Ethernet  HWaddr 20:CF:30:0B:34:9B  
+        root@192.168.88.88's password:
+        eth0      Link encap:Ethernet  HWaddr 20:CF:30:0B:34:9B
                   inet addr:192.168.88.88  Bcast:192.168.88.255  Mask:255.255.255.0
                   inet6 addr: fe80::22cf:30ff:fe0b:349b/64 Scope:Link
                   UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
                   RX packets:2546570 errors:0 dropped:0 overruns:0 frame:0
                   TX packets:2146814 errors:0 dropped:0 overruns:0 carrier:0
-                  collisions:0 txqueuelen:1000 
+                  collisions:0 txqueuelen:1000
                   RX bytes:601199555 (573.3 MiB)  TX bytes:692255488 (660.1 MiB)
 
-        lo        Link encap:Local Loopback  
+        lo        Link encap:Local Loopback
                   inet addr:127.0.0.1  Mask:255.0.0.0
                   inet6 addr: ::1/128 Scope:Host
                   UP LOOPBACK RUNNING  MTU:16436  Metric:1
                   RX packets:684087 errors:0 dropped:0 overruns:0 frame:0
                   TX packets:684087 errors:0 dropped:0 overruns:0 carrier:0
-                  collisions:0 txqueuelen:0 
+                  collisions:0 txqueuelen:0
                   RX bytes:231649659 (220.9 MiB)  TX bytes:231649659 (220.9 MiB)
         ```
-    - scp: `scp SRC DEST` 
+    - scp: `scp SRC DEST`
         - -r: 递归复制
         - -a:保留文件的所有属性,常用于备份;也叫归档复制.
         - 以USERNAME的身份从远程主机复制到本地的方法:`scp USERNAME@HOST:/path/to/somefile /path/to/local`;从本地复制到远程的服务器上也是一样的操作:`scp /path/to/local USERNAME@HOST:/path/to/somefile `
@@ -114,9 +114,9 @@
         ```
         [root@Aphey ~]# ssh-keygen -t rsa   //在客户机上生成一怼密钥
         Generating public/private rsa key pair.
-        Enter file in which to save the key (/root/.ssh/id_rsa): 
+        Enter file in which to save the key (/root/.ssh/id_rsa):
         Enter passphrase (empty for no passphrase):     //这个是为密钥文件再加密码,如果加了密码将来还得再输这个密码,所以我们这里不加,直接回车
-        Enter same passphrase again:     //这个是为密钥文件再加密码,如果加了密码将来还得再输这个密码,所以我们这里不加,直接回车 
+        Enter same passphrase again:     //这个是为密钥文件再加密码,如果加了密码将来还得再输这个密码,所以我们这里不加,直接回车
         Your identification has been saved in /root/.ssh/id_rsa.
         Your public key has been saved in /root/.ssh/id_rsa.pub.
         The key fingerprint is:
@@ -136,10 +136,10 @@
         [root@Aphey ~]# ls .ssh/    //密钥已经生成
         id_rsa  id_rsa.pub  known_hosts
         [root@Aphey ~]# scp .ssh/id_rsa.pub root@192.168.88.88:/root    //我们把公钥先传到远程服务器上
-        root@192.168.88.88's password: 
-        id_rsa.pub                                    100%  392     0.4KB/s   00:00    
+        root@192.168.88.88's password:
+        id_rsa.pub                                    100%  392     0.4KB/s   00:00
         [root@Aphey ~]# ssh root@zhumatech.net  //远程到服务器上
-        root@zhumatech.net's password: 
+        root@zhumatech.net's password:
         Last login: Mon Jun  5 08:51:34 2017 from 192.168.88.38
         [root@zhumatech ~]# ls  //文件已经传输过来了
         anaconda-ks.cfg  install.log.syslog       upgrade.log
@@ -160,14 +160,14 @@
         [root@zhumatech ~]# exit
         [root@Aphey .ssh]# ssh root@zhumatech.net
         Last login: Mon Jun  5 09:31:37 2017 from 192.168.88.1
-        [root@zhumatech ~]# 
+        [root@zhumatech ~]#
         ```
     - 进行上面的操作时,如果远程服务器是RHEL6以上版本,___需要关闭Selinux___
     - ssh-copy-id:专门用来复制公钥到远程服务器用户家目录的.ssh目录的,如果.ssh目录不存在还能自动创建目录,还会自动追加到authorized_keys中去;
         - -i ~/.ssh/id_rsa.pub: 指定公钥文件
         ```
         [root@Aphey .ssh]# ssh-copy-id -i ~/.ssh/id_rsa.pub root@zhumatech.net
-        root@zhumatech.net's password: 
+        root@zhumatech.net's password:
         Now try logging into the machine, with "ssh 'root@zhumatech.net'", and check in:
 
           .ssh/authorized_keys
@@ -206,3 +206,67 @@
 - `dropbearkey -t dss -f /PATH/TO/dropbear_dss_host_key` 生成dropbear的dss key,不用指定长度
 - 编译安装完dropbear后,使用`dropbear -p [ip:]PORT -F -E`启动服务器,其中ip不写则表示所有的IP可以连接,F:frontend,把所有信息显示到前台,E表示 所有错误日志发送至标准错误输出
 - 然后可以用ssh 命令连接进来
+
+#### nfs客户端自动挂载(autofs)部署方法(客户端安装即可)
+- autofs可以实现当用户访问的时候再挂载,如果没有用户访问,在指定的时间后自动卸载
+> 优点:可以解决NFS服务器和客户端高耦合的问题.
+> 缺点:用户请求才挂载,所以开始请求的瞬间效率较差; 一般用于测试环境,生产环境不用的.
+- CentOS6 搜索autofs
+  ```
+  [root@vm2 ~]# yum search autofs
+  Loaded plugins: fastestmirror, security
+  Determining fastest mirrors
+  base                                                                                               | 3.7 kB     00:00
+  extras                                                                                             | 3.4 kB     00:00
+  updates                                                                                            | 3.4 kB     00:00
+  ================================================== N/S Matched: autofs ===================================================
+  libsss_autofs.x86_64 : A library to allow communication between Autofs and SSSD
+  autofs.x86_64 : A tool for automatically mounting and unmounting filesystems
+
+  Name and summary matches only, use "search all" for everything.
+  ```
+- CentOS6安装autofs:
+ ```
+ [root@vm2 ~]# yum -y install autofs
+ [root@vm2 ~]# /etc/init.d/autofs start
+ Starting automount: automount: program is already running.
+                                                            [  OK  ]  //安装完成
+ ```
+- autofs的配置文件/etc/auto.master和/etc/sysconfig/autofs,其样例格式如下:
+  ```
+  /misc   /etc/auto.misc  --timeout 60
+  //含义为: /挂载点    /etc/auto.misc则定义了挂载的动作,我们的操作应该是,--timeout 定义了无操作退出autofs的时间
+  /mnt    /etc/auto.misc
+  ```
+- 我们去/etc/auto.misc看看
+  ```
+  // 该配置给了样例:
+  #linux          -ro,soft,intr           ftp.example.org:/pub/linux
+  #boot           -fstype=ext2            :/dev/hda1
+  #floppy         -fstype=auto            :/dev/fd0
+  #floppy         -fstype=ext2            :/dev/fd0
+  #e2floppy       -fstype=ext2            :/dev/fd0
+  #jaz            -fstype=ext2            :/dev/sdc1
+  #removable      -fstype=ext2            :/dev/hdd
+  // 其每个字段的含义如下:
+  挂载点下的入口     挂载文件系统的类型       设备名称
+  // 我们加一行:
+  nfsdata         -fstype=nfs             192.168.1.31:/data/bbs
+  入口表示在挂载点下载生成一个分身,我们必须进入这个目录才能看到数据,比如这里定义的是nfsdata,
+  我们的挂载点是/mnt,那么我们就需要进入/mnt/nfsdata才能看到文件
+  ```
+- 通过上面的配置操作试试
+  ```
+  [root@vm2 ~]# umount -lf /mnt // 卸载挂载点
+  [root@vm2 ~]# service autofs restart  //重启autofs
+  Stopping automount:                                        [  OK  ]
+  Starting automount:                                        [  OK  ]
+  [root@vm2 ~]# cd /mnt/  //进入挂载点
+  [root@vm2 mnt]# ls      //没有任何东西
+  [root@vm2 mnt]# cd nfsdata  //在进入挂载点的分身
+  [root@vm2 nfsdata]# ls  //可以看到文件了
+  abc.txt  bcd  def
+  [root@vm2 nfsdata]# touch xyz //可以创建文件
+  [root@vm2 nfsdata]# ls
+  abc.txt  bcd  def  xyz
+  ```
