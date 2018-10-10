@@ -130,7 +130,7 @@
         - -P PORT 指定ssh端口号,默认22时可以不指定
         - 以USERNAME的身份从远程主机复制到本地的方法:`scp -P22 USERNAME@HOST:/path/to/somefile /path/to/local`;
         从本地复制到远程的服务器上也是一样的操作:`scp /path/to/local USERNAME@HOST:/path/to/somefile `
-    - ssh-keygen: `ssh-keygen -t rsa`生成一对密钥,密钥保存在~/.ssh/id_rsa;公钥保存在~/.ssh/id_rsa.pub; 公钥追加保存到远程主机某用户的家目录的.ssh/authorized_keys目录中或.ssh/authorized_keys2目录中,注意千万不能覆盖,因为不止 你一个人要链接到那个主机上;这个命令的常用选项如下,也可以不加选项:
+    - ssh-keygen: `ssh-keygen -t rsa`生成一对密钥,密钥类型常用的有两种rsa(发明者三个人的姓首字母ssh1代2代都有)和dsa(digital signature alogorithm,2代独有)密钥保存在~/.ssh/id_rsa;公钥保存在~/.ssh/id_rsa.pub; 公钥追加保存到远程主机某用户的家目录的.ssh/authorized_keys目录中或.ssh/authorized_keys2目录中,注意千万不能覆盖,因为不止 你一个人要链接到那个主机上;这个命令的常用选项如下,也可以不加选项:
         - -f FILENAME: 直接指定密钥的文件名
         - -N '密码': 为密钥文件加一个密码;留空这表示不加密,就不用按两次回车了.
         ```
@@ -230,3 +230,80 @@
 - 然后可以用ssh 命令连接进来
 
 ####ssh服务企业级生产场景说明
+##### 要求:所有服务器在同一用户aphey下,实现vm1从本机分发数据到vm2,vm3上,在分发过程中不需要vm2,vm3提示系统密码验证,出了分发还需要可以批量查看客户机上CPU,LOAD,MEM系统版本等使用信息.
+> 提示:形象点说,就是一把钥匙vm1开多把锁(vm2,vm3)
+```
+1. 在所有机器上添加用户aphey, 不用root是因为,有些机器上是禁止root登录,安全性也不好.
+[root@vm1 ~]# useradd aphey
+[root@vm1 ~]# passwd aphey
+Changing password for user aphey.
+New password:
+BAD PASSWORD: is too simple
+Retype new password:
+passwd: all authentication tokens updated successfully.
+
+// vm2上也创建aphey用户
+[aphey@vm2 ~]$ id aphey
+uid=556(aphey) gid=556(aphey) groups=556(aphey)
+
+// vm3也创建aphey用户
+[aphey@vm3 ~]$ id aphey
+uid=556(aphey) gid=556(aphey) groups=556(aphey)
+
+2. 在vm1上创建密钥对
+[root@vm1 ~]# su - aphey  //切换到aphey用户
+[aphey@vm1 ~]$ ssh-keygen -t dsa  //创建dsa类型的密钥对
+Generating public/private dsa key pair.
+Enter file in which to save the key (/home/aphey/.ssh/id_dsa):
+Created directory '/home/aphey/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/aphey/.ssh/id_dsa.
+Your public key has been saved in /home/aphey/.ssh/id_dsa.pub.
+The key fingerprint is:
+6b:e7:23:a7:e6:d8:8d:18:b8:59:79:03:43:2d:7b:1a aphey@vm1
+The key's randomart image is:
++--[ DSA 1024]----+
+|                 |
+|       .         |
+|      o .        |
+|     . o         |
+|      E S        |
+|     . B .       |
+|    . = = .      |
+|     + Bo*o      |
+|    o oo=+o.     |
++-----------------+
+[aphey@vm1 ~]$ ll -a ~/.ssh
+total 16
+drwx------. 2 aphey aphey 4096 Oct 10 09:00 .
+drwx------. 3 aphey aphey 4096 Oct 10 09:00 ..
+-rw-------. 1 aphey aphey  668 Oct 10 09:00 id_dsa    //私钥(钥匙)
+-rw-r--r--. 1 aphey aphey  599 Oct 10 09:00 id_dsa.pub  //公钥(锁)
+
+//开始给vm2,vm3分发公钥,注意特殊端口要用引号引起来
+[aphey@vm1 ~]$ ssh-copy-id -i .ssh/id_dsa.pub "-p 2222 aphey@192.168.1.32"
+The authenticity of host '[192.168.1.32]:2222 ([192.168.1.32]:2222)' can't be established.
+RSA key fingerprint is 83:b3:41:9b:56:91:3f:70:40:7d:09:61:2c:c1:d5:fc.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '[192.168.1.32]:2222' (RSA) to the list of known hosts.
+
+aphey@192.168.1.32's password:
+Now try logging into the machine, with "ssh '-p 2222 aphey@192.168.1.32'", and check in:
+
+  .ssh/authorized_keys
+
+to make sure we haven't added extra keys that you weren't expecting.
+
+//在vm2上用aphey用户查看一下,发送成功
+[aphey@vm2 ~]$ cd .ssh
+[aphey@vm2 .ssh]$ ls
+authorized_keys
+[aphey@vm2 .ssh]$ cat authorized_keys
+ssh-dss AAAAB3NzaC1kc3MAAACBANP0baxQTMucfCwGDn2d9F7BZRW+Pf9NsvZXc6bTBBw88KKWU2Aiwp6whgQaT93XuJydpa8j07heDzY0Zbvg52uA6EgKJ7XConcyTnIPJdDOeyonrgost0pqn/gydERdhnJw9KC2P4q46THPiCjCrMhteKrCUq7ZMFiNDVjnloNTAAAAFQD6NyWkcWYmbz8jJfXFcEI7REbJowAAAIBohRsXaINGJL+w/GkhSDRWBZu7IcLyw/O4TVV8AP/jtWZjNYloCvJs3W1+Oet95fPQgHRI75gpiIGRfmyUtdNq3jVsqJqgwyt8oI3e1Y3wjXu3CVCJfvJCVdMBar/wYsYYYN8CnZukgunRL18dvQZGEoolKTcv2rHBp/DDd/lZCAAAAIBnGZbxps/YfR0IcvB3k+KKMPpDiM5JP2WMU4pPDD3rRUV9aS7aPUIQEVMZRdE8frMPuYQ6cv+VCMIFL8uqnkN4z8BSBR0IRVs7KLwBlSz5uMMQbK9PLda3/AZ6iz95I8pufM3pBiUukfmNRRph9KkYEKxQKKziYRiy6HTqXpjARw== aphey@vm1
+ssh-dss AAAAB3NzaC1kc3MAAACBANP0baxQTMucfCwGDn2d9F7BZRW+Pf9NsvZXc6bTBBw88KKWU2Aiwp6whgQaT93XuJydpa8j07heDzY0Zbvg52uA6EgKJ7XConcyTnIPJdDOeyonrgost0pqn/gydERdhnJw9KC2P4q46THPiCjCrMhteKrCUq7ZMFiNDVjnloNTAAAAFQD6NyWkcWYmbz8jJfXFcEI7REbJowAAAIBohRsXaINGJL+w/GkhSDRWBZu7IcLyw/O4TVV8AP/jtWZjNYloCvJs3W1+Oet95fPQgHRI75gpiIGRfmyUtdNq3jVsqJqgwyt8oI3e1Y3wjXu3CVCJfvJCVdMBar/wYsYYYN8CnZukgunRL18dvQZGEoolKTcv2rHBp/DDd/lZCAAAAIBnGZbxps/YfR0IcvB3k+KKMPpDiM5JP2WMU4pPDD3rRUV9aS7aPUIQEVMZRdE8frMPuYQ6cv+VCMIFL8uqnkN4z8BSBR0IRVs7KLwBlSz5uMMQbK9PLda3/AZ6iz95I8pufM3pBiUukfmNRRph9KkYEKxQKKziYRiy6HTqXpjARw== aphey@vm1
+
+//到vm1上验证,是否可以通过密钥对免输入密码登录vm2
+[aphey@vm1 ~]$ ssh -p2222 aphey@192.168.1.32
+[aphey@vm2 ~]$                                // 成功免密登入vm2
+```
