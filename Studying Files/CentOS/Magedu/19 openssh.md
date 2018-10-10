@@ -200,6 +200,7 @@
         Last login: Mon Jun  5 09:31:52 2017 from 192.168.88.1
         [root@zhumatech ~]#     //成功免密码登陆
         ```
+    - ssh-copy-id的原理就是:把.ssh/id_dsa.pub复制到客户机下的相同用户的.ssh目录中(需要提前创建权限700)下,并改名为authorized_keys(文件权限为600).
 - 由于ssh太重量级,有一种嵌入式的小ssh系统;dropbear嵌入式系统专用的ssh服务器端和客户端工具,一般用于系统裁剪.
     - 服务器端:dropbear
         - 密钥生成器: dropbearkey,为服务器端用来生成主机认证的key;生成的主机密钥默认位置:/etc/dropbear/;RSA:dropbear_rsa_host_key,长度可变,只要是8的整数倍,默认是1024; DSS:dropbear_dsa_host_key,长度固定,默认1024
@@ -306,4 +307,15 @@ ssh-dss AAAAB3NzaC1kc3MAAACBANP0baxQTMucfCwGDn2d9F7BZRW+Pf9NsvZXc6bTBBw88KKWU2Ai
 //到vm1上验证,是否可以通过密钥对免输入密码登录vm2
 [aphey@vm1 ~]$ ssh -p2222 aphey@192.168.1.32
 [aphey@vm2 ~]$                                // 成功免密登入vm2
+
+//ssh-copy-id的原理就
+把vm1 的~/.ssh/id_dsa.pub复制到vm2和vm3的相同用户的.ssh目录中(需要提前创建权限700)下,并改名为authorized_keys(文件权限为600).
 ```
+##### ssh连接慢的原因和解决方法
+- 连接慢的原因主要是DNS解析导致
+- 解决方法: 在ssh服务器上在/etc/ssh/sshd_config文件中修改配置
+  ```
+  UseDNS no   //不使用dns解析
+  IgnoreRhosts yes    //忽略以前登录过主机的记录,将这个打开基本上就会解析登录慢的问题
+  GSSAPIAuthentication no //这个是GSSAPI认证可以关掉
+  ```
