@@ -308,7 +308,7 @@ ssh-dss AAAAB3NzaC1kc3MAAACBANP0baxQTMucfCwGDn2d9F7BZRW+Pf9NsvZXc6bTBBw88KKWU2Ai
 [aphey@vm1 ~]$ ssh -p2222 aphey@192.168.1.32
 [aphey@vm2 ~]$                                // 成功免密登入vm2
 
-//ssh-copy-id的原理就
+//ssh-copy-id的原理:
 把vm1 的~/.ssh/id_dsa.pub复制到vm2和vm3的相同用户的.ssh目录中(需要提前创建权限700)下,并改名为authorized_keys(文件权限为600).
 ```
 ##### ssh连接慢的原因和解决方法
