@@ -319,3 +319,4 @@ ssh-dss AAAAB3NzaC1kc3MAAACBANP0baxQTMucfCwGDn2d9F7BZRW+Pf9NsvZXc6bTBBw88KKWU2Ai
   IgnoreRhosts yes    //忽略以前登录过主机的记录,将这个打开基本上就会解析登录慢的问题
   GSSAPIAuthentication no //这个是GSSAPI认证可以关掉
   ```
+##### 如果我有A,B服务器的东西要备份到C机器.我可以在A主机先创建私钥,公钥发给C,再把A的私钥拷到B主机的相同用户的~/.ssh/中即可
