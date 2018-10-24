@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
-      <change afterPath="$PROJECT_DIR$/Work/csdn.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/19 openssh.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/19 openssh.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -60,13 +60,34 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="638265942">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.29" value="2" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="md" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Markdown" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Work/项目知识.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="480">
               <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
             </state>
           </provider>
@@ -76,7 +97,7 @@
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="65">
+              <first_editor relative-caret-position="4540">
                 <caret line="253" column="19" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
                 <caret line="227" column="8" selection-start-line="227" selection-start-column="8" selection-end-line="227" selection-end-column="8" />
               </first_editor>
@@ -90,7 +111,7 @@
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd &amp; NFS &amp;SAMBA.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="208">
+              <first_editor relative-caret-position="8340">
                 <caret line="417" column="61" selection-start-line="417" selection-start-column="61" selection-end-line="417" selection-end-column="61" />
               </first_editor>
               <second_editor />
@@ -99,11 +120,11 @@
           <provider editor-type-id="MarkdownFxPreviewEditor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/基础知识.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="271">
+              <first_editor relative-caret-position="56420">
                 <caret line="2821" column="32" selection-start-line="2821" selection-start-column="18" selection-end-line="2821" selection-end-column="33" />
               </first_editor>
               <second_editor />
@@ -113,11 +134,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/18. DNS服务器.md">
+          <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="10380">
+                <caret line="519" column="12" selection-start-line="519" selection-start-column="12" selection-end-line="519" selection-end-column="12" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="MarkdownFxPreviewEditor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Docker/Docker.md">
+          <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor />
+              <second_editor />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="MarkdownFxPreviewEditor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/15 编译内核.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="367">
-                <caret line="287" column="21" lean-forward="true" selection-start-line="287" selection-start-column="21" selection-end-line="287" selection-end-column="21" />
+              <first_editor relative-caret-position="5740">
+                <caret line="287" column="21" selection-start-line="287" selection-start-column="21" selection-end-line="287" selection-end-column="21" />
               </first_editor>
               <second_editor />
             </state>
@@ -129,7 +174,7 @@
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="192">
+              <first_editor relative-caret-position="3780">
                 <caret line="189" column="36" selection-start-line="189" selection-start-column="36" selection-end-line="189" selection-end-column="36" />
               </first_editor>
               <second_editor />
@@ -142,7 +187,7 @@
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="144">
+              <first_editor relative-caret-position="600">
                 <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
               </first_editor>
               <second_editor />
@@ -155,7 +200,7 @@
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="5184">
+              <first_editor relative-caret-position="9400">
                 <caret line="470" column="56" selection-start-line="470" selection-start-column="56" selection-end-line="470" selection-end-column="56" />
               </first_editor>
               <second_editor />
@@ -183,6 +228,7 @@
       <find>MOUNT</find>
       <find>mount</find>
       <find>/etc/fstab</find>
+      <find>nslook</find>
     </findStrings>
     <dirStrings>
       <dir>E:\MyRecords\Studying Files\CentOS\Oldboy</dir>
@@ -219,10 +265,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -232,7 +278,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,23 +288,52 @@
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-              <item name="MindMaps" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-              <item name="Work" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
+              <item name="Docker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
+              <item name="Magedu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
+              <item name="Oldboy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="Html and CSS" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="E:/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -271,225 +345,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\MyRecords\Studying Files\CentOS\Oldboy" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/CentOS/Magedu/10 Linux软件管理.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/CentOS/Magedu/12 进程内核.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/CentOS/Magedu/29. iptables.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/CentOS/Magedu/31. Nginx.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/CentOS/Magedu/8 磁盘管理和文件系统.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/CentOS/Oldboy/老男孩.docx</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/MindMaps/linux常用命令.emmx</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/CentOS/19道小米网运维工程师笔试真题.docx</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd &amp; NFS &amp;SAMBA.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Work/csdn.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Work/杨志凯新项目/1.汇总1 附件1-投资测算增值税版2 3版适用于收并购(东升皇冠38 2亩项目）依据增值税率变20180909-营销修改 - 副本.xlsm</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Work/杨志凯新项目/2.汇总2 附件1-投资测算增值税版2 3版适用于收并购(东升联冠38 8亩项目）依据增值税率变20180909-营销修改和报建费修改 - 副本.xlsm</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Work/杨志凯新项目/20180910中山东升项目方案评审会(设计)(1).pdf</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/CentOS/Magedu/34 nginx.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/Openstack/OpenStack Doc for CentOS7.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/Openstack/OpenStack Kilo—CentOS 7[ 中文 ]安装指南.pdf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/Openstack/OpenStack部署实践PDF电子书下载带书签目录完整版.pdf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/HSP.md</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/HSP.md.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/excercise1 课程表.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/excercise2 无序列表和有序列表.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/excercise8 线包字.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/知识点</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习10 初识css 类选择器  id选择器/Aphey.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习10 初识css 类选择器  id选择器/demo1.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习10 初识css 类选择器  id选择器/demo1.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习10 初识css 类选择器  id选择器/selector.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习10 初识css 类选择器  id选择器/selector.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习10 初识css 类选择器  id选择器/知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/exam.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/exam.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/selector.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/selector.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/selector1.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/selector1.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习11 选择器深入探讨/知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习12 盒子模型/Aphey.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习12 盒子模型/Aphey.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习12 盒子模型/box.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习12 盒子模型/box.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习12 盒子模型/知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习13 盒子模型应用/Aphey.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习13 盒子模型应用/icon.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习13 盒子模型应用/icons.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习14 优酷牛人/Aphey.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习14 优酷牛人/icon.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习14 优酷牛人/icons.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习14 优酷牛人/知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/Aphey.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/donkey.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/float(left).css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/float(left).html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/float(right).css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/float(right).html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习15 浮动/知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/Aphey.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/absolute.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/absolute.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/fixed.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/fixed.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/relative.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/relative.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/z-index.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习16 定位/定位知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习17 常见问题/Q&amp;A.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习17 常见问题/questions.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习18 apache服务器使用及配置/知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习19 apache 虚拟主机配置/知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习20 php开发环境搭建和使用/知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习21 安装并配置discuz论坛/Discuz_6.0.0_SC_UTF8.zip</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习21 安装并配置discuz论坛/知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习22 复习 一个服务器多站点的配置方法/知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习23 php书写规范 变量和常量/知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习24整型细节说明/练习24.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习25 算术运算符和比较运算符/25.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习26 逻辑运算符/26.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习27 三元运算符 字符串运算符/27.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习28 顺序控制 分支控制(if else switch)/练习28.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/a.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/b.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/c.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/qq.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/zjl.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/作业/all.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/作业/left.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/作业/right.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/作业/top.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/作业/top.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习3/练习3 框架集知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习4 iframe(浮动窗口)的使用/a.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习4 iframe(浮动窗口)的使用/example.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习4 iframe(浮动窗口)的使用/iframe(浮动窗口)知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习5 表单元素/example.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习5 表单元素/表单元素知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习6 多媒体标记/movie.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习6 多媒体标记/复习.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习7 地图映射/map.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习9 div+css开山篇/Aphey.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习9 div+css开山篇/index.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习9 div+css开山篇/my.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/HSP/练习/练习9 div+css开山篇/知识点.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/Lamp Brothers/1.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/Lamp Brothers/2.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/Lamp Brothers/3.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/Studying Files/PhPStudy/Lamp Brothers/phpStorm学习</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -529,6 +384,10 @@
       <workItem from="1536796111946" duration="15493000" />
       <workItem from="1537102742994" duration="2507000" />
       <workItem from="1537265054493" duration="2303000" />
+      <workItem from="1537623382436" duration="79000" />
+      <workItem from="1537692644535" duration="109000" />
+      <workItem from="1538370424302" duration="668000" />
+      <workItem from="1540339517276" duration="299000" />
     </task>
     <task id="LOCAL-00001" summary="Daily update">
       <created>1534724322240</created>
@@ -632,12 +491,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45282000" />
+    <option name="totallyTimeSpent" value="46437000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1919" y="-11" width="1922" height="1092" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24934107" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24925596" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -648,7 +507,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32975295" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32935154" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -706,16 +565,13 @@
     <entry file="file://$PROJECT_DIR$/Work/日常工作资料/yingyezhizhaofuben.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Work/csdn.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/Work/csdn.txt" />
+    <entry file="file://$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Work/项目知识.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
+        <state relative-caret-position="480">
           <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
         </state>
       </provider>
@@ -723,7 +579,7 @@
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="3632">
+          <first_editor relative-caret-position="4540">
             <caret line="253" column="19" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
             <caret line="227" column="8" selection-start-line="227" selection-start-column="8" selection-end-line="227" selection-end-column="8" />
           </first_editor>
@@ -735,7 +591,7 @@
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd &amp; NFS &amp;SAMBA.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="6672">
+          <first_editor relative-caret-position="8340">
             <caret line="417" column="61" selection-start-line="417" selection-start-column="61" selection-end-line="417" selection-end-column="61" />
           </first_editor>
           <second_editor />
@@ -743,10 +599,32 @@
       </provider>
       <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/基础知识.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="56420">
+            <caret line="2821" column="32" selection-start-line="2821" selection-start-column="18" selection-end-line="2821" selection-end-column="33" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/18. DNS服务器.md">
+      <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="10380">
+            <caret line="519" column="12" selection-start-line="519" selection-start-column="12" selection-end-line="519" selection-end-column="12" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="MarkdownFxPreviewEditor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/15 编译内核.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="4592">
+          <first_editor relative-caret-position="5740">
             <caret line="287" column="21" selection-start-line="287" selection-start-column="21" selection-end-line="287" selection-end-column="21" />
           </first_editor>
           <second_editor />
@@ -757,7 +635,7 @@
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="3024">
+          <first_editor relative-caret-position="3780">
             <caret line="189" column="36" selection-start-line="189" selection-start-column="36" selection-end-line="189" selection-end-column="36" />
           </first_editor>
           <second_editor />
@@ -768,7 +646,7 @@
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="480">
+          <first_editor relative-caret-position="600">
             <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
           </first_editor>
           <second_editor />
@@ -779,7 +657,7 @@
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="7520">
+          <first_editor relative-caret-position="9400">
             <caret line="470" column="56" selection-start-line="470" selection-start-column="56" selection-end-line="470" selection-end-column="56" />
           </first_editor>
           <second_editor />
@@ -787,19 +665,14 @@
       </provider>
       <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/基础知识.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Docker/Docker.md">
+      <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="400">
-            <caret line="2799" column="53" selection-start-line="2799" selection-start-column="53" selection-end-line="2799" selection-end-column="53" />
-          </first_editor>
+          <first_editor />
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
   </component>
 </project>

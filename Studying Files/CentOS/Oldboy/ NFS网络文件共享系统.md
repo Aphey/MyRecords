@@ -164,7 +164,9 @@ uid=500(aphey) gid=500(aphey) groups=500(aphey)
 - /var/lib/nfs/etab 文件,这个文件可以查看共享目录，对客户端的实际参数
   ```
     [root@nfs-server skel]# cat /var/lib/nfs/etab
-  /data/bbs	192.168.88.0/24(rw,sync,wdelay,hide,nocrossmnt,secure,no_root_squash,no_all_squash,no_subtree_check,secure_locks,acl,anonuid=500,anongid=500)
+  /data/bbs	192.168.88.0/24(rw,sync,wdelay,hide,nocrossmnt,secure,
+  no_root_squash,no_all_squash,no_subtree_check,secure_locks,acl,
+  anonuid=500,anongid=500)
   ```
 - /var/lib/nfs/xtab，在CentOS5.8以前是记录客户端挂载的记录的，CentOS6.4以后，这个文件虽然还在，但是不起作用了，内容为空
   ```

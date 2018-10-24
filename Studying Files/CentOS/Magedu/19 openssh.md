@@ -3,17 +3,17 @@
     - Linux: ssh (客户端命令)
     - Windows: 安装远程连接工具,putty(汉化的人在其中植入了木马), SecureCRT(著名的商业版), SSHSecureShellClient(免费和商业版),Xmanager
 - 服务器端:通常是只在Linux和Unix系统
-    - sshd 
+    - sshd
 - openssh 一般包含两个组件(服务器端的sshd和客户端的ssh)
 - 不管是服务器sshd还是客户端ssh都需要配置文件,他们都位于/etc/ssh/目录中.
     - 客户端的配置文件是/etc/ssh/ssh_config
-    - 服务器端的配置文件是/etc/ssh/sshd_config 
+    - 服务器端的配置文件是/etc/ssh/sshd_config
 - 在/etc/ssh/目录下还有几个文件,是密钥相关的,注意文件的权限,私钥和服务器sshd_config都是600权限
-    - moduli   // ssh绘画中密钥交换的相关信息,可以不用管   
+    - moduli   // ssh会话中密钥交换的相关信息,可以不用管
     - ssh_host_dsa_key.pub  ssh_host_dsa_key    // dsa加密算法的一对密钥
     - ssh_host_key.pub  ssh_host_key    // 是为了SSHV1提供的密钥
     - ssh_host_rsa_key.pub  ssh_host_rsa_key    // rsa算法的一对密钥
-- 服务器配置文件sshd_config;最好吧要修改的哪一行复制出来修改
+- 服务器配置文件sshd_config;最好把要修改的哪一行复制出来修改
     - \# 空格 开头的行是注释
     - \#后面没空格的行是可以启用的参数,或者默认的参数
     - 里面有一行`#Protocal 2,1` 表示既支持sshv2,也支持sshv1,优先使用sshv2;一般我们不启用这个,而是只启用`Protocal 2`
@@ -56,7 +56,7 @@
     1. chkconfig telnet on
     2. service xinetd restart
     3. ss -tnl就可以看到:::23好端口被监听了
-    
+
     注意: telnet因为所有数据都是明文发送的,所以账号必须是普通用户
     ```
 - ssh: Secure Shell协议22/tcp; 通信过程及认证过程都是加密的,还能实现主机认证:主机和客户端之间会通过密钥认证.用户认证过程是加密的,数据传输也是认证的,所以比telnet安全得多.
@@ -64,12 +64,12 @@
     - ssh认证有两种方式:基于口令认证 和 基于密钥认证
 - 协议:只是规范; 实现:服务器端和客户端
 - linux: openssh 开源的C/S架构;
-    - 服务器端:sshd,配置文件/etc/ssh/sshd_config 
+    - 服务器端:sshd,配置文件/etc/ssh/sshd_config
     - 客户端:ssh, 配置文件/etc/ssh/ssh_config;其实openssh还提供了好几个工具:
         - ssh-keygen: 密钥生成器,为某个用户生成密钥
-        - ssh-copy-id: 将公钥传输至远程服务器,保存在服务器家目录的某个文件中 
-        - scp: 跨主机安全复制工具 
-- 客户机的主机认证的密钥保存在/HOMEDIR/.ssh/known_hosts 中        
+        - ssh-copy-id: 将公钥传输至远程服务器,保存在服务器家目录的某个文件中
+        - scp: 跨主机安全复制工具
+- 客户机的主机认证的密钥保存在/HOMEDIR/.ssh/known_hosts 中
 - ssh客户端登陆远程服务器,登陆方法有两种:
     - ssh USERNAME@HOST [COMMA]
     - ssh -l USERNAME HOST
@@ -85,26 +85,26 @@
     - 我们还可以通过 ssh -l USERNAME HOST 'COMMAND' 进行不登录主机,却在主机中操作COMMAND命令,并显示到本地主机.
         ```
         [root@Aphey ~]# ssh -l root 192.168.88.88 'ifconfig'
-        root@192.168.88.88's password: 
-        eth0      Link encap:Ethernet  HWaddr 20:CF:30:0B:34:9B  
+        root@192.168.88.88's password:
+        eth0      Link encap:Ethernet  HWaddr 20:CF:30:0B:34:9B
                   inet addr:192.168.88.88  Bcast:192.168.88.255  Mask:255.255.255.0
                   inet6 addr: fe80::22cf:30ff:fe0b:349b/64 Scope:Link
                   UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
                   RX packets:2546570 errors:0 dropped:0 overruns:0 frame:0
                   TX packets:2146814 errors:0 dropped:0 overruns:0 carrier:0
-                  collisions:0 txqueuelen:1000 
+                  collisions:0 txqueuelen:1000
                   RX bytes:601199555 (573.3 MiB)  TX bytes:692255488 (660.1 MiB)
 
-        lo        Link encap:Local Loopback  
+        lo        Link encap:Local Loopback
                   inet addr:127.0.0.1  Mask:255.0.0.0
                   inet6 addr: ::1/128 Scope:Host
                   UP LOOPBACK RUNNING  MTU:16436  Metric:1
                   RX packets:684087 errors:0 dropped:0 overruns:0 frame:0
                   TX packets:684087 errors:0 dropped:0 overruns:0 carrier:0
-                  collisions:0 txqueuelen:0 
+                  collisions:0 txqueuelen:0
                   RX bytes:231649659 (220.9 MiB)  TX bytes:231649659 (220.9 MiB)
         ```
-    - scp: `scp SRC DEST` 
+    - scp: `scp SRC DEST`
         - -r: 递归复制
         - -a:保留文件的所有属性,常用于备份;也叫归档复制.
         - 以USERNAME的身份从远程主机复制到本地的方法:`scp USERNAME@HOST:/path/to/somefile /path/to/local`;从本地复制到远程的服务器上也是一样的操作:`scp /path/to/local USERNAME@HOST:/path/to/somefile `
@@ -114,9 +114,9 @@
         ```
         [root@Aphey ~]# ssh-keygen -t rsa   //在客户机上生成一怼密钥
         Generating public/private rsa key pair.
-        Enter file in which to save the key (/root/.ssh/id_rsa): 
+        Enter file in which to save the key (/root/.ssh/id_rsa):
         Enter passphrase (empty for no passphrase):     //这个是为密钥文件再加密码,如果加了密码将来还得再输这个密码,所以我们这里不加,直接回车
-        Enter same passphrase again:     //这个是为密钥文件再加密码,如果加了密码将来还得再输这个密码,所以我们这里不加,直接回车 
+        Enter same passphrase again:     //这个是为密钥文件再加密码,如果加了密码将来还得再输这个密码,所以我们这里不加,直接回车
         Your identification has been saved in /root/.ssh/id_rsa.
         Your public key has been saved in /root/.ssh/id_rsa.pub.
         The key fingerprint is:
@@ -136,10 +136,10 @@
         [root@Aphey ~]# ls .ssh/    //密钥已经生成
         id_rsa  id_rsa.pub  known_hosts
         [root@Aphey ~]# scp .ssh/id_rsa.pub root@192.168.88.88:/root    //我们把公钥先传到远程服务器上
-        root@192.168.88.88's password: 
-        id_rsa.pub                                    100%  392     0.4KB/s   00:00    
+        root@192.168.88.88's password:
+        id_rsa.pub                                    100%  392     0.4KB/s   00:00
         [root@Aphey ~]# ssh root@zhumatech.net  //远程到服务器上
-        root@zhumatech.net's password: 
+        root@zhumatech.net's password:
         Last login: Mon Jun  5 08:51:34 2017 from 192.168.88.38
         [root@zhumatech ~]# ls  //文件已经传输过来了
         anaconda-ks.cfg  install.log.syslog       upgrade.log
@@ -160,14 +160,14 @@
         [root@zhumatech ~]# exit
         [root@Aphey .ssh]# ssh root@zhumatech.net
         Last login: Mon Jun  5 09:31:37 2017 from 192.168.88.1
-        [root@zhumatech ~]# 
+        [root@zhumatech ~]#
         ```
     - 进行上面的操作时,如果远程服务器是RHEL6以上版本,___需要关闭Selinux___
     - ssh-copy-id:专门用来复制公钥到远程服务器用户家目录的.ssh目录的,如果.ssh目录不存在还能自动创建目录,还会自动追加到authorized_keys中去;
         - -i ~/.ssh/id_rsa.pub: 指定公钥文件
         ```
         [root@Aphey .ssh]# ssh-copy-id -i ~/.ssh/id_rsa.pub root@zhumatech.net
-        root@zhumatech.net's password: 
+        root@zhumatech.net's password:
         Now try logging into the machine, with "ssh 'root@zhumatech.net'", and check in:
 
           .ssh/authorized_keys
