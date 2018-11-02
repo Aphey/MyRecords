@@ -1032,13 +1032,14 @@ ___最好的做法是:不要轻易地给人全部权限,他需要啥就给他啥
 在默认情况下,我们是无法通过ssh远程执行sudo命令的,可是在实际生产场景中，我们经常有这样的需求，那么怎么解决呢？
 
 方法1) 在/etc/sudoers中有这样的配置： ssh ___\-t___ hostname sudo <cmd>
-```
- Defaults specification
 
-#
-# Disable "ssh hostname sudo <cmd>", because it will show the password in clear.
-#         You have to run "ssh -t hostname sudo <cmd>".
-```
+  ```
+     Defaults specification
+
+    #
+    # Disable "ssh hostname sudo <cmd>", because it will show the password in clear.
+    #         You have to run "ssh -t hostname sudo <cmd>".
+  ```
 
 方法2) 远程sudo的命令如下
 \# ssh 192.168.1.77 sudo ifconfig
@@ -1198,14 +1199,14 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 ##### 查看0磁头0磁道1扇区内容(也就是分区表和主引导记录的内容)
 
-```
-[root@localhost ~]# dd if=/dev/sda of=mbr.bin bs=512 count=1 //dd转换复制一个文件,if源文件,of输出文件,bs字节数,count数量
-1+0 records in
-1+0 records out
-512 bytes (512 B) copied, 0.000271606 s, 1.9 MB/s
-[root@localhost ~]# file mbr.bin //查看mbr.bin文件内容
-mbr.bin: x86 boot sector; GRand Unified Bootloader, stage1 version 0x3, boot drive 0x80, 1st sector stage2 0x8104, GRUB version 0.94; partition 1: ID=0x83, active, starthead 32, startsector 2048, 409600 sectors; partition 2: ID=0x82, starthead 159, startsector 411648, 4096000 sectors; partition 3: ID=0x83, starthead 149, startsector 4507648, 37435392 sectors, code offset 0x48
-```
+  ```
+  [root@localhost ~]# dd if=/dev/sda of=mbr.bin bs=512 count=1 //dd转换复制一个文件,if源文件,of输出文件,bs字节数,count数量
+  1+0 records in
+  1+0 records out
+  512 bytes (512 B) copied, 0.000271606 s, 1.9 MB/s
+  [root@localhost ~]# file mbr.bin //查看mbr.bin文件内容
+  mbr.bin: x86 boot sector; GRand Unified Bootloader, stage1 version 0x3, boot drive 0x80, 1st sector stage2 0x8104, GRUB version 0.94; partition 1: ID=0x83, active, starthead 32, startsector 2048, 409600 sectors; partition 2: ID=0x82, starthead 159, startsector 411648, 4096000 sectors; partition 3: ID=0x83, starthead 149, startsector 4507648, 37435392 sectors, code offset 0x48
+  ```
 
 ##### 对硬盘分区,实际上就是在修改硬盘的分区表,也就是说和分区上的数据没什么关系,因此,理论上,调整分区,不会删除分区数据
 
@@ -1262,4 +1263,4 @@ ___注意: ext3fs 其实简单的就是ext2fsz增加了日志功能.当创建该
 
  - IP: 独立IP数 指1天内使用不同IP地址的用户访问网站的数量;同一IP不管访问了几个页面,独立IP数均为1
 
-### NFS网络文件系统概念介绍与集群内的应用位置
+### rsync同步工具
