@@ -530,3 +530,4 @@ rsync服务(storage1)|192.168.1.32|rsync_client2
     所以这个厕所的并发是20,keepalive时间是30秒
     ```
 - 一般情况下,当rsync的master和slave端的文件数量差距小于master端每秒创建的文件数时,说明同步是实时的.
+- 老男孩测试rsync的并发在50-60是最佳效果,80左右是峰值
