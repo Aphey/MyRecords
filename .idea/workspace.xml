@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -134,8 +132,8 @@
           <provider editor-type-id="MarkdownFxPreviewEditor" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="360">
-                <caret line="5072" column="62" selection-start-line="5072" selection-start-column="62" selection-end-line="5072" selection-end-column="62" />
+              <first_editor relative-caret-position="720">
+                <caret line="5114" column="6" selection-start-line="5114" selection-start-column="6" selection-end-line="5114" selection-end-column="6" />
               </first_editor>
               <second_editor />
             </state>
@@ -437,7 +435,7 @@
       <workItem from="1544504356371" duration="3142000" />
       <workItem from="1544942156687" duration="11123000" />
       <workItem from="1545213880347" duration="596000" />
-      <workItem from="1545282741920" duration="1202000" />
+      <workItem from="1545282741920" duration="3125000" />
     </task>
     <task id="LOCAL-00001" summary="Daily update">
       <created>1534724322240</created>
@@ -740,17 +738,24 @@
       <option name="project" value="LOCAL" />
       <updated>1545037936487</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Daily update">
+      <created>1545288066975</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1545288066976</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113964000" />
+    <option name="totallyTimeSpent" value="115887000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1096" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12592202" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12592202" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1024,8 +1029,8 @@
       <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="360">
-            <caret line="5072" column="62" selection-start-line="5072" selection-start-column="62" selection-end-line="5072" selection-end-column="62" />
+          <first_editor relative-caret-position="720">
+            <caret line="5114" column="6" selection-start-line="5114" selection-start-column="6" selection-end-line="5114" selection-end-column="6" />
           </first_editor>
           <second_editor />
         </state>
