@@ -11,10 +11,10 @@
    __最古老的数据库之一,它把数据通过层次结构(木结构)的方式表现出来.层次型数据库曾经是数据库的主流,现在已经很少使用了__
 2. 关系型数据库(Relational Database,RDB)
    __也称关系数据库,是现在应用最广泛的数据库.关系型数据库1969年诞生,可谓历史悠久.和Excel工作表一样,也采用行列二维表结构来管理数据.同时还使用专门的SQL(Structured Query Language,结构优化查询语言)语言对数据进行操作__
-    
+
  	案例:
- 	   
-    品编号|商品名称|商品分类|销售单价|进货单价|登记日期
+
+    商品编号|商品名称|商品分类|销售单价|进货单价|登记日期
     ---|---|---|---|---|---
     0001|T恤衫|衣服|1000|500|2009-09-20
     0002|打孔器|办公用品|500|320|2009-09-11
@@ -24,12 +24,12 @@
     0006|叉子|厨房用具|500|&nbsp;|2009-09-20
     0007|擦菜板|厨房用具|880|790|2009-04-28
     0008|圆珠笔|办公用品|100|&nbsp;|2009-11-11
-	
+
  	这种类型的DBMS称为关系数据库管理系统(Relational Database Management System,RDBMS).比较具有代表性的DBMS有如下几种
 
   	+ Oracle Database: 甲骨文的RDBMS
   	+ SQL Server: 微软公司
-  	+ DB2: IBM公司 
+  	+ DB2: IBM公司
   	+ Postgresql: 开源
   	+ MySQL: 开源
 3. 面向对象数据库(Object Oriented Database,OODB)
@@ -62,12 +62,12 @@
 
 #### SQL语句及其种类
    __SQL用关键字、表名、列名等组合而成的一条语句(SQL语句)来描述操作的内容.关键字是指那些含义或使用方法事先已定义好的英语单词,例如"对表进行查询"或者"参考这个表"等包含各种意义的关键字,根据对RDBMS赋予的指令种类不同,SQL语句可以氛围以下三类:__
-    
+
    - DDL(Data Definition Language,数据定义语言)用来穿件或者删除存储数据用的数据库以及数据库中的表等对象.DDL包含以下几种指令.
     * CREATE: 创建数据库和表等对象
     * DROP: 删除数据库和表等对象
     * ALTER: 修改数据库和表等对象的结构
-   
+
    - DML(Data Manipulation Language,数据操作语言)用来查询或者变更表中的记录.DML包含一下几种指令:
     * SELECT: 查询表中的数据
     * INSERT: 向表中插入新数据
@@ -85,7 +85,7 @@
    - 法则1-4: SQL 根据功能不同可以分为三类,其中使用最多的是DML.
 
 #### SQL的基本书写规则
-1. **SQL语句要以分号(;) 结尾** 
+1. **SQL语句要以分号(;) 结尾**
     - 法则1-5: SQL语句要以分号(;) 结尾
 2. **SQL语句不区分大小写**
     - 法则1-6: 关键字不区分大小写
@@ -125,7 +125,7 @@
 		);
 	案例:
 		CREATE TABLE Shohin			//创建表Shohin
-		(shohin_id	CHAR(4)		NOT NULL,	
+		(shohin_id	CHAR(4)		NOT NULL,
 		shohin_mei	VARCHAR(100)		NOT NULL,
 		shohin_bunrui	VARCHAR(100)		NOT NULL,
 		hanbai_tanka	INTEGER		,
@@ -145,7 +145,7 @@
    __数据类型表示数据的种类,包括数字型、字符型、和日期型等.每一列都不能存储与该类型不符的数据,我们暂时先使用四种基本的数据类型__
    - INTEGER 整数型: 用来指定存储整数的列的数据类型,不能存储小数
    - CHAR 字符型: 用来指定存储字符串类型的数据类型.可以像CHAR(10)或者CHAR(200)这样在括号中指定该列可以存储的字符串长度(最大长度),字符串以_定长字符串_的形式存储在被指定为CHAR型的列中.当列中存储的字符串长度达不到最打长度时,使用半角空格进行补足. 如我们向CHAR(8)的列中输入'abc'的时候,会以'abc　　　　　'的形式保存
-   - VARCHR 可变长字符串型: 同CHAR一样,VARCHAR型也是用来指定存储字符串的列的数据类型(字符串型).也可以通过括号内的数字来指定字符串的长度(最大长度).但是该类型的列是_可变长字符串_的形式来保存字符串的._定长字符串_在字符数未达到最大长度时会用半角空格不足,_可变长字符串_不同,即使字符数未达到最大长度,也不会用半角空格补足.
+   - VARCHR 可变长字符串型: 同CHAR一样,VARCHAR型也是用来指定存储字符串的列的数据类型(字符串型).也可以通过括号内的数字来指定字符串的长度(最大长度).但是该类型的列是_可变长字符串_的形式来保存字符串的._定长字符串_在字符数未达到最大长度时会用半角空格补足,_可变长字符串_不同,即使字符数未达到最大长度,也不会用半角空格补足.
    - DATE 日期类型:用来存储日期(年-月-日)的列的数据类型
 
 #### 约束的设置
@@ -236,7 +236,7 @@ SELECT shohin_id,shohin_mei,shiire_tanka
 FROM Shohin;
 ```
    显示结果如下
-  Shohin\_id|Shohin\_mei|shiire_tanka   
+  Shohin\_id|Shohin\_mei|shiire_tanka
   ---|---|---
   0001|	T恤|	500
   0002|	打孔器	|320
@@ -247,7 +247,7 @@ FROM Shohin;
   0007|	擦菜板	|790
   0008|	圆珠笔	|&nbsp;
 从上面案例可以看出SELECT语句包含了SELECT 和FROM 两个字句.字句是SQL语句的组成要素,是以SELECT或者FROM等作为其实短语.
-SELECT字句中列举了希望从表中查询初级的列的名称,而FROM子句则指定了选取出数据的表的名称	
+SELECT字句中列举了希望从表中查询初级的列的名称,而FROM子句则指定了选取出数据的表的名称
 SELECT语句的第一行的SELECT shohin\_id,shohin\_mei,shiire_tanka就是SELECT子句,查询出的顺序可以任意指定,查询多列时,需要用逗号进行分隔排列.**查询结果中列的顺序和SELECT子句中的顺序相同**
 
 #### 查询出表中所有的列
@@ -412,7 +412,7 @@ SELECT (100 + 200) *3 AS keisan;
 执行结果:
  keisan
 --------
-    900 
+    900
 ```
 实际上,通过执行SELECT语句来代替计算器的情况基本上是不存在的,不过极少数情况下,还是可以通过使用没有FROM子具有的SELECT 来实现某种业务的.例如,希望得到的内容为空,只包含一行临时数据的情况.
 
@@ -428,7 +428,7 @@ WHERE hanbai_tanka = 500;
 ```
 执行结果:
 
-shohin\_mei|shohin\_bunrui 
+shohin\_mei|shohin\_bunrui
 ---|---
 打孔器|办公用品
 叉子|厨房用品
@@ -442,7 +442,7 @@ WHERE hanbai_tanka <> 500;
 ```
 执行结果
 
-shohin\_mei|shohin\_bunrui 
+shohin\_mei|shohin\_bunrui
 ---|---
 T恤|	衣服
 运动T恤|	衣服
@@ -557,8 +557,8 @@ WHERE chr > '2';
 
 |chr|
 |---|
-|3|  
-|222| 
+|3|
+|222|
 
 这里的原因是WHERE子句里 chr > '2'; 这里比较的是字符串,___必须弄清楚 2和 '2'的区别___
 之所以 会出现,'3' 和'222'比2大的原理是字典排序原理.就像书的章节, 1-1 排在1后面.这个必须弄清楚.
@@ -628,8 +628,8 @@ WHERE shiire_tanka IS NULL;
 
 shohin\_mei|shohin\_bunrui|shiire_tanka
 ---|---|---
-叉子|	厨房用具| NULL	
-圆珠笔|	办公用品| NULL	
+叉子|	厨房用具| NULL
+圆珠笔|	办公用品| NULL
 
 反之,希望选取不是NULL记录时,需要使用___IS NOT NULL___运算符:
 ```
@@ -924,7 +924,7 @@ FROM shohin;
 
 ```
  avg	  avg
--------+------- 
+-------+-------
 2097.5	 2035
 ```
 计算平均值的情况与SUM函数相同,会事先删除NULL再进行计算.
@@ -940,7 +940,7 @@ FROM shohin;
 得到的结果为
 ```
  max	  min
--------+------- 
+-------+-------
 6800	  100
 ```
 
@@ -953,7 +953,7 @@ FROM shohin;
 得到的结果如下:
 ```
 	 max	   min
------------+-------------- 
+-----------+--------------
 2009-11-11	2008-04-28
 ```
 
@@ -966,7 +966,7 @@ FROM shohin;
 ```
 SELECT COUNT(DISTINCT shohin_bunrui)
 FROM shohin;
-执行结果: 
+执行结果:
    count
 ----------
 	3
@@ -979,11 +979,11 @@ ___个人理解:括号的优先级,这里我们是括号里先去重,再统计�
 SELECT DISTINCT COUNT(shohin_bunrui)
 FROM shohin;
 
-执行结果: 
+执行结果:
    count
 ----------
 	8
-	
+
 个人理解:括号的优先级,这里我们是先统计shohin_bunrui行数;至于DISTINCT,因为参数不对[变成了COUNT(shohin_bunrui)的结果]应该是没有执行.
 ```
 
@@ -997,7 +997,7 @@ FROM shohin;
 
 执行结果:
 	 sum	   sum
------------+-------------- 
+-----------+--------------
 	16780	  16280
 
 右侧结果比左侧少了500 是因为右侧去重了500(打孔器和叉子的价格都是500,被去重了一个)
@@ -1014,7 +1014,7 @@ FROM shohin;
 ```
 命令格式:
 SELECT <列名1>,<列名2>,<列名3>,...  //查询的目标列
-FROM <表名>							
+FROM <表名>
 GROUP BY <列名1>,<列名2>,<列名3>,...	//分组的参考列
 
 案例: 按照商品种类统计数据行数
@@ -1052,7 +1052,7 @@ GROUP BY shiire_tanka;
 
 执行结果:
 Shohin_bunrui|count
--------------+-----	
+-------------+-----
 	     |	2
 320	     |	1
 500	     |	1
@@ -1070,7 +1070,7 @@ Shohin_bunrui|count
 命令格式:
 SELECT <列名1>,<列名2>,<列名3>,...  //查询的目标列
 FROM <表名>
-WHERE 								//查询条件							
+WHERE 								//查询条件
 GROUP BY <列名1>,<列名2>,<列名3>,...	//分组的参考列
 
 案例:同时使用WHERE子句和GROUP BY 子句
@@ -1125,18 +1125,18 @@ FROM→WHERE→GROUP BY→SELECT
 	```
 	_其实仔细想一想就能明白,通过某个聚合键将表分组之后,结果中一行数据就代表一组.例如,使用进货单价将表进行分组以后,一行就代表了一个进货单价.问题就出在这里,聚合键和商品名_**并不一定是一对一的**也可以想想执行顺序.
 	FROM→ WHERE→ GROUP BY→ HAVING→  SELECT→ ORDER BY
-	
 
-		
+
+
 		shohin_mei|shiire_tanka|count
 		----------+------------+-----
 			         ┊
 			        2800       |   2
-		     ↑       ┊ 
+		     ↑       ┊
     	这里应该显示什么呢??
-		
+
 	像这样与聚合键相对应的、同时存在多个值的列出现在SELECT子句中的情况,理论上是不存在的.
-	
+
 2. 在GROUP BY子句中书写了列的别名
 
 	这也是一个非常常见的错误.在前面我们学过,SELECT 子句中的项目可以通过AS关键字来指定别名.但是在GROUP BY子句中是不能使用别名的.
@@ -1169,10 +1169,10 @@ FROM→WHERE→GROUP BY→SELECT
 		FROM shohin
 		WHERE COUNT(*) = 2
 		GROUP BY Shohin_bunrui;
-		
+
 		执行报错:	[42803] ERROR: aggregate functions are not allowed in WHERE
 			位置：49	//提示聚合函数不能出现在WHERE子句中
-	
+
 	只有SELECT 和 HAVING子句(以及后面要学的ORDER BY子句)中能够使用COUNT等聚合函数.并且,HAVING子句可以非常方便的实现
 
 	- 法则3-12: 只有SELECT子句和HAVING子句(以及ORDER BY子句)中能够使用聚合参数
@@ -1336,8 +1336,8 @@ ORDER BY hanbai_tanka;
 
 执行结果:
 Shohin_id,shohin_bunrui,hanbai_tanka,shiire_tanka
-0008		办公用品		   100	
-0006		厨房用具		   500	
+0008		办公用品		   100
+0006		厨房用具		   500
 0002		办公用品		   500         320
 0007		厨房用具		   880	       790
 0001		衣服		   1000	       500
@@ -1363,7 +1363,7 @@ ORDER BY hanbai_tanka DESC;
 执行结果:
 shohin_id,shohin_mei,shohin_bunrui,hanbai_tanka,shiire_tanka,torokubi
 0005	高压锅	厨房用具	6800	5000	2009-01-15
-0003	运动T恤	衣服	4000	2800	
+0003	运动T恤	衣服	4000	2800
 0004	菜刀	厨房用具	3000	2800	2009-09-20
 0001	T恤	衣服	1000	500	2009-09-20
 0007	擦菜板	厨房用具	880	790	2008-04-28
@@ -1387,9 +1387,9 @@ FROM Shohin
 ORDER BY hanbai_tanka,shohin_id;
 
 执行的结果:
-0008	圆珠笔	100	
+0008	圆珠笔	100
 0002	打孔器	500	320
-0006	叉子	500	
+0006	叉子	500
 0007	擦菜板	880	790
 0001	T恤	1000	500
 0004	菜刀	3000	2800
@@ -1417,9 +1417,9 @@ FROM Shohin
 ORDER BY ht,id;
 
 执行结果:
-0008	圆珠笔	办公用品	100	
+0008	圆珠笔	办公用品	100
 0002	打孔器	办公用品	500	320
-0006	叉子	厨房用具	500	
+0006	叉子	厨房用具	500
 0007	擦菜板	厨房用具	880	790
 0001	T恤	衣服	1000	500
 0004	菜刀	厨房用具	3000	2800
@@ -1445,9 +1445,9 @@ ORDER BY shohin_id;
 衣服	4000	2800
 厨房用具	3000	2800
 厨房用具	6800	5000
-厨房用具	500	
+厨房用具	500
 厨房用具	880	790
-办公用品	100	
+办公用品	100
 ```
 
 除此之外,还可以使用聚合参数
@@ -1774,7 +1774,7 @@ SELECT * FROM shohincopy ORDER BY shohin_id;
 0004	菜刀	厨房用具	3000	2800	2009-10-10
 0006	叉子	厨房用具	500		2009-10-10
 0007	擦菜板	厨房用具	880	790	2009-10-10
-0008	圆珠笔	办公用品	100		
+0008	圆珠笔	办公用品	100
 ```
 和INSERT语句一样,UPDATE语句也可以将NULL作为一个值来使用,但是只有未设置NOT NULL约束和主键约束的列才可以清空为NULL,如果将设置了上述约束的列更新为NULL,这执行结果会报错.
 
@@ -1825,7 +1825,7 @@ WHERE shohin_mei = '运动T恤';
 ⑵ 将T恤的价格上涨1000元
 UPDATE shohincopy
 SET hanbai_tanka = hanbai_tanka + 1000
-WHERE shohin_mei = 'T恤'; 
+WHERE shohin_mei = 'T恤';
 ```
 
 上述⑴和⑵的操作一定要作为同一个处理单元执行.遇到这种需要在同一个处理单元中执行一系列更新操作的情况,一定要使用事务来进行处理.
@@ -1869,7 +1869,7 @@ SET hanbai_tanka = hanbai_tanka -1000
 WHERE shohin_mei = '运动T恤';
 UPDATE shohincopy
 SET hanbai_tanka = hanbai_tanka + 1000
-WHERE shohin_mei = 'T恤'; 
+WHERE shohin_mei = 'T恤';
 
 COMMIT;
 ```
@@ -1879,9 +1879,9 @@ COMMIT;
 + COMMIT--提交处理
 
 	COMMIT是提交事务包含的全部更新处理的结束指令.相当于文件处理中的覆盖保存.一旦提交,就无法恢复到事务开始钱的状态了,因此,在提交之前一定要确认是否真的需要进行这些更新
-	
+
 	COMMIT 流程: (1) 事务开始语句→ (2) 执行更新DML → (3) 执行COMMIT ((2)中所有的更新全部都被反应到数据库中)
-	
+
 	万一由于误操作提交了包含错误更新的事务,就只能重新回到重新建表,重新插入数据这样的繁琐的老路上了.由于可能会造成数据无法恢复的后果,请务必注意.
 
 	- 法则4-8: 虽然我们可以不清楚事务开始的时点,但是在事务结束时一定要仔细进行确认.
@@ -1952,9 +1952,9 @@ SELECT语句需要书写在AS关键字之后,SELECT语句中列的排列顺序�
 西面我们用Shohin表作为基本表来创建视图:
 
 CREATE VIEW ShohinSum(shohin_bunrui,cnt_shohin)	//视图的列名
-AS				
+AS
 -- 下面就是视图定义中的主体(内容只是一条SELECT语句)
-SELECT shohin_bunrui,COUNT(*)	
+SELECT shohin_bunrui,COUNT(*)
 FROM Shohin
 GROUP BY shohin_bunrui;
 ```
@@ -2100,7 +2100,7 @@ SELECT * FROM ShohinJim
 执行结果: 数据行已经成功添加到原表中了:
 0001	T恤	衣服	1000	500	2009-09-20
 0002	打孔器	办公用品	500	320	2009-09-11
-0003	运动T恤	衣服	4000	2800	
+0003	运动T恤	衣服	4000	2800
 0004	菜刀	厨房用具	3000	2800	2009-09-20
 0005	高压锅	厨房用具	6800	5000	2009-01-15
 0006	叉子	厨房用具	500		2009-09-20
@@ -2113,7 +2113,7 @@ UPDATE语句和DELETE语句当然也可以想操作表时那样正常执行,但�
 
 #### 删除视图
 
-删除视图需要使用 __DROP VIEW语句__. 
+删除视图需要使用 __DROP VIEW语句__.
 ```
 语法结构如下:
 DROP VIEW 视图名称(<视图列名1>,<视图列名2>,...)
@@ -2244,7 +2244,7 @@ FROM Shohin
 //正确语句:
 SELECT shohin_id,shohin_mei,hanbai_tanka
 FROM Shohin
-WHERE hanbai_tanka > (SELECT AVG(hanbai_tanka) 
+WHERE hanbai_tanka > (SELECT AVG(hanbai_tanka)
 					FROM shohin);
 执行结果:
 0003	运动T恤	4000
@@ -2277,7 +2277,7 @@ shohin_id,shohin_mei,hanbai_tanka,avg_tanka
 SELECT Shohin_bunrui,AVG(hanbai_tanka)
 FROM Shohin
 GROUP BY shohin_bunrui
-HAVING AVG(hanbai_tanka) > (SELECT AVG(hanbai_tanka) 
+HAVING AVG(hanbai_tanka) > (SELECT AVG(hanbai_tanka)
 							FROM shohin);
 //执行结果
 Shohin_bunrui,avg
@@ -2294,7 +2294,7 @@ __标量子查询绝对不能返回多行结果.__也就是说如果子查询返
 SELECT Shohin_id,shohin_mei,hanbai_tanka.(SELECT AVG(hanbai_tanka)
 											FROM Shohin
 											GROUP BY shohin_bunrui) AS avg_tanka
-FROM Shohin;		
+FROM Shohin;
 /*执行结果:
 报错提示: ERROR: more than one row returned by a subquery used as an expression
 		标量子查询中使用了返回的多行结果的表达式*/
@@ -2354,7 +2354,7 @@ SELECT Shohin_mei,hanbai_tanka
 FROM Shohin AS S1	-- 为表Shohin创建一个别名S1
 WHERE  hanbai_tanka > (SELECT AVG(hanbai_tanka)
 						FROM Shohin AS S2  --为子查询中的表Shohin创建一个别名S2
-//该条件就是成功的关键 →	WHERE S1.shohin_bunrui = S2.shohin_bunrui	
+//该条件就是成功的关键 →	WHERE S1.shohin_bunrui = S2.shohin_bunrui
 						GROUP BY shohin_bunrui);
 //执行结果:
 打孔器	500
@@ -2366,7 +2366,7 @@ WHERE  hanbai_tanka > (SELECT AVG(hanbai_tanka)
 
 这里起到关键作用的就是__在子查询中添加的WHERE子句的条件.__该条件的意思就是___在同一(=的作用)商品种类中对各商品的销售单价和平均单价进行比较.___
 
-- 法则5-8 在细分的组内进行比较时,需要使用关联子查询 
+- 法则5-8 在细分的组内进行比较时,需要使用关联子查询
 
 #### 关联子查询也是用来对集合进行切分的
 换个角度来看,其实关联子查询也和GROUP BY子句一样,可以对集合进行切分,下图显示了最为记录集合的表是如何按照商品种类被切分的.
@@ -2446,17 +2446,17 @@ COMMIT;
 SELECT * FROM SampleMath
 
 执行结果:
-500.000	0	
--180.000	0	
-		
+500.000	0
+-180.000	0
+
 	7	3
 	5	2
-	4	
+	4
 8.000		3
-2.270	1	
-5.555	2	
-	1	
-8.760		
+2.270	1
+5.555	2
+	1
+8.760
 ```
 ##### 绝对值
 ```
@@ -2476,14 +2476,14 @@ SELECT m,
 m		abs_col
 500.000	500
 -180.000	180
-	
-	
-	
-	
+
+
+
+
 8.000	8
 2.270	2.27
 5.555	5.555
-	
+
 8.760	8.76
 ```
 上述执行结果中右侧的abs_col列就是通过ABS函数计算出的m列的绝对值.请注意-180的绝对值就是去掉负号后的结果180.
@@ -2503,16 +2503,16 @@ SELECT n,p,
 	FROM SampleMath;
 执行结果:
 n	p	mod_col
-0		
-0		
-		
+0
+0
+
 7	3	1
 5	2	1
-4		
-	3	
-1		
-2		
-1		
+4
+	3
+1
+2
+1
 范例:mod_col: MOD(n,p) 的返回值(n÷p的余数)
 ```
 ___特殊的SQL___
@@ -2539,15 +2539,15 @@ SELECT m,n,		//m是对象数值,n是四舍五入位数
 m		n	round_col
 500.000	0	500
 -180.000	0	-180
-		
-	7	
-	5	
-	4	
-8.000		
+
+	7
+	5
+	4
+8.000
 2.270	1	2.3
 5.555	2	5.56
-	1	
-8.760		
+	1
+8.760
 ```
 #### 字符串函数
 到目前为止,我们学习的都是针对数值的算数函数,但其实算数函数只是SQL(其他编程语言通常也是如此)自带函数中的一部分.虽然算数函数是我们经常使用的函数,但是字符串函数也是同样经常被使用
@@ -2581,14 +2581,14 @@ COMMIT;
 
 执行结果:
 str1	str2	str3
-opx	rt	
-abc	def	
+opx	rt
+abc	def
 山田	太浪	傻货
-aaa		
-	xyz	
-@!#$%		
-ABC		
-aBC		
+aaa
+	xyz
+@!#$%
+ABC
+aBC
 abc太郎	abc	ABC
 abcdefabc	abc	ABC
 micmic	i	I
@@ -2608,15 +2608,15 @@ SELECT str1,str2
 FROM SampleStr;
 
 执行结果:
-str1  str2   str_concat 
+str1  str2   str_concat
 opx	rt	opxrt
 abc	def	abcdef
 山田	太浪	山田太浪
-aaa		
-	xyz	
-@!#$%		
-ABC		
-aBC		
+aaa
+	xyz
+@!#$%
+ABC
+aBC
 abc太郎	abc	abc太郎abc
 abcdefabc	abc	abcdefabcabc
 micmic	i	micmici
@@ -2664,7 +2664,7 @@ opx	3
 abc	3
 山田	2
 aaa	3
-	
+
 @!#$%	5
 ABC	3
 aBC	3
@@ -2708,14 +2708,14 @@ FROM SampleStr;
 
 执行结果:
 str1 str2 str3 rep_str
-opx	rt		
-abc	def		
+opx	rt
+abc	def
 山田	太浪	傻货	山田
-aaa			
-	xyz		
-@!#$%			
-ABC			
-aBC			
+aaa
+	xyz
+@!#$%
+ABC
+aBC
 abc太郎	abc	ABC	ABC太郎
 abcdefabc	abc	ABC	ABCdefABC
 micmic	i	I	mIcmIc
@@ -2737,9 +2737,9 @@ FROM SampleStr;
 str1 sub_str
 opx	x
 abc	c
-山田	
+山田
 aaa	a
-	
+
 @!#$%	#$
 ABC	C
 aBC	C
@@ -2792,7 +2792,7 @@ CURRENT_TIME函数能够取的SQL执行的时间,也就是该函数执行时的�
 SELECT CURRENT_TIME
 
 执行结果:
-22:23:22 
+22:23:22
 ```
 该函数同样___无法在SQL Server中执行,在Oracle和DB2中的语法同样略有不同___.
 #####  CURRENT_TIMESTAMP函数
@@ -2822,7 +2822,7 @@ SELECT  CURRENT_TIMESTAMP
 		EXTRACT(MINUTE FROM CURRENT_TIMESTAMP) AS minute,
 		EXTRACT(SECOND FROM CURRENT_TIMESTAMP) AS second;
 执行结果:
-			now				year  month day hour min second		
+			now				year  month day hour min second
 2016-11-13 12:20:11.801396	2016	11	13	12	20	11.801396
 ```
 #### 转换函数
@@ -3012,7 +3012,7 @@ BETWEEN的特点是结果中会包含100和1000这两个临界值.如果不想�
 选取出销售单价为101-999日元的商品
 SELECT shohin_mei,hanbai_tanka
 FROM Shohin
-WHERE hanbai_tanka >100 
+WHERE hanbai_tanka >100
 AND hanbai_tanka <1000;
 执行结果:
 shohin_mei	hanbai_tanka
@@ -3032,7 +3032,7 @@ WHERE shiire_tanka IS NULL;
 执行结果:
 shohin_mei	shiire_tanka
 ----------+-------------
-叉子	  |	
+叉子	  |
 圆珠笔	  |
 ```
 与此相反,想要选取NULL以外的数据时,需要使用IS NOT NULL,代码如下:
@@ -3179,7 +3179,7 @@ WHERE tenpo_id = '000C';
 读取出"大阪店(000C)在售商品(shohin_id)的销售单价(hanbai_tanka)"
 SELECT shohin_mei,hanbai_tanka
 FROM Shohin
-where Shohin_id IN (SELECT shohin_id 
+where Shohin_id IN (SELECT shohin_id
 					FROM TenpoShohin
 					WHERE tenpo_id = '000C');
 执行结果:
@@ -3205,9 +3205,9 @@ WHERE shohin_id IN ('0003','0004','0006','0007');
 IN 的否定形式NOT IN同样可以使用子查询作为参数,其语法也和IN完全一样.
 ```
 使用子查询作为NOT IN 的参数
-SELECT shohin_mei,hanbai_tanka 
-FROM shohin 
-WHERE shohin_id NOT IN (select shohin_id 
+SELECT shohin_mei,hanbai_tanka
+FROM shohin
+WHERE shohin_id NOT IN (select shohin_id
 						FROM TenpoShohin
 						WHERE tenpo_id = '000A');
 ```
@@ -3262,7 +3262,7 @@ shohin_mei|hanbai_tanka
 之前我们学过的谓词,基本都是"列LIKE 字符串" 或者"列BETWEEN值1 AND 值2"这样需要指定2个以上的参数.而EXIST的左侧并没有任何参数.很奇妙吧!这是因为EXIST是只有1个参数的谓词.EXIST只需要在右侧书写一个参数.该参数通常都会是一个子查询.
 在这个情况下,
 ```
-(SELECT * 
+(SELECT *
 FROM TenpoShohin AS TS
 WHERE TS.tenpo_id = '000C'
 AND TS.shohin_id = S.shohin_id)
@@ -3323,7 +3323,7 @@ CASE WHEN <判断表达式> THEN <表达式>
 	 WHEN <判断表达式> THEN <表达式>
 		...
 	ELSE <表达式>
-END	
+END
 ```
 WHEN 子句中华的<判断表达式>就是类似"列 = 值"这样,返回值为真值(TRUE/FALSE/UNKNOWN)的表达式.我们也可以将其看做使用=、!=、或者LIKE、BETWEEN等谓词编写出来的表达式.
 CASE表达式会从对最初的WHEN子句中的<判断表达式>进行判断开始执行.所谓"判断",就是要调查该表达式的真值是什么.如果结果为真"TRUE",那么就返回___THEN子句___中的表达式,CASE表达式的执行到此为止.如果结果不为真,那么就跳转到下一条WHEN子句的判断中.如果直到最后的WHEN子句为止返回结果都不为真,那么就返回___ELSE___中的表达式,执行终止.
@@ -3417,8 +3417,8 @@ CASE <表达式>
  WHEN <表达式> THEN<表达式>
  WHEN <表达式> THEN<表达式>
   ...
- ELSE <表达式>	
-END 
+ ELSE <表达式>
+END
 ```
 与搜索CASE表达式一样,简单CASE表达式也是从最初的WHEN子句开始进行,逐一判断每个WHEN子句知道返回真值为止.此外,没有能够返回真值的WHEN子句时,也会返回ELSE子句指定的表达式.两者的不同之处在于,简单CASE表达式最初的"CASE<表达式>" 也会作为判断的对象.
 下面我们看一个例子,分别使用搜索CASE表达式和简单CASE表达式
@@ -3428,9 +3428,9 @@ SELECT shohin_mei,
 	CASE WHEN shohin_bunrui = '衣服'
 		THEN 'A:' ||shohin_bunrui
 		WHEN shohin_bunrui = '办公用品'
-		THEN 'B:' ||shohin_bunrui		
+		THEN 'B:' ||shohin_bunrui
 		WHEN shohin_bunrui = '厨房用具'
-		THEN 'C:' ||shohin_bunrui		
+		THEN 'C:' ||shohin_bunrui
 		ELSE NULL
 	END AS abc_shohin_bunrui
 FROM shohin;
@@ -3701,7 +3701,7 @@ B. 只存在与一张表内的列 --> 商品编号以外的列
 SELECT TS.tenpo_id,TS.tenpo_mei,TS.shohin_id,S.shohin_mei,S.hanbai_tanka
 FROM TenpoShohin AS TS INNER JOIN Shohin AS S
 	ON TS.shohin_id = S.shohin_id;
-```	
+```
 
 执行结果如下:
 
@@ -3745,7 +3745,7 @@ ON TS.Shohin_id = S.Shohin_id
 第3点要注意的是,在SELECT子句中指定的列
 ```
 SELECT TS.tenpo_id,tenpo_mei,TS.shohin_id,S.shohin_mei,S.hanbai_banka
-``` 
+```
 在SELECT子句中,使用像TS.tenpo\_id和S.hanbai\_tanka这样<表的别名>.<列名>的形式来指定列.这和使用一张表时的情况不同,由于多表联结时,某个列到底属于哪张表比较混乱,所以采用了这样的防范措施.语法上必须使用这样书写方式的只是那些同时存在于两张表中的列(这里是shohin\_id),其他的列可以像tenpo\_id这样直接书写列名,而不会发生错误.但是就像前面说的那样,为了避免混乱,还是希望我们能够在使用联结时按照<表的别名>.<列名>的格式来书写SELECT子句中全部的列.
 - 法则7-5 使用联结时,SELECT子句中的列需要按照<表的别名>.<列名>的格式来书写.
 
@@ -3925,7 +3925,7 @@ INNER JOIN ZaikoShohin AS ZS
 ON TS.shohin_id = ZS.shohin_id
 WHERE ZS.souko_id = "S001";
 执行结果:
-tenpo_id  |	tenpo_mei	|  shohin_id |  shohin_mei  | hanbai_tanka | suryo	
+tenpo_id  |	tenpo_mei	|  shohin_id |  shohin_mei  | hanbai_tanka | suryo
 ----------+-------------+------------+--------------+--------------+-------
 000A		  东京		    0001			T恤			1000		  0
 000A		  东京		    0002			打孔器		500			  120
@@ -4098,7 +4098,7 @@ AND TS.tenpo_id = '000A';
 本章中我们学习了以下4个集合运算符:
 
 - Union(并集)
-- Except(差集) 
+- Except(差集)
 - Intersect(交集)
 - CROSS JOIN(笛卡尔积)
 
@@ -4489,7 +4489,7 @@ T恤	|	衣服|		1000|	5
 
 - 只使用GROUP BY 子句和聚合函数是无法同时计算出小计,合计值的.如果想要一次得到这两个值可以使用GROUPING运算符.
 - 理解GROUPING 运算符中CUBE的关键在与形成"积木搭建出的立方体"的印象.
-- 虽然GROUPING 运算符是标准SQL的功能,但是还有些DBMS尚未支持这一功能. 
+- 虽然GROUPING 运算符是标准SQL的功能,但是还有些DBMS尚未支持这一功能.
 
 #### 同时计算出合计值
 我们在3-2节中学习过GROUP BY子句和聚合函数的使用方法,当时有人可能会想,是否能够通过GROUP BY子句得到表8-1那样的结果呢?
@@ -4519,13 +4519,13 @@ shohin\_mei|sum
 由于GROUP BY子句是用来指定聚合键的场所,所以这里指定的键只能用来进行分割数据,而合计行是不指定聚合键时得到的聚合结果,因此与之下3行通过聚合键得到的结果并不相同.按通常的思路想一次得到这两种结果是不可能的.
 如果想要获得那样的结果,过去通常会分别计算出合计行和按照商品种类进行聚合的结果,然后通过__UNION ALL__(虽然也可以用UNION来代替UNION ALL,但由于两条SELECT语句的聚合键不同,一定不会出现重复行,所以可以使用UNION ALL.UNION ALL和UNION不同之处在于它不会对结果进行排序,因此比UNION的性能更好)
 ```
---代码 8-11 分别计算出合计行和聚合结果再通过UNION ALL进行连接 
+--代码 8-11 分别计算出合计行和聚合结果再通过UNION ALL进行连接
 SELECT '合计' AS shohin_bunrui,SUM(hanbai_tanka)
 FROM Shohin
 UNION ALL
 SELECT shohin_bunrui,SUM(hanbai_tanka)
 FROM shohin
-GROUP BY shohin_bunrui; 
+GROUP BY shohin_bunrui;
 ```
 
 执行结果:
@@ -4595,8 +4595,8 @@ shohin\_bunrui|torokubi|sum\_tanka
 
 在上述GROUP BY子句中使用ROLLUP之后,结果会发生什么变化吗?
 ```
---代码8-14: 在代码8-13 GROUP BY 中添加"登记日期(使用ROLLUP) 
-SELECT shohin_bunrui,torokubi,SUM(hanbai_tanka) AS sum_tanka 
+--代码8-14: 在代码8-13 GROUP BY 中添加"登记日期(使用ROLLUP)
+SELECT shohin_bunrui,torokubi,SUM(hanbai_tanka) AS sum_tanka
 FROM Shohin
 GROUP BY ROLLUP (shohin_bunrui,torokubi);
 ```
@@ -4656,7 +4656,7 @@ shohin_bunrui	torokubi	sum_tanka
 	0			0		      1000 <-- 原始数据为NULL时返回0
 	0			0		      4000
 	0			1		      5000 <-- 碰到超级分组记录中的NULL时会返回1
-	1			1		      16780 
+	1			1		      16780
 ```
 
 这样就能判断出是超级分组记录中的NULL还是原始数据本身为NULL了.使用GROUPING函数还能在超级分组记录的键值中插入字符串.也就是说,当GROUPING函数返回值为1时,指定"合计"或者"小计"等字符串,其他情况返回通常的列的值(代码清单8-16).
@@ -4682,9 +4682,9 @@ shohin_bunrui	 torokubi	sum_tanka
 厨房用具			2009-09-20		3500
 厨房用具			登记日期 合计		11180
 衣服			2009-09-20		1000
-衣服							4000 <-- 原始数据中的NULL保持不变 
-衣服			登记日期 合计		5000 <-- 将超级分组记录中的NULL替换为"登记日期 合计" 
-商品总类 合计		登记日期 合计		16780 
+衣服							4000 <-- 原始数据中的NULL保持不变
+衣服			登记日期 合计		5000 <-- 将超级分组记录中的NULL替换为"登记日期 合计"
+商品总类 合计		登记日期 合计		16780
 ```
 
 在实际业务中,需要获取包含合计或者小计的统计结果(这种情况是最多的)时,就可以使用ROLLUP和GROUPING函数来实现了.
@@ -4726,9 +4726,9 @@ shohin_bunrui	 torokubi	sum_tanka
 商品种类 合计		2008-04-28	  880  <--追加
 商品种类 合计		2009-01-15	  6800 <--追加
 商品种类 合计		2009-09-11	  500  <--追加
-商品种类 合计		2009-09-20	  4500 <--追加 
+商品种类 合计		2009-09-20	  4500 <--追加
 商品种类 合计		2009-11-11	  100  <--追加
-商品种类 合计					  4000 <--追加 
+商品种类 合计					  4000 <--追加
 ```
 
 与ROLLUP的结果相比,CUBE的结果中多出了几行记录.我们看一下就明白了多出来的记录就是只把torokubi作为聚合键所得到的聚合结果:
@@ -4749,10 +4749,10 @@ shohin_bunrui	 torokubi	sum_tanka
 例如,之前的CUBE的结果就是根据聚合键的所有可能组合计算而来的.如果希望从中选取出"商品种类"和"登记日期"各自作为聚合键的结果,反之,不想得到"合计记录和使用2个聚合键的记录"时,可以使用GROUPING SETS(代码清单8-18)
 ```
 --代码8-18 使用GROUPING SETS取得部分组合结果
-SELECT CASE WHEN GROUPING(shohin_bunrui) = 1 
+SELECT CASE WHEN GROUPING(shohin_bunrui) = 1
             THEN '商品种类 合计'
             ELSE shohin_bunrui END AS shohin_bunrui,
-       CASE WHEN GROUPING(torokubi) = 1 
+       CASE WHEN GROUPING(torokubi) = 1
             THEN '登记日期 合计'
             ELSE CAST(torokubi AS VARCHAR(16)) END AS torokubi,
        SUM(hanbai_tanka) AS sum_tanka
