@@ -2,9 +2,9 @@ nux或者Mac
 
 1.如何生成ssh公钥
 
-你可以按如下命令来生成sshkey: 
+你可以按如下命令来生成sshkey:
 
-ssh-keygen -t rsa -C "xxxxx@xxxxx.com"  
+ssh-keygen -t rsa -C "xxxxx@xxxxx.com"
 
 # Generating public/private rsa key pair...
 # 三次回车即可生成 ssh key
@@ -39,4 +39,4 @@ git强制覆盖：
     git pull
 git强制覆盖本地命令（单条执行）：
     git fetch --all && git reset --hard origin/master && git pull
----------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
