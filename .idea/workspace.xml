@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Git配置公钥.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Git配置公钥.txt" afterDir="false" />
-    </list>
+    <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -19,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Git配置公钥.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+            <state relative-caret-position="656">
+              <caret line="41" column="79" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -28,21 +25,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Studying Files/Idea and Webstrom/Hotkeys.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="928">
-              <caret line="130" column="14" selection-start-line="130" selection-start-column="14" selection-end-line="130" selection-end-column="14" />
+            <state relative-caret-position="496">
+              <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Docker/Docker.md">
-          <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/36. sersync服务的部署.md">
+          <provider editor-type-id="MarkdownFxPreviewEditor" />
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor />
               <second_editor />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="MarkdownFxPreviewEditor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md">
+          <provider editor-type-id="MarkdownFxPreviewEditor" />
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="12496">
+                <caret line="781" column="2" selection-start-line="781" selection-start-column="2" selection-end-line="781" selection-end-column="2" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/13 定时任务.md">
+          <provider editor-type-id="MarkdownFxPreviewEditor" />
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="112">
+                <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -112,7 +135,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="1912" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1066" />
@@ -125,7 +148,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -148,13 +170,36 @@
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
               <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
-              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
-              <item name="Docker" type="462c0819:PsiDirectoryNode" />
+              <item name="Html and CSS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="Idea and Webstrom" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="学习资料Chreey Tree" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Work" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Work" type="462c0819:PsiDirectoryNode" />
+              <item name="日常工作资料" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -603,12 +648,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155950000" />
+    <option name="totallyTimeSpent" value="156727000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17931548" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17966281" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -621,7 +666,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32929516" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4963119" weight="0.32302773" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49420443" weight="0.3400853" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5057956" side_tool="true" visible="true" weight="0.33892617" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5073762" side_tool="true" visible="true" weight="0.33920705" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -672,19 +717,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/7 shell编程.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/31. Nginx.md" />
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="12496">
+            <caret line="781" column="2" selection-start-line="781" selection-start-column="2" selection-end-line="781" selection-end-column="2" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/12 进程内核.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/34.rsync同步工具.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/36. sersync服务的部署.md___jb_old___" />
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/36. sersync服务的部署.md" />
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd &amp; NFS &amp;SAMBA.md">
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/36. sersync服务的部署.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor />
           <second_editor />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd &amp; NFS &amp;SAMBA.md">
       <provider editor-type-id="MarkdownFxPreviewEditor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Work/项目知识.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -694,6 +757,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/基础知识.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="480">
@@ -702,21 +766,21 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Work/日常工作资料/yingyezhizhaofuben.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/15 编译内核.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor />
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="576">
@@ -725,9 +789,9 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/20. openssl.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="3280">
@@ -736,18 +800,18 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor />
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/19 openssh.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="32">
@@ -756,9 +820,9 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="799">
@@ -767,18 +831,18 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/8 磁盘管理和文件系统.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor />
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/35. inotify工具实时同步.md">
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="544">
@@ -787,30 +851,29 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Git配置公钥.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+        <state relative-caret-position="656">
+          <caret line="41" column="79" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="79" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/Idea and Webstrom/Hotkeys.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="928">
-          <caret line="130" column="14" selection-start-line="130" selection-start-column="14" selection-end-line="130" selection-end-column="14" />
+        <state relative-caret-position="496">
+          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Docker/Docker.md">
+      <provider selected="true" editor-type-id="MarkdownFxPreviewEditor" />
       <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor />
           <second_editor />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
   </component>
 </project>
