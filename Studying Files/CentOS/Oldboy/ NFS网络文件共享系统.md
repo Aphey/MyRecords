@@ -164,9 +164,6 @@ uid=500(aphey) gid=500(aphey) groups=500(aphey)
   ```
   //在服务器端共享/data/bbs目录,临时生效
   [root@nfs-server ~]# exportfs -o rw,sync,all_squash,anonuid=555,anongid=555 192.168.1.0/24:/data/bbs
-
-  //
-
   ```
 - /var/lib/nfs/etab 文件,这个文件可以查看共享目录，对客户端的实际参数
   ```

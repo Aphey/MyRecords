@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -58,11 +60,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md">
+          <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="2816">
+                <caret line="176" column="43" selection-start-line="176" selection-start-column="43" selection-end-line="176" selection-end-column="43" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="MarkdownFxPreviewEditor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/13 定时任务.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="112">
-                <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+              <first_editor relative-caret-position="864">
+                <caret line="54" column="14" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
               </first_editor>
               <second_editor />
             </state>
@@ -133,6 +148,7 @@
         <option value="$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd &amp; NFS &amp;SAMBA.md" />
         <option value="$PROJECT_DIR$/Studying Files/CentOS/Git配置公钥.txt" />
         <option value="$PROJECT_DIR$/Studying Files/CentOS/Magedu/基础知识.md" />
+        <option value="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md" />
       </list>
     </option>
   </component>
@@ -172,7 +188,8 @@
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
               <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
-              <item name="Html and CSS" type="462c0819:PsiDirectoryNode" />
+              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
+              <item name="Oldboy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
@@ -302,14 +319,9 @@
       <workItem from="1553226319517" duration="29000" />
       <workItem from="1553226937789" duration="737000" />
       <workItem from="1553227770282" duration="1261000" />
-      <workItem from="1553651853091" duration="599000" />
-    </task>
-    <task id="LOCAL-00003" summary="Daily update">
-      <created>1534725508542</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1534725508542</updated>
+      <workItem from="1553651853091" duration="3782000" />
+      <workItem from="1553755009755" duration="850000" />
+      <workItem from="1553845541333" duration="403000" />
     </task>
     <task id="LOCAL-00004" summary="Daily update">
       <created>1535463995748</created>
@@ -647,11 +659,27 @@
       <option name="project" value="LOCAL" />
       <updated>1551926861592</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Daily update">
+      <created>1553745309970</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1553745309970</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157326000" />
+    <option name="totallyTimeSpent" value="161762000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
@@ -665,11 +693,11 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49841937" visible="true" weight="0.32929516" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32929516" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4963119" weight="0.32302773" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49420443" weight="0.3400853" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5073762" side_tool="true" visible="true" weight="0.33920705" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49578503" weight="0.32268724" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49367756" weight="0.33920705" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5015806" side_tool="true" visible="true" weight="0.32929516" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -804,17 +832,6 @@
       </provider>
       <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="799">
-            <caret line="183" column="10" selection-start-line="183" selection-start-column="10" selection-end-line="183" selection-end-column="10" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/8 磁盘管理和文件系统.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
@@ -881,13 +898,24 @@
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/13 定时任务.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="112">
-            <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+          <first_editor relative-caret-position="864">
+            <caret line="54" column="14" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
       <provider editor-type-id="MarkdownFxPreviewEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md">
+      <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="2816">
+            <caret line="176" column="43" selection-start-line="176" selection-start-column="43" selection-end-line="176" selection-end-column="43" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
   </component>
 </project>
