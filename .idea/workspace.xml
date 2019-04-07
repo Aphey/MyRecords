@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
-      <change afterPath="$PROJECT_DIR$/MindMaps/英语语法.emmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MindMaps/英语语法.emmx" beforeDir="false" afterPath="$PROJECT_DIR$/MindMaps/英语语法.emmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -167,7 +167,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -178,6 +177,11 @@
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="MindMaps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
               <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -185,13 +189,6 @@
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
               <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
               <item name="CentOS" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
-              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
-              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
-              <item name="Oldboy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
@@ -220,12 +217,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/amaze_quickstart_package" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="Docker" />
@@ -326,14 +324,8 @@
       <workItem from="1553983837379" duration="1442000" />
       <workItem from="1553987723352" duration="1559000" />
       <workItem from="1554258733849" duration="1339000" />
-      <workItem from="1554342030997" duration="1203000" />
-    </task>
-    <task id="LOCAL-00006" summary="Daily update">
-      <created>1535679764602</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1535679764602</updated>
+      <workItem from="1554342030997" duration="6195000" />
+      <workItem from="1554645856304" duration="436000" />
     </task>
     <task id="LOCAL-00007" summary="Daily update">
       <created>1536224341086</created>
@@ -671,11 +663,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554266538163</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Daily update">
+      <created>1554369816595</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1554369816596</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168941000" />
+    <option name="totallyTimeSpent" value="174369000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -688,7 +687,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17966281" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
