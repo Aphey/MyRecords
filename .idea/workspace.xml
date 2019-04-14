@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MindMaps/英语语法.emmx" beforeDir="false" afterPath="$PROJECT_DIR$/MindMaps/英语语法.emmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -167,6 +165,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,7 +216,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -325,21 +323,9 @@
       <workItem from="1553987723352" duration="1559000" />
       <workItem from="1554258733849" duration="1339000" />
       <workItem from="1554342030997" duration="6195000" />
-      <workItem from="1554645856304" duration="436000" />
-    </task>
-    <task id="LOCAL-00007" summary="Daily update">
-      <created>1536224341086</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1536224341086</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Daily update">
-      <created>1536286790443</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1536286790443</updated>
+      <workItem from="1554645856304" duration="6245000" />
+      <workItem from="1555037157018" duration="599000" />
+      <workItem from="1555219506140" duration="321000" />
     </task>
     <task id="LOCAL-00009" summary="Daily update">
       <created>1536296677634</created>
@@ -670,11 +656,25 @@
       <option name="project" value="LOCAL" />
       <updated>1554369816596</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Daily update">
+      <created>1554646299648</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1554646299649</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Daily update">
+      <created>1554696753362</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1554696753362</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174369000" />
+    <option name="totallyTimeSpent" value="181098000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -687,6 +687,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17966281" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
