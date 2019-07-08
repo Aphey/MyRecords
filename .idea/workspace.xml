@@ -2,47 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
+      <change afterPath="$PROJECT_DIR$/Studying Files/AntDesign/ant-design-pro.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/AntDesign/ant-design-pro笔记2.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/10 Linux软件管理.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/12 进程内核.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/13 定时任务.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/14 系统启动流程.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/15 编译内核.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/16 CentOS安装.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/17. bash编程之函数.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/18. DNS服务器.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/19 openssh.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/20. openssl.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/21.Web服务及http协议.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/22.httpd配置和应用.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/23. 建立Lamp平台.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/24. 数据库及MySQL介绍.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/25. sudo的应用.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd &amp; NFS &amp;SAMBA.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/27. rsyslog和nsswitch以及pam.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/28. nsswitch &amp; pam.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/29. iptables.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3.DHCP服务.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/30. http协议、IO网络模型 .md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/31. Nginx.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/32. linux集群基础.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/33. lvs之nat和dr类型的实现.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/34.rsync同步工具.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/35. inotify工具实时同步.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/36. sersync服务的部署.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/4 正则表达式.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/5 vim编辑器和sed命令.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/50. 邮件服务(抽时间重学26_02).md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/7 shell编程.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/8 磁盘管理和文件系统.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/9 压缩解压缩命令.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/find命令.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/mru.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/基础知识.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/脚本.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/Docker/Docker.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Studying Files/Html and CSS/Aphey/html marks.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Work/中国电信全业务综合业务协议无锡市筑梦之星众创空间有限公司.doc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/10 Linux软件管理.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/11 网络知识.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/12 进程内核.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/13 定时任务.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/14 系统启动流程.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/15 编译内核.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/16 CentOS安装.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/17. bash编程之函数.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/18. DNS服务器.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/19 openssh.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/20. openssl.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/21.Web服务及http协议.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/22.httpd配置和应用.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/23. 建立Lamp平台.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/24. 数据库及MySQL介绍.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/25. sudo的应用.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/26. vsftpd &amp; NFS &amp;SAMBA.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/27. rsyslog和nsswitch以及pam.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/28. nsswitch &amp; pam.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/29. iptables.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3 用户和权限管理.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/3.DHCP服务.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/30. http协议、IO网络模型 .md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/31. Nginx.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/32. linux集群基础.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/33. lvs之nat和dr类型的实现.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/34.rsync同步工具.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/35. inotify工具实时同步.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/36. sersync服务的部署.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/4 正则表达式.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/5 vim编辑器和sed命令.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/50. 邮件服务(抽时间重学26_02).md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/7 shell编程.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/8 磁盘管理和文件系统.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/9 压缩解压缩命令.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/find命令.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/基础知识.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/脚本.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/Html and CSS/W3CSchool全套Web开发手册.chm" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/Html and CSS/其他/W3CSchool全套Web开发手册.chm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/Html and CSS/css20.chm" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/Html and CSS/其他/css20.chm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/Html and CSS/常用html标签的英语全称及简单功能描述.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/Html and CSS/其他/常用html标签的英语全称及简单功能描述.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/Html and CSS/溢出文本换行.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/Html and CSS/其他/溢出文本换行.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -62,76 +73,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Git配置公钥.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="41" column="79" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="79" />
+        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="740">
+                <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Studying Files/Idea and Webstrom/Hotkeys.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-            </state>
-          </provider>
+          <provider editor-type-id="MarkdownFxPreviewEditor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Work/项目知识.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
+            <state relative-caret-position="740">
               <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md">
-          <provider editor-type-id="MarkdownFxPreviewEditor" />
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md">
-          <provider editor-type-id="MarkdownFxPreviewEditor" />
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="28" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Work/日常工作资料/yingyezhizhaofuben.jpg">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Git配置公钥.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="33" column="42" lean-forward="true" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>404</find>
-      <find>cut</find>
-      <find>chage</find>
-      <find>fuser</find>
       <find>环</find>
       <find>ring</find>
       <find>NFS</find>
@@ -157,6 +132,11 @@
       <find>hostname</find>
       <find>fstab</find>
       <find>状态返回</find>
+      <find>mktem</find>
+      <find>hash</find>
+      <find>.hta</find>
+      <find>install</find>
+      <find>mktemp</find>
     </findStrings>
     <dirStrings>
       <dir>E:\MyRecords\Studying Files\CentOS\Oldboy</dir>
@@ -189,14 +169,16 @@
         <option value="$PROJECT_DIR$/Studying Files/CentOS/Git配置公钥.txt" />
         <option value="$PROJECT_DIR$/Studying Files/CentOS/Magedu/基础知识.md" />
         <option value="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md" />
+        <option value="$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/基础知识.md" />
+        <option value="$PROJECT_DIR$/Studying Files/Html and CSS/Aphey/html marks.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1096" />
+    <option name="x" value="240" />
+    <option name="y" value="131" />
+    <option name="width" value="1440" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -212,6 +194,17 @@
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Studying Files" type="462c0819:PsiDirectoryNode" />
+              <item name="CentOS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
@@ -241,7 +234,10 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="G:/中国名师家教网商业源码/中国名师家教网商业源码" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Work" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -360,13 +356,32 @@
       <workItem from="1557473346446" duration="2754000" />
       <workItem from="1557557948806" duration="2727000" />
       <workItem from="1557617968960" duration="12000" />
-    </task>
-    <task id="LOCAL-00010" summary="Daily update">
-      <created>1536568573774</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1536568573774</updated>
+      <workItem from="1557641828505" duration="2515000" />
+      <workItem from="1557876426748" duration="1202000" />
+      <workItem from="1558347964383" duration="1201000" />
+      <workItem from="1558510028592" duration="604000" />
+      <workItem from="1558928176062" duration="253000" />
+      <workItem from="1559574023451" duration="823000" />
+      <workItem from="1559619990717" duration="1342000" />
+      <workItem from="1559986246163" duration="824000" />
+      <workItem from="1560126877515" duration="1641000" />
+      <workItem from="1560382248702" duration="2350000" />
+      <workItem from="1560411139349" duration="7036000" />
+      <workItem from="1560653507026" duration="2067000" />
+      <workItem from="1561009110221" duration="630000" />
+      <workItem from="1561086951656" duration="2035000" />
+      <workItem from="1561333057428" duration="76000" />
+      <workItem from="1561333434229" duration="114000" />
+      <workItem from="1561333566641" duration="87000" />
+      <workItem from="1561333669219" duration="60000" />
+      <workItem from="1561338706501" duration="1458000" />
+      <workItem from="1561452857029" duration="710000" />
+      <workItem from="1561454769501" duration="276000" />
+      <workItem from="1561455698769" duration="75000" />
+      <workItem from="1561455877076" duration="105000" />
+      <workItem from="1561456498913" duration="870000" />
+      <workItem from="1561613435552" duration="597000" />
+      <workItem from="1562555473706" duration="559000" />
     </task>
     <task id="LOCAL-00011" summary="Daily update">
       <created>1536626498248</created>
@@ -704,11 +719,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555219833802</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Daily update">
+      <created>1557641948083</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1557641948084</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198619000" />
+    <option name="totallyTimeSpent" value="228129000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -720,10 +742,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28091684" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.37260127" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -734,9 +755,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49683878" weight="0.32929516" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32929516" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49578503" weight="0.32268724" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49573562" weight="0.32081544" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49367756" weight="0.33920705" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50316125" side_tool="true" weight="0.32929516" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.5042644" side_tool="true" visible="true" weight="0.32939914" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -780,7 +801,6 @@
     <entry file="file://$PROJECT_DIR$/Work/csdn.txt" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/2 基础命令.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/18. DNS服务器.md" />
-    <entry file="file://$PROJECT_DIR$/Studying Files/SQL/SQL.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/1 基础知识.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/7 shell编程.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/31. Nginx.md" />
@@ -799,20 +819,7 @@
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Docker/Docker.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/13 定时任务.md" />
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/36. sersync服务的部署.md" />
-    <entry file="file://G:/程序安装包/jiajiao/pay/alipay.config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="67" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Git配置公钥.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="41" column="79" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://G:/程序安装包/jiajiao/pay/alipay.config.php" />
     <entry file="file://$PROJECT_DIR$/Studying Files/Idea and Webstrom/Hotkeys.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
@@ -820,38 +827,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Work/项目知识.txt">
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/postfix.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+        <state relative-caret-position="420">
+          <caret line="323" column="20" selection-start-line="323" selection-start-column="20" selection-end-line="323" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/SQL/SQL.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/3 用户和权限管理.md" />
     <entry file="file://$PROJECT_DIR$/Work/日常工作资料/yingyezhizhaofuben.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work/日常工作资料/开户许可证.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="28" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="28" />
+        <state relative-caret-position="288">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/Html and CSS/Aphey/html marks.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/1 基础知识.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/AntDesign/ant-design-pro.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/Docker/Docker.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/22.httpd配置和应用.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/data/基础知识.md" />
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/ NFS网络文件共享系统.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="740">
+            <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Work/项目知识.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="740">
+          <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Git配置公钥.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="33" column="42" lean-forward="true" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
         </state>
       </provider>
     </entry>
