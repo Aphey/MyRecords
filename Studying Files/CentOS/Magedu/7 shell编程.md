@@ -2,7 +2,7 @@
 #### shell编程
 - bash提供了编程环境;程序是有指令和数据组成的,程序编程风格分为过程式和对象式:
 	- 过程式: 以指令为中心,数据服务于指令
-	    1. 顺序执行,自上而下一条一条执行
+    1. 顺序执行,自上而下一条一条执行
 		2. 循环执行,迭代,或者遍历的方式对一类对象上逐个运行某种操作叫循环执行
 		3. 选择执行,多条可用路径中选择一个
 	- 对象式: 以数据为中心,指令服务于数据
@@ -10,8 +10,11 @@
 	- 静态语言:编译型语言,需要事先转换成可执行格式,才能执行(C,C++,JAVA,C#)
 		- 有一个程序开发环境,不需要借助额外的二进制程序,我们就可以直接写代码,写完代码需要一个编译器将其直接转换成二进制可以独立运行的,这样的语言就陈伟静态语言;此类语言一般都是__强类型(变量)__语言
 	- 动态语言:解释型语言,通常都是弱类型语言;边解释边执行.(asp,php,shell,python,perl)
-	- 面向过程:Shell, C
-	- 面向对象: JAVA,Python,perl,C
+	- 面向过程: 以指令为中心来组织代码,数据服务于代码,代表:Shell, C
+	- 面向对象: 以数据为中心来组织代码,围绕数据来组织指令,JAVA,Python,perl,C
+- 命令hash: 缓存此前命令的查找结果,我们平时执行命令时,系统并不是上来就直接找PATH环境变量下的给的各程序路径,而是先去缓存中看是不是有已经找到的完整路径的结果了,如果有,就直接引用缓存中的执行程序路径;如果没有,系统才会发起真正的查找操作,这就叫命令hash.
+	- -d cat 删除hash表中的cat路径记录
+	- -r 清空hash表
 - shell是过程式、解释执行的编程,shell编程就是命令的堆砌.
 - 编程语言的基本结构:
 	- 数据存储:变量、数组
@@ -29,10 +32,22 @@
 		- 浮点型:存储方式是,小数点之前存放一个位置,小数点之后存放一个位置,小数点单独存放一个位置
 		- 日期时间型
 		- 布尔型,真假型
-	- 逻辑运算:与、或、非(门)、异或(操作数相同则为假,否则为真)
-		- 短路逻辑运算
-			- 与:有一个为假,结果一定为假
-			- 或:有一个为真,结果一定为真
+	- 逻辑运算:与、或、非(门)、异或(操作数相同则为假,否则为真);`与或`运算为短路逻辑运算,
+			A) 与:有一个为假,结果一定为假,可以理解为相乘
+            1 && 1 = 1
+            1 && 0 = 0
+            0 && 0 = 0
+            0 && 1 = 0
+			> COMMAND1 && COMMAND2, 若COMMAND1为"假",则COMMAND2不会在执行,否则,COMMAND1为"真",则COMMAND2必须执行
+			B) 或:有一个为真,结果一定为真,可以理解为相加
+            1 || 0 = 1
+            1 || 1 = 1
+            0 || 1 = 1
+            0 || 0 = 0
+			> COMMAND1 || COMMAND2, 若COMMAND1为"真",则COMMAND2不会在执行,否则,COMMAND1为"假",则COMMAND2必须执行
+			C) 非,取反
+            !0 = 1
+            !1 = 0
 	- 强弱类型变成语言:
 	    - 变量的声明：说明变量的类型，定义变量名称.
 		- 强类型:变量在使用前必须事先声明变量类型,甚至还需要初始化(给一个原始值,一般数值初始化为0,字符初始化为空NULL)；
@@ -43,7 +58,7 @@
         - 多数强类型语言都需要先声明的， 但是python是例外，python是强类型语言，但是他使用变量也不需要事先声明
 - bash变量类型:
     - bash是弱类型语言, 它把所有要存储的数据统统当做字符进行,且不支持浮点数
-	- 环境变量:作用域为当前shell进程及其子进程,声明方法:export VARNAME=VALUE
+	- 环境变量:作用域为当前shell进程及其子进程,声明方法:export NAME=VALUE或者declare -x NAME=VALUE
 	- 本地变量:比如父shell中定义的变量,在子shell中不能引用,作用域为整个bash进程
 	    ```
 	    [root@Aphey ~]# NAME=Jerry
@@ -51,15 +66,15 @@
         Jerry
         [root@Aphey ~]# bash
         [root@Aphey ~]# echo $NAME
-        
+
         [root@Aphey ~]#
 	    ```
 	- 局部变量:声明方法 local VARNAME=VALUE,作用域为:当前shell进程中某代码段,常用于函数
 	- 位置变量 $1,$2,$3...;特殊命令:shift,和位置变量运用的
 	- 特殊变量:用来保存某些特殊数据的变量
 	    - $0：命令本身
-		- $?: 上一条命令的退出状态码
-		- $#: 查看命令参数的个数
+		- $?: 上一条命令的退出状态码,0表示成功,1-255表示失败.
+		- $#: 查看命令参数的个数.
 		- $*: 参数列表,传递给脚本的所有参数,所有参数当成一个字串.
 		- $@: 参数列表,传递给脚本的所有参数,每个参数都是一个独立字串.
 - 引用变量: ${VARNAME},花括号可以省略. 有些情况是不能省略的,比如:
@@ -73,10 +88,13 @@
 - 任何一个脚本在执行时会启动一个子shell进程;
 - 命令行中启动的脚本会继承当前shell环境变量
 - 系统自动执行的脚本(非命令行启动)就需要自我定义需要的各环境变量
-- 导出环境变量有两种方法
+- 导出环境变量有两种方法(export和declare)
 	- export VARNAME=VALUE
 	- 1. VARNAME1=VALUE
 	  2. export VARNAME1
+	- declare -x NAME=VALUE, -x选项表示export导出变量
+	- 1. NAME=VALUE
+		2. delcare -x NAME
 - 环境变量只对当前shell及其子shell有效,比如我在A Session上声明了某个环境变量,复制A Session为B Session,再查看这个变量,___会发现这个变量为空___
 - 特殊变量:
 	- $?:上一个命令的执行状态返回值,程序执行以后可能有两类返回值:
@@ -86,16 +104,16 @@
 			- 1-255:错误执行,1,2,127系统预留;其他数字可以自定义
 			- 输出重定向的特殊用法:
 			- /dev/null:软件设备,bit bucket 数据黑洞
-			
+
 				```
 				[root@ZhumaTech ~]# id jerry &>/dev/null
 				[root@ZhumaTech ~]# echo $?
 				0
-				[root@ZhumaTech ~]# id jerr &>/dev/null 
+				[root@ZhumaTech ~]# id jerr &>/dev/null
 				[root@ZhumaTech ~]# echo $?            
 				1
 				```
-				
+
 - 撤销变量:
 	- 其实设置变量的命令前面省略了 set ,所以撤销变量的命令就是unset VARNAME
 - 查看shell中的变量,set即可,不带任何选项和参数.
@@ -103,7 +121,9 @@
 	- printenv
 	- env
 	- export
-- - 在bash中,变量也可以做到只读,也就是所谓的常量,变量赋值以后再也不能修改也不能销毁,永远只能保持这一个值,只有等到shell进程终止时实现只读变量的方法:
+	- declare -x
+- 在bash中,变量也可以做到只读,也就是所谓的常量,变量赋值以后再也不能修改也不能销毁,永远只能保持这一个值,只有等到shell进程终止;
+- 实现只读变量的方法:
 	- 使用readonly关键字
 		```
 		[root@mail sh]# readonly name=tom
@@ -111,14 +131,14 @@
 		tom
 		[root@mail sh]# name=jerry	//不能修改
 		-bash: name: readonly variable
-		``` 
+		```
 	- declare -r VARNAME=VALUE  //设置只读变量
 		```
 		[root@mail sh]# declare -r haha=xiao
 		[root@mail sh]# echo $haha
 		xiao
 		[root@mail sh]# haha=ku
-		-bash: haha: readonly variable 
+		-bash: haha: readonly variable
 		```
 - 脚本:命令堆砌,按实际需要,结合命令流程控制机制实现的源程序
 - 对字符串类型的变量来说,我们要改变其值,还可以给字符串后面附加一些内容,常用在$PATH添加上.
@@ -140,23 +160,23 @@
 	2+3
 	```
 - bash的配置文件:
-		1. 全局配置:
+		1. 全局配置:对所有用户都生效
 			- /etc/profile
 			- /etc/profile.d/*.sh
 			- /etc/bashrc
-		2. 个人配置:
+		2. 个人配置:仅对当前用户有效
 			- ~/.bash_profile
 			- ~/.bashrc
-	- profile类的文件:
+	- profile类的文件:为交互式登录shell进程提供配置;
 		1. 设定环境变量
 		2. 运行命令或脚本,比如在/etc/profile里(或者在/etc/profile.d/中新建一个脚本)添加一句 `echo "Welcome $UID, your home is $HOME"`; 这样用户开机就会看到这么一句
-	- bashrc类的文件:
+	- bashrc类的文件:为非交互式登录的shell进程提供配置;
 		1. 设定本地变量
-		2. 定义命令别名	
-- shell登录分为交互式登录和费交互式登录两种:    
-    - 交互式登录(直接通过终端输入账号密码登录;或者`su - USERNAME` 切换的用用户)系统读取顺序为: `/etc/profile--> /etc/profile.d/*sh --> ~/.bash_profile --> ~/.bashrc --> /etc/bashrc`;越往后优先级越高
+		2. 定义命令别名
+- shell登录分为交互式登录和非交互式登录两种:    
+    - 交互式登录(直接通过终端输入账号密码登录;或者`su - USERNAME` 切换的用户)系统读取顺序为: `/etc/profile--> /etc/profile.d/*sh --> ~/.bash_profile --> ~/.bashrc --> /etc/bashrc`;越往后优先级越高
     - 非交互式登入(`su USERNAME`或者图形界面下打开的终端,或者执行脚本,脚本会单独打开一个shell)读取顺序为: `~/.bash --> /etc/bashrc --> /etc/profile.d/*.sh`
-- 脚本:命令的堆砌,按照实际需要结合命令流程控制机制实现的源程序.
+- 脚本:命令的堆砌,按照实际需要结合命令流程控制机制实现的源程序,但很多命令不具有幂等性,需要程序逻辑来判断运行条件是否满足,以避免其运行中发生错误.
 - shebang:魔数,脚本中交shebang __第一行__必须是#!/FULLPATHOFSHELL
 - 脚本也可以作为脚本的参数来执行,比如 bash first.sh,此时,就算这个脚本文件没有执行权限也能被运行.
 #### 条件判断
@@ -166,40 +186,40 @@
 	- 文件测试: 判断文件是不是存在
 - 条件测试的表达式:
 
-	```
+	```bash
 	[root@ZhumaTech ~]# A=1
 	[root@ZhumaTech ~]# B=2
 	```
-	
+
 	1. [ expression ] `[ $A -eq $B ]`
-	
-	    ```
+
+	    ```bash
 	    [root@ZhumaTech ~]# [ $A -lt $B ]
 	    [root@ZhumaTech ~]# echo $?
 	    0
 	    ```
-	
-	2. [[ expression ]]
-	
-	    ```
+
+	2. `[[ expression ]]`
+
+	    ```bash
 	    [root@ZhumaTech ~]# [ $A -gt $B ]
 	    [root@ZhumaTech ~]# echo $?
 	    1
 	    ```
-	
+
 	3. \# test expression
-	
+
 	    ```
-	    [root@ZhumaTech ~]# test $A -eq $B 
+	    [root@ZhumaTech ~]# test $A -eq $B
 	    [root@ZhumaTech ~]# echo $?
 	    1
 	    ```
-	
+
 - 整数比较(双目比较:比较两个数大小):
 	- -eq (equal):测试两个整数是否相等:相等为真,不等为假
-	
+
 		```
-		[root@ZhumaTech ~]# echo $A 
+		[root@ZhumaTech ~]# echo $A
 		3
 		[root@ZhumaTech ~]# echo $B
 		3
@@ -229,14 +249,14 @@
 	- 逻辑与: &&
 	- 逻辑或: ||
 	- 例题:如果'/etc/inittab'行数大于100,则输出它是大文件,否则输出小文件.
-	
+
 	    ```
 	    #!/bin/bash
 	    LINES=`wc -l /etc/inittab`
 	    FINLINES=`echo $LINES|cut -d' ' -f1`
 	    [ $FINLINES -gt 100 ] && echo "This is a big file" || echo "This is a small file"
 	    ```
-	
+
 	- 如果用户已存在,则输出用户存在,不存在则添加用户`id user1 && echo "user1 exists" || useradd user1`
 	- 如果用户不存在,就添加用户,否则,显示其已存在`! id user1 && useradd user1 || echo "user1 exists"`
 	- 如果用户不存在,就添加,并且设定密码,否则显示其已经存在`! id user1 && useradd1 && echo "user1"| passwd --stdin user1|| echo "user1 exists"`
@@ -247,34 +267,34 @@
 	! id user1 &>/dev/null && useradd user1 && echo "user1" | passwd --stdin user1 $
 	! id user2 &>/dev/null && useradd user2 && echo "user2" | passwd --stdin user2 $
 	! id user3 &>/dev/null && useradd user3 && echo "user3" | passwd --stdin user3 $
-	
+
 	USERS=`wc -l /etc/passwd|cut -d: -f1`
 	echo "`echo $USERS|cut -d' ' -f1` users"
 	```
-	
+
 - 给定一个用户:
 	- 如果其UID为0.就显示此为管理员
 	- 否则,就显示为普通用户
-	
+
 	    ```
 	    #!/bin/bash
 	    NAME=user1
 	    USERID=`id -u $NAMEUSER`
 	    [ $USERID -eq 0 ] && echo "$NAME is a manager." ||"$NAME is a common user"
 	    ```
-	
+
 - 条件判断,控制结构:
-	- 单分支if语句 
-	
+	- 单分支if语句
+
 	    ```
 	    if 判断条件;then
 	    	条件为真的分支代码;
 	    	...
 	    fi
-	    ```	
-	
+	    ```
+
 	- 双分支的if语句
-	
+
 	    ```
 	    if 判断条件;then
             条件为真的分支代码;
@@ -284,10 +304,10 @@
 	    	...
 	    if
 	    ```
-	
+
 - shell中如何进行算术运算:
 	- 用let命令
-	
+
 	    ```
 	    [root@ZhumaTech sh]# A=3
 	    [root@ZhumaTech sh]# B=6
@@ -295,27 +315,27 @@
 	    [root@ZhumaTech sh]# echo $C
 	    9
 	    ```
-	
+
 	- $[算术运算表达式]
-	
+
 	    ```
 	    [root@ZhumaTech sh]# C=$[$A+$B]
 	    [root@ZhumaTech sh]# echo $C
 	    9
 	    ```
-	
+
 	- $((算术表达式))
-	
+
         ```
         [root@ZhumaTech sh]# D=$(($B-$A))
         [root@ZhumaTech sh]# echo $D
         3
         ```
-	
+
 	- expr命令;`expr [arg1 arg2 arg3 ....] `运算符也算是参数算术表达式; 算术表达式,表达式中各操作数和运算符之间要有空格并且要使用命令引用
-	
+
         ```
-        [root@ZhumaTech sh]# F=`expr $A \* $B`  //*要转义,否则表示所有文件 
+        [root@ZhumaTech sh]# F=`expr $A \* $B`  //*要转义,否则表示所有文件
         [root@ZhumaTech sh]# echo $F
         18
         ```
@@ -338,7 +358,7 @@
     #!/bin/bash
     #
     NAME=user18
-    # ----当这个用户不存在时,提示无此用户并退出脚本---- 
+    # ----当这个用户不存在时,提示无此用户并退出脚本----
     if ! grep "$NAME" /etc/passwd >/dev/null; then
             echo "No such user: $NAME"
             exit 1
@@ -352,12 +372,12 @@
             echo "${NAME}'s a bad guy"
     fi
     ```
-    
+
 - bash中常用的条件测试有三种:表达式 [ expression ],[[ expression ]],test expression
 	- 整数测试:(双目操作:两个数做大小比较);
 	- 文件测试:
 		- `-[e|a]` FILE:单目测试,测试文件是否存在
-		
+
 	        ```
 	        [root@ZhumaTech ~]# [ -e /etc/inittab ]
 	        [root@ZhumaTech ~]# echo $?
@@ -389,11 +409,11 @@
 	- -o: 或关系
 	- !: 非关系
 	```
-	[root@localhost tmp]# [ -z "$hostName" -o "$hostName"=="localhost.localdomain" ] 
+	[root@localhost tmp]# [ -z "$hostName" -o "$hostName"=="localhost.localdomain" ]
     [root@localhost tmp]# echo $?
     0
     // 和下面的命令表达的是同样的意思
-    [root@localhost tmp]# [ -z "$hostName" ]||[ "$hostName"=="localhost.localdomain" ] 
+    [root@localhost tmp]# [ -z "$hostName" ]||[ "$hostName"=="localhost.localdomain" ]
     [root@localhost tmp]# echo $?
     0
     // 如果主机名存在切主机名为localhost.localdomain,则修改主机名为aphey.com
@@ -417,7 +437,7 @@
     elif 判断条件3; then
     		执行语句3
     		...
-    else 
+    else
     		执行语句4
     		...
     fi
@@ -432,12 +452,12 @@
 	#!/bin/bash
 	#
 	FILE=/etc/rc.d/rc.sysinit
-	
+
 	if [ ! -e $FILE ]; then
 	        echo "No such file exists"
 	        exit 6
 	fi
-	
+
 	if [ -f $FILE ]; then
 	        echo "Common file."
 	elif [ -d $FILE ]; then
@@ -445,16 +465,16 @@
 	else
 	        echo "Unknown"
 	fi
-	
-	[root@ZhumaTech sh]# 
-	[root@ZhumaTech sh]# bash -x filetest2.sh 
+
+	[root@ZhumaTech sh]#
+	[root@ZhumaTech sh]# bash -x filetest2.sh
 	+ FILE=/etc/rc.d/rc.sysinit
 	+ '[' '!' -e /etc/rc.d/rc.sysinit ']'
 	+ '[' -f /etc/rc.d/rc.sysinit ']'
 	+ echo 'Common file.'
 	Common file.
 	```
-	
+
 - 位置变量,$1 就是引用第一个参数,$2 就是引用第二个参数,以此类推,具体看下面的练习,
 - 练习:写一个脚本,能接受一个参数(文件路径),判定:此参数如果是一个存在的文件,就显示"OK";否则就显示"No such file"
 
@@ -462,27 +482,27 @@
     [root@ZhumaTech sh]# nano filetest3.sh
     #!/bin/bash
     #
-    
+
     if [ -e $1 ]; then
             echo "OK"
-    else 
+    else
             echo "No such file"
     fi
-    
+
     [root@ZhumaTech sh]# bash filetest3.sh  /etc/fstab
     OK
     [root@ZhumaTech sh]# bash filetest3.sh  /etc/fstaba
     No such file
     ```
     - 上述练习中如果我们忘了给参数,执行结果也是通过的:
-    
+
         ```
         [root@ZhumaTech sh]# bash -x filetest3.sh  
         + '[' -e ']'
         + echo OK
         OK
         ```
-    
+
 - 如果不给路径, $1是有意外情况发生的,所以我们在脚本中应该判定用户必须给这个脚本参数.如果不给参数,我们就不执行.
 	- 特殊变量:
 		- $?: 上一条命令的退出状态码
@@ -490,28 +510,28 @@
 		- $*: 参数列表
 		- $@: 参数列表
 		- $0: 执行脚本时的脚本路径及名称
-	
+
 	```
-	[root@ZhumaTech sh]# cat  filetest3.sh 
+	[root@ZhumaTech sh]# cat  filetest3.sh
 	#!/bin/bash
 	#
 	if [ $# -lt 1 ]; then
 	        echo "请输入参数 "
 	        exit 3
 	fi
-	 
+
 	if [ -e $1 ]; then
 	        echo "OK"
 	else
 	        echo "No such file"
 	fi
 	```
-	
+
 - 位置变量常用命令:shift,轮替`shif n: 一次轮替掉n个`
-	
+
 	```
 	[root@ZhumaTech sh]# nano shift.sh
-	
+
 	#!/bin/bash
 	echo $1
 	shift 2
@@ -592,7 +612,7 @@
     ```
 - 统计/etc/,/var,/usr目录共有多少个以一级子目录和文件
     ```
-    [root@localhost tmp]# vi count.sh 
+    [root@localhost tmp]# vi count.sh
 
     #!/bin/bash
     countetc= `ls -l /etc|grep "^[-d]"|wc -l`
@@ -612,16 +632,16 @@
 	- for循环
 	- while循环
 	- until循环
-- 用法: 
+- 用法:
 
 	```
 	for 变量 in 列表;do
 		循环体;
 	done
 	```
-	
-- 如何生成列表: 
-	- 整数列表: 
+
+- 如何生成列表:
+	- 整数列表:
 		- {1..100} 花括号会自动展开
 		- seq命令,在for中做列表时,记得替换`seq NUM`
 			- seq 10 :从1到10
@@ -633,34 +653,34 @@
 
 	```
 	[root@ZhumaTech sh]# nano sum.sh
-	
+
 	#!/bin/bash
 	declare -i SUM=0
-	for I in {1..100}; do 
+	for I in {1..100}; do
 	        let SUM=$[$SUM+$I]
 	done
-	
+
 	echo "The sum is $SUM"
-	
-	[root@ZhumaTech sh]# bash sum.sh 
+
+	[root@ZhumaTech sh]# bash sum.sh
 	The sum is 5050
 	```
-	
+
 - 依次向/etc/passwd中的每个用户问好
 
 	```
 	[root@ZhumaTech sh]# LINES=`wc -l /etc/passwd|cut -d' ' -f1`
-	[root@ZhumaTech sh]# for I in `seq 1 $LINES`; do echo "Hello, `head -n $I /etc/passwd | tail -1 | cut -d: -f1`"; done 
+	[root@ZhumaTech sh]# for I in `seq 1 $LINES`; do echo "Hello, `head -n $I /etc/passwd | tail -1 | cut -d: -f1`"; done
 	```
-	
+
 - 只向/etc/passwd中shell是/bin/bash的用户问好.并说明他的shell
 
     ```
     [root@ZhumaTech sh]# nano shell.sh
     #!/bin/bash
-    
+
     LINES=`grep '/bin/bash$' /etc/passwd |wc -l|cut -d' ' -f1`
-    
+
     for I in `seq 1 $LINES`; do
              echo " hello, `grep '/bin/bash' /etc/passwd | head -n $I | tail -1 | cut -d: -f1` and your shell is `grep '/bin/bash' /etc/passwd | head -n $I | tail -1 | cut -d: -f7`;
     done
@@ -672,11 +692,11 @@
 		statement
 		...
 	done
-	
+
 	进入循环:条件不满足
 	退出循环:条件满足
 	```
-	
+
 - 每隔5s,检测hadoop用户是否登陆进系统
 
 	```
@@ -690,10 +710,10 @@
 	        who | grep "hadoop" &> /dev/null
 	        RETVAL=$?
 	done
-	
+
 	echo "hadoop is logged on"
 	```
-	
+
 - 任何时候,我们取一个命令返回值来做条件的时候,可以把命令当作条件,所以上面的命令可以简写成
 
 	```
@@ -705,18 +725,18 @@
 	done
 	echo "hadoop is logged on"
 	```
-	
+
 - for循环的另一种形式
-	- 第一种常规的 
-	
+	- 第一种常规的
+
 	```
 	for 变量 in 列表; do
 		循环体
 	done
 	```
-	
+
 	- 第二种;近似于c语言的风格
-	
+
 	```
 	for (( expr1 ; expr2 ; expr3 )); do
 		循环体
@@ -725,18 +745,18 @@
 	//expr2 用来判定什么时候退出循环
 	//expr3 用来修正这个变量的值
 	```  	
-	
+
 	//计算100以内正整数的和
-	
+
 	```
-	[root@ZhumaTech sh]# vi 100.sh 
+	[root@ZhumaTech sh]# vi 100.sh
 	#!/bin/bash
 	declare -i SUM=0
 	for (( I=1; I<=100; I++ )); do
 	        let SUM+=$I
 	done
 	echo $SUM
-	
+
 	[root@ZhumaTech sh]# ./100.sh  
 	5050
 	```
@@ -749,20 +769,20 @@
 	   ...
     done
 	```
-	
+
 	```
 	//计算100以内所有正整数的和
 	#!/bin/bash
 	declare -i I=1
 	declare -i SUM=0
-	
+
 	while [ $I -le 100 ]; do
 	  let SUM+=$I
 	  let I++
 	done
 	echo $SUM
 	```
-	
+
 	```
 	//当输入quit时,退出脚本,否则把小写字母改成大写字母
 	#!/bin/bash
@@ -770,12 +790,12 @@
 	while [ $STRING != 'quit' ]; do
 	        echo $STRING|tr 'a-z' 'A-Z'
 	        read -p "Input somthing that will be translated into Capital way" STRING
-	             
+
 	done
 	```
 ##### case 语句
 	```
-	case SWITCH in 
+	case SWITCH in
 	VALUE1)
 	statement
 	...
@@ -795,10 +815,10 @@
     - `?`: 任意单个字符;
     - `[]`: 指定范围内的任意单个字符
     - `a|b`: a或b
-    - string: string整个字符串	
+    - string: string整个字符串
 	```
 	// 判断参数是什么类型
-	case $1 in 
+	case $1 in
 	[1-9])
 		echo "Digit" ;; //必须要加双分号
 	[a-z])
@@ -810,7 +830,7 @@
 		echo "Other character" ;;
 	esac
 	```
-	
+
 	```
 	//写一个脚本,能够接受参数start,stop,restart,status其中之一
 	#!/bin/bash
@@ -827,13 +847,13 @@
 	    echo '`basename $0` {start|stop|restart|status}' ;;
 	esac
 	```
-	
+
 	```
 	#!/bin/bash
 	DEBUG=0	//初始化DEBUG变量值
 	ADD=0	//初始化ADD初始化值
 	DEL=0	//初始化DEL变量的值
-	
+
 	for I in `seq 0 $#`; do	//在脚本后面的所有参数间进行循环
 	if [ $# -gt 0 ]; then	//参数大于0个的时候才进行下面的分析
 	case $1 in
@@ -861,7 +881,7 @@
 	esac
 	fi
 	done
-	
+
 	if [ $ADD -eq 1 ]; then
 	  for USER in `echo $ADDUSERS | sed 's@,@ @g'`; do	//用一个循环来添加位置参数$2上的用户
 	    if id $USER &> /dev/null; then	//当用户名存在的时候
@@ -872,10 +892,10 @@
 	    fi
 	  done
 	fi
-	
+
 	if [ $DEL -eq 1 ]; then
 	  for USER in `echo $DELUSERS | sed 's@,@ @g'`; do	//为DELUSERS(当选项为--del时,位置参数2上的用户名)做循环操作
-	    if id $USER &> /dev/null; then	//当用户存在时	
+	    if id $USER &> /dev/null; then	//当用户存在时
 	      userdel -r $USER		//执行删除用户命令
 	      [ $DEBUG -eq 1 ] && echo "Delete $USER finished."	//当$DEBUG为1时(即有-v选项时),输出详细信息
 	    else	//否则,即id $USER 不存在时
@@ -886,7 +906,7 @@
 	```
 
 - 案例,写一个脚本,可以接受选项及参数,而后能获取每一个选项,以及选项的参数,并能根据选项及参数做出特定的操作.比如:adminusers.sh --add tom,jerry --del tom,blair -v|--verbose -h|--help
-    
+
     ```
     //首先我们学习一下如何识别-v|--verbose
     #!/bin/bash
@@ -915,7 +935,7 @@
           let SHOWUSERS=1 	
           shift ;;	//轮替掉这个选项
         -c|--count)
-          let SHOWNUM=1 
+          let SHOWNUM=1
           shift ;;	//轮替掉这个选项
         *)
           echo "Usage: `basename $0` -h|--help -c|--count -v|--verbose"
@@ -923,7 +943,7 @@
         esac
       fi
     done
-    
+
     if [ $SHOWNUM -eq 1 ]; then
       echo "Logged users: `who | wc -l`."	//当识别选项为-c|--count的时候,输出用户个数
       if [ $SHOWUSERS -eq 1 ]; then	//当识别选项为-c|--count,并且加-v|--verbose选项的时候,输出用户个数和详细列表
@@ -998,21 +1018,21 @@
     ```
 - 练习:写一个脚本:定义一个数组,数组中的元素是/var/log目录下所有以.log结尾的文件;要统计其下标为偶数的文件中的行数之和
     ```
-    [root@localhost tmp]# vi array1.sh 
+    [root@localhost tmp]# vi array1.sh
     #!/bin/bash  
     declare -a files
     files=(/var/log/*.log)  //能够实现把/var/log/*.log展开为空格分开的多个元素
     declare -i lines=0
     for i in $(seq 0 $[${#files[*]}-1]); do // 对元素做循环操作,seq 从0到元素个数-1
         if [ $[$i%2] -eq 0 ];then       // 对元素下标为偶数的的元素进行操作
-    	let lines+=$(wc -l ${files[$i]} | cut -d' ' -f1) 
+    	let lines+=$(wc -l ${files[$i]} | cut -d' ' -f1)
         fi
     done
-    echo "Lines: $lines."	
+    echo "Lines: $lines."
     ```
 - 引用数组中的所有元素
     - 所有元素: $(ARRAY[@])或者$(ARRAY[*])
-    - 取出特定元素(数组切片,或者元素切片): `${ARRAY[@]:OFFSET:NUMBER}`; OFFSET: 要跳过的元素个数; NUMBER: 要取出的元素个数 
+    - 取出特定元素(数组切片,或者元素切片): `${ARRAY[@]:OFFSET:NUMBER}`; OFFSET: 要跳过的元素个数; NUMBER: 要取出的元素个数
         ```
         [root@localhost tmp]# weekdays=([0]="Sunday" [1]="Monday" [2]="Tuesday" [3]="Wednesday" [4]="Thursday" [5]="Friday" [6]="Saturday")
         [root@localhost tmp]# echo ${weekdays[@]}
@@ -1050,7 +1070,7 @@
     usr/local/src
     [root@Aphey boot]# echo ${FILE##*/} //从左往右,省略掉第一个关键字到最右的关键字"/"及他们左边的内容
     src
-    [root@Aphey boot]# FILE=a/usr/local/src 
+    [root@Aphey boot]# FILE=a/usr/local/src
     [root@Aphey boot]# echo ${FILE%/*}     //从右往左,省略掉第一个关键字"/"及其右边的内容
     a/usr/local
     [root@Aphey boot]# echo ${FILE%%/*}    //从右往左,省略掉第一个关键字到最左的关键字"/"及他们右边的内容
@@ -1080,7 +1100,7 @@
 - 查找并删除 `${VAR/PATTERN}`查找变量中自左而右第一次被PATTERN匹配到的字符串并删除;`${VAR//PATTERN}`查找变量中自左而右所有被PATTERN匹配到的字符串并删除;行首行尾,和上面锚定的用法一样
 - 变量字符大小写转换:`${VAR^^}` 把VAR中所有小写字符换成大写;`${VAR,,}`把VAR中所有大写换成小写
     ```
-    [root@localhost tmp]# 
+    [root@localhost tmp]#
     [root@localhost tmp]# echo ${user^^}
     ADMIN:ROOT:X:0:0:ROOT:/ROOT:/BIN/BASH:ROOT
     [root@localhost tmp]# myuser=`echo ${user^^}
@@ -1091,7 +1111,7 @@
     ```
 - 变量赋值:有时候我们写脚本的时候,比如有read命令-t选项,用户没有输如值,那么变量的值就为空了.注意: 减号是最常用的.
     - ${parameter:-word}: 如果一个变量为空或未定义,则变量展开为"word",否则,展开为parameter的值;
-        ``` 
+        ```
         [root@Aphey boot]# A=3
         [root@Aphey boot]# echo ${A:-30}    //意思是,如果变量A有值,那么A就等于他自身.
         3
@@ -1105,7 +1125,7 @@
         ```
         [root@Aphey boot]# unset A
         [root@Aphey boot]# echo $A  //A为空
-          
+
         [root@Aphey boot]# echo ${A:+30}    //A为空,那么输出也为空
 
         [root@Aphey boot]# A=5      //A不为空,
@@ -1151,4 +1171,4 @@
     [root@mail tmp]# tmpfile=$(mktemp /tmp/file.XXXX)   //用来做引用
     [root@mail tmp]# echo $tmpfile  
     /tmp/file.IEVQ
-    ``` 
+    ```

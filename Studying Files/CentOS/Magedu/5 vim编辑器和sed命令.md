@@ -87,7 +87,7 @@
 		- 末行模式下有以下删除方法:
 			- :1,10d 删除第一行到第10行
 			- :.,+5d 删除当前行及后面的5行,"."表示当前行
-			- $ 表示最后一行,$-1倒数第二行
+			- `$`表示最后一行,`$-1`倒数第二行
 	- vi最近的删除及操作不会被立即清空,最后一次的删除其实是剪切,可以粘贴到别的位置.
 	- 粘贴命令:
 		- p:如果删除或复制的内容为整行内容,粘贴在当前光标位置的下一行;如果删除或复制的内容为非整行,则粘贴在光标所在字符的后面
@@ -156,33 +156,38 @@
 	    - 忽略字符大小写: set ic(ignore case)
 	        - 不忽略(默认): set noic
 - 设置tab键缩进为4个字符
-    ```
+    ```bash
     为了vim更好的支持Python写代码,修改tab默认4个空格有两种设置方法：
 
-    1. vim /etc/vimrc
+    1) vim /etc/vimrc
 
     1	set ts=4
     2	set sw=4
-    2. vim /etc/vimrc
+
+		2) vim /etc/vimrc
 
     1	set ts=4
     2	set expandtab
     3	set autoindent
 
-    推荐使用第二种，按tab键时产生的是4个空格，这种方式具有最好的兼容性
+    //推荐使用第二种，按tab键时产生的是4个空格，这种方式具有最好的兼容性
     ```
 	- vim教程 `vimtutor`
 	- 有时候我们打开vim编辑文件的时候,会突然断开网络或者退出文件,然后在打开文件的时候就会报错.这时候会在源文件目录下生成一个同名的.swp文件.我们可以通过 vim -r FILE来恢复这个文件.如果我们不需要这个恢复,我们可以删除这个.swp文件.
 #### 练习:
 - 复制/etc/grub2.cfg到/tmp/目录,用查找替换命令删除/tmp/grub2.cfg文件中行首的空白字符
-    ```
+    ```bash
     :%s/^[[:space:]]\+//g
     ```
 - 复制/etc/rc.d/init.d/functions到/tmp/目录,用查找替换命令为/tmp/functions的每行开头为空白字符的行首添加一个"#".
-    ```
+    ```bash
     :%s/^[[:space:]]/#&/
     ```
-
+- 将/etc/yum.repos.d/CentOS-Base.repo文件中的所有enabled=0替换成enabled=1,所有gpgcheck=0替换为gpgcheck=1.
+	```bash
+	:%s@\(enabled\|gpgcheck\)=0@\1=1@g
+	//注意:表示或者的|要转义
+	```
 #### sed(流编辑器),awk(报告文本生成器)
 - sed基本用法:stream editor,它是一个行编辑器,逐行编辑;vi是全屏编辑器
 - 处理机制:逐行读取,读取到内存中,在内存中处理,处理的结果显示到显示器上,内存中的空间叫模式空间
@@ -195,7 +200,7 @@
 		4. LineNumber:单地址,指定的行
 		5. 指定StartLine,+n,从指定行开始向后的n行.
 		6. 1~3;3是步进;
-		    ```
+		    ```bash
 		    [root@mail tmp]# sed -n '1~2p' a    //同样表示奇数行,1表示起始行
             1
             3
@@ -206,7 +211,7 @@
 		7. 不给地址: 对全文进行处理.
 	- Options:
 		- -n:静默模式:不显示匹配到的行;不再默认显示内存(模式空间)中的内容,可以用p命令测试
-		```
+		```bash
 		[root@ZhumaTech sh]# sed -n '/^root/ p' /etc/passwd //如果不加-n选项,结果会显示两边,一遍符合条件的,一遍模式空间的
 		root:x:0:0:root:/root:/bin/bash
 		```
@@ -232,7 +237,7 @@
              sed
     		```
 		- i(insert) \string: 在指定的行前面追加新行,内容为"string";\n 可以换行;
-    		```
+    		```bash
     		[root@mail ~]# sed  '/^UUID/i \hello \n sed ' /etc/fstab
             hello
              sed
@@ -250,7 +255,7 @@
             /mnt/CentOS-6.5-x86_64-bin-DVD1.iso	/mnt/cdrom	iso9660	defaults,loop	0 0
     		```
 		- c(change) \string: 替换行为单行或多行文本, \n换行
-		    ```
+		    ```bash
 		    [root@mail ~]# sed  '/^UUID/c \hello \n sed ' /etc/fstab
 		    hello
              sed
@@ -261,7 +266,7 @@
 		    ```
 		- r FILE:将指定的文件的内容添加至符合条件的行处;一般都是用来合并文件 read
 
-	        ```
+	        ```bash
 	        [root@ZhumaTech sh]# sed '2r /etc/issue' ./bash.sh
 	        #!/bin/bash
 	        CentOS release 6.5 (Final)
@@ -279,7 +284,7 @@
 	        ```
 
 		- w FILE:将模式空间中匹配到的行另存至指定的文件中
-            ```
+            ```bash
             [root@mail ~]# sed  '/^UUID/w /tmp/fstab.txt ' /etc/fstab
             #
             # /etc/fstab
@@ -304,7 +309,7 @@
 
         - =: 为模式空间中的行打印行号
         - !: 可以理解为对地址定界取反
-            ```
+            ```bash
             [root@mail ~]# sed '/^UUID/!d' /etc/fstab   //可以理解为删除不是以UUID开头的行
             UUID=49d9a794-c34a-42b9-9d21-83533dadcee0 /                       ext4    defaults        1 1
             UUID=1533c3dc-ccfc-4cdb-a968-a85d817145c7 /boot                   ext4    defaults        1 2
@@ -317,7 +322,7 @@
 			- 修饰符 w /PATH/TO/FILE: 将替换成功的结果保存到指定文件中
 			- 后向引用在这里也适用
 
-			    ```
+			    ```bash
 			    [root@ZhumaTech sh]# nano sed.txt
 			    hello,like
 			    hi, my love
@@ -331,7 +336,7 @@
 
 			- 上面的例子我们可以使用另外一个特殊字符"&",其意义是引用模式匹配到的整个串.
 
-                ```
+                ```bash
                 //下面的命令同样能完成
                 [root@ZhumaTech sh]# sed 's/l..e/&r/' sed.txt
                 hello,liker
@@ -340,15 +345,15 @@
 
 #### 练习
 - 删除/boot/grub/grub.conf中所有以空白开头的行行首的空白字符
-    ```
+    ```bash
     [root@mail ~]# sed 's@^[[:space:]]\+@@' /boot/grub/grub.conf
     ```
 - 删除/etc/fstab文件中所有以#开头,后面至少跟一个空白字符行的行首的#和空白字符
-    ```
+    ```bash
     [root@mail ~]# sed 's/^#[[:space:]]\+//' /etc/fstab
     ```
 - echo一个绝对路径给sed命令,取出其基名;取出其目录名
-   ```
+   ```bash
     # 其实就是弄明白如果文件基名(文件或目录的名称)的父目录们是由"/.*/"组成的,而基名是由至少一个(+)非'/'字符[^/]组成,
     # 最后以为如果是目录则有一个'/',文件则有0个'/'(/?)
     [root@ZhumaTech sh]# echo '/etc/rc.d' | sed -r "s@(^/.*/)[^/]+/?@\1@g"
