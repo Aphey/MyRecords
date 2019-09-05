@@ -1,4 +1,3 @@
-%%:uuid=190610081446004
 #### shell编程
 - bash提供了编程环境;程序是有指令和数据组成的,程序编程风格分为过程式和对象式:
 	- 过程式: 以指令为中心,数据服务于指令
@@ -60,8 +59,8 @@
     - bash是弱类型语言, 它把所有要存储的数据统统当做字符进行,且不支持浮点数
 	- 环境变量:作用域为当前shell进程及其子进程,声明方法:export NAME=VALUE或者declare -x NAME=VALUE
 	- 本地变量:比如父shell中定义的变量,在子shell中不能引用,作用域为整个bash进程
-	    ```
-	    [root@Aphey ~]# NAME=Jerry
+	    ```bash
+	      [root@Aphey ~]# NAME=Jerry
         [root@Aphey ~]# echo $NAME
         Jerry
         [root@Aphey ~]# bash
@@ -72,14 +71,14 @@
 	- 局部变量:声明方法 local VARNAME=VALUE,作用域为:当前shell进程中某代码段,常用于函数
 	- 位置变量 $1,$2,$3...;特殊命令:shift,和位置变量运用的
 	- 特殊变量:用来保存某些特殊数据的变量
-	    - $0：命令本身
+	  - $0：命令本身
 		- $?: 上一条命令的退出状态码,0表示成功,1-255表示失败.
 		- $#: 查看命令参数的个数.
 		- $*: 参数列表,传递给脚本的所有参数,所有参数当成一个字串.
 		- $@: 参数列表,传递给脚本的所有参数,每个参数都是一个独立字串.
 - 引用变量: ${VARNAME},花括号可以省略. 有些情况是不能省略的,比如:
 
-    ```
+    ```bash
     [root@ZhumaTech tmp]# ANIMAL=pig
     [root@ZhumaTech tmp]# echo "There are lots of ${ANIMAL}s"
     There are lots of pigs
@@ -105,7 +104,7 @@
 			- 输出重定向的特殊用法:
 			- /dev/null:软件设备,bit bucket 数据黑洞
 
-				```
+				```bash
 				[root@ZhumaTech ~]# id jerry &>/dev/null
 				[root@ZhumaTech ~]# echo $?
 				0
@@ -125,7 +124,7 @@
 - 在bash中,变量也可以做到只读,也就是所谓的常量,变量赋值以后再也不能修改也不能销毁,永远只能保持这一个值,只有等到shell进程终止;
 - 实现只读变量的方法:
 	- 使用readonly关键字
-		```
+		```bash
 		[root@mail sh]# readonly name=tom
 		[root@mail sh]# echo $name
 		tom
@@ -133,7 +132,7 @@
 		-bash: name: readonly variable
 		```
 	- declare -r VARNAME=VALUE  //设置只读变量
-		```
+		```bash
 		[root@mail sh]# declare -r haha=xiao
 		[root@mail sh]# echo $haha
 		xiao
@@ -143,7 +142,7 @@
 - 脚本:命令堆砌,按实际需要,结合命令流程控制机制实现的源程序
 - 对字符串类型的变量来说,我们要改变其值,还可以给字符串后面附加一些内容,常用在$PATH添加上.
 
-    ```
+    ```bash
     [root@ZhumaTech ~]# ANIMALS=pig
     [root@ZhumaTech ~]# ANIMALS=$ANIMALS:goat
     [root@ZhumaTech ~]# echo $ANIMALS
@@ -152,7 +151,7 @@
 
 - 对shell来讲,默认所有变量的值都是字符串,所以默认是不能做算数运算的.
 
-	```
+	```bash
 	[root@ZhumaTech ~]# A=2
 	[root@ZhumaTech ~]# B=3
 	[root@ZhumaTech ~]# C=$A+$B
@@ -209,7 +208,7 @@
 
 	3. \# test expression
 
-	    ```
+	    ```bash
 	    [root@ZhumaTech ~]# test $A -eq $B
 	    [root@ZhumaTech ~]# echo $?
 	    1
@@ -218,7 +217,7 @@
 - 整数比较(双目比较:比较两个数大小):
 	- -eq (equal):测试两个整数是否相等:相等为真,不等为假
 
-		```
+		```bash
 		[root@ZhumaTech ~]# echo $A
 		3
 		[root@ZhumaTech ~]# echo $B
@@ -262,7 +261,7 @@
 	- 如果用户不存在,就添加,并且设定密码,否则显示其已经存在`! id user1 && useradd1 && echo "user1"| passwd --stdin user1|| echo "user1 exists"`
 - 用户添加,并统计系统有多少个用户
 
-	```
+	```bash
 	#!/bin/bash
 	! id user1 &>/dev/null && useradd user1 && echo "user1" | passwd --stdin user1 $
 	! id user2 &>/dev/null && useradd user2 && echo "user2" | passwd --stdin user2 $
@@ -276,7 +275,7 @@
 	- 如果其UID为0.就显示此为管理员
 	- 否则,就显示为普通用户
 
-	    ```
+	    ```bash
 	    #!/bin/bash
 	    NAME=user1
 	    USERID=`id -u $NAMEUSER`
@@ -286,7 +285,7 @@
 - 条件判断,控制结构:
 	- 单分支if语句
 
-	    ```
+	    ```bash
 	    if 判断条件;then
 	    	条件为真的分支代码;
 	    	...
@@ -308,7 +307,7 @@
 - shell中如何进行算术运算:
 	- 用let命令
 
-	    ```
+	    ```bash
 	    [root@ZhumaTech sh]# A=3
 	    [root@ZhumaTech sh]# B=6
 	    [root@ZhumaTech sh]# let C=$A+$B
@@ -318,7 +317,7 @@
 
 	- $[算术运算表达式]
 
-	    ```
+	    ```bash
 	    [root@ZhumaTech sh]# C=$[$A+$B]
 	    [root@ZhumaTech sh]# echo $C
 	    9
@@ -326,7 +325,7 @@
 
 	- $((算术表达式))
 
-        ```
+        ```bash
         [root@ZhumaTech sh]# D=$(($B-$A))
         [root@ZhumaTech sh]# echo $D
         3
@@ -334,15 +333,30 @@
 
 	- expr命令;`expr [arg1 arg2 arg3 ....] `运算符也算是参数算术表达式; 算术表达式,表达式中各操作数和运算符之间要有空格并且要使用命令引用
 
-        ```
+        ```bash
         [root@ZhumaTech sh]# F=`expr $A \* $B`  //*要转义,否则表示所有文件
         [root@ZhumaTech sh]# echo $F
         18
         ```
+- 增强型赋值:变量做某种算术运算后回存至此变量中
+	```bash
+	[root@vm1 ~]# declare -i i=1
+	[root@vm1 ~]# let i=$i+2
+	[root@vm1 ~]# echo $i
+	3
+	[root@vm1 ~]# echo $i
+	3
+	[root@vm1 ~]# let i+=3
+	[root@vm1 ~]# echo $i
+	6
+	[root@vm1 ~]# echo $i
+	6
+	```
+	- 经常用到的增强型赋值:`+=, -=, *=,/=,%=`
 - bash内建有随机数生成器:$RANDOM
 - 练习:写一个脚本,判定历史命令的总条数是否大于1000,如果大于,显示"some commands has gone",否则显示"OK"
 
-    ```
+    ```bash
     #!/bin/bash
     HISTNUM=`history | tail -1 | cut -d' ' -f2`
     if [ $HISTNUM -gt $HISTSIZE ]; then
@@ -737,7 +751,7 @@
 
 	- 第二种;近似于c语言的风格
 
-	```
+	```bash
 	for (( expr1 ; expr2 ; expr3 )); do
 		循环体
 	done
@@ -763,7 +777,7 @@
 ##### while循环:适合循环次数未知的场景;必须要有退出条件;外面先赋予一个值里面在修正这个值
 - 语法格式
 
-	```
+	```bash
 	while CONDITION; do
 	   statement
 	   ...
