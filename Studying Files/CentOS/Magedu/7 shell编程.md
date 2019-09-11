@@ -181,8 +181,8 @@
 #### 条件判断
 - bash中条件判断类型通常有三种:表达式 [ expression ],[[ expression ]],test expression
 	- 整数测试: 比较两个数的大小
-	- 字符测试:
-	- 文件测试: 判断文件是不是存在
+	- 字符测试:字符是不是空的
+	- 文件测试: 判断文件是不是存在,或判断文件的类型等
 - 条件测试的表达式:
 
 	```bash
@@ -212,6 +212,9 @@
 	    [root@ZhumaTech ~]# test $A -eq $B
 	    [root@ZhumaTech ~]# echo $?
 	    1
+			[root@vm1 ~]# test 2 -lt 3
+			[root@vm1 ~]# echo $?
+			0
 	    ```
 
 - 整数比较(双目比较:比较两个数大小):
@@ -230,21 +233,48 @@
 	- -gt (greater than):测试一个整数是否大于另外一个整数,大于为真,小于等于为假
 	- -ge: 大于或等于
 	- -le: 小于或等于
-- 字符串测试:__所有字符串都要引号,否则可能出错__
+- 字符串测试:__所有字符串和变量做等值或大小比较都要引号,否则可能出错;字符串测试要用双中括号__
     - ==: 是否等于
-    - \>: 是否大于,比较ASCII码
+    - \>: 是否大于,比较ASCII码,a比b小
     - <: 是否小于
     - !=: 是否不等于
-    - =~: 左侧字符串是否能够被右侧的PATTERN所匹配,一般用于`[[ ]]`测试
-        ```
+    - =~: 左侧字符串是否能够被右侧的模式所匹配,___一般用于`[[ ]]`测试___
+        ```bash
         [root@localhost tmp]# name=Aphey
         [root@localhost tmp]# [[ $name =~ ^A* ]]    //测试$name能不能被"^A*"匹配到
         [root@localhost tmp]# echo $?
         0
+				[root@vm1 ~]# [ tom == Tom ]
+				[root@vm1 ~]# echo $?
+				1
+				[root@vm1 ~]# [ tom == tom ]
+				[root@vm1 ~]# echo $?
+				0
+				// 不加引号,无法做出正确的比较测试,比如下面的例子
+				[root@vm1 ~]# [ a > b ]
+				[root@vm1 ~]# echo $?
+				0
+				[root@vm1 ~]# [ a < b ]
+				[root@vm1 ~]# echo $?
+				0
+				// 字符串的比较最好用双中括号来测试,否则可能无法做出正确测试,比如下面的例子
+				[root@vm1 ~]# [ "a" < "b" ]
+				[root@vm1 ~]# echo $?				
+				0
+				[root@vm1 ~]# [ "a" > "b" ]
+				[root@vm1 ~]# echo $?
+				0
+				// 正确的表达形式如下
+				[root@vm1 ~]# [[ "a" > "b" ]]
+				[root@vm1 ~]# echo $?
+				1
+				[root@vm1 ~]# [[ "a" < "b" ]]
+				[root@vm1 ~]# echo $?
+				0
         ```
     - `-z "STRING"`: 测试字符串是否为空,空则为真,不空为假
     - `-n "STRING"`: 字符串是否不空,不空为真,空为假
-- 命令间的逻辑关系:
+- 命令间的逻辑关系,___只看符号左边的整个执行结果___:
 	- 逻辑与: &&
 	- 逻辑或: ||
 	- 例题:如果'/etc/inittab'行数大于100,则输出它是大文件,否则输出小文件.
@@ -392,7 +422,7 @@
 	- 文件测试:
 		- `-[e|a]` FILE:单目测试,测试文件是否存在
 
-	        ```
+	        ```bash
 	        [root@ZhumaTech ~]# [ -e /etc/inittab ]
 	        [root@ZhumaTech ~]# echo $?
 	        0
