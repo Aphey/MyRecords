@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/7 shell编程.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/7 shell编程.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +26,8 @@
           <provider editor-type-id="MarkdownFxPreviewEditor" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="245">
-                <caret line="1166" selection-start-line="1166" selection-end-line="1166" />
+              <first_editor relative-caret-position="261">
+                <caret line="1191" column="26" lean-forward="true" selection-start-line="1191" selection-start-column="26" selection-end-line="1191" selection-end-column="26" />
               </first_editor>
               <second_editor />
             </state>
@@ -76,6 +75,17 @@
               <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Work" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyRecords" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyRecords" type="462c0819:PsiDirectoryNode" />
+              <item name="Work" type="462c0819:PsiDirectoryNode" />
+              <item name="日常工作资料" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -89,6 +99,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568531929095" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -98,13 +109,14 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="I:\MyRecords\Work\开票备份" />
-      <recent name="E:\MyRecords\Studying Files\CentOS\Magedu" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="I:\MyRecords\Work\日常工作资料" />
       <recent name="E:\MyRecords\Studying Files\CentOS\Oldboy" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="I:\MyRecords\Work\日常工作资料" />
+      <recent name="I:\MyRecords\Work\开票备份" />
+      <recent name="E:\MyRecords\Studying Files\CentOS\Magedu" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -258,14 +270,7 @@
       <workItem from="1567551372329" duration="2414000" />
       <workItem from="1567946703810" duration="249000" />
       <workItem from="1568005814568" duration="1789000" />
-      <workItem from="1568192751778" duration="599000" />
-    </task>
-    <task id="LOCAL-00016" summary="Daily update">
-      <created>1538098519533</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1538098519533</updated>
+      <workItem from="1568192751778" duration="5000000" />
     </task>
     <task id="LOCAL-00017" summary="Daily update">
       <created>1538957980162</created>
@@ -603,11 +608,18 @@
       <option name="project" value="LOCAL" />
       <updated>1568005870258</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Daily update">
+      <created>1568195553668</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1568195553674</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2637000" />
+    <option name="totallyTimeSpent" value="7038000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -620,7 +632,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -693,8 +704,8 @@
       <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="245">
-            <caret line="1166" selection-start-line="1166" selection-end-line="1166" />
+          <first_editor relative-caret-position="261">
+            <caret line="1191" column="26" lean-forward="true" selection-start-line="1191" selection-start-column="26" selection-end-line="1191" selection-end-column="26" />
           </first_editor>
           <second_editor />
         </state>
