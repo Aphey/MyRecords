@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
-      <change beforePath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/日常工作资料/工作明细.xls" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/工作明细.xls" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +27,8 @@
           <provider editor-type-id="MarkdownFxPreviewEditor" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="261">
-                <caret line="1191" column="26" lean-forward="true" selection-start-line="1191" selection-start-column="26" selection-end-line="1191" selection-end-column="26" />
+              <first_editor relative-caret-position="453">
+                <caret line="1215" lean-forward="true" selection-start-line="1215" selection-end-line="1215" />
               </first_editor>
               <second_editor />
             </state>
@@ -68,6 +69,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -91,7 +93,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -99,7 +100,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568531929095" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568535910894" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -270,14 +271,8 @@
       <workItem from="1567551372329" duration="2414000" />
       <workItem from="1567946703810" duration="249000" />
       <workItem from="1568005814568" duration="1789000" />
-      <workItem from="1568192751778" duration="5000000" />
-    </task>
-    <task id="LOCAL-00017" summary="Daily update">
-      <created>1538957980162</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1538957980162</updated>
+      <workItem from="1568192751778" duration="6283000" />
+      <workItem from="1568545933370" duration="1735000" />
     </task>
     <task id="LOCAL-00018" summary="Daily update">
       <created>1538958977925</created>
@@ -615,11 +610,18 @@
       <option name="project" value="LOCAL" />
       <updated>1568195553674</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Daily update">
+      <created>1568531939463</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1568531939463</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7038000" />
+    <option name="totallyTimeSpent" value="10056000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -633,7 +635,7 @@
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -704,8 +706,8 @@
       <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="261">
-            <caret line="1191" column="26" lean-forward="true" selection-start-line="1191" selection-start-column="26" selection-end-line="1191" selection-end-column="26" />
+          <first_editor relative-caret-position="453">
+            <caret line="1215" lean-forward="true" selection-start-line="1215" selection-end-line="1215" />
           </first_editor>
           <second_editor />
         </state>
