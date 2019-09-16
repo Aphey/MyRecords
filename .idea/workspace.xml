@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/日常工作资料/工作明细.xls" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/工作明细.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,15 +26,15 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md">
-          <provider editor-type-id="MarkdownFxPreviewEditor" />
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="453">
-                <caret line="1215" lean-forward="true" selection-start-line="1215" selection-end-line="1215" />
+              <first_editor relative-caret-position="533">
+                <caret line="1205" column="31" selection-start-line="1205" selection-start-column="31" selection-end-line="1205" selection-end-column="31" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
+          <provider editor-type-id="MarkdownFxPreviewEditor" />
         </entry>
       </file>
     </leaf>
@@ -54,6 +56,13 @@
     <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1912" />
     <option name="y" value="-8" />
@@ -69,7 +78,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -92,6 +100,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -272,21 +281,9 @@
       <workItem from="1567946703810" duration="249000" />
       <workItem from="1568005814568" duration="1789000" />
       <workItem from="1568192751778" duration="6283000" />
-      <workItem from="1568545933370" duration="1735000" />
-    </task>
-    <task id="LOCAL-00018" summary="Daily update">
-      <created>1538958977925</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1538958977925</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Daily update">
-      <created>1538989633043</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1538989633043</updated>
+      <workItem from="1568545933370" duration="4484000" />
+      <workItem from="1568607349741" duration="607000" />
+      <workItem from="1568611381912" duration="664000" />
     </task>
     <task id="LOCAL-00020" summary="Daily update">
       <created>1539135209216</created>
@@ -617,11 +614,25 @@
       <option name="project" value="LOCAL" />
       <updated>1568531939463</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Daily update">
+      <created>1568547898336</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1568547898336</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Daily update">
+      <created>1568598975213</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1568598975213</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10056000" />
+    <option name="totallyTimeSpent" value="14177000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -635,7 +646,7 @@
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25799572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
@@ -692,7 +703,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Magedu/基础知识.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="325">
@@ -701,17 +711,18 @@
           <second_editor />
         </state>
       </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md">
-      <provider editor-type-id="MarkdownFxPreviewEditor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="453">
-            <caret line="1215" lean-forward="true" selection-start-line="1215" selection-end-line="1215" />
+          <first_editor relative-caret-position="533">
+            <caret line="1205" column="31" selection-start-line="1205" selection-start-column="31" selection-end-line="1205" selection-end-column="31" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
   </component>
 </project>

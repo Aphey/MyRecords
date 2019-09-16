@@ -1199,7 +1199,7 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 ##### 查看0磁头0磁道1扇区内容(也就是分区表和主引导记录的内容)
 
-  ```
+  ```bash
   [root@localhost ~]# dd if=/dev/sda of=mbr.bin bs=512 count=1 //dd转换复制一个文件,if源文件,of输出文件,bs字节数,count数量
   1+0 records in
   1+0 records out
