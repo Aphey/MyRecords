@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/日常工作资料/工作明细.xls" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/工作明细.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" afterDir="false" />
     </list>
@@ -28,8 +27,8 @@
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="533">
-                <caret line="1205" column="31" selection-start-line="1205" selection-start-column="31" selection-end-line="1205" selection-end-column="31" />
+              <first_editor relative-caret-position="401">
+                <caret line="1235" column="52" selection-start-line="1235" selection-start-column="52" selection-end-line="1235" selection-end-column="52" />
               </first_editor>
               <second_editor />
             </state>
@@ -109,7 +108,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568535910894" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568782068367" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -283,14 +282,7 @@
       <workItem from="1568192751778" duration="6283000" />
       <workItem from="1568545933370" duration="4484000" />
       <workItem from="1568607349741" duration="607000" />
-      <workItem from="1568611381912" duration="664000" />
-    </task>
-    <task id="LOCAL-00020" summary="Daily update">
-      <created>1539135209216</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1539135209216</updated>
+      <workItem from="1568611381912" duration="5788000" />
     </task>
     <task id="LOCAL-00021" summary="Daily update">
       <created>1539136974222</created>
@@ -628,11 +620,18 @@
       <option name="project" value="LOCAL" />
       <updated>1568598975213</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Daily update">
+      <created>1568613518835</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1568613518836</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14177000" />
+    <option name="totallyTimeSpent" value="19301000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -663,7 +662,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" visible="true" weight="0.32929516" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -716,8 +715,8 @@
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="533">
-            <caret line="1205" column="31" selection-start-line="1205" selection-start-column="31" selection-end-line="1205" selection-end-column="31" />
+          <first_editor relative-caret-position="401">
+            <caret line="1235" column="52" selection-start-line="1235" selection-start-column="52" selection-end-line="1235" selection-end-column="52" />
           </first_editor>
           <second_editor />
         </state>
