@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
-      <change afterPath="$PROJECT_DIR$/Work/EffBak/work-old-2.effw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Work/EffBak/work-old.effw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Work/EffBak/work.effw" beforeDir="false" afterPath="$PROJECT_DIR$/Work/EffBak/work.effw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Work/work.effw" beforeDir="false" afterPath="$PROJECT_DIR$/Work/work.effw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/7 shell编程.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/7 shell编程.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,26 +23,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="19264">
-                <caret line="1204" column="17" selection-start-line="1204" selection-start-column="17" selection-end-line="1204" selection-end-column="17" />
+              <first_editor relative-caret-position="174">
+                <caret line="1184" column="39" lean-forward="true" selection-start-line="1184" selection-start-column="39" selection-end-line="1184" selection-end-column="39" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
           <provider editor-type-id="MarkdownFxPreviewEditor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -125,7 +113,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571919216366" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572338281102" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -306,14 +294,7 @@
       <workItem from="1570675143060" duration="4051000" />
       <workItem from="1570753375291" duration="426000" />
       <workItem from="1570755260501" duration="2917000" />
-      <workItem from="1571810671838" duration="1920000" />
-    </task>
-    <task id="LOCAL-00030" summary="Daily update">
-      <created>1541735975987</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1541735975987</updated>
+      <workItem from="1571810671838" duration="5087000" />
     </task>
     <task id="LOCAL-00031" summary="Daily update">
       <created>1542016723030</created>
@@ -651,11 +632,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570775452572</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Daily update">
+      <created>1571954910377</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1571954910378</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38031000" />
+    <option name="totallyTimeSpent" value="41198000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -761,23 +749,23 @@
       </provider>
       <provider editor-type-id="MarkdownFxPreviewEditor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="16" column="46" lean-forward="true" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="19264">
-            <caret line="1204" column="17" selection-start-line="1204" selection-start-column="17" selection-end-line="1204" selection-end-column="17" />
+          <first_editor relative-caret-position="174">
+            <caret line="1184" column="39" lean-forward="true" selection-start-line="1184" selection-start-column="39" selection-end-line="1184" selection-end-column="39" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
       <provider editor-type-id="MarkdownFxPreviewEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Work/日常工作资料/无锡筑码科技有限公司.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-        </state>
-      </provider>
     </entry>
   </component>
 </project>

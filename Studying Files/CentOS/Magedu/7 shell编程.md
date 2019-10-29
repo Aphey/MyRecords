@@ -437,6 +437,7 @@
 		- -S FILEPATH:是否存在且为套接字文件
 		- -g FILEPATH:文件存在且被设置了sgid
 		- -u FILEPATH:文件存在且被设置了suid
+		- -k FILEPATH:文件存在且被设置了sticky
 		- -r FILE: 测试当前用户对指定文件是否有对应权限
 		- -w FILE: 测试当前用户对指定文件是否有对应权限
 		- -x FILE: 测试当前用户对指定文件是否有对应权限
