@@ -4,7 +4,6 @@
     <list default="true" id="6c558d6f-f38c-4852-a98d-0a34f23e566d" name="Default" comment="Daily update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/7 shell编程.md" beforeDir="false" afterPath="$PROJECT_DIR$/Studying Files/CentOS/Magedu/7 shell编程.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Work/日常工作资料/领易工作明细.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +26,8 @@
         <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="174">
-                <caret line="1184" column="39" lean-forward="true" selection-start-line="1184" selection-start-column="39" selection-end-line="1184" selection-end-column="39" />
+              <first_editor relative-caret-position="158">
+                <caret line="1183" lean-forward="true" selection-start-line="1183" selection-end-line="1183" />
               </first_editor>
               <second_editor />
             </state>
@@ -113,7 +112,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572338297234" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572834220255" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -294,21 +293,7 @@
       <workItem from="1570675143060" duration="4051000" />
       <workItem from="1570753375291" duration="426000" />
       <workItem from="1570755260501" duration="2917000" />
-      <workItem from="1571810671838" duration="5087000" />
-    </task>
-    <task id="LOCAL-00031" summary="Daily update">
-      <created>1542016723030</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1542016723030</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Daily update">
-      <created>1542258117882</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1542258117882</updated>
+      <workItem from="1571810671838" duration="6962000" />
     </task>
     <task id="LOCAL-00033" summary="Daily update">
       <created>1542269781482</created>
@@ -639,11 +624,25 @@
       <option name="project" value="LOCAL" />
       <updated>1571954910378</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Daily update">
+      <created>1572338305263</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1572338305263</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Daily update">
+      <created>1572338321763</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1572338321763</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41198000" />
+    <option name="totallyTimeSpent" value="43073000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -759,8 +758,8 @@
     <entry file="file://$PROJECT_DIR$/Studying Files/CentOS/Oldboy/Oldboy.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="174">
-            <caret line="1184" column="39" lean-forward="true" selection-start-line="1184" selection-start-column="39" selection-end-line="1184" selection-end-column="39" />
+          <first_editor relative-caret-position="158">
+            <caret line="1183" lean-forward="true" selection-start-line="1183" selection-end-line="1183" />
           </first_editor>
           <second_editor />
         </state>
