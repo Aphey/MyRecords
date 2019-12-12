@@ -415,3 +415,5 @@ Date:   Thu Dec 5 07:57:49 2019 +0800
    #### 七) commit、tree、blob三个对象之间的关系 
 
 ##### 一个commit对应一个tree,一个tree里还可以包含一个或多个tree
+
+##### 分离头指针"detached head" state
