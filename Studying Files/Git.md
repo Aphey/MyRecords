@@ -412,8 +412,10 @@ Date:   Thu Dec 5 07:57:49 2019 +0800
    It's a readme.
    ```
 
-   #### 七) commit、tree、blob三个对象之间的关系 
+#### 七) commit、tree、blob三个对象之间的关系 
 
 ##### 一个commit对应一个tree,一个tree里还可以包含一个或多个tree
 
-##### 分离头指针"detached head" state
+##### 分离头指针"detached head" state 指的是变更没有基于某个branch去做,所以当check out到某个分支的时候, 分离头指针状态下作的变更就会被git当做垃圾清理掉;如果这些变更很重要一定要通过 git branch <new-branch-name> 分离头指针的key
+
+#### 八) 进一步了解head和branch的
