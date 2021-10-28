@@ -6,7 +6,6 @@ https://github.com/Aphey/MyRecords.git
 https://gitlab.com/aphey/MyRecords.git
 
 Front:
-https://gitee.com/syncoo/front.git
-https://github.com/syncoo/front.git
-https://gitlab.com/syncoo/front.git
-https://git.dev.tencent.com/syncoo/front.git
+https://gitee.com/syncoo/python.git
+https://github.com/syncoo/python.git
+https://gitlab.com/syncoo/python.git
