@@ -1,5 +1,4 @@
 MyRecords:
-https://git.dev.tencent.com/aphey/myrecord.git
 https://e.coding.net/aphey/myrecords.git
 https://gitee.com/aphey/MyRecords.git
 https://github.com/Aphey/MyRecords.git
@@ -9,3 +8,4 @@ Front:
 https://gitee.com/syncoo/python.git
 https://github.com/syncoo/python.git
 https://gitlab.com/syncoo/python.git
+https://e.coding.net/syncoo/python.git
