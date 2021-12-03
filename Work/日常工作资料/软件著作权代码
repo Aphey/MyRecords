@@ -1,0 +1,894 @@
+import java.io.*;
+import java.lang.reflect.Array;
+import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.security.CodeSource;
+import java.security.ProtectionDomain;
+import java.security.cert.Certificate;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.jar.Attributes;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+import java.util.jar.Manifest;
+
+/**
+ * 这个 Start 类实现了一个类加载器,并支持在jar或war文件中加载jar,以方便一个可执行的war文件.
+ * 为此,它重写类加载器类的 findResource, findResources, 和 loadClass 方法.
+ * 最佳实践研究来源于 http://www.jdotsoft.com, 源文件中对使用 JarClassLoader 有很多好方式.
+ */
+public class ZKitStart {
+    // 此默认值是用于开发环境的,而不是在这里有一个隐藏的属性文件,该文件在尝试重写时可能会导致冲突
+    private static final String defaultConf = "conf/ZKitDevConf.xml";
+    // 打包临时文件夹名称
+    private static final String tempDirName = "execwartmp";
+    // 是否报告未使用的 jar 包
+    private final static boolean reportJarsUnused = Boolean.valueOf(System.getProperty("report.jars.unused", "false"));
+    // private final static boolean reportJarsUnused = true;
+
+    /**
+     * 主程序入口方法
+     *
+     * @param args 启动参数
+     * @throws IOException 可能出现IO异常
+     */
+    public static void main(String[] args) throws IOException {
+        // 获取第一个参数,看看是否是一个已知的命令
+        String firstArg = args.length > 0 ? args[0] : "";
+
+        // 转换参数为列表,方便操作
+        List<String> argList = Arrays.asList(args);
+        Map<String, String> argMap = new LinkedHashMap<>();
+        for (String arg : argList) {
+            // 需要运行两次允许一个或两个破折号
+            if (arg.startsWith("-")) arg = arg.substring(1);
+            if (arg.startsWith("-")) arg = arg.substring(1);
+            if (arg.contains("=")) {
+                argMap.put(arg.substring(0, arg.indexOf("=")), arg.substring(arg.indexOf("=") + 1));
+            } else {
+                argMap.put(arg, "");
+            }
+        }
+
+        // 打印帮助文档
+        if (firstArg.endsWith("help") || "-?".equals(firstArg)) {
+            // 配置 class loader
+            StartClassLoader zkitStartLoader = new StartClassLoader(true);
+            Thread.currentThread().setContextClassLoader(zkitStartLoader);
+            Runtime.getRuntime().addShutdownHook(new ZKitShutdown(null, null, zkitStartLoader));
+            initSystemProperties(zkitStartLoader, false, argMap);
+
+            /* 用于调试很好,其他环境很混乱:
+            System.out.println("Internal Class Path Jars:");
+            for (JarFile jf: zkitStartLoader.jarFileList) {
+                String fn = jf.getName();
+                System.out.println(fn.contains("zkit_temp") ? fn.substring(fn.indexOf("zkit_temp")) : fn);
+            }
+            */
+            System.out.println("------------------------------------------------");
+            System.out.println("系统运行时 (zkit.runtime)  : " + System.getProperty("zkit.runtime"));
+            System.out.println("系统配置文件 (zkit.conf)   : " + System.getProperty("zkit.conf"));
+            System.out.println("系统设置属性命令            : java -Dzkit.conf=conf/ZKitProductConf.xml -jar zkit.war ...");
+            System.out.println("------------------------------------------------");
+            System.out.println("运行 WAR 命令             : java -jar zkit.war [命令] [参数]");
+            System.out.println("解压 WAR 命令             : java -cp . ZKitStart [命令] [参数]");
+            System.out.println("命令 help/-?             : 查看帮助");
+            System.out.println("命令 load                : 数据加载");
+            System.out.println("    types=<type>[,<type>] ------- 设置数据类型加载数据 (类型包括: seed, seed-initial, install, demo, ...,或自定义类型),如果未指定会加载所有类型");
+            System.out.println("    components=<name>[,<name>] -- 设置组件名称加载数据,如果未指定会加载所有组件");
+            System.out.println("    location=<location> --------- 设置路径文件加载数据,如果未指定会加载所有文件");
+            System.out.println("    timeout=<seconds> ----------- 设置加载每个数据文件的事务超时时间,默认为 600 秒 (10 分钟)");
+            System.out.println("    no-fk-create ---------------- 设置不创建外键, 用于空数据库以避免引用完整性错误");
+            System.out.println("    dummy-fks ------------------- 设置是否使用伪外键以避免引用完整性错误");
+            System.out.println("    use-try-insert -------------- 设置是否尝试在错误时插入并更新,而不是先检查记录");
+            System.out.println("    disable-eeca ---------------- 设置是否禁用实体ECA规则");
+            System.out.println("    disable-audit-log ----------- 设置是否禁用实体检查日志");
+            System.out.println("    disable-data-feed ----------- 设置是否禁用实体数据推送");
+            System.out.println("    raw ------------------------- 设置将原始数据加载到空数据库; no-fk-create, use-try-insert, disable-eeca, disable-audit-log, disable-data-feed 的缩写");
+            System.out.println("    conf=<zkit.conf> ------------ 设置加载数据使用的 ZKit Conf XML 配置文件");
+            System.out.println("    no-run-es ---------------------- 不启动和停止 runtime/es 中 ElasticSearch");
+            System.out.println("    如果未设置数据加载的类型和路径参数会加载所有数据类型和数据文件");
+            System.out.println("[default] ---- 运行嵌入式的 Jetty 服务器");
+            System.out.println("    port=<port> ----------------- 设置 http 端口. 默认为 8080");
+            System.out.println("    threads=<max threads> ------- 设置最大线程数量. 默认为 100");
+            System.out.println("    conf=<zkit.conf> ------------ 设置运行使用的 ZKit Conf XML 配置文件");
+            System.out.println("    no-run-es ---------------------- 不启动和停止 runtime/es 中 ElasticSearch");
+            System.out.println("");
+            System.exit(0);
+        }
+
+        boolean isInWar = true;
+        try {
+            ProtectionDomain pd = ZKitStart.class.getProtectionDomain();
+            CodeSource cs = pd.getCodeSource();
+            URL wrapperUrl = cs.getLocation();
+            File wrapperFile = new File(wrapperUrl.toURI());
+            if (wrapperFile.isDirectory()) isInWar = false;
+        } catch (Exception e) {
+            System.out.println("类包装器检查错误: " + e.toString());
+        }
+
+        // 如果使用了帮助以外的任何命令,确保删除临时文件夹
+        if (isInWar) {
+            File tempDir = new File(tempDirName);
+            System.out.println("临时文件夹: " + tempDir.getCanonicalPath());
+            if (tempDir.exists()) {
+                System.out.println("删除已找到的临时文件夹: " + tempDirName);
+                //noinspection ResultOfMethodCallIgnored
+                tempDir.delete();
+            }
+        }
+
+        // 如果命令包含 load 加载数据
+        if (firstArg.endsWith("load")) {
+            StartClassLoader zkitStartLoader = new StartClassLoader(true);
+            Thread.currentThread().setContextClassLoader(zkitStartLoader);
+            // Runtime.getRuntime().addShutdownHook(new ZKitShutdown(null, null, zkitStartLoader));
+            initSystemProperties(zkitStartLoader, false, argMap);
+            Process esProcess = argMap.containsKey("no-run-es") ? null : checkStartElasticSearch();
+            boolean successfullLoad = true;
+            try {
+                System.out.println("正在加载数据, 参数: " + argMap);
+                Class<?> c = zkitStartLoader.loadClass("com.zkit.ZKit");
+                Method m = c.getMethod("loadData", Map.class);
+                m.invoke(null, argMap);
+            } catch (Throwable e) {
+                successfullLoad = false;
+                e.printStackTrace();
+            } finally {
+                checkStopElasticSearch(esProcess);
+                System.exit(successfullLoad ? 0 : 1);
+            }
+            System.exit(0);
+        }
+
+        // ===== 完成命令, 加载嵌入式服务器
+
+        // 获取设置为 loadWebInf=false start loader,因为容器将加载我们不想在这里加载的内容(将在类路径上运行两次)
+        // NOTE DEJ20210520: 现在由于在9.4.37中打破了类加载器的更改,因此始终使用StartClassLoader (likely from https://github.com/eclipse/jetty.project/pull/5894)
+        StartClassLoader zkitStartLoader = new StartClassLoader(true);
+        Thread.currentThread().setContextClassLoader(zkitStartLoader);
+
+        // NOTE:
+        // 不再使用 ZKitShutdown 钩子方法让jetty停止所有可能需要添加的内容,以便关闭jar文件,在退出时清除删除
+        // Thread shutdownHook = new ZKitShutdown(null, null, zkitStartLoader);
+        // shutdownHook.setDaemon(true);
+        // Runtime.getRuntime().addShutdownHook(shutdownHook);
+
+        // 初始化系统属性
+        initSystemProperties(zkitStartLoader, false, argMap);
+        // 运行时目录
+        String runtimePath = System.getProperty("zkit.runtime");
+
+        Process esProcess = argMap.containsKey("no-run-es") ? null : checkStartElasticSearch();
+        if (esProcess != null) {
+            Thread shutdownHook = new ElasticShutdown(esProcess);
+            shutdownHook.setDaemon(true);
+            Runtime.getRuntime().addShutdownHook(shutdownHook);
+        }
+
+        try {
+            // 设置端口
+            int port = 8080;
+            String portStr = argMap.get("port");
+            if (portStr != null && portStr.length() > 0) port = Integer.parseInt(portStr);
+            // 设置最大线程数量
+            int threads = 100;
+            String threadsStr = argMap.get("threads");
+            if (threadsStr != null && threadsStr.length() > 0) threads = Integer.parseInt(threadsStr);
+
+            System.out.println("正在运行 Jetty 服务器,端口 [" + port + "] ,最大线程数 [" + threads + "] ,参数 [" + argMap + "]");
+
+            Class<?> serverClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.Server");
+            Class<?> handlerClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.Handler");
+            Class<?> sizedThreadPoolClass = zkitStartLoader.loadClass("org.eclipse.jetty.util.thread.ThreadPool$SizedThreadPool");
+
+            Class<?> httpConfigurationClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.HttpConfiguration");
+            Class<?> forwardedRequestCustomizerClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.ForwardedRequestCustomizer");
+            Class<?> customizerClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.HttpConfiguration$Customizer");
+
+            Class<?> sessionIdManagerClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.SessionIdManager");
+            Class<?> defaultSessionIdManagerClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.session.DefaultSessionIdManager");
+            Class<?> sessionHandlerClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.session.SessionHandler");
+            Class<?> sessionCacheClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.session.SessionCache");
+            Class<?> defaultSessionCacheClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.session.DefaultSessionCache");
+            Class<?> sessionDataStoreClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.session.SessionDataStore");
+            Class<?> fileSessionDataStoreClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.session.FileSessionDataStore");
+
+            Class<?> connectorClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.Connector");
+            Class<?> serverConnectorClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.ServerConnector");
+            Class<?> webappClass = zkitStartLoader.loadClass("org.eclipse.jetty.webapp.WebAppContext");
+
+            Class<?> connectionFactoryClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.ConnectionFactory");
+            Class<?> connectionFactoryArrayClass = Array.newInstance(connectionFactoryClass, 1).getClass();
+            Class<?> httpConnectionFactoryClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.HttpConnectionFactory");
+
+            Class<?> scHandlerClass = zkitStartLoader.loadClass("org.eclipse.jetty.servlet.ServletContextHandler");
+            Class<?> wsInitializerClass = zkitStartLoader.loadClass("org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainerInitializer");
+
+            Class<?> gzipHandlerClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.handler.gzip.GzipHandler");
+            Class<?> handlerWrapperClass = zkitStartLoader.loadClass("org.eclipse.jetty.server.handler.HandlerWrapper");
+
+            Object server = serverClass.getConstructor().newInstance();
+            Object httpConfig = httpConfigurationClass.getConstructor().newInstance();
+            Object forwardedRequestCustomizer = forwardedRequestCustomizerClass.getConstructor().newInstance();
+            httpConfigurationClass.getMethod("addCustomizer", customizerClass).invoke(httpConfig, forwardedRequestCustomizer);
+
+            Object httpConnectionFactory = httpConnectionFactoryClass.getConstructor(httpConfigurationClass).newInstance(httpConfig);
+            Object connectionFactoryArray = Array.newInstance(connectionFactoryClass, 1);
+            Array.set(connectionFactoryArray, 0, httpConnectionFactory);
+            Object httpConnector = serverConnectorClass.getConstructor(serverClass, connectionFactoryArrayClass).newInstance(server, connectionFactoryArray);
+            serverConnectorClass.getMethod("setPort", int.class).invoke(httpConnector, port);
+
+            serverClass.getMethod("addConnector", connectorClass).invoke(server, httpConnector);
+
+            // SessionDataStore
+            File storeDir = new File(runtimePath + "/sessions");
+            if (!storeDir.exists()) storeDir.mkdirs();
+            System.out.println("正在新建 Jetty FileSessionDataStore ,文件夹路径: " + storeDir.getCanonicalPath());
+
+            Object sessionHandler = sessionHandlerClass.getConstructor().newInstance();
+            sessionHandlerClass.getMethod("setServer", serverClass).invoke(sessionHandler, server);
+            Object sessionCache = defaultSessionCacheClass.getConstructor(sessionHandlerClass).newInstance(sessionHandler);
+            Object sessionDataStore = fileSessionDataStoreClass.getConstructor().newInstance();
+            fileSessionDataStoreClass.getMethod("setStoreDir", File.class).invoke(sessionDataStore, storeDir);
+            fileSessionDataStoreClass.getMethod("setDeleteUnrestorableFiles", boolean.class).invoke(sessionDataStore, true);
+            sessionCacheClass.getMethod("setSessionDataStore", sessionDataStoreClass).invoke(sessionCache, sessionDataStore);
+            sessionHandlerClass.getMethod("setSessionCache", sessionCacheClass).invoke(sessionHandler, sessionCache);
+
+            Object sidMgr = defaultSessionIdManagerClass.getConstructor(serverClass).newInstance(server);
+            defaultSessionIdManagerClass.getMethod("setServer", serverClass).invoke(sidMgr, server);
+            sessionHandlerClass.getMethod("setSessionIdManager", sessionIdManagerClass).invoke(sessionHandler, sidMgr);
+            serverClass.getMethod("setSessionIdManager", sessionIdManagerClass).invoke(server, sidMgr);
+
+            // WebApp
+            Object webapp = webappClass.getConstructor().newInstance();
+
+            webappClass.getMethod("setContextPath", String.class).invoke(webapp, "/");
+            webappClass.getMethod("setDescriptor", String.class).invoke(webapp, zkitStartLoader.wrapperUrl.toExternalForm() + "/WEB-INF/web.xml");
+            webappClass.getMethod("setServer", serverClass).invoke(webapp, server);
+            webappClass.getMethod("setSessionHandler", sessionHandlerClass).invoke(webapp, sessionHandler);
+            webappClass.getMethod("setMaxFormKeys", int.class).invoke(webapp, 5000);
+            if (isInWar) {
+                webappClass.getMethod("setWar", String.class).invoke(webapp, zkitStartLoader.wrapperUrl.toExternalForm());
+                webappClass.getMethod("setTempDirectory", File.class).invoke(webapp, new File(tempDirName + "/ROOT"));
+            } else {
+                webappClass.getMethod("setResourceBase", String.class).invoke(webapp, zkitStartLoader.wrapperUrl.toExternalForm());
+            }
+            serverClass.getMethod("setHandler", handlerClass).invoke(server, webapp);
+
+            // NOTE DEJ20210520: 现在由于在9.4.37中打破了类加载器的更改,因此始终使用StartClassLoader (likely from https://github.com/eclipse/jetty.project/pull/5894)
+            webappClass.getMethod("setClassLoader", ClassLoader.class).invoke(webapp, zkitStartLoader);
+
+            // WebSocket
+            Object wsContainer = wsInitializerClass.getMethod("configureContext", scHandlerClass).invoke(null, webapp);
+            webappClass.getMethod("setAttribute", String.class, Object.class).invoke(webapp, "javax.websocket.server.ServerContainer", wsContainer);
+
+            // GzipHandler
+            Object gzipHandler = gzipHandlerClass.getConstructor().newInstance();
+            // 使用默认值,应包括除某些排除之外的所有值:
+            // gzipHandlerClass.getMethod("setIncludedMimeTypes", String[].class).invoke(gzipHandler, new Object[] { new String[] {"text/html", "text/plain", "text/xml", "text/css", "application/javascript", "text/javascript"} });
+            serverClass.getMethod("insertHandler", handlerWrapperClass).invoke(server, gzipHandler);
+
+            // 记录日志 getMinThreads, getMaxThreads
+            Object threadPool = serverClass.getMethod("getThreadPool").invoke(server);
+            sizedThreadPoolClass.getMethod("setMaxThreads", int.class).invoke(threadPool, threads);
+            int minThreads = (int) sizedThreadPoolClass.getMethod("getMinThreads").invoke(threadPool);
+            int maxThreads = (int) sizedThreadPoolClass.getMethod("getMaxThreads").invoke(threadPool);
+            System.out.println("服务器 Jetty 最小线程数: " + minThreads + ", 最大线程数: " + maxThreads);
+
+            // JVM 关闭时关闭 Jetty
+            serverClass.getMethod("setStopAtShutdown", boolean.class).invoke(server, true);
+            serverClass.getMethod("setStopTimeout", long.class).invoke(server, 30000L);
+
+            // 开启服务器
+            serverClass.getMethod("start").invoke(server);
+            serverClass.getMethod("join").invoke(server);
+
+            /* 运行的与类路径相关的代码:
+
+            Server server = new Server();
+            HttpConfiguration httpConfig = new org.eclipse.jetty.server.HttpConfiguration();
+            ForwardedRequestCustomizer forwardedRequestCustomizer = new ForwardedRequestCustomizer();
+            httpConfig.addCustomizer(forwardedRequestCustomizer);
+
+            HttpConnectionFactory httpConnectionFactory = new HttpConnectionFactory(httpConfig);
+            ServerConnector httpConnector = new ServerConnector(server, httpConnectionFactory);
+            httpConnector.setPort(port);
+            server.addConnector(httpConnector);
+
+            // SessionDataStore
+            SessionIdManager sidMgr = new DefaultSessionIdManager(server);
+            sidMgr.setServer(server);
+            server.setSessionIdManager(sidMgr);
+            SessionHandler sessionHandler = new SessionHandler();
+            sessionHandler.setServer(server);
+            SessionCache sessionCache = new DefaultSessionCache(sessionHandler);
+            sessionHandler.setSessionCache(sessionCache);
+            sessionHandler.setSessionIdManager(sidMgr);
+
+            File storeDir = ...;
+            FileSessionDataStore sessionDataStore = new FileSessionDataStore();
+            sessionDataStore.setStoreDir(storeDir);
+            sessionDataStore.setDeleteUnrestorableFiles(true);
+            sessionCache.setSessionDataStore(sessionDataStore);
+
+            sessionHandler.start();
+
+            // WebApp
+            WebAppContext webapp = new WebAppContext();
+            webapp.setContextPath("/");
+            webapp.setDescriptor(zkitStartLoader.wrapperWarUrl.toExternalForm() + "/WEB-INF/web.xml");
+            webapp.setServer(server);
+            webapp.setWar(zkitStartLoader.wrapperWarUrl.toExternalForm());
+
+            // (Optional) Set the directory the war will extract to.
+            // If not set, java.io.tmpdir will be used, which can cause problems
+            // if the temp directory gets cleaned periodically.
+            // Removed by the code elsewhere that deletes on close
+            webapp.setTempDirectory(new File(tempDirName + "/ROOT"));
+            server.setHandler(webapp);
+
+            // WebSocket
+            // NOTE: ServletContextHandler.SESSIONS = 1 (int)
+            ServerContainer wsContainer = org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainerInitializer.configureContext(webapp);
+            webapp.setAttribute("javax.websocket.server.ServerContainer", wsContainer);
+
+            // GzipHandler
+            GzipHandler gzipHandler = new GzipHandler();
+            // gzipHandler.setIncludedMimeTypes("text/html", "text/plain", "text/xml", "text/css", "application/javascript", "text/javascript");
+            server.insertHandler(gzipHandler);
+
+            // Start things up!
+            server.start();
+            // The use of server.join() the will make the current thread join and
+            // wait until the server is done executing.
+            // See http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#join()
+            server.join();
+
+            // Possible code to handle HTTPS, HTTP/2 (h2, h2c):
+
+            // see https://webtide.com/introduction-to-http2-in-jetty/
+            // see https://www.eclipse.org/jetty/documentation/9.3.x/http2.html
+            // org.mortbay.jetty.alpn:alpn-boot:8.1.9.v20160720
+            // http2-common, http2-hpack, http2-server
+
+            Server server = new Server();
+            HttpConfiguration httpConfig = new org.eclipse.jetty.server.HttpConfiguration();
+            httpConfig.setSecureScheme("https");
+            httpConfig.setSecurePort(8443);
+            HttpConfiguration httpsConfig = new HttpConfiguration(httpConfig);
+            httpsConfig.addCustomizer(new SecureRequestCustomizer());
+
+            SslContextFactory sslContextFactory = new org.eclipse.jetty.util.ssl.SslContextFactory();
+            sslContextFactory.setKeyStoreResource(org.eclipse.jetty.util.resource.Resource.newClassPathResource("keystore"));
+            sslContextFactory.setKeyStorePassword("kStorePassword");
+            sslContextFactory.setKeyManagerPassword("kMgrPassword");
+            sslContextFactory.setCipherComparator(org.eclipse.jetty.http2.HTTP2Cipher.COMPARATOR);
+
+            HttpConnectionFactory http1 = new HttpConnectionFactory(httpConfig);
+
+            HTTP2ServerConnectionFactory http2 = new org.eclipse.jetty.http2.server.HTTP2ServerConnectionFactory(httpsConfig);
+            NegotiatingServerConnectionFactory.checkProtocolNegotiationAvailable();
+            ALPNServerConnectionFactory alpn = new org.eclipse.jetty.alpn.server.ALPNServerConnectionFactory();
+            alpn.setDefaultProtocol("h2");
+            SslConnectionFactory ssl = new org.eclipse.jetty.server?.SslConnectionFactory(sslContextFactory,alpn.getProtocol());
+
+            HTTP2CServerConnectionFactory http2c = new org.eclipse.jetty.http2.server.HTTP2CServerConnectionFactory(httpsConfig);
+
+            ServerConnector httpsConnector = new org.eclipse.jetty.server.ServerConnector(server, ssl, alpn, http2, http1 );
+            httpsConnector.setPort(8443);
+            server.addConnector(httpsConnector);
+
+            ServerConnector httpConnector = new org.eclipse.jetty.server.ServerConnector(server, http1, http2c);
+            httpConnector.setPort(8080);
+            server.addConnector(httpConnector);
+
+            */
+        } catch (Exception e) {
+            System.out.println("错误加载或运行嵌入式 Jetty 服务器,参数 [" + argMap + "]: \n" + e.toString());
+            e.printStackTrace();
+        }
+
+        // 等着停止服务器...
+    }
+
+    /**
+     * 初始化系统属性
+     *
+     * @param cl            ClassLoader
+     * @param useProperties 是否使用 ZKitInit.properties
+     * @param argMap        参数Map
+     * @throws IOException
+     */
+    private static void initSystemProperties(StartClassLoader cl, boolean useProperties, Map<String, String> argMap) throws IOException {
+        Properties zkitInitProperties = null;
+        if (useProperties) {
+            zkitInitProperties = new Properties();
+            URL initProps = cl.getResource("ZKitInit.properties");
+            if (initProps != null) {
+                InputStream is = initProps.openStream();
+                zkitInitProperties.load(is);
+                is.close();
+            }
+        }
+
+        // 确保 zkit.runtime 系统属性存在
+        String runtimePath = System.getProperty("zkit.runtime");
+        if (runtimePath != null && runtimePath.length() > 0)
+            System.out.println("完成确认 runtime 设置,来自 Java 系统属性: " + runtimePath);
+        if (zkitInitProperties != null && (runtimePath == null || runtimePath.length() == 0)) {
+            runtimePath = zkitInitProperties.getProperty("zkit.runtime");
+            if (runtimePath != null && runtimePath.length() > 0)
+                System.out.println("完成确认 runtime 设置,来自 ZKitInit.properties 文件: " + runtimePath);
+        }
+        if (runtimePath == null || runtimePath.length() == 0) {
+            // 查看当前目录下是否存在运行时目录(如果不是当前目录的默认值)
+            File testFile = new File("runtime");
+            if (testFile.exists()) runtimePath = "runtime";
+            if (runtimePath != null && runtimePath.length() > 0)
+                System.out.println("完成确认 runtime 设置,来自 runtime 子文件夹: " + testFile.getCanonicalPath());
+        }
+        if (runtimePath == null || runtimePath.length() == 0) {
+            runtimePath = ".";
+            System.out.println("完成确认 runtime 设置,来自当前默认文件夹: " + runtimePath);
+        }
+        File runtimeFile = new File(runtimePath);
+        runtimePath = runtimeFile.getCanonicalPath();
+        System.out.println("完成确认 runtime 路径: " + runtimePath);
+        if (runtimePath.endsWith("/")) runtimePath = runtimePath.substring(0, runtimePath.length() - 1);
+        System.setProperty("zkit.runtime", runtimePath);
+
+        /* 为WEB-INF/LIB 加载 JAR 不能依赖于低级别 JAR,并且必须依赖于它们
+        // 将 runtime/lib jar 文件添加到类加载器
+        File runtimeLibFile = new File(runtimePath + "/lib");
+        for (File jarFile: runtimeLibFile.listFiles()) {
+            if (jarFile.getName().endsWith(".jar")) cl.jarFileList.add(new JarFile(jarFile));
+        }
+        */
+
+        String confPath = argMap.get("conf");
+        if (confPath != null && !confPath.isEmpty()) System.out.println("完成确认 conf 设置,来自参数: " + confPath);
+        if (confPath == null || confPath.isEmpty()) {
+            confPath = System.getProperty("zkit.conf");
+            if (confPath != null && !confPath.isEmpty()) System.out.println("完成确认 conf 设置,来自 Java 系统属性: " + confPath);
+        }
+        if (zkitInitProperties != null && (confPath == null || confPath.isEmpty())) {
+            confPath = zkitInitProperties.getProperty("zkit.conf");
+            if (confPath != null && !confPath.isEmpty())
+                System.out.println("完成确认 conf 设置,来自 ZKitInit.properties 文件: " + confPath);
+        }
+        if (confPath == null || confPath.isEmpty()) {
+            File testFile = new File(runtimePath + "/" + defaultConf);
+            if (testFile.exists()) confPath = defaultConf;
+            System.out.println("完成确认 conf 设置,来自默认设置 (develop 环境配置文件): " + confPath);
+        }
+        if (confPath != null && !confPath.isEmpty()) System.setProperty("zkit.conf", confPath);
+    }
+
+    private static Process checkStartElasticSearch() {
+        String runtimePath = System.getProperty("zkit.runtime");
+        String esDir = runtimePath + "/es";
+        if (!new File(esDir + "/bin").exists()) return null;
+        if (new File(esDir + "/pid").exists()) {
+            System.out.println("在文件夹 runtime/es 发现 ElasticSearch, 存在 pid file 文件, 未启动");
+            return null;
+        }
+        String javaHome = System.getProperty("java.home");
+        System.out.println("正在启动 ElasticSearch 在文件夹 runtime/es 中, pid 文件: (" + javaHome + ")");
+        boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("windows");
+        try {
+            String[] command;
+            if (isWindows) {
+                command = new String[]{"cmd.exe", "/c", "bin\\elasticsearch.bat"};
+            } else {
+                command = new String[]{"./bin/elasticsearch"};
+                try {
+                    boolean elasticsearchOwner = Files.getOwner(Paths.get(runtimePath, "elasticsearch")).getName().equals("elasticsearch");
+                    boolean suAble = Runtime.getRuntime().exec(new String[]{"/bin/su", "-c", "/bin/true", "elasticsearch"}).waitFor() == 0;
+                    if (elasticsearchOwner && suAble)
+                        command = new String[]{"su", "-c", "./bin/elasticsearch", "elasticsearch"};
+                } catch (IOException e) {
+                }
+            }
+            ProcessBuilder pb = new ProcessBuilder(command);
+            pb.redirectErrorStream(true);
+            pb.directory(new File(esDir));
+            pb.environment().put("JAVA_HOME", javaHome);
+            pb.inheritIO();
+            Process esProcess = pb.start();
+            System.setProperty("zkit.elasticsearch.started", "true");
+            return esProcess;
+        } catch (Exception e) {
+            System.out.println("启动 ElasticSearch 错误, 文件夹 runtime/es: " + e.toString());
+            return null;
+        }
+    }
+
+    private static void checkStopElasticSearch(Process esProcess) {
+        if (esProcess != null) esProcess.destroy();
+    }
+
+    private static class ElasticShutdown extends Thread {
+        final Process esProcess;
+
+        ElasticShutdown(Process esProcess) {
+            super();
+            this.esProcess = esProcess;
+        }
+
+        @Override
+        public void run() {
+            esProcess.destroy();
+        }
+    }
+
+    private static class ZKitShutdown extends Thread {
+        final Method callMethod;
+        final Object callObject;
+        final StartClassLoader zkitStart;
+
+        ZKitShutdown(Method callMethod, Object callObject, StartClassLoader zkitStart) {
+            super();
+            this.callMethod = callMethod;
+            this.callObject = callObject;
+            this.zkitStart = zkitStart;
+        }
+
+        @Override
+        public void run() {
+            // 先运行,之后再关闭 Jar 文件之前关闭容器,避免类不存在错误
+            if (callMethod != null) {
+                try {
+                    callMethod.invoke(callObject);
+                } catch (Exception e) {
+                    System.out.println("ZKit 关闭错误: \n" + e.toString());
+                }
+            }
+
+            // 预留几秒钟的时间来销毁;主要用于开发/测试
+            try {
+                synchronized (this) {
+                    this.wait(2000);
+                }
+            } catch (Exception e) {
+                System.out.println("Shutdown wait interrupted");
+            }
+            System.out.println("========== 正在关闭 ZKit (关闭 jars, 等等) ==========");
+
+            // 关闭所有jar文件
+            for (JarFile jarFile : zkitStart.jarFileList) {
+                try {
+                    jarFile.close();
+                } catch (IOException e) {
+                    System.out.println("关闭错误,无法关闭 jar :[" + jarFile + "]: \n" + e.toString());
+                }
+            }
+
+            if (reportJarsUnused) {
+                Set<String> sortedJars = new TreeSet<>();
+                String baseName = "execwartmp/zkit_temp";
+                for (String jarName : zkitStart.jarsUnused) {
+                    if (jarName.startsWith(baseName)) {
+                        jarName = jarName.substring(baseName.length());
+                        while (Character.isDigit(jarName.charAt(0))) jarName = jarName.substring(1);
+                    }
+                    sortedJars.add(jarName);
+                }
+                for (String jarName : sortedJars) System.out.println("已使用的 JAR : " + jarName);
+            }
+        }
+    }
+
+    /**
+     * 类加载器
+     */
+    private static class StartClassLoader extends ClassLoader {
+
+        private URL wrapperUrl = null;
+        private boolean isInWar = true;
+        final ArrayList<JarFile> jarFileList = new ArrayList<>();
+        private final Map<String, URL> jarLocationByJarName = new HashMap<>();
+        private final Map<String, Class<?>> classCache = new HashMap<>();
+        private final Map<String, URL> resourceCache = new HashMap<>();
+        private ProtectionDomain pd;
+        private final boolean loadWebInf;
+
+        final Set<String> jarsUnused = new HashSet<>();
+
+        /**
+         * 启动类加载器
+         *
+         * @param loadWebInf 是否加载 WEB-INF
+         */
+        private StartClassLoader(boolean loadWebInf) {
+            this(ClassLoader.getSystemClassLoader(), loadWebInf);
+        }
+
+        /**
+         * 启动类加载器
+         *
+         * @param parent     父加载器
+         * @param loadWebInf 是否加载 WEB-INF
+         */
+        private StartClassLoader(ClassLoader parent, boolean loadWebInf) {
+            super(parent);
+            this.loadWebInf = loadWebInf;
+
+            try {
+                // 获取外部文件 ( war 文件外)
+                pd = getClass().getProtectionDomain();
+                CodeSource cs = pd.getCodeSource();
+                wrapperUrl = cs.getLocation();
+                File wrapperFile = new File(wrapperUrl.toURI());
+                isInWar = !wrapperFile.isDirectory();
+
+                if (isInWar) {
+                    JarFile outerFile = new JarFile(wrapperFile);
+
+                    // 同时允许使用外部文件中的类
+                    jarFileList.add(outerFile);
+                    jarLocationByJarName.put(outerFile.getName(), wrapperUrl);
+
+                    Enumeration<JarEntry> jarEntries = outerFile.entries();
+                    while (jarEntries.hasMoreElements()) {
+                        JarEntry je = jarEntries.nextElement();
+                        if (je.isDirectory()) continue;
+                        // 如果没有加载 WEB-INF 内的文件,并且存在,跳过加载
+                        if (!loadWebInf && je.getName().startsWith("WEB-INF")) continue;
+                        // 获取 jars, 可能在文件夹中任何地方
+                        String jeName = je.getName().toLowerCase();
+                        if (jeName.lastIndexOf(".jar") == jeName.length() - 4) {
+                            File file = createTempFile(outerFile, je);
+                            JarFile newJarFile = new JarFile(file);
+                            jarFileList.add(newJarFile);
+                            jarLocationByJarName.put(newJarFile.getName(), file.toURI().toURL());
+                        }
+                    }
+                } else {
+                    ArrayList<File> jarList = new ArrayList<>();
+                    addJarFilesNested(wrapperFile, jarList, loadWebInf);
+                    for (File jarFile : jarList) {
+                        JarFile newJarFile = new JarFile(jarFile);
+                        jarFileList.add(newJarFile);
+                        jarLocationByJarName.put(newJarFile.getName(), jarFile.toURI().toURL());
+                        // System.out.println("jar file: " + jarFile.getAbsolutePath());
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("加载 JAR 错误,无法加载 WAR 文件下JARs, WAR 文件路径: [" + wrapperUrl + "]: \n" + e.toString());
+            }
+
+            if (reportJarsUnused) for (JarFile jf : jarFileList) jarsUnused.add(jf.getName());
+        }
+
+        private ConcurrentHashMap<URL, ProtectionDomain> protectionDomainByUrl = new ConcurrentHashMap<>();
+
+        private ProtectionDomain getProtectionDomain(URL jarLocation) {
+            ProtectionDomain curPd = protectionDomainByUrl.get(jarLocation);
+            if (curPd != null) return curPd;
+            CodeSource codeSource = new CodeSource(jarLocation, (Certificate[]) null);
+            ProtectionDomain newPd = new ProtectionDomain(codeSource, null, this, null);
+            ProtectionDomain existingPd = protectionDomainByUrl.putIfAbsent(jarLocation, newPd);
+            return existingPd != null ? existingPd : newPd;
+        }
+
+        private void addJarFilesNested(File file, List<File> jarList, boolean loadWebInf) {
+            for (File child : file.listFiles()) {
+                if (child.isDirectory()) {
+                    // generally run with the runtime directory in the same directory, so skip it (or causes weird class dependency errors)
+                    if ("runtime".equals(child.getName())) continue;
+                    // if we aren't loading the WEB-INF files and it is one, skip it
+                    if (!loadWebInf && "WEB-INF".equals(child.getName())) continue;
+                    addJarFilesNested(child, jarList, loadWebInf);
+                } else if (child.getName().endsWith(".jar")) {
+                    jarList.add(child);
+                }
+            }
+        }
+
+        @SuppressWarnings("ThrowFromFinallyBlock")
+        private File createTempFile(JarFile outerFile, JarEntry je) throws IOException {
+            byte[] jeBytes = getJarEntryBytes(outerFile, je);
+
+            String tempName = je.getName().replace('/', '_') + ".";
+            File tempDir = new File(tempDirName);
+            if (tempDir.mkdir()) tempDir.deleteOnExit();
+            File file = File.createTempFile("zkit_temp", tempName, tempDir);
+            file.deleteOnExit();
+            BufferedOutputStream os = null;
+            try {
+                os = new BufferedOutputStream(new FileOutputStream(file));
+                os.write(jeBytes);
+            } finally {
+                if (os != null) os.close();
+            }
+            return file;
+        }
+
+        @SuppressWarnings("ThrowFromFinallyBlock")
+        private byte[] getJarEntryBytes(JarFile jarFile, JarEntry je) throws IOException {
+            DataInputStream dis = null;
+            byte[] jeBytes = null;
+            try {
+                long lSize = je.getSize();
+                if (lSize <= 0 || lSize >= Integer.MAX_VALUE) {
+                    throw new IllegalArgumentException("加载 JAR 错误, JAR 包大小不一致,包 [" + lSize + "] ,JAR 键 [" + je + "]");
+                }
+                jeBytes = new byte[(int) lSize];
+                InputStream is = jarFile.getInputStream(je);
+                dis = new DataInputStream(is);
+                dis.readFully(jeBytes);
+            } finally {
+                if (dis != null) dis.close();
+            }
+            return jeBytes;
+        }
+
+        /**
+         * @see ClassLoader#findResource(String)
+         */
+        @Override
+        protected URL findResource(String resourceName) {
+            if (resourceCache.containsKey(resourceName)) return resourceCache.get(resourceName);
+
+            // 使用 runtime/classes 文件夹作为 conf 和其他的文件夹
+            String runtimePath = System.getProperty("zkit.runtime");
+            String fullPath = runtimePath + "/classes/" + resourceName;
+            File resourceFile = new File(fullPath);
+            if (resourceFile.exists()) try {
+                return resourceFile.toURI().toURL();
+            } catch (MalformedURLException e) {
+                System.out.println("资源新建错误,无法新建 runtime 类文件夹下资源的 URL,资源名称: [" + resourceName + "] ,runtime 类文件夹: [" + runtimePath + "/classes/" + "]: \n" + e.toString());
+            }
+
+            String webInfResourceName = "WEB-INF/classes/" + resourceName;
+            int jarFileListSize = jarFileList.size();
+            for (int i = 0; i < jarFileListSize; i++) {
+                JarFile jarFile = jarFileList.get(i);
+                JarEntry jarEntry = jarFile.getJarEntry(resourceName);
+                if (reportJarsUnused && jarEntry != null) jarsUnused.remove(jarFile.getName());
+                // 为了更好的支持 war 格式, 在 WEB-INF/classes 文件夹下查询 resourceName
+                if (loadWebInf && jarEntry == null) jarEntry = jarFile.getJarEntry(webInfResourceName);
+                if (jarEntry != null) {
+                    try {
+                        String jarFileName = jarFile.getName();
+                        if (jarFileName.contains("\\")) jarFileName = jarFileName.replace('\\', '/');
+                        URL resourceUrl = new URL("jar:file:" + jarFileName + "!/" + jarEntry);
+                        resourceCache.put(resourceName, resourceUrl);
+                        return resourceUrl;
+                    } catch (MalformedURLException e) {
+                        System.out.println("资源新建错误,无法新建 WAR 文件下 JAR 内的资源 URL,资源名称: [" + resourceName + "] , JAR 路径 [" + jarFile + "] , WAR 文件路径: [" + wrapperUrl + "]: \n" + e.toString());
+                    }
+                }
+            }
+            return super.findResource(resourceName);
+        }
+
+        /**
+         * @see ClassLoader#findResources(String)
+         */
+        @Override
+        public Enumeration<URL> findResources(String resourceName) throws IOException {
+            String webInfResourceName = "WEB-INF/classes/" + resourceName;
+            List<URL> urlList = new ArrayList<>();
+            int jarFileListSize = jarFileList.size();
+            for (int i = 0; i < jarFileListSize; i++) {
+                JarFile jarFile = jarFileList.get(i);
+                JarEntry jarEntry = jarFile.getJarEntry(resourceName);
+                if (reportJarsUnused && jarEntry != null) jarsUnused.remove(jarFile.getName());
+                // 为了更好的支持 war 格式, 在 WEB-INF/classes 文件夹下查询 resourceName
+                if (loadWebInf && jarEntry == null) jarEntry = jarFile.getJarEntry(webInfResourceName);
+                if (jarEntry != null) {
+                    try {
+                        String jarFileName = jarFile.getName();
+                        if (jarFileName.contains("\\")) jarFileName = jarFileName.replace('\\', '/');
+                        urlList.add(new URL("jar:file:" + jarFileName + "!/" + jarEntry));
+                    } catch (MalformedURLException e) {
+                        System.out.println("资源新建错误,无法新建 WAR 文件下 JAR 内的资源 URL,资源名称: [" + resourceName + "] , JAR 路径 [" + jarFile + "] , WAR 文件路径: [" + wrapperUrl + "]: \n" + e.toString());
+                    }
+                }
+            }
+            // 同时添加所有资源文件到父类加载器中
+            Enumeration<URL> superResources = super.findResources(resourceName);
+            while (superResources.hasMoreElements()) urlList.add(superResources.nextElement());
+            return Collections.enumeration(urlList);
+        }
+
+        @Override
+        protected synchronized Class<?> loadClass(String className, boolean resolve) throws ClassNotFoundException {
+            Class<?> c = null;
+            try {
+                try {
+                    ClassLoader cl = getParent();
+                    c = cl.loadClass(className);
+                    if (c != null) return c;
+                } catch (ClassNotFoundException e) { /* 后续处理 */ }
+
+                try {
+                    c = findJarClass(className);
+                    if (c != null) return c;
+                } catch (Exception e) {
+                    System.out.println("加载类错误,无法新建 WAR 文件下 JAR 内的类, 类名: [" + className + "] , WAR 文件路径: [" + wrapperUrl + "]: " + e.toString());
+                    e.printStackTrace();
+                }
+
+                throw new ClassNotFoundException("加载类错误,类 [" + className + "] 不存在");
+            } finally {
+                if (c != null && resolve) {
+                    resolveClass(c);
+                }
+            }
+        }
+
+        private Class<?> findJarClass(String className) throws IOException, ClassFormatError {
+            if (classCache.containsKey(className)) return classCache.get(className);
+
+            Class<?> c = null;
+            String classFileName = className.replace('.', '/') + ".class";
+            String webInfFileName = "WEB-INF/classes/" + classFileName;
+            int jarFileListSize = jarFileList.size();
+            for (int i = 0; i < jarFileListSize; i++) {
+                JarFile jarFile = jarFileList.get(i);
+                // System.out.println("Finding Class [" + className + "] in jarFile [" + jarFile.getName() + "]");
+                JarEntry jarEntry = jarFile.getJarEntry(classFileName);
+                if (reportJarsUnused && jarEntry != null) jarsUnused.remove(jarFile.getName());
+
+                // 为了更好的支持 war 格式, 在 WEB-INF/classes 文件夹下查询 resourceName
+                if (loadWebInf && jarEntry == null) jarEntry = jarFile.getJarEntry(webInfFileName);
+                if (jarEntry != null) {
+                    definePackage(className, jarFile);
+                    byte[] jeBytes = getJarEntryBytes(jarFile, jarEntry);
+                    if (jeBytes == null) {
+                        System.out.println("加载 JAR 错误,无法获取 JAR 的字节码, JAR 包名: [" + jarEntry.getName() + "] ,所在路径: [" + jarFile.getName() + "]");
+                        continue;
+                    }
+                    // System.out.println("Class [" + classFileName + "] FOUND in jarFile [" + jarFile.getName() + "], size is " + (jeBytes == null ? "null" : jeBytes.length));
+                    URL jarLocation = jarLocationByJarName.get(jarFile.getName());
+                    c = defineClass(className, jeBytes, 0, jeBytes.length, jarLocation != null ? getProtectionDomain(jarLocation) : pd);
+                    break;
+                }
+            }
+            classCache.put(className, c);
+            return c;
+        }
+
+        private void definePackage(String className, JarFile jarFile) throws IllegalArgumentException {
+            Manifest mf;
+            try {
+                mf = jarFile.getManifest();
+            } catch (IOException e) {
+                // 使用默认 manifest
+                mf = new Manifest();
+            }
+            // 如果没有 manifest 使用默认
+            if (mf == null) mf = new Manifest();
+            int dotIndex = className.lastIndexOf('.');
+            String packageName = dotIndex > 0 ? className.substring(0, dotIndex) : "";
+            // NOTE: Java 11 修改了 getPackage() 方法为 getDefinedPackage(), 暂时无法使用因为 Java 8 中没有 getDefinedPackage() 方法
+            if (getPackage(packageName) == null) {
+                definePackage(packageName,
+                        mf.getMainAttributes().getValue(Attributes.Name.SPECIFICATION_TITLE),
+                        mf.getMainAttributes().getValue(Attributes.Name.SPECIFICATION_VERSION),
+                        mf.getMainAttributes().getValue(Attributes.Name.SPECIFICATION_VENDOR),
+                        mf.getMainAttributes().getValue(Attributes.Name.IMPLEMENTATION_TITLE),
+                        mf.getMainAttributes().getValue(Attributes.Name.IMPLEMENTATION_VERSION),
+                        mf.getMainAttributes().getValue(Attributes.Name.IMPLEMENTATION_VENDOR),
+                        getSealURL(mf));
+            }
+        }
+
+        private URL getSealURL(Manifest mf) {
+            String seal = mf.getMainAttributes().getValue(Attributes.Name.SEALED);
+            if (seal == null) return null;
+            try {
+                return new URL(seal);
+            } catch (MalformedURLException e) {
+                return null;
+            }
+        }
+    }
+}
